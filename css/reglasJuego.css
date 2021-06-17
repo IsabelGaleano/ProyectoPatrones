@@ -1,0 +1,117 @@
+* {
+    box-sizing: border-box;
+}
+
+.cabeza {
+    height: 45px;
+    width: 100%;
+}
+
+h2 {
+    display: inline-block;
+    line-height: 45px;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 30px;
+}
+
+.cabeza nav {
+    display: inline-block;
+}
+
+.cabeza nav a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.cabeza nav a:hover {
+    color: #1404fd;
+    text-decoration: overline;
+    transition: .4s;
+}
+
+body {
+    background-image: url('/imgReglasJuego/fondoBody.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: cursive;
+    font-style: oblique;
+    margin-bottom: 0%;
+    height: 745px;
+    width: 100%;
+}
+
+.pergamino {
+    background-image: url('/imgReglasJuego/pergamino.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0% auto;
+    height: 700px;
+    width: 35%;
+}
+
+.reglas {
+    height: 44%;
+    text-align: center;
+    margin-left: 18%;
+    width: 63%;
+}
+
+.reglas2 {
+    height: 49%;
+    text-align: center;
+    margin-left: 24%;
+    width: 63%;
+}
+
+.volver {
+    background-color: rgb(255, 187, 0);
+    border-radius: 10px;
+    border: 2px solid rgb(182, 134, 2);
+    box-shadow: 3px 3px 10px 1px #2e2c2d;
+    color: black;
+    font-size: 18px;
+    font-family: cursive;
+    font-style: oblique;
+    font-weight: bold;
+    height: 30px;
+    margin-top: 25px;
+    width: 100px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.volver:hover {
+    background-color: rgba(223, 167, 13, 0.986);
+    cursor: pointer;
+}
+
+h3 {
+    opacity: 0;
+}
+
+.titulo {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+p {
+    /**No funciona margin-top: 5%;*/
+    font-size: 13px;
+}
+
+p::selection {
+    background-color: rgba(223, 167, 13, 0.986);
+}
+
+.imgFalta {
+    background-image: url('/imgReglasJuego/fondoFooter.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 0%;
+    height: 46px;
+    width: 100%;
+}
