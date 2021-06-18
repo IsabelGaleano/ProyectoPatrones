@@ -32,7 +32,7 @@ h2 {
 }
 
 body {
-    background-image: url('/imgReglasJuego/fondoBody.gif');
+    background-image: url('../imgReglasJuego/fondoBody.gif');
     background-size: cover;
     background-repeat: no-repeat;
     font-family: cursive;
@@ -43,7 +43,7 @@ body {
 }
 
 .pergamino {
-    background-image: url('/imgReglasJuego/pergamino.gif');
+    background-image: url('../imgReglasJuego/pergamino.gif');
     background-size: cover;
     background-repeat: no-repeat;
     margin: 0% auto;
@@ -108,7 +108,7 @@ p::selection {
 }
 
 .imgFalta {
-    background-image: url('/imgReglasJuego/fondoFooter.jpg');
+    background-image: url('../imgReglasJuego/fondoFooter.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     margin-top: 0%;
