@@ -1,0 +1,134 @@
+/*CSS DEL TABLERO*/
+
+body {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('../Imagenes/Backgrounds/game_background_4.png');
+}
+
+.tablero {
+    width: 800px;
+    height: 600px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+    background-image: url('../Imagenes/gray_texture.png');
+}
+
+
+/*--SECCION DEL DADO--*/
+
+.dado-container {
+    width: 300px;
+    height: 200px;
+    position: fixed;
+    bottom: 0px;
+    right: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+}
+
+#imagen-dado {
+    width: 100px;
+    height: 100px;
+    background-repeat: no-repeat;
+    background-size: 100px;
+}
+
+#boton-dado {
+    width: 30%;
+    height: 20%;
+}
+
+
+/*
+.canvas {
+    width: 800px;
+    height: 600px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}*/
+
+td {
+    text-align: center;
+    width: 80px;
+    height: 60px;
+    border: 1px solid black;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+/*--TIMER--*/
+
+.cnt-timer {
+    background-color: rgba(0, 0, 0, 0.75);
+    width: 11%;
+    height: 11%;
+    position: fixed;
+    top: 100px;
+    right: 8.5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cnt-timer h1 {
+    color: white;
+}
+
+.cnt-timer p {
+    color: white;
+    margin-top: 5%;
+}
+
+
+/*--CONSOLE--*/
+
+#console {
+    position: fixed;
+    position: fixed;
+    bottom: 2%;
+    right: 37.5%;
+    border: 1px solid black;
+    width: 25%;
+    height: 10%;
+}
+
+
+/*--SECCION DE PERSONAJES--*/
+
+.character-container {
+    background-color: rgba(0, 0, 0, 0.75);
+    width: 18%;
+    height: 25%;
+    position: fixed;
+    bottom: 300px;
+    right: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#title-characters {
+    color: white;
+    font-size: 26px;
+    margin-bottom: 5%;
+}
+
+.cnt-characters {
+    text-align: center;
+}
+
+.img-character {
+    width: 45px;
+    height: 60px;
+}
