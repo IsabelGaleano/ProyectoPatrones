@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/Tablero.css">
     <link rel="stylesheet" href="../css/divBaseCastillo.css">
+    <link rel="stylesheet" href="../css/Pop-UpCatapulta-Ballesta-info.css">
     <!--SCRIPTS-->
 
 
@@ -400,8 +401,36 @@
 
         </div>
 
+        
+
     </div>
 
+
+    <div class="overlay" id="idOverlayCatapulta">
+        <div class="imgCastillo">
+            <div class="popupCatapulta" id="idPopupCatapulta">
+                <a href="#" id="btn-cerrar-popupCatapulta" class="btn-cerrar-popupCatapulta"><i class="fas fa-times"></i></a>
+                <h3>  Catapulta </h3>
+                <h4><i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i> Vida: <span id="vidaCatapulta"></span></h4>
+                <h4>⚔️ Ataque: 5</h4>
+                <h4>Alcance de ataque: 3</h4>
+                <h4><i class="fas fa-coins" style="color: gold;"></i> Precio: 8</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay" id="idOverlayBallesta">
+        <div class="imgCastillo">
+            <div class="popupBallesta" id="idPopupBallesta">
+                <a href="#" id="btn-cerrar-popupBallesta" class="btn-cerrar-popupBallesta"><i class="fas fa-times"></i></a>
+                <h3>Ballesta</h3>
+                <h4><i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i> Vida: <span id="vidaBallesta"></span></h4>
+                <h4>⚔️ Ataque: 2</h4>
+                <h4>Alcance de ataque: 3</h4>
+                <h4><i class="fas fa-coins" style="color: gold;"></i> Precio: 5</h4>
+            </div>
+        </div>
+    </div>
     <!--<div id="console">
         Information console
     </div>-->
