@@ -6,7 +6,7 @@
 
 .castilloBase {
     border: 1px solid rgb(25, 105, 25);
-    background-image: url('/Imagenes/imgenesDivBaseCastillo/base5130x380.jpg');
+    background-color: rgba(0, 0, 0, 0.5);
     float: left;
     height: 130px;
     width: 372px;
@@ -101,7 +101,7 @@
 }
 
 .ballesta1 .ballestaImg {
-    background-image: url('/imgBaseCastillo/ballestaFondoMadera.png');
+    background-image: url('../Imagenes/catapulta.png');
     background-repeat: no-repeat;
     float: left;
     height: 80%;
@@ -187,4 +187,14 @@
     display: inline-block;
     margin: 10px 2px 0px 0px;
     font-size: 10px;
+}
+
+.catapultaImg img{
+    width: 90%;
+    margin-top: -16%;
+}
+
+.ballestaImg img {
+    width: 70%;
+    
 }
