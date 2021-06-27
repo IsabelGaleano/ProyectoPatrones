@@ -11,7 +11,7 @@ let celdaActual;
 $(document).ready(function() {
     cargarTablero(mas2Jugadores);
     imagenDado.style.backgroundImage = 'url(../Imagenes/CarasDado/Cara1.png)';
-    juego();
+    //juego();
 });
 
 botonDado.addEventListener('click', function() {
