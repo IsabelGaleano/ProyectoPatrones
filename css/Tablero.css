@@ -4,16 +4,17 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url('../Imagenes/Backgrounds/game_background_4.png');
+    overflow-x: hidden;
 }
 
 .tablero {
-    width: 800px;
+    width: 744px;
     height: 600px;
-    position: fixed;
+    /*position: fixed;*/
     top: 50%;
     left: 50%;
     /* bring your own prefixes */
-    transform: translate(-50%, -50%);
+    /*transform: translate(-50%, -50%);*/
     background-image: url('../Imagenes/gray_texture.png');
 }
 
@@ -93,7 +94,8 @@ td {
 
 /*--CONSOLE--*/
 
-#console {
+
+/*#console {
     position: fixed;
     position: fixed;
     bottom: 2%;
@@ -101,7 +103,7 @@ td {
     border: 1px solid black;
     width: 25%;
     height: 10%;
-}
+}*/
 
 
 /*--SECCION DE PERSONAJES--*/
