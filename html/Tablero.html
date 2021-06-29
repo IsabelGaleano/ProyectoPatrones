@@ -73,7 +73,7 @@
 
                 <div class="ballesta1">
 
-                    <button id="btn-popup-ballesta" class="btn-popupBallesta"><i class="fas fa-exclamation"></i></button>
+                    <button id="btn-popup-ballestaJugador1" class="btn-popupBallesta" onclick="abrirModalBallesta(1, 0)"><i class="fas fa-exclamation"></i></button>
 
                     <div class="ballestaImg">
                         <img src="../Imagenes/ballesta1.png"/>
@@ -83,13 +83,13 @@
                         <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
                     </div>
 
-                    <h6>20</h6>
+                    <h6> <span id="vidaBallesta"></span></h6>
 
                 </div>
 
                 <div class="ballesta2">
 
-                    <button id="btn-popup-ballesta2" class="btn-popupBallesta2"><i class="fas fa-exclamation"></i></button>
+                    <button id="btn-popup-ballesta2Jugador1" class="btn-popupBallesta2" onclick="abrirModalBallesta(1, 1)"><i class="fas fa-exclamation"></i></button>
 
                     <div class="ballestaImg">
                         <img src="../Imagenes/ballesta1.png"/>
@@ -105,7 +105,7 @@
 
                 <div class="catapulta">
 
-                    <button id="btn-popup-catapulta" class="btn-popupCatapulta"><i class="fas fa-exclamation"></i></button>
+                    <button id="btn-popup-catapulta" class="btn-popupCatapulta" onclick="abrirModalCatapulta(1, 0)"><i class="fas fa-exclamation"></i></button>
 
                     <div class="catapultaImg">
                         <img src="../Imagenes/catapulta.png"/>
@@ -154,7 +154,7 @@
 
                 <div class="ballesta1">
 
-                    <button id="btn-popup-ballesta" class="btn-popupBallesta"><i class="fas fa-exclamation"></i></button>
+                    <button id="btn-popup-ballestaJugador2" class="btn-popupBallesta" onclick="abrirModalBallesta(1, 0)"><i class="fas fa-exclamation"></i></button>
 
                     <div class="ballestaImg">
                         <img src="../Imagenes/ballesta1.png"/>
@@ -170,7 +170,7 @@
 
                 <div class="ballesta2">
 
-                    <button id="btn-popup-ballesta2" class="btn-popupBallesta2"><i class="fas fa-exclamation"></i></button>
+                    <button id="btn-popup-ballesta2Jugador2" class="btn-popupBallesta2" onclick="abrirModalBallesta(1, 1)"><i class="fas fa-exclamation"></i></button>
 
                     <div class="ballestaImg">
                         <img src="../Imagenes/ballesta1.png"/>
@@ -186,7 +186,7 @@
 
                 <div class="catapulta">
 
-                    <button id="btn-popup-catapulta" class="btn-popupCatapulta"><i class="fas fa-exclamation"></i></button>
+                    <button id="btn-popup-catapulta" class="btn-popupCatapulta" onclick="abrirModalCatapulta(1, 1)"><i class="fas fa-exclamation"></i></button>
 
                     <div class="catapultaImg">
                         <img src="../Imagenes/catapulta.png"/>
@@ -237,7 +237,7 @@
 
                 <div class="ballesta1">
 
-                    <button id="btn-popup-ballesta" class="btn-popupBallesta"><i class="fas fa-exclamation"></i></button>
+                    <button id="btn-popup-ballestaJugador3" class="btn-popupBallesta" onclick="abrirModalBallesta(1, 0)"><i class="fas fa-exclamation"></i></button>
 
                     <div class="ballestaImg">
 
@@ -253,7 +253,7 @@
 
                 <div class="ballesta2">
 
-                    <button id="btn-popup-ballesta2" class="btn-popupBallesta2"><i class="fas fa-exclamation"></i></button>
+                    <button id="btn-popup-ballesta2Jugador3" class="btn-popupBallesta2" onclick="abrirModalBallesta(1, 1)"><i class="fas fa-exclamation"></i></button>
 
                     <div class="ballestaImg">
 
@@ -269,7 +269,7 @@
 
                 <div class="catapulta">
 
-                    <button id="btn-popup-catapulta" class="btn-popupCatapulta"><i class="fas fa-exclamation"></i></button>
+                    <button id="btn-popup-catapulta" class="btn-popupCatapulta" onclick="abrirModalCatapulta(1, 0)"><i class="fas fa-exclamation"></i></button>
 
                     <div class="catapultaImg">
 
@@ -319,7 +319,7 @@
 
                 <div class="ballesta1">
 
-                    <button id="btn-popup-ballesta" class="btn-popupBallesta"><i class="fas fa-exclamation"></i></button>
+                    <button id="btn-popup-ballestaJugador4" class="btn-popupBallesta" onclick="abrirModalBallesta(1, 0)"><i class="fas fa-exclamation"></i></button>
 
                     <div class="ballestaImg">
 
@@ -335,7 +335,7 @@
 
                 <div class="ballesta2">
 
-                    <button id="btn-popup-ballesta2" class="btn-popupBallesta2"><i class="fas fa-exclamation"></i></button>
+                    <button id="btn-popup-ballesta2Jugador4" class="btn-popupBallesta2" onclick="abrirModalBallesta(1, 1)"><i class="fas fa-exclamation"></i></button>
 
                     <div class="ballestaImg">
 
@@ -351,7 +351,7 @@
 
                 <div class="catapulta">
 
-                    <button id="btn-popup-catapulta" class="btn-popupCatapulta"><i class="fas fa-exclamation"></i></button>
+                    <button id="btn-popup-catapulta" class="btn-popupCatapulta" onclick="abrirModalCatapulta(1, 1)"><i class="fas fa-exclamation"></i></button>
 
                     <div class="catapultaImg">
 
@@ -405,29 +405,32 @@
 
     </div>
 
-
     <div class="overlay" id="idOverlayCatapulta">
-        <div class="imgCastillo">
+        <div class="imgFondo">
             <div class="popupCatapulta" id="idPopupCatapulta">
-                <a href="#" id="btn-cerrar-popupCatapulta" class="btn-cerrar-popupCatapulta"><i class="fas fa-times"></i></a>
+                <a href="#" id="btn-cerrar-popupCatapulta" class="btn-cerrar-popupCatapulta" onclick="cerrarModalCatapulta()"> <i class="fas fa-times"></i></a>
                 <h3>  Catapulta </h3>
-                <h4><i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i> Vida: <span id="vidaCatapulta"></span></h4>
-                <h4>⚔️ Ataque: 5</h4>
-                <h4>Alcance de ataque: 3</h4>
-                <h4><i class="fas fa-coins" style="color: gold;"></i> Precio: 8</h4>
+                <h4><img src="/Imagenes/Pop-upBallesta_Catapulta/corazon2.png" class="icon"> Vida: <span id="vidaCatapultaModal"></span></h4>
+                <h4><img src="/Imagenes/Pop-upBallesta_Catapulta/swords.png" class="icon"> Ataque: 5</h4>
+                <div class="attackRange">
+                    <h4><img src="/Imagenes/Pop-upBallesta_Catapulta/slash.png" id="swordRange"> <img src="/Imagenes/Pop-upBallesta_Catapulta/right-arrow.png"id="arrowAttack">Alcance de ataque: 3</h4>
+                </div>
+                <h4><img src="/Imagenes/Pop-upBallesta_Catapulta/coin.png" class="icon"> Precio: 8</h4>
             </div>
         </div>
     </div>
 
     <div class="overlay" id="idOverlayBallesta">
-        <div class="imgCastillo">
+        <div class="imgFondo">
             <div class="popupBallesta" id="idPopupBallesta">
-                <a href="#" id="btn-cerrar-popupBallesta" class="btn-cerrar-popupBallesta"><i class="fas fa-times"></i></a>
+                <a href="#" id="btn-cerrar-popupBallesta" class="btn-cerrar-popupBallesta" onclick="cerrarModalBallesta()"><i class="fas fa-times"></i></a>
                 <h3>Ballesta</h3>
-                <h4><i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i> Vida: <span id="vidaBallesta"></span></h4>
-                <h4>⚔️ Ataque: 2</h4>
-                <h4>Alcance de ataque: 3</h4>
-                <h4><i class="fas fa-coins" style="color: gold;"></i> Precio: 5</h4>
+                <h4><img src="/Imagenes/Pop-upBallesta_Catapulta/corazon2.png" class="icon"> Vida: <span id="vidaBallestaModal"></span></h4>
+                <h4><img src="/Imagenes/Pop-upBallesta_Catapulta/swords.png" class="icon"> Ataque: 2</h4>
+                <div class="attackRange">
+                    <h4><img src="/Imagenes/Pop-upBallesta_Catapulta/slash.png" id="swordRange"> <img src="/Imagenes/Pop-upBallesta_Catapulta/right-arrow.png" id="arrowAttack">Alcance de ataque: 3</h4>
+                </div>
+                <h4><img src="/Imagenes/Pop-upBallesta_Catapulta/coin.png" class="icon"> Precio: 5</h4>
             </div>
         </div>
     </div>
@@ -437,5 +440,10 @@
 
 </body>
 <script type="text/javascript" src="../Scripts/Tablero.js"></script>
+<script type="text/javascript" src="../Scripts/LocalData.js"></script>
+<script type="text/javascript" src="../Scripts/PopUp_Info_Catapulta_Ballesta.js"></script>
+<script>
+    incializarDatosPopUp();
+</script>
 
 </html>
