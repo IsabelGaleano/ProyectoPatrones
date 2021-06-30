@@ -136,42 +136,64 @@ td {
 }
 
 /*--SECCION DE PERSONAJES Activos--*/
-.current-character-container {
-    background-color: rgba(0, 0, 0, 0.75);
-    width: 18%;
-    height: 35%;
-    position: fixed;
-    bottom: 300px;
-    left: 5%;
+
+.cnt-Activos{
+  background-color: rgba(0, 0, 0, 0.75);
+  width:100%;
+  margin:10px;
+color: white;
+  height: 50%;
+  text-align: center;
+  font-family: 'Press Start 2P';
+  font-size: 10px;
 
 
 }
-
-.h-Activos{
-  color: white;
-  font-size: 26px;
-  margin:10px auto;
+.cnt-Jugador{
+  background-color: rgba(0, 0, 0, 0.90);
 
 
+  width: 100%;
+  display: flex;
+   align-items: center;
+  height: 25%;
+
+
+}
+.cnt-Personaje{
+
+  width: 33%;
+  margin:5px;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+
+  height: 100%
+
+
+
+}
+.cnt-Personaje .iconP{
+  width:50%;
+  background-image: url("../Imagenes/Characters/ArqueroFront.png"); /* The image used */
+ background-color: #cccccc; /* Used if the image is unavailable */
+ height: 100%;
+
+
+ background-position: center;; /* Center the image */
+background-repeat: no-repeat; /* Do not repeat the image */
+background-size: contain;
+}
+.nick{
 
 }
 .stats{
-  color: white;
-  font-size: 20px;
-  margin: 5px;
-
-
-
+  padding:5px;
 }
+.stats button{
+  display: inline-block;
+  padding: 2px;
 
-.img-character-active {
-    width: 75px;
-    height: 85px;
-    display: flex;
 
-    margin: 3px 10px;
-}
-.cnt-character-stat{
-  display: flex;
-  align-items: center;
+
 }
