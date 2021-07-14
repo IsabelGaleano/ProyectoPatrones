@@ -8,7 +8,7 @@
     border: 1px solid rgb(25, 105, 25);
     background-color: rgba(0, 0, 0, 0.5);
     float: left;
-    height: 130px;
+    height: 95px;
     width: 372px;
     font-family: 'Press Start 2P', cursive;
 }
@@ -195,6 +195,6 @@
 }
 
 .ballestaImg img {
-    width: 70%;
+    width: 60%;
     
 }
