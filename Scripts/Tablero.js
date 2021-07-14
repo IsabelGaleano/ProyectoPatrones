@@ -5,6 +5,7 @@ let tablero = document.getElementById("tablero");
 let mas2Jugadores = false;
 let imagenDado = document.getElementById("imagen-dado");
 let botonDado = document.getElementById("boton-dado");
+let btn_ver_personajes = document.getElementById("btn-ver-personajes")
 
 let celdaActual;
 
@@ -12,6 +13,10 @@ $(document).ready(function() {
     cargarTablero(mas2Jugadores);
     imagenDado.style.backgroundImage = 'url(../Imagenes/CarasDado/Cara1.png)';
     juego();
+});
+
+btn_ver_personajes.addEventListener('click', function() {
+    document.getElementById("personajes-tienda").style.display = 'block';
 });
 
 botonDado.addEventListener('click', function() {
@@ -47,7 +52,7 @@ function cargarPersonaje(tipo) {
             break;
         case 7:
             //Espía
-            urlImagenPersonaje = 'url../(Imagenes/Characters/EspiaFront.png)';
+            urlImagenPersonaje = 'url(../Imagenes/Characters/EspiaFront.png)';
             break;
     }
 
