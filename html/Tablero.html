@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/Tablero.css">
     <link rel="stylesheet" href="../css/divBaseCastillo.css">
+    <link rel="stylesheet" href="../css/Pop-UpCatapulta-Ballesta-info.css">
     <!--SCRIPTS-->
 
 
@@ -72,26 +73,26 @@
 
                 <div class="ballesta1">
 
-                    <button id="btn-popup-ballesta" class="btn-popupBallesta"><i class="fas fa-exclamation"></i></button>
+                    <button id="btn-popup-ballestaJugador1" class="btn-popupBallesta" onclick="abrirModalBallesta(1, 0)"><i class="fas fa-exclamation"></i></button>
 
                     <div class="ballestaImg">
-                        <img src="../Imagenes/ballesta1.png"/>
+                        <img src="../Imagenes/ballesta1.png" />
                     </div>
 
                     <div class="vida">
                         <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
                     </div>
 
-                    <h6>20</h6>
+                    <h6> <span id="vidaBallesta"></span></h6>
 
                 </div>
 
                 <div class="ballesta2">
 
-                    <button id="btn-popup-ballesta2" class="btn-popupBallesta2"><i class="fas fa-exclamation"></i></button>
+                    <button id="btn-popup-ballesta2Jugador1" class="btn-popupBallesta2" onclick="abrirModalBallesta(1, 1)"><i class="fas fa-exclamation"></i></button>
 
                     <div class="ballestaImg">
-                        <img src="../Imagenes/ballesta1.png"/>
+                        <img src="../Imagenes/ballesta1.png" />
                     </div>
 
                     <div class="vida">
@@ -104,10 +105,10 @@
 
                 <div class="catapulta">
 
-                    <button id="btn-popup-catapulta" class="btn-popupCatapulta"><i class="fas fa-exclamation"></i></button>
+                    <button id="btn-popup-catapulta" class="btn-popupCatapulta" onclick="abrirModalCatapulta(1, 0)"><i class="fas fa-exclamation"></i></button>
 
                     <div class="catapultaImg">
-                        <img src="../Imagenes/catapulta.png"/>
+                        <img src="../Imagenes/catapulta.png" />
                     </div>
 
                     <div class="vida">
@@ -153,10 +154,10 @@
 
                 <div class="ballesta1">
 
-                    <button id="btn-popup-ballesta" class="btn-popupBallesta"><i class="fas fa-exclamation"></i></button>
+                    <button id="btn-popup-ballestaJugador2" class="btn-popupBallesta" onclick="abrirModalBallesta(1, 0)"><i class="fas fa-exclamation"></i></button>
 
                     <div class="ballestaImg">
-                        <img src="../Imagenes/ballesta1.png"/>
+                        <img src="../Imagenes/ballesta1.png" />
                     </div>
 
                     <div class="vida">
@@ -169,10 +170,10 @@
 
                 <div class="ballesta2">
 
-                    <button id="btn-popup-ballesta2" class="btn-popupBallesta2"><i class="fas fa-exclamation"></i></button>
+                    <button id="btn-popup-ballesta2Jugador2" class="btn-popupBallesta2" onclick="abrirModalBallesta(1, 1)"><i class="fas fa-exclamation"></i></button>
 
                     <div class="ballestaImg">
-                        <img src="../Imagenes/ballesta1.png"/>
+                        <img src="../Imagenes/ballesta1.png" />
                     </div>
 
                     <div class="vida">
@@ -185,10 +186,10 @@
 
                 <div class="catapulta">
 
-                    <button id="btn-popup-catapulta" class="btn-popupCatapulta"><i class="fas fa-exclamation"></i></button>
+                    <button id="btn-popup-catapulta" class="btn-popupCatapulta" onclick="abrirModalCatapulta(1, 1)"><i class="fas fa-exclamation"></i></button>
 
                     <div class="catapultaImg">
-                        <img src="../Imagenes/catapulta.png"/>
+                        <img src="../Imagenes/catapulta.png" />
                     </div>
 
                     <div class="vida">
@@ -236,7 +237,7 @@
 
                 <div class="ballesta1">
 
-                    <button id="btn-popup-ballesta" class="btn-popupBallesta"><i class="fas fa-exclamation"></i></button>
+                    <button id="btn-popup-ballestaJugador3" class="btn-popupBallesta" onclick="abrirModalBallesta(1, 0)"><i class="fas fa-exclamation"></i></button>
 
                     <div class="ballestaImg">
 
@@ -252,7 +253,7 @@
 
                 <div class="ballesta2">
 
-                    <button id="btn-popup-ballesta2" class="btn-popupBallesta2"><i class="fas fa-exclamation"></i></button>
+                    <button id="btn-popup-ballesta2Jugador3" class="btn-popupBallesta2" onclick="abrirModalBallesta(1, 1)"><i class="fas fa-exclamation"></i></button>
 
                     <div class="ballestaImg">
 
@@ -268,7 +269,7 @@
 
                 <div class="catapulta">
 
-                    <button id="btn-popup-catapulta" class="btn-popupCatapulta"><i class="fas fa-exclamation"></i></button>
+                    <button id="btn-popup-catapulta" class="btn-popupCatapulta" onclick="abrirModalCatapulta(1, 0)"><i class="fas fa-exclamation"></i></button>
 
                     <div class="catapultaImg">
 
@@ -318,7 +319,7 @@
 
                 <div class="ballesta1">
 
-                    <button id="btn-popup-ballesta" class="btn-popupBallesta"><i class="fas fa-exclamation"></i></button>
+                    <button id="btn-popup-ballestaJugador4" class="btn-popupBallesta" onclick="abrirModalBallesta(1, 0)"><i class="fas fa-exclamation"></i></button>
 
                     <div class="ballestaImg">
 
@@ -334,7 +335,7 @@
 
                 <div class="ballesta2">
 
-                    <button id="btn-popup-ballesta2" class="btn-popupBallesta2"><i class="fas fa-exclamation"></i></button>
+                    <button id="btn-popup-ballesta2Jugador4" class="btn-popupBallesta2" onclick="abrirModalBallesta(1, 1)"><i class="fas fa-exclamation"></i></button>
 
                     <div class="ballestaImg">
 
@@ -350,7 +351,7 @@
 
                 <div class="catapulta">
 
-                    <button id="btn-popup-catapulta" class="btn-popupCatapulta"><i class="fas fa-exclamation"></i></button>
+                    <button id="btn-popup-catapulta" class="btn-popupCatapulta" onclick="abrirModalCatapulta(1, 1)"><i class="fas fa-exclamation"></i></button>
 
                     <div class="catapultaImg">
 
@@ -378,11 +379,36 @@
                 <p id="timer">x</p>
             </div>
 
-            <div class="character-container">
-                <div class="cnt-characters">
-                    <div>
-                        <h1 id="title-characters">Personajes</h1>
+            <div class=" character-container ">
+
+                <div>
+                    <h1 id="title-characters">Tienda</h1>
+                </div>
+                <div class="items-tienda">
+                    <div class="cnt-characters">
+
+                        <div class="tienda">
+                            <div class="div-tienda tienda-personajes">
+                                <div>
+                                    <img src="../Imagenes/Characters/ArqueroFront.png" alt="Arquero" id="img-arquero" class="img-character">
+                                    <p id="titulo-tienda">Personajes</p>
+                                    <button type="button" id="btn-ver-personajes" class="btn-tienda">Ver personajes</button>
+                                </div>
+
+                            </div>
+                            <div class="div-tienda tienda-ballestas">
+                                <img src="../Imagenes/ballesta1.png" alt="Arquero" id="img-arquero" class="img-character">
+                                <p id="titulo-tienda">Ballesta</p>
+                                <button type="button" id="btn-comprar-ballesta" class="btn-tienda">5</button>
+                            </div>
+                            <div class="div-tienda tienda-catapultas">
+                                <img src="../Imagenes/catapulta.png" alt="Arquero" id="img-arquero" class="img-character">
+                                <p id="titulo-tienda">Catapulta</p>
+                                <button type="button" id="btn-comprar-catapulta" class="btn-tienda">8</button>
+                            </div>
+                        </div>
                     </div>
+                    <!--
                     <img src="../Imagenes/Characters/ArqueroFront.png" alt="Arquero" id="img-arquero" class="img-character">
                     <img src="../Imagenes/Characters/AsesinoFront.png" alt="Asesino" id="img-asesino" class="img-character">
                     <img src="../Imagenes/Characters/BersequerFront.png" alt="Bersequer" id="img-bersequer" class="img-character">
@@ -390,7 +416,45 @@
                     <img src="../Imagenes/Characters/EspiaFront.png" alt="Espia" id="img-espia" class="img-character">
                     <img src="../Imagenes/Characters/JineteFront.png" alt="Jinete" id="img-jinete" class="img-character">
                     <img src="../Imagenes/Characters/MagoFront.png" alt="Mago" id="img-mago" class="img-character">
+                    -->
                 </div>
+
+            </div>
+            <div class="tienda-personajes-ocultos" id="personajes-tienda">
+                <div class="col-personajes 1">
+                    <div class="espacio-personaje">
+                        <img src="../Imagenes/Characters/ArqueroFront.png" alt="Arquero" id="img-arquero" class="img-character">
+                        <button class="btn-compra-personaje" id="compra-arquero">10</button>
+                    </div>
+                    <div class="espacio-personaje">
+                        <img src="../Imagenes/Characters/AsesinoFront.png" alt="Asesino" id="img-asesino" class="img-character">
+                        <button class="btn-compra-personaje" id="compra-asesino">5</button>
+                    </div>
+                    <div class="espacio-personaje">
+                        <img src="../Imagenes/Characters/BersequerFront.png" alt="Bersequer" id="img-bersequer" class="img-character">
+                        <button class="btn-compra-personaje" id="compra-bersequer">25</button>
+                    </div>
+                    <div class="espacio-personaje">
+                        <img src="../Imagenes/Characters/EspadachinFront.png" alt="Espadachin" id="img-espadachin" class="img-character">
+                        <button class="btn-compra-personaje" id="compra-espadachin">15</button>
+                    </div>
+                </div>
+                <div class="col-personajes 2">
+                    <div class="espacio-personaje">
+                        <img src="../Imagenes/Characters/EspiaFront.png" alt="Espia" id="img-espia" class="img-character">
+                        <button class="btn-compra-personaje" id="compra-espia">5</button>
+                    </div>
+                    <div class="espacio-personaje">
+                        <img src="../Imagenes/Characters/JineteFront.png" alt="Jinete" id="img-jinete" class="img-character">
+                        <button class="btn-compra-personaje" id="compra-jinete">15</button>
+                    </div>
+                    <div class="espacio-personaje">
+                        <img src="../Imagenes/Characters/MagoFront.png" alt="Mago" id="img-mago" class="img-character">
+                        <button class="btn-compra-personaje" id="compra-mago">10</button>
+                    </div>
+
+                </div>
+
             </div>
             <div class="dado-container">
                 <div id="imagen-dado">
@@ -398,15 +462,71 @@
                 <button id="boton-dado">Tirar dado</button>
             </div>
 
+
         </div>
 
-    </div>
+        <div class="overlay" id="idOverlayCatapulta">
+            <div class="imgFondo">
+                <div class="popupCatapulta" id="idPopupCatapulta">
+                    <a href="#" id="btn-cerrar-popupCatapulta" class="btn-cerrar-popupCatapulta" onclick="cerrarModalCatapulta()"> <i class="fas fa-times"></i></a>
+                    <h3> Catapulta </h3>
+                    <h4><img src="/Imagenes/Pop-upBallesta_Catapulta/corazon2.png" class="icon"> Vida: <span id="vidaCatapultaModal"></span></h4>
+                    <h4><img src="/Imagenes/Pop-upBallesta_Catapulta/swords.png" class="icon"> Ataque: 5</h4>
+                    <div class="attackRange">
+                        <h4><img src="/Imagenes/Pop-upBallesta_Catapulta/slash.png" id="swordRange"> <img src="/Imagenes/Pop-upBallesta_Catapulta/right-arrow.png" id="arrowAttack">Alcance de ataque: 3</h4>
+                    </div>
+                    <h4><img src="/Imagenes/Pop-upBallesta_Catapulta/coin.png" class="icon"> Precio: 8</h4>
+                </div>
+            </div>
+        </div>
 
-    <!--<div id="console">
+        <div class="overlay" id="idOverlayBallesta">
+            <div class="imgFondo">
+                <div class="popupBallesta" id="idPopupBallesta">
+                    <a href="#" id="btn-cerrar-popupBallesta" class="btn-cerrar-popupBallesta" onclick="cerrarModalBallesta()"><i class="fas fa-times"></i></a>
+                    <h3>Ballesta</h3>
+                    <h4><img src="/Imagenes/Pop-upBallesta_Catapulta/corazon2.png" class="icon"> Vida: <span id="vidaBallestaModal"></span></h4>
+                    <h4><img src="/Imagenes/Pop-upBallesta_Catapulta/swords.png" class="icon"> Ataque: 2</h4>
+                    <div class="attackRange">
+                        <h4><img src="/Imagenes/Pop-upBallesta_Catapulta/slash.png" id="swordRange"> <img src="/Imagenes/Pop-upBallesta_Catapulta/right-arrow.png" id="arrowAttack">Alcance de ataque: 3</h4>
+                    </div>
+                    <h4><img src="/Imagenes/Pop-upBallesta_Catapulta/coin.png" class="icon"> Precio: 5</h4>
+
+                    <div class="overlay" id="idOverlayCatapulta">
+                        <div class="imgCastillo">
+                            <div class="popupCatapulta" id="idPopupCatapulta">
+                                <a href="#" id="btn-cerrar-popupCatapulta" class="btn-cerrar-popupCatapulta"><i class="fas fa-times"></i></a>
+                                <h3> Catapulta </h3>
+                                <h4><i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i> Vida: <span id="vidaCatapulta"></span></h4>
+                                <h4>⚔️ Ataque: 5</h4>
+                                <h4>Alcance de ataque: 3</h4>
+                                <h4><i class="fas fa-coins" style="color: gold;"></i> Precio: 8</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="overlay" id="idOverlayBallesta">
+                        <div class="imgCastillo">
+                            <div class="popupBallesta" id="idPopupBallesta">
+                                <a href="#" id="btn-cerrar-popupBallesta" class="btn-cerrar-popupBallesta"><i class="fas fa-times"></i></a>
+                                <h3>Ballesta</h3>
+                                <h4><i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i> Vida: <span id="vidaBallesta"></span></h4>
+                                <h4>⚔️ Ataque: 2</h4>
+                                <h4>Alcance de ataque: 3</h4>
+                                <h4><i class="fas fa-coins" style="color: gold;"></i> Precio: 5</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div id="console">
         Information console
     </div>-->
 
 </body>
 <script type="text/javascript" src="../Scripts/Tablero.js"></script>
+<script type="text/javascript" src="../Scripts/LocalData.js"></script>
+<script type="text/javascript" src="../Scripts/PopUp_Info_Catapulta_Ballesta.js"></script>
+<script>
+    incializarDatosPopUp();
+</script>
 
 </html>
