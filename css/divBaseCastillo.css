@@ -8,14 +8,14 @@
     border: 1px solid rgb(25, 105, 25);
     background-color: rgba(0, 0, 0, 0.5);
     float: left;
-    height: 130px;
+    height: 115px;
     width: 372px;
     font-family: 'Press Start 2P', cursive;
 }
 
 .castilloBase div {
     color: #ffffff;
-    height: 22%;
+    height: 27%;
     margin: 1% 1.5% 0% 1.5%;
     width: 47%;
 }
