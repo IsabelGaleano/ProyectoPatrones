@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< Updated upstream
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3a3473b-f5d6-4ebc-a9cd-ba5fa7ae8a6b" name="Default Changelist" comment="" />
+=======
+  <component name="ChangeListManager">
+    <list default="true" id="54cbdc86-4213-481d-b8f3-5ab803a94ccc" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../css/Tablero.css" beforeDir="false" afterPath="$PROJECT_DIR$/../css/Tablero.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../css/divBaseCastillo.css" beforeDir="false" afterPath="$PROJECT_DIR$/../css/divBaseCastillo.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../html/Tablero.html" beforeDir="false" afterPath="$PROJECT_DIR$/../html/Tablero.html" afterDir="false" />
+    </list>
+>>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,7 +22,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+<<<<<<< Updated upstream
   <component name="ProjectId" id="1vPV9AO88cii24CVAZD3VELxoWU" />
+=======
+  <component name="ProjectId" id="1vPVmDVyhzmVyzWvK8O02FxHxvv" />
+>>>>>>> Stashed changes
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -25,11 +38,15 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+<<<<<<< Updated upstream
     <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
+=======
+>>>>>>> Stashed changes
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< Updated upstream
       <changelist id="f3a3473b-f5d6-4ebc-a9cd-ba5fa7ae8a6b" name="Default Changelist" comment="" />
       <created>1626463558166</created>
       <option name="number" value="Default" />
@@ -37,6 +54,14 @@
       <updated>1626463558166</updated>
       <workItem from="1626463560069" duration="65000" />
       <workItem from="1626463672031" duration="652000" />
+=======
+      <changelist id="54cbdc86-4213-481d-b8f3-5ab803a94ccc" name="Default Changelist" comment="" />
+      <created>1626463868420</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1626463868420</updated>
+      <workItem from="1626463869762" duration="693000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
