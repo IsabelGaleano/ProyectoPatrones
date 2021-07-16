@@ -5,43 +5,105 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f3a3473b-f5d6-4ebc-a9cd-ba5fa7ae8a6b" name="Default Changelist" comment="" />
-=======
-  <component name="ChangeListManager">
-    <list default="true" id="54cbdc86-4213-481d-b8f3-5ab803a94ccc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../css/Tablero.css" beforeDir="false" afterPath="$PROJECT_DIR$/../css/Tablero.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../css/divBaseCastillo.css" beforeDir="false" afterPath="$PROJECT_DIR$/../css/divBaseCastillo.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../html/Tablero.html" beforeDir="false" afterPath="$PROJECT_DIR$/../html/Tablero.html" afterDir="false" />
+    <list default="true" id="f3a3473b-f5d6-4ebc-a9cd-ba5fa7ae8a6b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/pruebaSpring_war_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Spring_5_2_3_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Spring_MVC_5_2_3_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/curso-springboot/src/main/java/com/isabelgaleano/app/patronFabrica/fabricaAbstracta/IPersonajesJuego.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/curso-springboot/src/main/java/com/isabelgaleano/app/patronFabrica/fabricaConcreta/FabricaArquero.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/curso-springboot/src/main/java/com/isabelgaleano/app/patronFabrica/fabricaConcreta/FabricaAsesino.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/curso-springboot/src/main/java/com/isabelgaleano/app/patronFabrica/fabricaConcreta/FabricaBerserquer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/curso-springboot/src/main/java/com/isabelgaleano/app/patronFabrica/fabricaConcreta/FabricaEspadachin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/curso-springboot/src/main/java/com/isabelgaleano/app/patronFabrica/fabricaConcreta/FabricaEspia.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/curso-springboot/src/main/java/com/isabelgaleano/app/patronFabrica/fabricaConcreta/FabricaJinete.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/curso-springboot/src/main/java/com/isabelgaleano/app/patronFabrica/fabricaConcreta/FabricaMago.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/pruebaSpring.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pruebaSpring.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/curso-springboot/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/curso-springboot/pom.xml" afterDir="false" />
     </list>
->>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="spring-beans.schema" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-<<<<<<< Updated upstream
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="jdkForImporter" value="14" />
+      </MavenImportingSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="1vPV9AO88cii24CVAZD3VELxoWU" />
-=======
-  <component name="ProjectId" id="1vPVmDVyhzmVyzWvK8O02FxHxvv" />
->>>>>>> Stashed changes
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-<<<<<<< Updated upstream
-    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
-=======
->>>>>>> Stashed changes
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RunManager">
+    <configuration name="CursoSpringbootApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.isabelgaleano.app.CursoSpringbootApplication" />
+      <module name="curso-springboot" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.isabelgaleano.app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.CursoSpringbootApplication" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -53,19 +115,14 @@
       <option name="presentableId" value="Default" />
       <updated>1626463558166</updated>
       <workItem from="1626463560069" duration="65000" />
-      <workItem from="1626463672031" duration="652000" />
-=======
-      <changelist id="54cbdc86-4213-481d-b8f3-5ab803a94ccc" name="Default Changelist" comment="" />
-      <created>1626463868420</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1626463868420</updated>
-      <workItem from="1626463869762" duration="693000" />
->>>>>>> Stashed changes
+      <workItem from="1626463672031" duration="5316000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
