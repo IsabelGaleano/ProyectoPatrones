@@ -74,7 +74,7 @@ td {
     width: 11%;
     height: 11%;
     position: fixed;
-    top: 100px;
+    top: 5%;
     right: 8.5%;
     display: flex;
     flex-direction: column;
@@ -110,20 +110,37 @@ td {
 
 .character-container {
     background-color: rgba(0, 0, 0, 0.75);
-    width: 18%;
+    width: 22.5%;
     height: 25%;
     position: fixed;
-    bottom: 300px;
-    right: 5%;
+    bottom: 50%;
+    right: 3%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+}
+
+.tienda {
+    display: inline-flex;
+    justify-content: space-evenly;
+}
+
+.tienda-ballestas {
+    padding: 0 15% 0 15%;
+}
+
+#titulo-tienda {
+    color: white;
+    font-size: 18px;
+    margin-top: 10%;
+    margin-bottom: 10%;
 }
 
 #title-characters {
     color: white;
     font-size: 26px;
-    margin-bottom: 5%;
+    margin-top: 10%;
+    margin-bottom: 10%;
 }
 
 .cnt-characters {
@@ -133,4 +150,25 @@ td {
 .img-character {
     width: 45px;
     height: 60px;
+}
+
+.tienda-personajes-ocultos {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.75);
+    width: 22.5%;
+    height: 25%;
+    position: fixed;
+    bottom: 25%;
+    right: 3%;
+}
+
+.col-personajes {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0 0 10% 0;
+}
+
+.espacio-personaje {
+    display: flex;
+    flex-direction: column;
 }
