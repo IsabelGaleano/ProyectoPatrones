@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba repositorio</title>
+
+    <!--LIBRARIES-->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!--CSS-->
+    <link rel="stylesheet" href="CSS/Reset.css">
+    <link rel="stylesheet" href="CSS/Tablero.css">
+    <!--SCRIPTS-->
+
+
+</head>
+
+<body>
+    <!--
+    <canvas id="table-container" class="canvas">
+        <table id="tablero" class="tablero" cellspacing="0"></table>
+    </canvas>
+-->
+    <table id="tablero" class="tablero" cellspacing="0"></table>
+
+    <div class="cnt-timer">
+        <h1>Tiempo</h1>
+        <p id="timer">x</p>
+    </div>
+
+    <div class="character-container">
+        <div class="cnt-characters">
+            <div>
+                <h1 id="title-characters">Personajes</h1>
+            </div>
+            <img src="Imagenes/Characters/ArqueroFront.png" alt="Arquero" id="img-arquero" class="img-character">
+            <img src="Imagenes/Characters/AsesinoFront.png" alt="Asesino" id="img-asesino" class="img-character">
+            <img src="Imagenes/Characters/BersequerFront.png" alt="Bersequer" id="img-bersequer" class="img-character">
+            <img src="Imagenes/Characters/EspadachinFront.png" alt="Espadachin" id="img-espadachin" class="img-character">
+            <img src="Imagenes/Characters/EspiaFront.png" alt="Espia" id="img-espia" class="img-character">
+            <img src="Imagenes/Characters/JineteFront.png" alt="Jinete" id="img-jinete" class="img-character">
+            <img src="Imagenes/Characters/MagoFront.png" alt="Mago" id="img-mago" class="img-character">
+        </div>
+    </div>
+    <div class="dado-container">
+        <div id="imagen-dado">
+        </div>
+        <button id="boton-dado">Tirar dado</button>
+    </div>
+
+    <div id="console">
+        Information console
+    </div>
+
+</body>
+<script type="text/javascript" src="Scripts/Tablero.js"></script>
+
+</html>
