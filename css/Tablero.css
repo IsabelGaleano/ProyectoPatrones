@@ -7,9 +7,9 @@ body {
 }
 
 .tablero {
-    width: 800px;
-    height: 600px;
-    position: fixed;
+    width: 744px;
+    max-height: max-content;
+    /*position: fixed;*/
     top: 50%;
     left: 50%;
     /* bring your own prefixes */
@@ -59,7 +59,8 @@ body {
 td {
     text-align: center;
     width: 80px;
-    height: 60px;    
+    height: 48px;
+    border: 1px solid black;
     background-repeat: no-repeat;
     background-position: center;
 }
