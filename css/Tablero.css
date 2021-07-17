@@ -59,8 +59,7 @@ body {
 td {
     text-align: center;
     width: 80px;
-    height: 60px;
-    border: 1px solid black;
+    height: 60px;    
     background-repeat: no-repeat;
     background-position: center;
 }
