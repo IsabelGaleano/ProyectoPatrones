@@ -7,8 +7,8 @@ body {
 }
 
 .tablero {
-    width: 744px;
-    max-height: max-content;
+    width: 700px;
+    max-height: max-content;    
     /*position: fixed;*/
     top: 50%;
     left: 50%;
@@ -39,8 +39,19 @@ body {
 }
 
 #boton-dado {
-  width: 30%;
-  height: 20%;
+  margin-top: 10px;
+  width: 60%;
+  height: 35%;
+  background-color: transparent;    
+    color: beige;
+    background-image: url("../Imagenes/ui/button12.png");
+    background-repeat: no-repeat;
+    background-size:contain;
+    border: transparent;
+}
+#boton-dado:hover{
+  color: yellow;
+  font-size: larger;
 }
 
 /*
@@ -54,9 +65,10 @@ body {
 }*/
 td {
     text-align: center;
-    width: 80px;
-    height: 48px;
-    border: 1px solid black;
+    color: red;
+    width: 70px;
+    height: 70px;
+    border: 1px solid greenyellow;
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -101,7 +113,7 @@ td {
     height: 25%;
     position: fixed;
     bottom: 50%;
-    right: 3%;
+    /*right: 3%;*/
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -159,3 +171,17 @@ td {
     display: flex;
     flex-direction: column;
 }
+
+#contenedorTablero{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tarjetasInfo{
+  display:flex;
+  flex-direction: row;
+  margin: 10px;
+}
+
