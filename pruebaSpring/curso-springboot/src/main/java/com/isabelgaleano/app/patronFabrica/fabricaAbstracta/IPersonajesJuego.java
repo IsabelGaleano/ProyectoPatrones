@@ -1,5 +1,7 @@
 package com.isabelgaleano.app.patronFabrica.fabricaAbstracta;
 
+import com.isabelgaleano.app.patronFabrica.productoAbstracto.Personaje;
+
 public interface IPersonajesJuego {
-    public IPersonajesJuego crearPersonajes();
+    public Personaje crearPersonajes();
 }
