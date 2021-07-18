@@ -1,15 +1,14 @@
 /*CSS DEL TABLERO*/
-
 body {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-image: url('../Imagenes/Backgrounds/game_background_4.png');
-    overflow-x: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('../Imagenes/Backgrounds/game_background_4.png');
+  overflow-x: hidden;
 }
 
 .tablero {
-    width: 744px;
-    height: 600px;
+    width: 700px;
+    max-height: max-content;    
     /*position: fixed;*/
     top: 50%;
     left: 50%;
@@ -18,34 +17,42 @@ body {
     background-image: url('../Imagenes/gray_texture.png');
 }
 
-
 /*--SECCION DEL DADO--*/
-
 .dado-container {
-    width: 300px;
-    height: 200px;
-    position: fixed;
-    bottom: 0px;
-    right: 5%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-repeat: no-repeat;
+  width: 300px;
+  height: 200px;
+  position: fixed;
+  bottom: 0px;
+  right: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
 }
 
 #imagen-dado {
-    width: 100px;
-    height: 100px;
-    background-repeat: no-repeat;
-    background-size: 100px;
+  width: 100px;
+  height: 100px;
+  background-repeat: no-repeat;
+  background-size: 100px;
 }
 
 #boton-dado {
-    width: 30%;
-    height: 20%;
+  margin-top: 10px;
+  width: 60%;
+  height: 35%;
+  background-color: transparent;    
+    color: beige;
+    background-image: url("../Imagenes/ui/button12.png");
+    background-repeat: no-repeat;
+    background-size:contain;
+    border: transparent;
 }
-
+#boton-dado:hover{
+  color: yellow;
+  font-size: larger;
+}
 
 /*
 .canvas {
@@ -56,19 +63,17 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
 }*/
-
 td {
     text-align: center;
-    width: 80px;
-    height: 60px;
-    border: 1px solid black;
+    color: red;
+    width: 70px;
+    height: 70px;
+    border: 1px solid greenyellow;
     background-repeat: no-repeat;
     background-position: center;
 }
 
-
 /*--TIMER--*/
-
 .cnt-timer {
     background-color: rgba(0, 0, 0, 0.75);
     width: 11%;
@@ -83,18 +88,15 @@ td {
 }
 
 .cnt-timer h1 {
-    color: white;
+  color: white;
 }
 
 .cnt-timer p {
-    color: white;
-    margin-top: 5%;
+  color: white;
+  margin-top: 5%;
 }
 
-
 /*--CONSOLE--*/
-
-
 /*#console {
     position: fixed;
     position: fixed;
@@ -104,17 +106,14 @@ td {
     width: 25%;
     height: 10%;
 }*/
-
-
 /*--SECCION DE PERSONAJES--*/
-
 .character-container {
     background-color: rgba(0, 0, 0, 0.75);
     width: 22.5%;
     height: 25%;
     position: fixed;
     bottom: 50%;
-    right: 3%;
+    /*right: 3%;*/
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -144,12 +143,12 @@ td {
 }
 
 .cnt-characters {
-    text-align: center;
+  text-align: center;
 }
 
 .img-character {
-    width: 45px;
-    height: 60px;
+  width: 45px;
+  height: 60px;
 }
 
 .tienda-personajes-ocultos {
@@ -172,3 +171,17 @@ td {
     display: flex;
     flex-direction: column;
 }
+
+#contenedorTablero{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tarjetasInfo{
+  display:flex;
+  flex-direction: row;
+  margin: 10px;
+}
+
