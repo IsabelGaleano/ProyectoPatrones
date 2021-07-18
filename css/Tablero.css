@@ -7,7 +7,7 @@ body {
 }
 
 .tablero {
-    width: 744px;
+    width: 800px;
     max-height: max-content;
     /*position: fixed;*/
     top: 50%;
@@ -115,6 +115,7 @@ td {
 .tienda-ballestas {
     padding: 0 15% 0 15%;
 }
+
 
 #titulo-tienda {
     color: white;
