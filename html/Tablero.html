@@ -31,7 +31,8 @@
         <table id="tablero" class="tablero" cellspacing="0"></table>
     </canvas>
 -->
-    <table id="tablero" class="tablero" cellspacing="0"></table>
+    <div class="row">
+        <!--toda la pantalla -->
 
         <div class="col-3" style="border: 1px solid black;">
             <!--Pantalla de Isaias -->
@@ -221,354 +222,363 @@
 
         <div id="contenedorTablero" class="col-6" style="border: 1px solid blue;">
             <!--Pantalla de tablero -->
-            <div class="castilloBase" class="col-3">
+            <div class="tarjetasInfo">
+                <div class="castilloBase" class="col-3">
 
-                <h3>NickName</h3>
-
-                <div class="castillo">
-
-                    <button id="btn-popup-castillo" class="btn-popupCastillo"><i
-                            class="fas fa-exclamation"></i></button>
-
-                    <div class="castilloImg">
-                        <img src="../Imagenes/imgenesDivBaseCastillo/castle.png" style="width: 28px;">
+                    <h3>NickName</h3>
+    
+                    <div class="castillo">
+    
+                        <button id="btn-popup-castillo" class="btn-popupCastillo"><i
+                                class="fas fa-exclamation"></i></button>
+    
+                        <div class="castilloImg">
+                            <img src="../Imagenes/imgenesDivBaseCastillo/castle.png" style="width: 28px;">
+                        </div>
+    
+                        <div class="vida">
+    
+                            <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
+    
+                        </div>
+    
+                        <h6>20</h6>
+    
+                        <div class="moneda">
+    
+                            <i class="fas fa-coins" style="color: gold;"></i>
+    
+                        </div>
+    
+                        <h6>920</h6>
+    
+    
                     </div>
-
-                    <div class="vida">
-
-                        <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
-
+    
+                    <div class="ballesta1">
+    
+                        <button id="btn-popup-ballestaJugador1" class="btn-popupBallesta"
+                            onclick="abrirModalBallesta(1, 0)"><i class="fas fa-exclamation"></i></button>
+    
+                        <div class="ballestaImg">
+                            <img src="../Imagenes/ballesta5.png">
+                        </div>
+    
+                        <div class="vida">
+                            <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
+                        </div>
+    
+                        <h6> <span id="vidaBallesta"></span></h6>
+    
                     </div>
-
-                    <h6>20</h6>
-
-                    <div class="moneda">
-
-                        <i class="fas fa-coins" style="color: gold;"></i>
-
+    
+                    <div class="ballesta2">
+    
+                        <button id="btn-popup-ballesta2Jugador1" class="btn-popupBallesta2"
+                            onclick="abrirModalBallesta(1, 1)"><i class="fas fa-exclamation"></i></button>
+    
+                        <div class="ballestaImg">
+                            <img src="../Imagenes/ballesta5.png">
+                        </div>
+    
+                        <div class="vida">
+                            <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
+                        </div>
+    
+                        <h6>20</h6>
+    
                     </div>
-
-                    <h6>920</h6>
-
-
+    
+                    <div class="catapulta">
+    
+                        <button id="btn-popup-catapulta" class="btn-popupCatapulta" onclick="abrirModalCatapulta(1, 0)"><i
+                                class="fas fa-exclamation"></i></button>
+    
+                        <div class="catapultaImg">
+                            <img src="../Imagenes/catapulta.png" />
+                        </div>
+    
+                        <div class="vida">
+                            <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
+                        </div>
+    
+                        <h6>20</h6>
+    
+                    </div>
+    
                 </div>
-
-                <div class="ballesta1">
-
-                    <button id="btn-popup-ballestaJugador1" class="btn-popupBallesta"
-                        onclick="abrirModalBallesta(1, 0)"><i class="fas fa-exclamation"></i></button>
-
-                    <div class="ballestaImg">
-                        <img src="../Imagenes/ballesta5.png">
+    
+                <div class="castilloBase" class="col-3">
+    
+                    <h3>NickName</h3>
+    
+                    <div class="castillo">
+    
+                        <button id="btn-popup-castillo" class="btn-popupCastillo"><i
+                                class="fas fa-exclamation"></i></button>
+    
+                        <div class="castilloImg">
+                            <img src="../Imagenes/imgenesDivBaseCastillo/castle.png" style="width: 28px;">
+                        </div>
+    
+                        <div class="vida">
+    
+                            <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
+    
+                        </div>
+    
+                        <h6>20</h6>
+    
+                        <div class="moneda">
+    
+                            <i class="fas fa-coins" style="color: gold;"></i>
+    
+                        </div>
+    
+                        <h6>920</h6>
+    
+    
                     </div>
-
-                    <div class="vida">
-                        <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
+    
+                    <div class="ballesta1">
+    
+                        <button id="btn-popup-ballestaJugador2" class="btn-popupBallesta"
+                            onclick="abrirModalBallesta(1, 0)"><i class="fas fa-exclamation"></i></button>
+    
+                        <div class="ballestaImg">
+                            <img src="../Imagenes/ballesta5.png">
+                        </div>
+    
+                        <div class="vida">
+                            <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
+                        </div>
+    
+                        <h6>20</h6>
+    
                     </div>
-
-                    <h6> <span id="vidaBallesta"></span></h6>
-
+    
+                    <div class="ballesta2">
+    
+                        <button id="btn-popup-ballesta2Jugador2" class="btn-popupBallesta2"
+                            onclick="abrirModalBallesta(1, 1)"><i class="fas fa-exclamation"></i></button>
+    
+                        <div class="ballestaImg">
+                            <img src="../Imagenes/ballesta5.png">
+                        </div>
+    
+                        <div class="vida">
+                            <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
+                        </div>
+    
+                        <h6>20</h6>
+    
+                    </div>
+    
+                    <div class="catapulta">
+    
+                        <button id="btn-popup-catapulta" class="btn-popupCatapulta" onclick="abrirModalCatapulta(1, 1)"><i
+                                class="fas fa-exclamation"></i></button>
+    
+                        <div class="catapultaImg">
+                            <img src="../Imagenes/catapulta.png" />
+                        </div>
+    
+                        <div class="vida">
+                            <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
+                        </div>
+    
+                        <h6>20</h6>
+    
+                    </div>
+    
+    
+    
                 </div>
-
-                <div class="ballesta2">
-
-                    <button id="btn-popup-ballesta2Jugador1" class="btn-popupBallesta2"
-                        onclick="abrirModalBallesta(1, 1)"><i class="fas fa-exclamation"></i></button>
-
-                    <div class="ballestaImg">
-                        <img src="../Imagenes/ballesta5.png">
-                    </div>
-
-                    <div class="vida">
-                        <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
-                    </div>
-
-                    <h6>20</h6>
-
-                </div>
-
-                <div class="catapulta">
-
-                    <button id="btn-popup-catapulta" class="btn-popupCatapulta" onclick="abrirModalCatapulta(1, 0)"><i
-                            class="fas fa-exclamation"></i></button>
-
-                    <div class="catapultaImg">
-                        <img src="../Imagenes/catapulta.png" />
-                    </div>
-
-                    <div class="vida">
-                        <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
-                    </div>
-
-                    <h6>20</h6>
-
-                </div>
-
             </div>
-
-            <div class="castilloBase" class="col-3">
-
-                <h3>NickName</h3>
-
-                <div class="castillo">
-
-                    <button id="btn-popup-castillo" class="btn-popupCastillo"><i
-                            class="fas fa-exclamation"></i></button>
-
-                    <div class="castilloImg">
-                        <img src="../Imagenes/imgenesDivBaseCastillo/castle.png" style="width: 28px;">
-                    </div>
-
-                    <div class="vida">
-
-                        <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
-
-                    </div>
-
-                    <h6>20</h6>
-
-                    <div class="moneda">
-
-                        <i class="fas fa-coins" style="color: gold;"></i>
-
-                    </div>
-
-                    <h6>920</h6>
-
-
-                </div>
-
-                <div class="ballesta1">
-
-                    <button id="btn-popup-ballestaJugador2" class="btn-popupBallesta"
-                        onclick="abrirModalBallesta(1, 0)"><i class="fas fa-exclamation"></i></button>
-
-                    <div class="ballestaImg">
-                        <img src="../Imagenes/ballesta5.png">
-                    </div>
-
-                    <div class="vida">
-                        <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
-                    </div>
-
-                    <h6>20</h6>
-
-                </div>
-
-                <div class="ballesta2">
-
-                    <button id="btn-popup-ballesta2Jugador2" class="btn-popupBallesta2"
-                        onclick="abrirModalBallesta(1, 1)"><i class="fas fa-exclamation"></i></button>
-
-                    <div class="ballestaImg">
-                        <img src="../Imagenes/ballesta5.png">
-                    </div>
-
-                    <div class="vida">
-                        <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
-                    </div>
-
-                    <h6>20</h6>
-
-                </div>
-
-                <div class="catapulta">
-
-                    <button id="btn-popup-catapulta" class="btn-popupCatapulta" onclick="abrirModalCatapulta(1, 1)"><i
-                            class="fas fa-exclamation"></i></button>
-
-                    <div class="catapultaImg">
-                        <img src="../Imagenes/catapulta.png" />
-                    </div>
-
-                    <div class="vida">
-                        <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
-                    </div>
-
-                    <h6>20</h6>
-
-                </div>
-
-
-
-            </div>
+            
             <table id="tablero" class="tablero" cellspacing="0"></table>
-            <div class="castilloBase" class="col-3">
 
-                <h3>NickName</h3>
+            <div class="tarjetasInfo">
 
-                <div class="castillo">
+                <div class="castilloBase" class="col-3">
 
-                    <button id="btn-popup-castillo" class="btn-popupCastillo"><i
-                            class="fas fa-exclamation"></i></button>
-
-                    <div class="castilloImg">
-                        <img src="../Imagenes/imgenesDivBaseCastillo/castle.png" style="width: 28px;">
+                    <h3>NickName</h3>
+    
+                    <div class="castillo">
+    
+                        <button id="btn-popup-castillo" class="btn-popupCastillo"><i
+                                class="fas fa-exclamation"></i></button>
+    
+                        <div class="castilloImg">
+                            <img src="../Imagenes/imgenesDivBaseCastillo/castle.png" style="width: 28px;">
+                        </div>
+    
+                        <div class="vida">
+    
+                            <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
+    
+                        </div>
+    
+                        <h6>20</h6>
+    
+                        <div class="moneda">
+    
+                            <i class="fas fa-coins" style="color: gold;"></i>
+    
+                        </div>
+    
+                        <h6>920</h6>
+    
+    
                     </div>
-
-                    <div class="vida">
-
-                        <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
-
+    
+                    <div class="ballesta1">
+    
+                        <button id="btn-popup-ballestaJugador3" class="btn-popupBallesta"
+                            onclick="abrirModalBallesta(1, 0)"><i class="fas fa-exclamation"></i></button>
+    
+                        <div class="ballestaImg">
+                            <img src="../Imagenes/ballesta5.png">
+                        </div>
+    
+                        <div class="vida">
+                            <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
+                        </div>
+    
+                        <h6>20</h6>
+    
                     </div>
-
-                    <h6>20</h6>
-
-                    <div class="moneda">
-
-                        <i class="fas fa-coins" style="color: gold;"></i>
-
+    
+                    <div class="ballesta2">
+    
+                        <button id="btn-popup-ballesta2Jugador3" class="btn-popupBallesta2"
+                            onclick="abrirModalBallesta(1, 1)"><i class="fas fa-exclamation"></i></button>
+    
+                        <div class="ballestaImg">
+                            <img src="../Imagenes/ballesta5.png">
+                        </div>
+    
+                        <div class="vida">
+                            <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
+                        </div>
+    
+                        <h6>20</h6>
+    
                     </div>
-
-                    <h6>920</h6>
-
-
+    
+                    <div class="catapulta">
+    
+                        <button id="btn-popup-catapulta" class="btn-popupCatapulta" onclick="abrirModalCatapulta(1, 0)"><i
+                                class="fas fa-exclamation"></i></button>
+    
+                        <div class="catapultaImg">
+                            <img src="../Imagenes/catapulta.png" />
+                        </div>
+    
+                        <div class="vida">
+                            <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
+                        </div>
+    
+                        <h6>20</h6>
+    
+                    </div>
+    
+    
+    
                 </div>
-
-                <div class="ballesta1">
-
-                    <button id="btn-popup-ballestaJugador3" class="btn-popupBallesta"
-                        onclick="abrirModalBallesta(1, 0)"><i class="fas fa-exclamation"></i></button>
-
-                    <div class="ballestaImg">
-                        <img src="../Imagenes/ballesta5.png">
+                <div class="castilloBase" class="col-3">
+    
+                    <h3>NickName</h3>
+    
+                    <div class="castillo">
+    
+                        <button id="btn-popup-castillo" class="btn-popupCastillo"><i
+                                class="fas fa-exclamation"></i></button>
+    
+                        <div class="castilloImg">
+                            <img src="../Imagenes/imgenesDivBaseCastillo/castle.png" style="width: 28px;">
+                        </div>
+    
+                        <div class="vida">
+    
+                            <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
+    
+                        </div>
+    
+                        <h6>20</h6>
+    
+                        <div class="moneda">
+    
+                            <i class="fas fa-coins" style="color: gold;"></i>
+    
+                        </div>
+    
+                        <h6>920</h6>
+    
+    
                     </div>
-
-                    <div class="vida">
-                        <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
+    
+                    <div class="ballesta1">
+    
+                        <button id="btn-popup-ballestaJugador4" class="btn-popupBallesta"
+                            onclick="abrirModalBallesta(1, 0)"><i class="fas fa-exclamation"></i></button>
+    
+                        <div class="ballestaImg">
+                            <img src="../Imagenes/ballesta5.png">
+                        </div>
+    
+                        <div class="vida">
+                            <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
+                        </div>
+    
+                        <h6>20</h6>
+    
                     </div>
-
-                    <h6>20</h6>
-
+    
+                    <div class="ballesta2">
+    
+                        <button id="btn-popup-ballesta2Jugador4" class="btn-popupBallesta2"
+                            onclick="abrirModalBallesta(1, 1)"><i class="fas fa-exclamation"></i></button>
+    
+                        <div class="ballestaImg">
+                            <img src="../Imagenes/ballesta5.png">
+                        </div>
+    
+                        <div class="vida">
+                            <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
+                        </div>
+    
+                        <h6>20</h6>
+    
+                    </div>
+    
+                    <div class="catapulta">
+    
+                        <button id="btn-popup-catapulta" class="btn-popupCatapulta" onclick="abrirModalCatapulta(1, 1)"><i
+                                class="fas fa-exclamation"></i></button>
+    
+                        <div class="catapultaImg">
+                            <img src="../Imagenes/catapulta.png" />
+                        </div>
+    
+                        <div class="vida">
+                            <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
+                        </div>
+    
+                        <h6>20</h6>
+    
+                    </div>
+    
+    
+    
                 </div>
-
-                <div class="ballesta2">
-
-                    <button id="btn-popup-ballesta2Jugador3" class="btn-popupBallesta2"
-                        onclick="abrirModalBallesta(1, 1)"><i class="fas fa-exclamation"></i></button>
-
-                    <div class="ballestaImg">
-                        <img src="../Imagenes/ballesta5.png">
-                    </div>
-
-                    <div class="vida">
-                        <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
-                    </div>
-
-                    <h6>20</h6>
-
-                </div>
-
-                <div class="catapulta">
-
-                    <button id="btn-popup-catapulta" class="btn-popupCatapulta" onclick="abrirModalCatapulta(1, 0)"><i
-                            class="fas fa-exclamation"></i></button>
-
-                    <div class="catapultaImg">
-                        <img src="../Imagenes/catapulta.png" />
-                    </div>
-
-                    <div class="vida">
-                        <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
-                    </div>
-
-                    <h6>20</h6>
-
-                </div>
-
-
-
+    
             </div>
-            <div class="castilloBase" class="col-3">
-
-                <h3>NickName</h3>
-
-                <div class="castillo">
-
-                    <button id="btn-popup-castillo" class="btn-popupCastillo"><i
-                            class="fas fa-exclamation"></i></button>
-
-                    <div class="castilloImg">
-                        <img src="../Imagenes/imgenesDivBaseCastillo/castle.png" style="width: 28px;">
-                    </div>
-
-                    <div class="vida">
-
-                        <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
-
-                    </div>
-
-                    <h6>20</h6>
-
-                    <div class="moneda">
-
-                        <i class="fas fa-coins" style="color: gold;"></i>
-
-                    </div>
-
-                    <h6>920</h6>
-
-
-                </div>
-
-                <div class="ballesta1">
-
-                    <button id="btn-popup-ballestaJugador4" class="btn-popupBallesta"
-                        onclick="abrirModalBallesta(1, 0)"><i class="fas fa-exclamation"></i></button>
-
-                    <div class="ballestaImg">
-                        <img src="../Imagenes/ballesta5.png">
-                    </div>
-
-                    <div class="vida">
-                        <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
-                    </div>
-
-                    <h6>20</h6>
-
-                </div>
-
-                <div class="ballesta2">
-
-                    <button id="btn-popup-ballesta2Jugador4" class="btn-popupBallesta2"
-                        onclick="abrirModalBallesta(1, 1)"><i class="fas fa-exclamation"></i></button>
-
-                    <div class="ballestaImg">
-                        <img src="../Imagenes/ballesta5.png">
-                    </div>
-
-                    <div class="vida">
-                        <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
-                    </div>
-
-                    <h6>20</h6>
-
-                </div>
-
-                <div class="catapulta">
-
-                    <button id="btn-popup-catapulta" class="btn-popupCatapulta" onclick="abrirModalCatapulta(1, 1)"><i
-                            class="fas fa-exclamation"></i></button>
-
-                    <div class="catapultaImg">
-                        <img src="../Imagenes/catapulta.png" />
-                    </div>
-
-                    <div class="vida">
-                        <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
-                    </div>
-
-                    <h6>20</h6>
-
-                </div>
-
-
-
             </div>
 
-        </div>
+            
 
-        <div class="col-3" style="border: 1px solid red;">
+        <div  class="col-3" style="border: 1px solid red;">
             <!--Pantalla de tienda personajes -->
 
             <!--Pantalla de tienda personajes -->
@@ -592,8 +602,7 @@
                                     <img src="../Imagenes/Characters/ArqueroFront.png" alt="Arquero" id="img-arquero"
                                         class="img-character">
                                     <p id="titulo-tienda">Personajes</p>
-                                    <button type="button" id="btn-ver-personajes" class="btn-tienda">Ver
-                                        personajes</button>
+                                    <button type="button" id="btn-ver-personajes" class="btn-tienda">Ver más</button>
                                 </div>
 
                             </div>
@@ -714,7 +723,7 @@
         </div>
         <!--<div id="console">
         Information console
-    </div>
+    </div>-->
 
 </body>
 <script type="text/javascript" src="../Scripts/Tablero.js"></script>

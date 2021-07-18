@@ -3,17 +3,14 @@
 }
 
 .cabeza {
+    font-family: 'Press Start 2P', cursive;
     height: 45px;
     width: 100%;
 }
 
 h2 {
     display: inline-block;
-    line-height: 45px;
-    color: #ffffff;
-    font-size: 20px;
     font-weight: bold;
-    margin-left: 30px;
 }
 
 .cabeza nav {
@@ -21,12 +18,15 @@ h2 {
 }
 
 .cabeza nav a {
-    color: #ffffff;
+    color: #11804e;
     text-decoration: none;
+    font-size: 15px;
+    line-height: 45px;
+    margin-left: 30px;
 }
 
 .cabeza nav a:hover {
-    color: #1404fd;
+    color: #1c3b2d;
     text-decoration: overline;
     transition: .4s;
 }
@@ -35,8 +35,7 @@ body {
     background-image: url('../imgReglasJuego/fondoBody.gif');
     background-size: cover;
     background-repeat: no-repeat;
-    font-family: cursive;
-    font-style: oblique;
+    font-family: 'Press Start 2P', cursive;
     margin-bottom: 0%;
     height: 745px;
     width: 100%;
@@ -52,7 +51,7 @@ body {
 }
 
 .reglas {
-    height: 44%;
+    height: 43%;
     text-align: center;
     margin-left: 18%;
     width: 63%;
@@ -71,9 +70,8 @@ body {
     border: 2px solid rgb(182, 134, 2);
     box-shadow: 3px 3px 10px 1px #2e2c2d;
     color: black;
-    font-size: 18px;
-    font-family: cursive;
-    font-style: oblique;
+    font-size: 13px;
+    font-family: 'Press Start 2P', cursive;
     font-weight: bold;
     height: 30px;
     margin-top: 25px;
@@ -98,9 +96,10 @@ h3 {
     font-size: 20px;
 }
 
-p {
-    /**No funciona margin-top: 5%;*/
-    font-size: 13px;
+.pergamino p {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    margin-top: 5px;
 }
 
 p::selection {

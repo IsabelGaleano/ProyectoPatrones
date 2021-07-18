@@ -12,7 +12,7 @@ let celdaActual;
 $(document).ready(function() {
     cargarTablero(mas2Jugadores);
     imagenDado.style.backgroundImage = 'url(../Imagenes/CarasDado/Cara1.png)';
-    juego();
+    //juego();
 });
 
 btn_ver_personajes.addEventListener('click', function() {
@@ -103,11 +103,11 @@ function cargarTablero(mas2Jugadores) {
             let celda = document.createElement("td");
             celda.id = "c" + c;
             if (c == 10) {
-                celda.style.backgroundSize = "50px 50px";
-                celda.style.backgroundImage = 'url(../Imagenes/castle.png)';
+                celda.style.backgroundSize = "70px 70px";
+                celda.style.backgroundImage = 'url(../Imagenes/Castillo1.png)';                
             } else if (c == 91) {
-                celda.style.backgroundSize = "50px 50px";
-                celda.style.backgroundImage = 'url(../Imagenes/castle.png)';
+                celda.style.backgroundSize = "70px 70px";
+                celda.style.backgroundImage = 'url(../Imagenes/Castillo2.png)';
             }
 
             celda.addEventListener('click', function() {
