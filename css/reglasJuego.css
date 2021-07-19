@@ -4,8 +4,10 @@
 
 .cabeza {
     font-family: 'Press Start 2P', cursive;
+    font-size: larger;
     height: 45px;
     width: 100%;
+    background-color: skyblue;
 }
 
 h2 {
@@ -32,36 +34,52 @@ h2 {
 }
 
 body {
-    background-image: url('../imgReglasJuego/fondoBody.gif');
-    background-size: cover;
-    background-repeat: no-repeat;
+    position: absolute;    
     font-family: 'Press Start 2P', cursive;
     margin-bottom: 0%;
-    height: 745px;
+    height: 100%;
     width: 100%;
 }
 
-.pergamino {
-    background-image: url('../imgReglasJuego/pergamino.gif');
-    background-size: cover;
+
+.imgFondo{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 100%;
+    background-image: url('../imgReglasJuego/fondoBody.gif');
+    background-size:cover;
     background-repeat: no-repeat;
-    margin: 0% auto;
-    height: 700px;
-    width: 35%;
+}
+.pergamino {
+    display: flex;
+    flex: 1;
+    position:relative;
+    top: 50px;
+    background-image: url('../Imagenes/ui/book.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin:  auto;
+    height: 75%;
+    width: 50%;
+    
 }
 
 .reglas {
-    height: 43%;
-    text-align: center;
-    margin-left: 18%;
-    width: 63%;
+    flex: 1;
+    height: 100%;
+    text-align: left;
+
+    padding: 150px 50px 50px 70px;
 }
 
 .reglas2 {
-    height: 49%;
-    text-align: center;
-    margin-left: 24%;
-    width: 63%;
+    flex: 1;
+    height: 100%;
+    text-align: left;
+    padding: 150px 70px 50px 50px;
+    
+    
 }
 
 .volver {
@@ -76,6 +94,7 @@ body {
     height: 30px;
     margin-top: 25px;
     width: 100px;
+    flex: 1;
 }
 
 a {
@@ -108,9 +127,8 @@ p::selection {
 
 .imgFalta {
     background-image: url('../imgReglasJuego/fondoFooter.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    margin-top: 0%;
+    background-size:cover;
+    background-repeat: no-repeat;    
     height: 46px;
-    width: 100%;
+    width: 100%;    
 }
