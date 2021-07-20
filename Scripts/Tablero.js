@@ -6,8 +6,35 @@ let mas2Jugadores = false;
 let imagenDado = document.getElementById("imagen-dado");
 let botonDado = document.getElementById("boton-dado");
 let btn_ver_personajes = document.getElementById("btn-ver-personajes")
-
 let celdaActual;
+
+const audio =  new Audio('../Sounds/music_funkyWhistle.wav');  
+const icon = document.querySelector("#btn_music > i");
+const btn_music = document.querySelector("#btn_music");
+audio.volume = 0.2;
+audio.loop = true;
+audio.play();
+    
+
+btn_music.addEventListener("click", () => {
+    if (audio.paused) {
+      audio.volume = 0.2;
+      audio.loop = true;
+      audio.play();
+      btn_music.classList.add('fa-volume-up');
+      btn_music.classList.remove('fa-volume-mute');
+      
+      
+      
+    } else {
+      audio.pause();
+      btn_music.classList.add('fa-volume-mute');
+      btn_music.classList.remove('fa-volume-up');
+      
+    }    
+    
+  });
+
 
 $(document).ready(function() {
     cargarTablero(mas2Jugadores);
@@ -29,30 +56,31 @@ function cargarPersonaje(tipo) {
     switch (tipo) {
         case 1:
             //Arquero
-            urlImagenPersonaje = 'url(../Imagenes/Characters/ArqueroFront.png)';
+            urlImagenPersonaje = 'url(../Imagenes/Characters/archerIdle.gif)';
+            break;
         case 2:
             //Espadachín
-            urlImagenPersonaje = 'url(../Imagenes/Characters/EspadachinFront.png)';
+            urlImagenPersonaje = 'url(../Imagenes/Characters/swordsmanIdle.gif)';
             break;
         case 3:
             //Bersequer
-            urlImagenPersonaje = 'url(../Imagenes/Characters/BersequerFront.png)';
+            urlImagenPersonaje = 'url(../Imagenes/Characters/berserkIdle.gif)';
             break;
         case 4:
             //Mago
-            urlImagenPersonaje = 'url(../Imagenes/Characters/MagoFront.png)';
+            urlImagenPersonaje = 'url(../Imagenes/Characters/mageIdle.gif)';
             break;
         case 5:
             //Asesino
-            urlImagenPersonaje = 'url(../Imagenes/Characters/AsesinoFront.png)';
+            urlImagenPersonaje = 'url(../Imagenes/Characters/assasinIdle.gif)';
             break;
         case 6:
             //Jinete
-            urlImagenPersonaje = 'url(../Imagenes/Characters/JineteFront.png)';
+            urlImagenPersonaje = 'url(../Imagenes/Characters/knightIdle.gif)';
             break;
         case 7:
             //Espía
-            urlImagenPersonaje = 'url(../Imagenes/Characters/EspiaFront.png)';
+            urlImagenPersonaje = 'url(../Imagenes/Characters/spyIdle.gif)';
             break;
     }
 
@@ -83,6 +111,12 @@ function dado() {
             break;
     }
     imagenDado.style.backgroundImage = urlDado;
+}
+
+function playSound(){
+    var clicksound = new Audio('../Sounds/footLand.wav');
+    clicksound.play();
+    clicksound.loop = false;    
 }
 
 //CARGAR EL TABLERO DINÁMICAMENTE
@@ -117,8 +151,10 @@ function cargarTablero(mas2Jugadores) {
                         document.getElementById(celdaActual).style.backgroundImage = '';
                     }
                     let randomCharacter = Math.floor(Math.random() * 7) + 1;
-                    celda.style.backgroundImage = cargarPersonaje(randomCharacter);
+                    console.log(randomCharacter);
+                    console.log(celda.style.backgroundImage =  cargarPersonaje(randomCharacter) );
                     celdaActual = celda.id;
+                    playSound();
                 }
             });
 
@@ -153,7 +189,19 @@ function cargarTablero(mas2Jugadores) {
     for (let g = 0; g < 15; g++) {
         let celda = document.getElementById("c" + gemasArray[g].cellNumber);
         celda.className += "gema" + gemasArray[g].gema;
-        celda.innerHTML = "gema " + tipoGema(gemasArray[g].gema);
+        /*celda.innerHTML = "gema " + tipoGema(gemasArray[g].gema);    */
+        switch (gemasArray[g].gema) {
+            case 1:
+                celda.style.backgroundImage = 'url(../Imagenes/PowerUps/greenGemGif.gif)';
+                break;
+            case 2:
+                celda.style.backgroundImage = 'url(../Imagenes/PowerUps/BlueGif.gif)';
+                break;
+            case 3:
+                celda.style.backgroundImage = 'url(../Imagenes/PowerUps/redGemGif.gif)';
+                break;
+        }
+        
     }
 
     //ALEATORIZAR LAS TEXTURAS DE LAS CASILLAS CON POWER UPS
@@ -170,6 +218,9 @@ function cargarTablero(mas2Jugadores) {
         }
 
     }
+
+    
+
     //POWER UPS
     /* POWER UP 1 ES MEJORA ATAQUE
     POWER UP 2 ES MEJORA EN DEFENSA 
@@ -178,11 +229,28 @@ function cargarTablero(mas2Jugadores) {
     */
 
     for (let p = 0; p < 14; p++) {
-        let nombre = "#c" + powerUpsArray[p].cellNumber;
-        $(nombre).css('background-image', 'url(Imagenes/green_texture.png)');
+        let nombre = "#c" + powerUpsArray[p].cellNumber;        
         let celda = document.getElementById("c" + powerUpsArray[p].cellNumber);
         celda.className = "power-up" + powerUpsArray[p].powerUp;
-        celda.innerHTML = "power-up " + tipoPowerUp(powerUpsArray[p].powerUp);
+        /*celda.innerHTML = "power-up " + tipoPowerUp(powerUpsArray[p].powerUp);*/
+        celda.style.backgroundImage = 'url(../Imagenes/green_texture.png)';
+
+        switch (powerUpsArray[p].powerUp) {
+            case 1:
+                celda.style.backgroundImage = 'url(../Imagenes/PowerUps/PowUpGif.gif)';
+                break;
+            case 2:
+                celda.style.backgroundImage = 'url(../Imagenes/PowerUps/DefUpGif.gif)';
+                break;
+            case 3:
+                celda.style.backgroundImage = 'url(../Imagenes/PowerUps/PowDwnGif.gif)';
+                break;
+            case 4:
+                celda.style.backgroundImage = 'url(../Imagenes/PowerUps/DefDwnGif.gif)';
+                break;
+        }
+        celda.style.backgroundImage += ',url(../Imagenes/green_texture.png)';
+
     }
     /*
     console.log(gemasArray);

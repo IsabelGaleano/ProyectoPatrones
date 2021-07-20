@@ -1,4 +1,4 @@
-const audio =  new Audio('../Sounds/music_8bitJam.wav');  /*document.querySelector("audio");*/
+const audio =  new Audio('../Sounds/music_8bitJam.wav');  
 const icon = document.querySelector("#btn_music > i");
 const button = document.querySelector("#btn_music");
 audio.volume = 0.2;

@@ -64,13 +64,13 @@ body {
     transform: translate(-50%, -50%);
 }*/
 td {
-    text-align: center;
-    color: red;
+    text-align: center;    
     width: 70px;
-    height: 70px;
-    border: 1px solid greenyellow;
+    height: 70px;    
+    border: 1px solid transparent;
     background-repeat: no-repeat;
     background-position: center;
+    background-size:contain;     
 }
 
 /*--TIMER--*/
@@ -177,6 +177,7 @@ td {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border: transparent;
 }
 
 .tarjetasInfo{
@@ -185,3 +186,30 @@ td {
   margin: 10px;
 }
 
+#btn_music{     
+  height: 100px;
+  width: 100px;    
+  border: transparent;
+  position: absolute;
+  top: 50px;
+  right: 50px;
+}
+
+.fa-volume-up{    
+  background-image: url('../Imagenes/ui/ui/musicGif.gif');
+  background-size:contain;     
+  background-repeat: no-repeat;
+  background-color: transparent;     
+}
+
+.fa-volume-mute{
+  background-image: url('../Imagenes/ui/ui/music_t.png') ;    
+  background-size:contain;
+  background-repeat: no-repeat;
+  background-color: transparent;    
+}
+
+.fade{
+  opacity: 0.6;
+  transition: 0.3s;
+}
