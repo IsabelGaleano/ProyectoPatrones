@@ -17,7 +17,8 @@
     width: 100%;
     display: flex;
     align-items: center;
-    height: 25%;
+    height: 25%;    
+
   }
   
   .cnt-Personaje {
@@ -44,17 +45,48 @@
     background-size: contain;
   }
   
-  .nick {}
+  .nick {
+
+  }
+
+  .btn-tienda {
+    display: inline-block;
+    background-image: url("../Imagenes/ui/button12.png");
+    width: 80px;
+    height: 31px;
+    color: beige;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size:contain;
+    border: transparent;
+  }
   
+  .btn-tienda:hover{
+    color: yellow;
+  }
   .stats {
     padding: 5px;
   }
   
   .stats button {
     display: inline-block;
-    padding: 2px;
+    width: 60px;    
+    height: 23px;
+    padding: 3px;
+    background-color: transparent;    
+    color: beige;
+    background-image: url("../Imagenes/ui/button12.png");
+    background-repeat: no-repeat;
+    background-size:cover;
+    border: transparent;
   }
   
+  .stats button:hover {
+   
+    color: yellow;    
+
+  }
+
   .stats p {
     margin: 3px 0;
   }

@@ -5,11 +5,12 @@
 }
 
 .castilloBase {
-    border: 1px solid rgb(25, 105, 25);
+    border: 3px solid rgb(25, 105, 25);
     background-color: rgba(0, 0, 0, 0.5);
     float: left;
     height: 115px;
     width: 372px;
+    margin: 5px;
     font-family: 'Press Start 2P', cursive;
 }
 
