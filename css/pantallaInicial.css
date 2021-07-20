@@ -163,8 +163,7 @@ path.two {
 
 .fa-volume-up{    
     background-image: url('../Imagenes/ui/ui/musicGif.gif');
-    background-size:contain; 
-    background-size:contain;
+    background-size:contain;     
     background-repeat: no-repeat;
     background-color: transparent;     
 }
