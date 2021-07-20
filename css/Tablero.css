@@ -101,7 +101,7 @@ td {
     height: 25%;
     position: fixed;
     bottom: 50%;
-    right: 3%;
+    /*right: 3%;*/
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -146,7 +146,7 @@ td {
     height: 25%;
     position: fixed;
     bottom: 25%;
-    right: 3%;
+    /*right: 3%;*/
 }
 
 .col-personajes {

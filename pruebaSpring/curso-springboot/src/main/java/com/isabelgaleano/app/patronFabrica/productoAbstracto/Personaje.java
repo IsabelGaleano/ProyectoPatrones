@@ -1,5 +1,6 @@
 package com.isabelgaleano.app.patronFabrica.productoAbstracto;
 
+import com.isabelgaleano.app.patronDecorador.decorador.ObjetoDecorado;
 import com.isabelgaleano.app.patronFabrica.productoConcreto.Ataque;
 
 public abstract class Personaje {
