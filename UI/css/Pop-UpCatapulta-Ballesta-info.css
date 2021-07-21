@@ -1,6 +1,10 @@
 .imgFondo{
-    background-image: url("/Imagenes/Pop-upBallesta_Catapulta/fondoPop-up.jpg");
-    border-radius: 12px;
+    background-image: url("../Imagenes/Pop-upBallesta_Catapulta/fondoPop-up.png");
+    
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:contain;     
+    
 }
 
 #btn-popup-ballesta, #btn-popup-Catapulta {
@@ -67,6 +71,10 @@
 .icon{
     width: 30px;
     margin-bottom: -4px;
+    
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:contain;     
 }
 
 .attackRange {

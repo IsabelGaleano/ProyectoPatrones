@@ -84,6 +84,10 @@
     font-size: 10px;
 }
 
+.castillo .castilloImg {
+    background-image: url('../Imagenes/castle.png');
+    
+}
 
 /*
 .castillo .moneda {
@@ -134,7 +138,7 @@
 }
 
 .ballesta2 .ballestaImg {
-    background-image: url('/imgBaseCastillo/ballestaFondoMadera.png');
+    background-image: url('../Imagenes/ballesta5.png');
     background-repeat: no-repeat;
     float: left;
     height: 80%;
@@ -165,7 +169,7 @@
 }
 
 .catapulta .catapultaImg {
-    background-image: url('/imgBaseCastillo/catapultaFondo.png');
+    background-image: url('../Imagenes/catapulta.png');
     background-repeat: no-repeat;
     float: left;
     height: 80%;
@@ -197,5 +201,9 @@
 
 .ballestaImg img {
     width: 60%;
+    
+}
+
+.fas fa-coins{
     
 }
