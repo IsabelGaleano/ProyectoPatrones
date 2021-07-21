@@ -1,9 +1,11 @@
 package com.isabelgaleano.app.patronDecorador.decorador;
 
 import com.isabelgaleano.app.patronDecorador.componente.IPower;
+import com.isabelgaleano.app.patronFabrica.productoAbstracto.Personaje;
 
 public abstract class ObjetoDecorado extends IPower {
-    protected IPower power;
+    protected Personaje personaje;
 
-    public IPower getPower() { return power; }
+    public abstract void actualizar();
+
 }
