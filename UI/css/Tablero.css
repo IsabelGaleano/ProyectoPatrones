@@ -54,6 +54,23 @@ body {
   font-size: larger;
 }
 
+.btn-compra-personaje{
+  margin-top: 10px;
+  width: 90%;
+  height: 75%;
+  background-color: transparent;    
+    color: beige;
+    background-image: url("../Imagenes/ui/button12.png");
+    background-repeat: no-repeat;
+    background-size:contain;
+    border: transparent;
+}
+.btn-compra-personaje:hover{
+  color: yellow;
+  font-size: larger;
+}
+
+
 /*
 .canvas {
     width: 800px;
