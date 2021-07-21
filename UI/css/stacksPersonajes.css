@@ -1,0 +1,96 @@
+
+.cnt-Activos {
+    background-color: rgba(0, 0, 0, 0.75);
+    width: 100%;
+    margin: 10px;
+    color: white;
+    height: 70%;
+    margin-top: 25%;
+    text-align: center;
+    font-family: 'Press Start 2P';
+    font-size: 10px;
+    padding: 8px 0;
+  }
+  
+  .cnt-Jugador {
+    background-color: rgba(0, 0, 0, 0.80);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 25%;    
+
+  }
+  
+  .cnt-Personaje {
+    background-color: rgba(0, 0, 0, 0.75);
+    width: 33%;
+    margin: 5px;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .cnt-Personaje .iconP {
+    width: 50%;
+    background-image: url("../Imagenes/Characters/archerIdle.gif");
+    /* The image used */
+    background-color: rgba(0, 0, 0, 0.75);
+    /* Used if the image is unavailable */
+    height: 100%;
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: contain;
+  }
+  
+  .nick {
+
+  }
+
+  .btn-tienda {
+    display: inline-block;
+    background-image: url("../Imagenes/ui/button12.png");
+    width: 80px;
+    height: 31px;
+    color: beige;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size:contain;
+    border: transparent;
+  }
+  
+  .btn-tienda:hover{
+    color: yellow;
+  }
+  .stats {
+    padding: 5px;
+  }
+  
+  .stats button {
+    display: inline-block;
+    width: 60px;    
+    height: 23px;
+    padding: 3px;
+    background-color: transparent;    
+    color: beige;
+    background-image: url("../Imagenes/ui/button12.png");
+    background-repeat: no-repeat;
+    background-size:cover;
+    border: transparent;
+  }
+  
+  .stats button:hover {
+   
+    color: yellow;    
+
+  }
+
+  .stats p {
+    margin: 3px 0;
+  }
+  
+  .cnt-Activos h5 {
+    margin: 9px 0;
+  }
