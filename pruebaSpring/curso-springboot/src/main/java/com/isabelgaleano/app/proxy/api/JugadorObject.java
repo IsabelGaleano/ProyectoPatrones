@@ -1,15 +1,116 @@
 package com.isabelgaleano.app.proxy.api;
 
-public class JugadorObject {
-    private String nombreUsuario;
-    private boolean turno;
+import javax.persistence.*;
+import java.io.Serializable;
 
-    public String getNombreUsuario() {
-        return nombreUsuario;
+@Entity
+@Table(name = "Jugadores")
+public class JugadorObject implements Serializable {
+    private boolean turno;
+    private static final long serialVersionUID = -6801690473848135418L;
+
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Id
+    @Column(name = "alias", nullable = false, length = 100, unique = true)
+    private String alias;
+
+    @Column(length = 50)
+    private int partidasGanadas;
+    private int partidasPerdidas;
+    private int estado;
+    private int tropasCompradas;
+    private int tropasDerrotadas;
+
+    @Column(length = 200)
+    private double oroGanado;
+
+    public JugadorObject() {
     }
 
-    public void setNombreUsuario(String nombreUsuario) {
-        this.nombreUsuario = nombreUsuario;
+    public JugadorObject(boolean turno, Long id, String alias, int partidasGanadas, int partidasPerdidas, int estado, int tropasCompradas, int tropasDerrotadas, double oroGanado) {
+        this.turno = turno;
+        this.id = id;
+        this.alias = alias;
+        this.partidasGanadas = partidasGanadas;
+        this.partidasPerdidas = partidasPerdidas;
+        this.estado = estado;
+        this.tropasCompradas = tropasCompradas;
+        this.tropasDerrotadas = tropasDerrotadas;
+        this.oroGanado = oroGanado;
+    }
+
+    public boolean isTurno() {
+        return turno;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getAlias() {
+        return alias;
+    }
+
+    public void setAlias(String alias) {
+        this.alias = alias;
+    }
+
+    public int getPartidasGanadas() {
+        return partidasGanadas;
+    }
+
+    public void setPartidasGanadas(int partidasGanadas) {
+        this.partidasGanadas = partidasGanadas;
+    }
+
+    public int getPartidasPerdidas() {
+        return partidasPerdidas;
+    }
+
+    public void setPartidasPerdidas(int partidasPerdidas) {
+        this.partidasPerdidas = partidasPerdidas;
+    }
+
+    public int getEstado() {
+        return estado;
+    }
+
+    public void setEstado(int estado) {
+        this.estado = estado;
+    }
+
+    public int getTropasCompradas() {
+        return tropasCompradas;
+    }
+
+    public void setTropasCompradas(int tropasCompradas) {
+        this.tropasCompradas = tropasCompradas;
+    }
+
+    public int getTropasDerrotadas() {
+        return tropasDerrotadas;
+    }
+
+    public void setTropasDerrotadas(int tropasDerrotadas) {
+        this.tropasDerrotadas = tropasDerrotadas;
+    }
+
+    public double getOroGanado() {
+        return oroGanado;
+    }
+
+    public void setOroGanado(double oroGanado) {
+        this.oroGanado = oroGanado;
     }
 
     public boolean getTurno() {
