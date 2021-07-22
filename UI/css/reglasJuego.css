@@ -1,0 +1,134 @@
+* {
+    box-sizing: border-box;
+}
+
+.cabeza {
+    font-family: 'Press Start 2P', cursive;
+    font-size: larger;
+    height: 45px;
+    width: 100%;
+    background-color: skyblue;
+}
+
+h2 {
+    display: inline-block;
+    font-weight: bold;
+}
+
+.cabeza nav {
+    display: inline-block;
+}
+
+.cabeza nav a {
+    color: #11804e;
+    text-decoration: none;
+    font-size: 15px;
+    line-height: 45px;
+    margin-left: 30px;
+}
+
+.cabeza nav a:hover {
+    color: #1c3b2d;
+    text-decoration: overline;
+    transition: .4s;
+}
+
+body {
+    position: absolute;    
+    font-family: 'Press Start 2P', cursive;
+    margin-bottom: 0%;
+    height: 100%;
+    width: 100%;
+}
+
+
+.imgFondo{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 100%;
+    background-image: url('../imgReglasJuego/fondoBody.gif');
+    background-size:cover;
+    background-repeat: no-repeat;
+}
+.pergamino {
+    display: flex;
+    flex: 1;
+    position:relative;
+    top: 50px;
+    background-image: url('../Imagenes/ui/book.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin:  auto;
+    height: 75%;
+    width: 50%;
+    
+}
+
+.reglas {
+    flex: 1;
+    height: 100%;
+    text-align: left;
+
+    padding: 150px 50px 50px 70px;
+}
+
+.reglas2 {
+    flex: 1;
+    height: 100%;
+    text-align: left;
+    padding: 150px 70px 50px 50px;
+    
+    
+}
+
+.volver {
+    background-color: rgb(255, 187, 0);
+    border-radius: 10px;
+    border: 2px solid rgb(182, 134, 2);
+    box-shadow: 3px 3px 10px 1px #2e2c2d;
+    color: black;
+    font-size: 13px;
+    font-family: 'Press Start 2P', cursive;
+    font-weight: bold;
+    height: 30px;
+    margin-top: 25px;
+    width: 100px;
+    flex: 1;
+}
+
+a {
+    text-decoration: none;
+}
+
+.volver:hover {
+    background-color: rgba(223, 167, 13, 0.986);
+    cursor: pointer;
+}
+
+h3 {
+    opacity: 0;
+}
+
+.titulo {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.pergamino p {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    margin-top: 5px;
+}
+
+p::selection {
+    background-color: rgba(223, 167, 13, 0.986);
+}
+
+.imgFalta {
+    background-image: url('../imgReglasJuego/fondoFooter.jpg');
+    background-size:cover;
+    background-repeat: no-repeat;    
+    height: 46px;
+    width: 100%;    
+}

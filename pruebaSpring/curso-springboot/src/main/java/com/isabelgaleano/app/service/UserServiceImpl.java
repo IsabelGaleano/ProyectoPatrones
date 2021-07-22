@@ -17,7 +17,7 @@ public class UserServiceImpl implements UserService{
     private UserRepository userRepository;
 
     @Override
-    @Transactional(readOnly = true)//No va a guardar nada en ña DB
+    @Transactional(readOnly = true)//No va a guardar nada en la DB
     public Iterable<User> findAll() {
 
         return userRepository.findAll();
