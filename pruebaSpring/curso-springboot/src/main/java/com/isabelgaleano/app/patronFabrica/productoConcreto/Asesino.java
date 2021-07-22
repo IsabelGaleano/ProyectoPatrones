@@ -7,7 +7,7 @@ public class Asesino extends Personaje {
     public Asesino() {
     }
 
-    public Asesino(int id, double precio, double vida, int cantMovimientos, double defensa, Ataque ataque, double cantOro) {
-        super(id, precio, vida, cantMovimientos, defensa, ataque, cantOro);
+    public Asesino(int id, int precio, int vida, int cantMovimientos, int defensa, Ataque ataque, int cantOro, int maxOro) {
+        super(id, precio, vida, cantMovimientos, defensa, ataque, cantOro, maxOro);
     }
 }

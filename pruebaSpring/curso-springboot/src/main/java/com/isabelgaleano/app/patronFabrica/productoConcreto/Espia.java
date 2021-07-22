@@ -9,8 +9,8 @@ public class Espia extends Personaje {
         this.visibilidad = visibilidad;
     }
 
-    public Espia(int id, double precio, double vida, int cantMovimientos, double defensa, Ataque ataque, double cantOro, boolean visibilidad) {
-        super(id, precio, vida, cantMovimientos, defensa, ataque, cantOro);
+    public Espia(int id, int precio, int vida, int cantMovimientos, int defensa, Ataque ataque, int cantOro, int maxOro, boolean visibilidad) {
+        super(id, precio, vida, cantMovimientos, defensa, ataque, cantOro, maxOro);
         this.visibilidad = visibilidad;
     }
 
