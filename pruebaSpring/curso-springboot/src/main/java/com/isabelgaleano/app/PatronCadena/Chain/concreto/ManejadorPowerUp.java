@@ -8,5 +8,6 @@ public class ManejadorPowerUp extends Manejador {
     @Override
     public void manejar(Personaje personaje, Casilla casilla) {
 
+
     }
 }

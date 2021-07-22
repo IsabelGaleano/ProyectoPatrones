@@ -8,5 +8,6 @@ public class ManejadorNormal extends Manejador {
     @Override
     public void manejar(Personaje personaje, Casilla casilla) {
 
+
     }
 }
