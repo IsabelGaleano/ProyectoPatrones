@@ -11,6 +11,9 @@ public abstract class Personaje {
     protected double defensa;
     protected Ataque ataque;
     protected double cantOro;
+    protected int maxOro;
+
+
 
     public Personaje() {
     }
@@ -79,5 +82,13 @@ public abstract class Personaje {
 
     public void setCantOro(double cantOro) {
         this.cantOro = cantOro;
+    }
+
+    public int getMaxOro() {
+        return maxOro;
+    }
+
+    public void setMaxOro(int maxOro) {
+        this.maxOro = maxOro;
     }
 }
