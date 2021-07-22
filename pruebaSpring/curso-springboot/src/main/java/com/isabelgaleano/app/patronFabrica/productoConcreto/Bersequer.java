@@ -7,7 +7,8 @@ public class Bersequer extends Personaje {
     public Bersequer() {
     }
 
-    public Bersequer(int id, double precio, double vida, int cantMovimientos, double defensa, Ataque ataque, double cantOro) {
-        super(id, precio, vida, cantMovimientos, defensa, ataque, cantOro);
+    public Bersequer(int id, int precio, int vida, int cantMovimientos, int defensa, Ataque ataque, int cantOro, int maxOro) {
+        super(id, precio, vida, cantMovimientos, defensa, ataque, cantOro, maxOro);
     }
+
 }
