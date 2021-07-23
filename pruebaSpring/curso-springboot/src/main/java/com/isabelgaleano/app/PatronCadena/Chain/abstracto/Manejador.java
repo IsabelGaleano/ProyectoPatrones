@@ -2,6 +2,8 @@ package com.isabelgaleano.app.PatronCadena.Chain.abstracto;
 import com.isabelgaleano.app.PatronPrototipo.iPrototipo.Casilla;
 import com.isabelgaleano.app.patronFabrica.productoAbstracto.Personaje;
 
+import java.util.ArrayList;
+
 public abstract class Manejador {
     private Manejador nextInChain;
 
@@ -13,6 +15,6 @@ public abstract class Manejador {
         this.nextInChain = nextInChain;
     }
 
-    public abstract void manejar(Personaje personaje, Casilla casilla );
+    public abstract void manejar(Personaje personaje, Casilla casilla, ArrayList<Personaje> decorados);
 
 }

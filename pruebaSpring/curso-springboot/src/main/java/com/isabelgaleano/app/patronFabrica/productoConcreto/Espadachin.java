@@ -9,5 +9,6 @@ public class Espadachin extends Personaje {
 
     public Espadachin(int id, double precio, double vida, int cantMovimientos, double defensa, Ataque ataque, double cantOro) {
         super(id, precio, vida, cantMovimientos, defensa, ataque, cantOro);
+
     }
 }
