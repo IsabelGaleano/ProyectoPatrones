@@ -18,8 +18,8 @@ import java.util.ArrayList;
 public class mainChain {
     public static void main(String[] args) {
         ArrayList<Personaje> a = new ArrayList<>();
-        Personaje arquero = new Arquero(1,25,100,3,9,new Ataque(23,3,56), 24);
-        Personaje espadachin = new Espadachin(2,30,54,4,9,new Ataque(23,3,56), 24);
+        //Personaje arquero = new Arquero(1,25,100,3,9,new Ataque(23,3,56), 24);
+        //Personaje espadachin = new Espadachin(2,30,54,4,9,new Ataque(23,3,56), 24);
         Gema gema = new GemaAzul();
         PowerUp pU= new MejoraAtaque();
 
@@ -30,9 +30,9 @@ public class mainChain {
         GestorCadena cadena = new GestorCadena();
 
 
-        cadena.IniciarValidacion(arquero,casillaPowerUp, a);
-        cadena.IniciarValidacion(espadachin,casillaGema, a);
-        System.out.println(arquero);
+        //cadena.IniciarValidacion(arquero,casillaPowerUp, a);
+        //cadena.IniciarValidacion(espadachin,casillaGema, a);
+        //System.out.println(arquero);
 
 
     }
