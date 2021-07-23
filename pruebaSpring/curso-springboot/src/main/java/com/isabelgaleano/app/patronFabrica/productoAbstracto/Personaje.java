@@ -1,20 +1,23 @@
 package com.isabelgaleano.app.patronFabrica.productoAbstracto;
 
+import com.isabelgaleano.app.PatronPrototipo.Contenido.PowerUps.PowerUp;
+import com.isabelgaleano.app.patronDecorador.decorador.ObjetoDecorado;
 import com.isabelgaleano.app.patronFabrica.productoConcreto.Ataque;
 
 public abstract class Personaje {
     protected int id;
-    protected double precio;
-    protected double vida;
+    protected int precio;
+    protected int vida;
     protected int cantMovimientos;
-    protected double defensa;
+    protected int defensa;
     protected Ataque ataque;
-    protected double cantOro;
+    protected int cantOro;
+    protected int maxOro;
 
     public Personaje() {
     }
 
-    public Personaje(int id, double precio, double vida, int cantMovimientos, double defensa, Ataque ataque, double cantOro) {
+    public Personaje(int id, int precio, int vida, int cantMovimientos, int defensa, Ataque ataque, int cantOro, int maxOro) {
         this.id = id;
         this.precio = precio;
         this.vida = vida;
@@ -22,6 +25,7 @@ public abstract class Personaje {
         this.defensa = defensa;
         this.ataque = ataque;
         this.cantOro = cantOro;
+        this.maxOro = maxOro;
     }
 
     public int getId() {
@@ -32,19 +36,19 @@ public abstract class Personaje {
         this.id = id;
     }
 
-    public double getPrecio() {
+    public int getPrecio() {
         return precio;
     }
 
-    public void setPrecio(double precio) {
+    public void setPrecio(int precio) {
         this.precio = precio;
     }
 
-    public double getVida() {
+    public int getVida() {
         return vida;
     }
 
-    public void setVida(double vida) {
+    public void setVida(int vida) {
         this.vida = vida;
     }
 
@@ -56,11 +60,11 @@ public abstract class Personaje {
         this.cantMovimientos = cantMovimientos;
     }
 
-    public double getDefensa() {
+    public int getDefensa() {
         return defensa;
     }
 
-    public void setDefensa(double defensa) {
+    public void setDefensa(int defensa) {
         this.defensa = defensa;
     }
 
@@ -72,11 +76,19 @@ public abstract class Personaje {
         this.ataque = ataque;
     }
 
-    public double getCantOro() {
+    public int getCantOro() {
         return cantOro;
     }
 
-    public void setCantOro(double cantOro) {
+    public void setCantOro(int cantOro) {
         this.cantOro = cantOro;
+    }
+
+    public int getMaxOro() {
+        return maxOro;
+    }
+
+    public void setMaxOro(int maxOro) {
+        this.maxOro = maxOro;
     }
 }
