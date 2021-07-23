@@ -1,5 +1,6 @@
 package com.isabelgaleano.app.patronFabrica.productoAbstracto;
 
+import com.isabelgaleano.app.PatronPrototipo.Contenido.PowerUps.PowerUp;
 import com.isabelgaleano.app.patronDecorador.decorador.ObjetoDecorado;
 import com.isabelgaleano.app.patronFabrica.productoConcreto.Ataque;
 
@@ -10,8 +11,17 @@ public abstract class Personaje {
     protected int cantMovimientos;
     protected int defensa;
     protected Ataque ataque;
+<<<<<<< HEAD
     protected int cantOro;
     protected int maxOro;
+=======
+    protected double cantOro;
+    protected int maxOro;
+
+
+
+
+>>>>>>> isaias
 
     public Personaje() {
     }
@@ -24,7 +34,11 @@ public abstract class Personaje {
         this.defensa = defensa;
         this.ataque = ataque;
         this.cantOro = cantOro;
+<<<<<<< HEAD
         this.maxOro = maxOro;
+=======
+
+>>>>>>> isaias
     }
 
     public int getId() {
