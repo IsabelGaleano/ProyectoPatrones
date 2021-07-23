@@ -3,6 +3,7 @@ package com.isabelgaleano.app.patronFabrica.productoAbstracto;
 import com.isabelgaleano.app.PatronPrototipo.Contenido.PowerUps.PowerUp;
 import com.isabelgaleano.app.patronDecorador.decorador.ObjetoDecorado;
 import com.isabelgaleano.app.patronFabrica.productoConcreto.Ataque;
+import com.isabelgaleano.app.patronVisitante.IVisitor;
 
 public abstract class Personaje {
     protected int id;
@@ -13,11 +14,12 @@ public abstract class Personaje {
     protected Ataque ataque;
     protected int cantOro;
     protected int maxOro;
+    protected String estado;
 
     public Personaje() {
     }
 
-    public Personaje(int id, int precio, int vida, int cantMovimientos, int defensa, Ataque ataque, int cantOro, int maxOro) {
+    public Personaje(int id, int precio, int vida, int cantMovimientos, int defensa, Ataque ataque, int cantOro, int maxOro, String estado) {
         this.id = id;
         this.precio = precio;
         this.vida = vida;
@@ -26,7 +28,11 @@ public abstract class Personaje {
         this.ataque = ataque;
         this.cantOro = cantOro;
         this.maxOro = maxOro;
+        this.estado = estado;
     }
+
+
+    public abstract void aceptar(IVisitor iVisitor);
 
     public int getId() {
         return id;
@@ -89,6 +95,14 @@ public abstract class Personaje {
     }
 
     public void setMaxOro(int maxOro) {
-        this.maxOro = maxOro;
+        this.maxOro = maxOro; }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+
     }
 }
