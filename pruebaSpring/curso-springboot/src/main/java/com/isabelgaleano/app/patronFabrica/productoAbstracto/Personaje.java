@@ -1,9 +1,7 @@
 package com.isabelgaleano.app.patronFabrica.productoAbstracto;
 
-import com.isabelgaleano.app.PatronPrototipo.Contenido.PowerUps.PowerUp;
-import com.isabelgaleano.app.patronDecorador.decorador.ObjetoDecorado;
 import com.isabelgaleano.app.patronFabrica.productoConcreto.Ataque;
-import com.isabelgaleano.app.patronVisitante.IVisitor;
+import com.isabelgaleano.app.patronVisitante.abstracto.IVisitor;
 
 public abstract class Personaje {
     protected int id;
@@ -16,6 +14,9 @@ public abstract class Personaje {
     protected int maxOro;
     protected String estado;
     protected PowerUp powerUp;
+    protected String tipo;
+    protected boolean estadoDecorado;
+
 
     public Personaje() {
     }
@@ -43,6 +44,8 @@ public abstract class Personaje {
         this.cantOro = cantOro;
         this.maxOro = maxOro;
         this.estado = estado;
+        this.tipo = tipo;
+        this.estadoDecorado = estadoDecorado;
     }
 
     public abstract void aceptar(IVisitor iVisitor);
@@ -125,5 +128,21 @@ public abstract class Personaje {
 
     public void setPowerUp(PowerUp powerUp) {
         this.powerUp = powerUp;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public boolean isEstadoDecorado() {
+        return estadoDecorado;
+    }
+
+    public void setEstadoDecorado(boolean estadoDecorado) {
+        this.estadoDecorado = estadoDecorado;
     }
 }

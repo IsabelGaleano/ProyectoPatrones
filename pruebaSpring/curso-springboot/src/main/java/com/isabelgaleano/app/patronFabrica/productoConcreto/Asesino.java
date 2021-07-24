@@ -1,7 +1,7 @@
 package com.isabelgaleano.app.patronFabrica.productoConcreto;
 
 import com.isabelgaleano.app.patronFabrica.productoAbstracto.Personaje;
-import com.isabelgaleano.app.patronVisitante.IVisitor;
+import com.isabelgaleano.app.patronVisitante.abstracto.IVisitor;
 
 public class Asesino extends Personaje {
 
