@@ -1,5 +1,6 @@
 package com.isabelgaleano.app.patronFabrica.productoAbstracto;
 
+import com.isabelgaleano.app.PatronPrototipo.Contenido.PowerUps.PowerUp;
 import com.isabelgaleano.app.patronFabrica.productoConcreto.Ataque;
 import com.isabelgaleano.app.patronVisitante.abstracto.IVisitor;
 
