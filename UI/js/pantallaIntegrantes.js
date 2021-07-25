@@ -42,7 +42,7 @@ const obtenerDatos = async() => {
         }
     }
 
-    
+    await enviarCantidadCastillos(aliasJugadores.length);
     changeHTML();
 
 }
@@ -78,8 +78,22 @@ const validarAlias = async(alias) => {
     });
 
 
-    
 }
+
+const enviarCantidadCastillos = async(castillos) => {
+    await axios({
+        method: 'get',
+        url: `http://localhost:8080/api/castillos/${castillos}`,
+        responseType: 'json'
+    }).then((response) => {
+        console.log(response.data)
+    }).catch((response) =>{
+        console.error;
+    
+    });
+
+}
+
 
 
 

@@ -1,6 +1,5 @@
 package com.isabelgaleano.app.api;
 
-
 import com.isabelgaleano.app.Gestores.GestorFabricaAbstracta;
 import com.isabelgaleano.app.patronFabrica.productoAbstracto.Personaje;
 import org.springframework.http.ResponseEntity;
