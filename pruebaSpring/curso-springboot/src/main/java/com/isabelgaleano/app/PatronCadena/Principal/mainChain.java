@@ -21,7 +21,7 @@ public class mainChain {
         ArrayList<Personaje> a = new ArrayList<>();
         PowerUp powerUp;
 
-        Personaje arquero = new Arquero(1,25,100,3,9,new Ataque(23,3,
+        /*Personaje arquero = new Arquero(1,25,100,3,9,new Ataque(23,3,
                 56), 24, 25, "g");
         Personaje espadachin = new Espadachin(2,30,54,4,9,new Ataque(23,3,
                 56), 23, 25, "h");
@@ -39,7 +39,7 @@ public class mainChain {
         cadena.IniciarValidacion(espadachin,casillaPowerUpD, a);
 
         System.out.println(arquero);
-        System.out.println(espadachin);
+        System.out.println(espadachin);*/
 
 
     }

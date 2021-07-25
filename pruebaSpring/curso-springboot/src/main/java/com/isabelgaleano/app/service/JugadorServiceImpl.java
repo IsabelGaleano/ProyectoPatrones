@@ -1,7 +1,6 @@
 package com.isabelgaleano.app.service;
 
-import com.isabelgaleano.app.entity.User;
-import com.isabelgaleano.app.proxy.api.JugadorObject;
+import com.isabelgaleano.app.api.JugadorObject;
 import com.isabelgaleano.app.repository.JugadorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
