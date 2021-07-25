@@ -1,5 +1,8 @@
 package com.isabelgaleano.app.proxy.api;
 
+import com.fasterxml.jackson.core.ObjectCodec;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.isabelgaleano.app.entity.User;
 import com.isabelgaleano.app.proxy.implementacion.JugadorProxy;
 import com.isabelgaleano.app.service.JugadorService;
