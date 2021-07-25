@@ -1,9 +1,4 @@
 package com.isabelgaleano.app.patronFabrica.productoAbstracto;
-
-<<<<<<< HEAD
-import com.isabelgaleano.app.PatronPrototipo.Contenido.PowerUps.MejoraAtaque;
-=======
->>>>>>> subMain
 import com.isabelgaleano.app.PatronPrototipo.Contenido.PowerUps.PowerUp;
 import com.isabelgaleano.app.patronFabrica.productoConcreto.Ataque;
 import com.isabelgaleano.app.patronVisitante.abstracto.IVisitor;
@@ -120,7 +115,7 @@ public abstract class Personaje {
         return powerUp;
     }
 
-    public void setPowerUp(MejoraAtaque powerUp) {
+    public void setPowerUp(PowerUp powerUp) {
         this.powerUp = powerUp;
     }
 

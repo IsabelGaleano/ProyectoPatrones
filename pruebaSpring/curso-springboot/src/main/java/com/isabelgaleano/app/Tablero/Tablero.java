@@ -9,7 +9,6 @@ import java.util.ArrayList;
 public class Tablero {
 
     private ArrayList<Casilla> casillas;
-    private ArrayList<Castillo> castillos;
     private ArrayList<Jugador> jugadores;
     private Jugador jugadorActivo;
     private int turno;
@@ -17,13 +16,6 @@ public class Tablero {
     public Tablero() {
     }
 
-    public Tablero(ArrayList<Casilla> casillas, ArrayList<Castillo> castillos, ArrayList<Jugador> jugadores, Jugador jugadorActivo, int turno) {
-        this.casillas = casillas;
-        this.castillos = castillos;
-        this.jugadores = jugadores;
-        this.jugadorActivo = jugadorActivo;
-        this.turno = turno;
-    }
 
     public ArrayList<Casilla> getCasillas() {
         return casillas;
@@ -31,14 +23,6 @@ public class Tablero {
 
     public void setCasillas(ArrayList<Casilla> casillas) {
         this.casillas = casillas;
-    }
-
-    public ArrayList<Castillo> getCastillos() {
-        return castillos;
-    }
-
-    public void setCastillos(ArrayList<Castillo> castillos) {
-        this.castillos = castillos;
     }
 
     public ArrayList<Jugador> getJugadores() {
