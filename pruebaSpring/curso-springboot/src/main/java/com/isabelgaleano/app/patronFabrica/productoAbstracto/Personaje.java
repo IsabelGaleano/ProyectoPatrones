@@ -1,6 +1,9 @@
 package com.isabelgaleano.app.patronFabrica.productoAbstracto;
 
+<<<<<<< HEAD
 import com.isabelgaleano.app.PatronPrototipo.Contenido.PowerUps.MejoraAtaque;
+=======
+>>>>>>> subMain
 import com.isabelgaleano.app.PatronPrototipo.Contenido.PowerUps.PowerUp;
 import com.isabelgaleano.app.patronFabrica.productoConcreto.Ataque;
 import com.isabelgaleano.app.patronVisitante.abstracto.IVisitor;
