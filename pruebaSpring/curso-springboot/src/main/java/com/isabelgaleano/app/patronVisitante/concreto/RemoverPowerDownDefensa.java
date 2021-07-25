@@ -8,7 +8,7 @@ import java.util.List;
 public class RemoverPowerDownDefensa implements IVisitor {
     @Override
     public void visit(Personaje personaje) {
-
+        personaje.setDefensa(personaje.getDefensa() + 2);
     }
 
     @Override

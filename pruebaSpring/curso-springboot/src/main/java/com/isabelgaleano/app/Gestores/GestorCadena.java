@@ -1,4 +1,4 @@
-package com.isabelgaleano.app.PatronCadena.Principal;
+package com.isabelgaleano.app.Gestores;
 
 import com.isabelgaleano.app.PatronCadena.Chain.abstracto.Manejador;
 import com.isabelgaleano.app.PatronCadena.Chain.concreto.ManejadorGema;
