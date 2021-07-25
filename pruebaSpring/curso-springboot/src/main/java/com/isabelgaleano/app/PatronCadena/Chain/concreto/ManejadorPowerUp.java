@@ -7,8 +7,6 @@ import com.isabelgaleano.app.PatronPrototipo.iPrototipo.Casilla;
 import com.isabelgaleano.app.patronDecorador.decorador.ObjetoDecorado;
 import com.isabelgaleano.app.patronDecorador.decoradorConcreto.PowerDownAtaque;
 import com.isabelgaleano.app.patronDecorador.decoradorConcreto.PowerDownDefensa;
-import com.isabelgaleano.app.patronDecorador.decoradorConcreto.PowerUpAtaque;
-import com.isabelgaleano.app.patronDecorador.decoradorConcreto.PowerUpDefensa;
 import com.isabelgaleano.app.patronFabrica.productoAbstracto.Personaje;
 
 import java.util.ArrayList;

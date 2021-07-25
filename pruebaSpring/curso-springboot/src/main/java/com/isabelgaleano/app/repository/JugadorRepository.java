@@ -1,6 +1,6 @@
 package com.isabelgaleano.app.repository;
 
-import com.isabelgaleano.app.proxy.api.JugadorObject;
+import com.isabelgaleano.app.api.JugadorObject;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

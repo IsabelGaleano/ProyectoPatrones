@@ -8,9 +8,7 @@ import java.util.List;
 public class RemoverPowerUpDefensa implements IVisitor {
     @Override
     public void visit(Personaje personaje) {
-        if (personaje.isEstadoDecorado() == true) {
-            personaje.setDefensa(personaje.getDefensa() - 2);
-        }
+        personaje.setDefensa(personaje.getDefensa() - 2);
     }
 
     @Override
