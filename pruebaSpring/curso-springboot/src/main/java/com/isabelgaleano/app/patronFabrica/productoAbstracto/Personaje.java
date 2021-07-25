@@ -1,9 +1,7 @@
 package com.isabelgaleano.app.patronFabrica.productoAbstracto;
-
 import com.isabelgaleano.app.PatronPrototipo.Contenido.PowerUps.PowerUp;
-import com.isabelgaleano.app.patronDecorador.decorador.ObjetoDecorado;
 import com.isabelgaleano.app.patronFabrica.productoConcreto.Ataque;
-import com.isabelgaleano.app.patronVisitante.IVisitor;
+import com.isabelgaleano.app.patronVisitante.abstracto.IVisitor;
 
 public abstract class Personaje {
     protected int id;
@@ -15,11 +13,15 @@ public abstract class Personaje {
     protected int cantOro;
     protected int maxOro;
     protected String estado;
+    protected PowerUp powerUp;
+    protected String tipo;
+    protected boolean estadoDecorado;
+
 
     public Personaje() {
     }
 
-    public Personaje(int id, int precio, int vida, int cantMovimientos, int defensa, Ataque ataque, int cantOro, int maxOro, String estado) {
+    public Personaje(int id, int precio, int vida, int cantMovimientos, int defensa, Ataque ataque, int cantOro, int maxOro, String estado, PowerUp powerUp, String tipo, boolean estadoDecorado) {
         this.id = id;
         this.precio = precio;
         this.vida = vida;
@@ -29,6 +31,9 @@ public abstract class Personaje {
         this.cantOro = cantOro;
         this.maxOro = maxOro;
         this.estado = estado;
+        this.powerUp = powerUp;
+        this.tipo = tipo;
+        this.estadoDecorado = estadoDecorado;
     }
 
 
@@ -104,5 +109,29 @@ public abstract class Personaje {
     public void setEstado(String estado) {
         this.estado = estado;
 
+    }
+
+    public PowerUp getPowerUp() {
+        return powerUp;
+    }
+
+    public void setPowerUp(PowerUp powerUp) {
+        this.powerUp = powerUp;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public boolean isEstadoDecorado() {
+        return estadoDecorado;
+    }
+
+    public void setEstadoDecorado(boolean estadoDecorado) {
+        this.estadoDecorado = estadoDecorado;
     }
 }

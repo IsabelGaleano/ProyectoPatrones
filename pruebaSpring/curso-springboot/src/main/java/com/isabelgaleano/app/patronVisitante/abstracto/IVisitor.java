@@ -1,4 +1,4 @@
-package com.isabelgaleano.app.patronVisitante;
+package com.isabelgaleano.app.patronVisitante.abstracto;
 
 import com.isabelgaleano.app.patronFabrica.productoAbstracto.Personaje;
 
