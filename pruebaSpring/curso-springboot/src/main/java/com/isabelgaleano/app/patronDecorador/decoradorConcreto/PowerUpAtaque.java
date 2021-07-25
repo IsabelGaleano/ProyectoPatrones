@@ -8,5 +8,6 @@ public class PowerUpAtaque extends ObjetoDecorado {
     @Override
     public void actualizar() {
         this.personaje.getAtaque().setPuntos(this.personaje.getAtaque().getPuntos() + this.personaje.getPowerUp().getStatMod());
+        this.personaje.setEstadoDecorado(true);
     }
 }
