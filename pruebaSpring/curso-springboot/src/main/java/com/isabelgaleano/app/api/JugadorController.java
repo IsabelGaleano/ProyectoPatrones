@@ -1,13 +1,10 @@
-package com.isabelgaleano.app.proxy.api;
+package com.isabelgaleano.app.api;
 
-import com.isabelgaleano.app.entity.User;
-import com.isabelgaleano.app.proxy.implementacion.JugadorProxy;
 import com.isabelgaleano.app.service.JugadorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;

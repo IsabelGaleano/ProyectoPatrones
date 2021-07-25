@@ -1,4 +1,4 @@
-package com.isabelgaleano.app.proxy.api;
+package com.isabelgaleano.app.api;
 
 import javax.persistence.*;
 import java.io.Serializable;
