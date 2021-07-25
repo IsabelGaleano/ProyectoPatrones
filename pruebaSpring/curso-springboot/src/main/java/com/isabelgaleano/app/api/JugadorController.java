@@ -3,6 +3,8 @@ package com.isabelgaleano.app.api;
 import com.fasterxml.jackson.core.ObjectCodec;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.isabelgaleano.app.PatronPrototipo.iPrototipo.Casilla;
+import com.isabelgaleano.app.PatronPrototipo.prototipo.CasillaGema;
 import com.isabelgaleano.app.entity.User;
 import com.isabelgaleano.app.proxy.implementacion.JugadorProxy;
 import com.isabelgaleano.app.service.JugadorService;
@@ -59,16 +61,16 @@ public class JugadorController {
         return  ResponseEntity.status(HttpStatus.CREATED).body(jugadorService.save(jugador.get()));
     }
 
-    /*
-    //@RequestMapping("/jugador")
-    @RequestMapping(path = "/jugador/{turno}/{nombreUsuario}", method = RequestMethod.GET)
+
+    //@RequestMapping("/jugador-proxy")
+    @RequestMapping(path = "/jugador-proxy/{turno}/{nombreUsuario}", method = RequestMethod.GET)
     //public JugadorObject jugador(@RequestParam(value = "turno", defaultValue = "Talvez") int turno) {
     public JugadorObject jugador(@PathVariable int turno, @PathVariable String nombreUsuario) {
         JugadorProxy jP = new JugadorProxy();
         JugadorObject jO = new JugadorObject();
         jO.setTurno(jP.turnoJugador(turno));
         return jO;
-    }*/
+    }
 
 
     //Eliminar un jugador
@@ -92,6 +94,15 @@ public class JugadorController {
         return jugadores;
 
     }
+
+
+    //@RequestMapping(value = "/x", method=RequestMethod.POST,headers = "Accept=*/*",produces = "application/json", consumes="application/json")
+    //Prueba api con objetos
+    /*public User get2Product(@RequestBody User user) {
+        User usuario = user;
+        user.setName("Prueba");
+        return user;
+    }*/
 
     @RequestMapping("/hello")
     public String helloWorld() {
