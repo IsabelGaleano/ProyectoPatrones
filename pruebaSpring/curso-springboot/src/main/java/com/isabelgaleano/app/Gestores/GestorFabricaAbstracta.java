@@ -23,6 +23,8 @@ public class GestorFabricaAbstracta {
         agregarPersonaje(personaje);
     }
 
+
+
     private static void agregarPersonaje(Personaje personaje) {
         personajes.add(personaje);
     }
