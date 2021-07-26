@@ -5,12 +5,13 @@ import com.isabelgaleano.app.PatronCadena.Chain.concreto.ManejadorGema;
 import com.isabelgaleano.app.PatronCadena.Chain.concreto.ManejadorNormal;
 import com.isabelgaleano.app.PatronCadena.Chain.concreto.ManejadorPowerUp;
 import com.isabelgaleano.app.PatronPrototipo.iPrototipo.Casilla;
+import com.isabelgaleano.app.api.CastilloController;
 import com.isabelgaleano.app.patronFabrica.productoAbstracto.Personaje;
 
 import java.util.ArrayList;
 
 public class GestorCadena {
-   private  Manejador manejador;
+    private  Manejador manejador;
 
     private Manejador configurar(){
 

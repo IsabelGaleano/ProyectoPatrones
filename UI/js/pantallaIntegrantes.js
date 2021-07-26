@@ -33,6 +33,7 @@ const obtenerDatos = async() => {
     let aliasJugadores = document.getElementsByClassName('form__input');
     let valorAlias;
     let jugador;
+    let castillos;
     for (let i = 0; i < aliasJugadores.length; i++) {
         
         valorAlias = aliasJugadores[i].value;
@@ -42,8 +43,10 @@ const obtenerDatos = async() => {
         }
     }
 
-    
-    changeHTML();
+    await enviarCantidadCastillos(aliasJugadores.length);
+    castillos = await crearCastillos(aliasJugadores.length);
+    console.log(castillos);
+    //changeHTML();
 
 }
 
@@ -69,7 +72,6 @@ const validarAlias = async(alias) => {
         url: `http://localhost:8080/api/jugadores/${alias}`,
         responseType: 'json'
     }).then((response) => {
-
         return response.data.jugador;
     }).catch((response) =>{
         console.error;
@@ -77,9 +79,40 @@ const validarAlias = async(alias) => {
     
     });
 
-
-    
 }
+
+const crearCastillos = async(cantidad) => {
+    let castillos;
+    await axios({
+        method: 'get',
+        url: `http://localhost:8080/api/castillos/crear/${cantidad}`,
+        responseType: 'json'
+    }).then((response) => {
+        castillos = response.data;
+    }).catch((response) =>{
+        console.error;
+        return null;
+    
+    });
+
+    return castillos;
+
+}
+
+const enviarCantidadCastillos = async(castillos) => {
+    await axios({
+        method: 'get',
+        url: `http://localhost:8080/api/castillos/${castillos}`,
+        responseType: 'json'
+    }).then((response) => {
+        console.log(response.data)
+    }).catch((response) =>{
+        console.error;
+    
+    });
+
+}
+
 
 
 
@@ -96,7 +129,8 @@ const registrarJugador = async(alias) => {
             estado: 1,
             tropasCompradas: 0,
             tropasDerrotadas: 0,
-            oroGanado: 0
+            oroGanado: 0,
+            idCastillo: 0
             
         }
     }).then((response) => {
