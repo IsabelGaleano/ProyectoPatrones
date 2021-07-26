@@ -199,8 +199,10 @@ td {
 
 .tarjetasInfo{
   display:flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
   margin: 10px;
+  font-family: 'Press Start 2P', cursive;
 }
 
 #btn_music{     
