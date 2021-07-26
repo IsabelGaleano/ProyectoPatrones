@@ -1,4 +1,4 @@
-package com.isabelgaleano.app.PatronPrototipo.PrincipalCasilla;
+package com.isabelgaleano.app.Gestores;
 
 
 import com.isabelgaleano.app.PatronPrototipo.Contenido.Gemas.GemaAzul;
@@ -8,10 +8,12 @@ import com.isabelgaleano.app.PatronPrototipo.Contenido.PowerUps.MejoraAtaque;
 import com.isabelgaleano.app.PatronPrototipo.Contenido.PowerUps.MejoraDefensa;
 import com.isabelgaleano.app.PatronPrototipo.Contenido.PowerUps.TrampaAtaque;
 import com.isabelgaleano.app.PatronPrototipo.Contenido.PowerUps.TrampaDefensa;
+import com.isabelgaleano.app.PatronPrototipo.PrincipalCasilla.HelperCasilla;
 import com.isabelgaleano.app.PatronPrototipo.iPrototipo.Casilla;
 import com.isabelgaleano.app.PatronPrototipo.prototipo.CasillaGema;
 import com.isabelgaleano.app.PatronPrototipo.prototipo.CasillaNormal;
 import com.isabelgaleano.app.PatronPrototipo.prototipo.CasillaPowerUp;
+import com.isabelgaleano.app.Tablero.Tablero;
 
 
 import java.util.ArrayList;
@@ -25,14 +27,11 @@ public class GestorCasilla {
     private Casilla prototipoPowerUp;
     private Casilla prototipoNormal;
 
+
     public GestorCasilla(){
         prototipoGema = new CasillaGema(new GemaVerde());
         prototipoPowerUp = new CasillaPowerUp(new MejoraAtaque());
         prototipoNormal= new CasillaNormal();
-
-
-
-
 
     }
     public void rellenarArr(){
@@ -66,7 +65,7 @@ public class GestorCasilla {
     public void cambiarDatos(){
         int r;
         for(int i=0;i<arrGemas.size();i++){
-            r=HelperCasilla.random(2);
+            r= HelperCasilla.random(2);
             CasillaGema iter = arrGemas.get(i);
             if(r==0){
                 iter.setGema(new GemaAzul());
@@ -74,7 +73,6 @@ public class GestorCasilla {
             }else if(r==2){
                 iter.setGema(new GemaBlanca());
             }
-
 
         }
         for(int i=0;i<arrPowerUp.size();i++){
