@@ -34,17 +34,20 @@ const obtenerDatos = async() => {
     let valorAlias;
     let jugador;
     let castillos;
+    //await enviarCantidadCastillos(aliasJugadores.length);
+    castillos = await crearCastillos(aliasJugadores.length);
     for (let i = 0; i < aliasJugadores.length; i++) {
         
         valorAlias = aliasJugadores[i].value;
         jugador = await validarAlias(valorAlias);
         if(jugador == null) {
-            await registrarJugador(valorAlias);
+            await registrarJugador(valorAlias, castillos[i].id);
+        } else {
+            await actualizarIDCastillo(jugador, validarAlias, castillos[i].id);
         }
     }
 
-    await enviarCantidadCastillos(aliasJugadores.length);
-    castillos = await crearCastillos(aliasJugadores.length);
+    
     console.log(castillos);
     //changeHTML();
 
@@ -114,9 +117,7 @@ const enviarCantidadCastillos = async(castillos) => {
 }
 
 
-
-
-const registrarJugador = async(alias) => {
+const registrarJugador = async(alias, idCastillo) => {
     await axios({
         method: 'post',
         url: 'http://localhost:8080/api/jugadores',
@@ -124,14 +125,31 @@ const registrarJugador = async(alias) => {
         data: {
             alias: alias,
             turno: true,
+            id: idCastillo,
             partidasGanadas: 0,
             partidasPerdidas: 0,
             estado: 1,
             tropasCompradas: 0,
             tropasDerrotadas: 0,
             oroGanado: 0,
-            idCastillo: 0
+            idCastillo: idCastillo
             
+        }
+    }).then((response) => {
+        console.log(response.data)
+    }).catch((response) => {
+       console.log(console.error())
+    });
+};
+
+
+const actualizarIDCastillo = async(jugador, alias, idCastillo) => {
+    await axios({
+        method: 'put',
+        url: `http://localhost:8080/api/jugadores/updateIDCastillo/${alias}/${idCastillo}`,
+        responseType: 'json',
+        data: {
+            jugador: jugador
         }
     }).then((response) => {
         console.log(response.data)
