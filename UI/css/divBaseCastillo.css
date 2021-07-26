@@ -5,11 +5,22 @@
 }
 
 #Nickname{
-    
+    font-family: 'Press Start 2P', cursive;
+    color:aquamarine;
+    background-color: rgba(0, 0, 0, 0.75);
+    border-radius: 5%;
+    height: max-content;
+    width: max-content;
+    padding: 15px;
+    font-size: larger;
+    font-weight: bolder;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .castilloBase {
-    border: 3px solid rgb(25, 105, 25);
+    border: 3px solid aquamarine;
+    border-radius: 5px;
     background-color: rgba(0, 0, 0, 0.5);    
     display: flex;
     height: 50px;
