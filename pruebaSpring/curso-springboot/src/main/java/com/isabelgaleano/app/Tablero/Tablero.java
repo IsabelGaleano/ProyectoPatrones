@@ -10,6 +10,7 @@ public class Tablero {
 
     private ArrayList<Casilla> casillas;
     private ArrayList<Jugador> jugadores;
+    private ArrayList<Castillo> castillos;
     private Jugador jugadorActivo;
     private int turno;
 
@@ -47,5 +48,13 @@ public class Tablero {
 
     public void setTurno(int turno) {
         this.turno = turno;
+    }
+
+    public ArrayList<Castillo> getCastillos() {
+        return castillos;
+    }
+
+    public void setCastillos(ArrayList<Castillo> castillos) {
+        this.castillos = castillos;
     }
 }

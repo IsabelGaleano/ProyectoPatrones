@@ -13,15 +13,11 @@ import java.util.ArrayList;
 public class GestorCadena {
     private  Manejador manejador;
 
-    private CastilloController castilloController;
-
     private Manejador configurar(){
 
         Manejador manejadorGema= new ManejadorGema();
         Manejador manejadorNormal = new ManejadorNormal();
         Manejador manejadorPowerUp = new ManejadorPowerUp();
-
-        castilloController.getCantidadCastillos();
 
         manejadorPowerUp.setNextInChain(manejadorGema);
         manejadorGema.setNextInChain(manejadorNormal);

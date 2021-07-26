@@ -6,7 +6,7 @@ import com.isabelgaleano.app.patronFabrica.productoAbstracto.Personaje;
 import java.util.ArrayList;
 
 public class Castillo {
-    private String id;
+    private int id;
     private int vida;
     private int oro;
     ArrayList<Defensa> defensas;
@@ -15,7 +15,7 @@ public class Castillo {
     public Castillo() {
     }
 
-    public Castillo(String id, int vida, int oro, ArrayList<Defensa> defensas, ArrayList<Personaje> tropas) {
+    public Castillo(int id, int vida, int oro, ArrayList<Defensa> defensas, ArrayList<Personaje> tropas) {
         this.id = id;
         this.vida = vida;
         this.oro = oro;
@@ -23,11 +23,11 @@ public class Castillo {
         this.tropas = tropas;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
