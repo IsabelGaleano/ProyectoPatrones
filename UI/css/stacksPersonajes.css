@@ -1,10 +1,12 @@
 
 .cnt-Activos {
     background-color: rgba(0, 0, 0, 0.75);
+    border: 2px aquamarine solid;
     width: 100%;
     margin: 10px;
+    border-radius: 5%;
     color: white;
-    height: 70%;
+    height: 50%;
     margin-top: 25%;
     text-align: center;
     font-family: 'Press Start 2P';
@@ -17,7 +19,7 @@
     width: 100%;
     display: flex;
     align-items: center;
-    height: 25%;    
+    height: 45%;    
 
   }
   
@@ -52,6 +54,7 @@
   .btn-tienda {
     display: inline-block;
     background-image: url("../Imagenes/ui/button12.png");
+    font-size: 10px;
     width: 80px;
     height: 31px;
     color: beige;
