@@ -13,12 +13,14 @@ public class GestorTablero {
     }
 
     private static Tablero tablero;
-    private static GestorCasilla gestorCasilla;
+    private static GestorCasilla gestorCasilla = new GestorCasilla();
     private static ArrayList<Casilla> casillas;
+    private static GestorCastillo gestorCastillo = new GestorCastillo();
 
 
-    public static Tablero crearTablero(ArrayList<JugadorObject> jugadores, ArrayList<Castillo> castillos) {
+    public static Tablero crearTablero(ArrayList<JugadorObject> jugadores) {
         casillas = (ArrayList<Casilla>) gestorCasilla.generarCasillas();
+        ArrayList<Castillo> castillos = gestorCastillo.getCastillos(jugadores.size());
         tablero = new Tablero(casillas,jugadores,castillos,null,0);
         return tablero;
     }
@@ -44,6 +46,7 @@ public class GestorTablero {
     }
 
     public static void setTablero(Tablero tablero) {
+
         GestorTablero.tablero = tablero;
     }
 }

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class Tablero {
 
     private ArrayList<Casilla> casillas;
-    private ArrayList<Jugador> jugadores;
+    private ArrayList<JugadorObject> jugadores;
     private ArrayList<Castillo> castillos;
     private JugadorObject jugadorActivo;
     private int turno;
@@ -18,15 +18,13 @@ public class Tablero {
     public Tablero() {
     }
 
-    public Tablero(ArrayList<Casilla> casillas, ArrayList<Jugador> jugadores, ArrayList<Castillo> castillos, JugadorObject jugadorActivo, int turno) {
+
+    public Tablero(ArrayList<Casilla> casillas, ArrayList<JugadorObject> jugadores, ArrayList<Castillo> castillos, JugadorObject jugadorActivo, int turno) {
         this.casillas = casillas;
         this.jugadores = jugadores;
         this.castillos = castillos;
         this.jugadorActivo = jugadorActivo;
         this.turno = turno;
-    }
-
-    public Tablero(ArrayList<Casilla> casillas, ArrayList<JugadorObject> jugadores, ArrayList<Castillo> castillos, Object jugadorActivo, int turno) {
     }
 
     public ArrayList<Casilla> getCasillas() {
@@ -37,11 +35,11 @@ public class Tablero {
         this.casillas = casillas;
     }
 
-    public ArrayList<Jugador> getJugadores() {
+    public ArrayList<JugadorObject> getJugadores() {
         return jugadores;
     }
 
-    public void setJugadores(ArrayList<Jugador> jugadores) {
+    public void setJugadores(ArrayList<JugadorObject> jugadores) {
         this.jugadores = jugadores;
     }
 
