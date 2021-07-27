@@ -1,5 +1,6 @@
 /*CSS DEL TABLERO*/
 body {
+  font-family: 'Press Start 2P';
   background-repeat: no-repeat;
   background-size: cover;
   background-image: url('../Imagenes/Backgrounds/game_background_4.png');
@@ -9,6 +10,7 @@ body {
 .tablero {
     width: 700px;
     max-height: max-content;    
+    
     /*position: fixed;*/
     top: 50%;
     left: 50%;
@@ -19,11 +21,15 @@ body {
 
 /*--SECCION DEL DADO--*/
 .dado-container {
-  width: 300px;
+  width: 200px;
   height: 200px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.75);
+  border: 2px solid aquamarine;
+  border-radius: 5%;
   position: fixed;
-  bottom: 0px;
-  right: 5%;
+  bottom: 45px;
+  font-size: 13px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -40,8 +46,8 @@ body {
 
 #boton-dado {
   margin-top: 10px;
-  width: 60%;
-  height: 35%;
+  width: 80%;
+  height: 35%;  
   background-color: transparent;    
     color: beige;
     background-image: url("../Imagenes/ui/button12.png");
@@ -55,9 +61,11 @@ body {
 }
 
 .btn-compra-personaje{
+  
   margin-top: 10px;
-  width: 90%;
-  height: 75%;
+  width: 45px;
+  height: 20px;
+  font-size: 10px;
   background-color: transparent;    
     color: beige;
     background-image: url("../Imagenes/ui/button12.png");
@@ -67,7 +75,7 @@ body {
 }
 .btn-compra-personaje:hover{
   color: yellow;
-  font-size: larger;
+  
 }
 
 
@@ -92,12 +100,15 @@ td {
 
 /*--TIMER--*/
 .cnt-timer {
+  border: 2px solid aquamarine;
+  font-family: 'Press Start 2P';
     background-color: rgba(0, 0, 0, 0.75);
+    border-radius: 5%;
     width: 11%;
     height: 11%;
     position: fixed;
-    top: 5%;
-    right: 8.5%;
+    top: 10%;
+    right: 12.7%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -126,10 +137,13 @@ td {
 /*--SECCION DE PERSONAJES--*/
 .character-container {
     background-color: rgba(0, 0, 0, 0.75);
+    border: 2px solid aquamarine;
+  
+    border-radius: 5%;
     width: 22.5%;
     height: 25%;
     position: fixed;
-    bottom: 50%;
+    bottom: 52%;
     /*right: 3%;*/
     display: flex;
     flex-direction: column;
@@ -147,7 +161,7 @@ td {
 
 #titulo-tienda {
     color: white;
-    font-size: 18px;
+    font-size: 10px;
     margin-top: 10%;
     margin-bottom: 10%;
 }
@@ -170,11 +184,13 @@ td {
 
 .tienda-personajes-ocultos {
     display: none;
+    border: 2px solid aquamarine;  
     background-color: rgba(0, 0, 0, 0.75);
+    border-radius: 5%;
     width: 22.5%;
     height: 25%;
     position: fixed;
-    bottom: 25%;
+    bottom: 27%;
     /*right: 3%;*/
 }
 
@@ -199,8 +215,10 @@ td {
 
 .tarjetasInfo{
   display:flex;
-  flex-direction: row;
-  margin: 10px;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;  
+  font-family: 'Press Start 2P', cursive;
 }
 
 #btn_music{     
