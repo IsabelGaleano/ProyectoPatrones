@@ -13,14 +13,13 @@ import com.isabelgaleano.app.PatronPrototipo.iPrototipo.Casilla;
 import com.isabelgaleano.app.PatronPrototipo.prototipo.CasillaGema;
 import com.isabelgaleano.app.PatronPrototipo.prototipo.CasillaNormal;
 import com.isabelgaleano.app.PatronPrototipo.prototipo.CasillaPowerUp;
-import com.isabelgaleano.app.Tablero.Tablero;
 
 
 import java.util.ArrayList;
 import java.util.*;
 
 public class GestorCasilla {
-    private static ArrayList<Casilla> arrCasillas = new ArrayList<>();
+    private ArrayList<Casilla> arrCasillas = new ArrayList<Casilla>();;
     ArrayList<CasillaGema> arrGemas= new ArrayList<>();
     ArrayList<CasillaPowerUp> arrPowerUp= new ArrayList<>();
     private Casilla prototipoGema;
@@ -134,8 +133,6 @@ public class GestorCasilla {
     public List <Casilla> getCasillas(){
         return  arrCasillas;
     }
-
-
 
 
 }

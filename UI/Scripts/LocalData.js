@@ -17,3 +17,7 @@ var retrievedObject = localStorage.getItem('jugador');
 function obtenerDatosUsuario(id) {
   return JSON.parse(localStorage.getItem(id));
 }
+
+const obtenerTablero = () => {
+  let tablero = JSON.parse(sessionStorage.getItem('tablero'));
+}
