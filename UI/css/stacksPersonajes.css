@@ -35,7 +35,7 @@
   
   .cnt-Personaje .iconP {
     width: 50%;
-    background-image: url("../Imagenes/Characters/archerIdle.gif");
+    background-image: url("../Imagenes/Characters/SkellieIdle.gif");
     /* The image used */
     background-color: rgba(0, 0, 0, 0.75);
     /* Used if the image is unavailable */
