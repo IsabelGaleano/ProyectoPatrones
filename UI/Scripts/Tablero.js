@@ -179,31 +179,31 @@ function cargarPersonaje(tipo) {
     switch (tipo) {
         case 1:
             //Arquero
-            urlImagenPersonaje = 'url(../Imagenes/Characters/archerIdle.gif)';
+            urlImagenPersonaje = 'url(../Imagenes/Characters/ArcherIdleRight.gif)';
             break;
         case 2:
             //Espadachín
-            urlImagenPersonaje = 'url(../Imagenes/Characters/swordsmanIdle.gif)';
+            urlImagenPersonaje = 'url(../Imagenes/Characters/SwordsmanIdleRight.gif)';
             break;
         case 3:
             //Bersequer
-            urlImagenPersonaje = 'url(../Imagenes/Characters/berserkIdle.gif)';
+            urlImagenPersonaje = 'url(../Imagenes/Characters/BerserkIdleRight.gif)';
             break;
         case 4:
             //Mago
-            urlImagenPersonaje = 'url(../Imagenes/Characters/mageIdle.gif)';
+            urlImagenPersonaje = 'url(../Imagenes/Characters/MageIdleRight.gif)';
             break;
         case 5:
             //Asesino
-            urlImagenPersonaje = 'url(../Imagenes/Characters/assasinIdle.gif)';
+            urlImagenPersonaje = 'url(../Imagenes/Characters/AssasinIdleRight.gif)';
             break;
         case 6:
             //Jinete
-            urlImagenPersonaje = 'url(../Imagenes/Characters/knightIdle.gif)';
+            urlImagenPersonaje = 'url(../Imagenes/Characters/KnightIdleRight.gif)';
             break;
         case 7:
             //Espía
-            urlImagenPersonaje = 'url(../Imagenes/Characters/spyIdle.gif)';
+            urlImagenPersonaje = 'url(../Imagenes/Characters/SpyIdleRight.gif)';
             break;
     }
 

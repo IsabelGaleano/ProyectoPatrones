@@ -13,7 +13,7 @@ document.querySelector('#agregar').addEventListener('click', e => {
     if (elements.length == 4) {
         plus.parentNode.removeChild(plus);
     }
-    
+
 });
 
 const eliminar = () => {
@@ -29,27 +29,57 @@ const eliminar = () => {
     }
 }
 
-const obtenerDatos = async() => {
+const obtenerDatos = async () => {
     let aliasJugadores = document.getElementsByClassName('form__input');
     let valorAlias;
     let jugador;
+    let castillos;
+    let arrayAlias = [];
+    let arrayJugadores = [];
+    let tablero;
+    //await enviarCantidadCastillos(aliasJugadores.length);
+    castillos = await crearCastillos(aliasJugadores.length);
     for (let i = 0; i < aliasJugadores.length; i++) {
-        
+
         valorAlias = aliasJugadores[i].value;
+        arrayAlias.push(valorAlias);
         jugador = await validarAlias(valorAlias);
-        if(jugador == null) {
-            await registrarJugador(valorAlias);
+        
+        if (jugador == null) {
+            await registrarJugador(valorAlias, castillos[i].id);
+        } else {
+            await actualizarIDCastillo(jugador, valorAlias, castillos[i].id);
         }
     }
 
-    
-    changeHTML();
+    arrayJugadores = await obtenerJugadores(arrayAlias);
 
+    tablero =  await crearTablero(arrayJugadores.join());
+
+    await sesionLocal(tablero);
+
+    //changeHTML();
+
+}
+
+const obtenerJugadores = async (arrayAlias) => {
+    let arrayJugadores = [];
+    let jugador = null;
+    for (let i = 0; i < arrayAlias.length; i++) {
+        jugador = (await validarAlias(arrayAlias[i])).alias;
+        arrayJugadores.push(jugador);
+    }
+
+    return arrayJugadores;
 }
 
 
 const changeHTML = () => {
     window.location.href = "../html/Tablero.html";
+}
+
+const sesionLocal = (tablero) => {
+    sessionStorage.setItem('tablero', JSON.stringify(tablero));
 }
 
 const aliasError = (posicion) => {
@@ -63,27 +93,80 @@ const aliasError = (posicion) => {
 }
 
 
-const validarAlias = async(alias) => {
+const validarAlias = async (alias) => {
+    let foo;
     await axios({
         method: 'get',
         url: `http://localhost:8080/api/jugadores/${alias}`,
         responseType: 'json'
     }).then((response) => {
-
-        return response.data.jugador;
-    }).catch((response) =>{
+        foo = response.data;
+    }).catch((response) => {
         console.error;
         return null;
-    
+
+    });
+    return foo;
+}
+
+const crearCastillos = async (cantidad) => {
+    let castillos;
+    await axios({
+        method: 'get',
+        url: `http://localhost:8080/api/castillos/crear/${cantidad}`,
+        responseType: 'json'
+    }).then((response) => {
+        castillos = response.data;
+    }).catch((response) => {
+        console.error;
+        return null;
+
     });
 
+    return castillos;
 
-    
+}
+
+const enviarCantidadCastillos = async (castillos) => {
+    await axios({
+        method: 'get',
+        url: `http://localhost:8080/api/castillos/${castillos}`,
+        responseType: 'json'
+    }).then((response) => {
+        console.log(response.data)
+    }).catch((response) => {
+        console.error;
+
+    });
+
 }
 
 
+const crearTablero = async (jugadores) => {
+    let tablero;
+    await axios({
+        method: 'post',
+        url: `http://localhost:8080/api/tablero/crearTablero`,
+        responseType: 'json',
+        data: {
+            jugadores: jugadores
+        }
+    }).then((response) => {
+        tablero = response.data
+    }).catch((response) => {
+        console.error;
+        return null;
 
-const registrarJugador = async(alias) => {
+    });
+
+    console.log(tablero);
+
+    return tablero;
+
+}
+
+
+const registrarJugador = async (alias, idCastillo) => {
     await axios({
         method: 'post',
         url: 'http://localhost:8080/api/jugadores',
@@ -91,18 +174,36 @@ const registrarJugador = async(alias) => {
         data: {
             alias: alias,
             turno: true,
+            id: idCastillo,
             partidasGanadas: 0,
             partidasPerdidas: 0,
             estado: 1,
             tropasCompradas: 0,
             tropasDerrotadas: 0,
-            oroGanado: 0
-            
+            oroGanado: 0,
+            idCastillo: idCastillo
+
         }
     }).then((response) => {
         console.log(response.data)
     }).catch((response) => {
-       console.log(console.error())
+        console.log(console.error())
+    });
+};
+
+
+const actualizarIDCastillo = async (jugador, alias, idCastillo) => {
+    await axios({
+        method: 'put',
+        url: `http://localhost:8080/api/jugadores/updateIDCastillo/${alias}/${idCastillo}`,
+        responseType: 'json',
+        data: {
+            jugador: jugador
+        }
+    }).then((response) => {
+        console.log(response.data)
+    }).catch((response) => {
+        console.log(console.error())
     });
 };
 

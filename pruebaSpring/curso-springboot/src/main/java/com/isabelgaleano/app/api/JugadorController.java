@@ -65,8 +65,29 @@ public class JugadorController {
         return  ResponseEntity.status(HttpStatus.CREATED).body(jugadorService.save(jugador.get()));
     }
 
+    @PutMapping("updateIDCastillo/{alias}/{idCastillo}")
+    public ResponseEntity<?> updateIDCastillo(@RequestBody JugadorObject jugadorDetails, @PathVariable(value = "alias")String alias , @PathVariable(value = "idCastillo") int idCastillo) {
+        Optional<JugadorObject> jugador = jugadorService.findByAlias(alias);
+        jugadorDetails.setIdCastillo(idCastillo);
+        if (!jugador.isPresent()) {
+            return ResponseEntity.notFound().build();
+        }
 
+        jugador.get().setIdCastillo(jugadorDetails.getIdCastillo());
 
+        return  ResponseEntity.status(HttpStatus.CREATED).body(jugadorService.save(jugador.get()));
+    }
+
+    /*
+    //@RequestMapping("/jugador")
+    @RequestMapping(path = "/jugador/{turno}/{nombreUsuario}", method = RequestMethod.GET)
+    //public JugadorObject jugador(@RequestParam(value = "turno", defaultValue = "Talvez") int turno) {
+    public JugadorObject jugador(@PathVariable int turno, @PathVariable String nombreUsuario) {
+        JugadorProxy jP = new JugadorProxy();
+        JugadorObject jO = new JugadorObject();
+        jO.setTurno(jP.turnoJugador(turno));
+        return jO;
+    }*/
 
 
     //Eliminar un jugador
