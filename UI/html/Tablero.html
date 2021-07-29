@@ -10,6 +10,7 @@
 
     <!--LIBRARIES-->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/882c5275a4.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -551,7 +552,9 @@
 
             <div class="cnt-timer">
                 <h1>Tiempo</h1>
-                <p id="timer">x</p>
+                <p id="timer">00:45</p>
+                <br>
+                <h1 id="turno-jugador"></h1>
             </div>
 
             <div class=" character-container ">
@@ -599,33 +602,40 @@
                 <div class="col-personajes 1">
                     <div class="espacio-personaje">
                         <img src="../Imagenes/Characters/archerIdle.gif" alt="Arquero" id="img-arquero" class="img-character">
+                        <p class="titulo-personajes">Arquero</p>
                         <button class="btn-compra-personaje" id="compra-arquero">10</button>
                     </div>
                     <div class="espacio-personaje">
                         <img src="../Imagenes/Characters/assasinIdle.gif" alt="Asesino" id="img-asesino" class="img-character">
+                        <p class="titulo-personajes">Asesino</p>
                         <button class="btn-compra-personaje" id="compra-asesino">5</button>
                     </div>
                     <div class="espacio-personaje">
                         <img src="../Imagenes/Characters/berserkIdle.gif" alt="Bersequer" id="img-bersequer" class="img-character">
+                        <p class="titulo-personajes">Bersequer</p>
                         <button class="btn-compra-personaje" id="compra-bersequer">25</button>
                     </div>
                     <div class="espacio-personaje">
                         <img src="../Imagenes/Characters/knightIdle.gif" alt="Jinete" id="img-jinete" class="img-character">
+                        <p class="titulo-personajes">Jinete</p>
                         <button class="btn-compra-personaje" id="compra-jinete">15</button>
                     </div>
                 </div>
                 <div class="col-personajes 2">
                     <div class="espacio-personaje">
-                        <img src="../Imagenes/Characters/spyIdle.gif" alt="Espia" id="img-espia" class="img-character">
+                        <img src="../Imagenes/Characters/spyIdle.gif" alt="Espia" id="img-espia" class="img-character" style="width:45px;height:60px;" />
+                        <p class="titulo-personajes">Espía</p>
                         <button class="btn-compra-personaje" id="compra-espia">5</button>
                     </div>
                     <div class="espacio-personaje">
                         <img src="../Imagenes/Characters/swordsmanIdle.gif" alt="Espadachin" id="img-espadachin" class="img-character">
+                        <p class="titulo-personajes">Espadachin</p>
                         <button class="btn-compra-personaje" id="compra-espadachin">15</button>
                     </div>
 
                     <div class="espacio-personaje">
                         <img src="../Imagenes/Characters/mageIdle.gif" alt="Mago" id="img-mago" class="img-character">
+                        <p class="titulo-personajes">Mago</p>
                         <button class="btn-compra-personaje" id="compra-mago">10</button>
                     </div>
 

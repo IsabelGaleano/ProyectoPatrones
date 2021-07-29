@@ -7,48 +7,171 @@ let imagenDado = document.getElementById("imagen-dado");
 let botonDado = document.getElementById("boton-dado");
 let btn_ver_personajes = document.getElementById("btn-ver-personajes")
 let celdaActual;
+let turnoJugador = document.getElementById("turno-jugador");
 
-const audio =  new Audio('../Sounds/music_funkyWhistle.wav');  
+const audio = new Audio('../Sounds/music_funkyWhistle.wav');
 const icon = document.querySelector("#btn_music > i");
 const btn_music = document.querySelector("#btn_music");
-audio.volume = 0.2;
+audio.volume = 0.1;
 audio.loop = true;
-audio.play();
-    
+//audio.play();
+
+
+//PERMITE GUARDAR ARRAYS Y OBJETOS EN LOCALSTORAGE
+Storage.prototype.setObj = function(key, obj) {
+
+    return this.setItem(key, JSON.stringify(obj))
+}
+Storage.prototype.getObj = function(key) {
+    return JSON.parse(this.getItem(key))
+}
 
 btn_music.addEventListener("click", () => {
     if (audio.paused) {
-      audio.volume = 0.2;
-      audio.loop = true;
-      audio.play();
-      btn_music.classList.add('fa-volume-up');
-      btn_music.classList.remove('fa-volume-mute');
-      
-      
-      
+        audio.volume = 0.2;
+        audio.loop = true;
+        audio.play();
+        btn_music.classList.add('fa-volume-up');
+        btn_music.classList.remove('fa-volume-mute');
+
+
+
     } else {
-      audio.pause();
-      btn_music.classList.add('fa-volume-mute');
-      btn_music.classList.remove('fa-volume-up');
-      
-    }    
-    
-  });
+        audio.pause();
+        btn_music.classList.add('fa-volume-mute');
+        btn_music.classList.remove('fa-volume-up');
+
+    }
+
+});
 
 
 $(document).ready(function() {
     cargarTablero(mas2Jugadores);
     imagenDado.style.backgroundImage = 'url(../Imagenes/CarasDado/Cara1.png)';
+    partida();
     //juego();
 });
 
 btn_ver_personajes.addEventListener('click', function() {
-    document.getElementById("personajes-tienda").style.display = 'block';
+    document.getElementById("personajes-tienda").style.display = 'inline-block';
 });
 
 botonDado.addEventListener('click', function() {
     dado();
 });
+
+//---MANEJO DEL JUEGO---
+
+let partida = async() => {
+    //Esta variable determina si la partida se acabó
+    let estadoPartida = false;
+    //Jugador ganador de la partida
+    let ganadorPartida;
+
+    //let jugadores = localStorage.getObj("jugadores");
+    let jugadores = await obtener_jugadores();
+    console.log(jugadores);
+    let posicionJugadorActual = 1;
+    let jugadorActual;
+    //SI NO HAY NINGÚN JUGADOR, SE CONTINUA EL CICLO
+    while (estadoPartida == false) {
+
+        if (posicionJugadorActual == jugadores.length + 1) {
+            posicionJugadorActual = 1;
+        }
+        for (let i = 1; i <= jugadores.length; i++) {
+            let verif;
+            console.log(jugadores[i]);
+            if (i == posicionJugadorActual) {
+                verif = await verificar_jugador(jugadores[i].alias, 1);
+                console.log(verif);
+            }
+            //PROXY
+            if (verif == true) {
+                jugadorActual = jugadores[i];
+            }
+        }
+        console.log(jugadorActual);
+        turnoJugador.textContent = "Turno de: " + jugadorActual.alias;
+        startTimer(45, document.getElementById("timer"));
+
+        posicionJugadorActual++;
+    }
+}
+
+
+//PROXY REQUEST
+const verificar_jugador = async(nombre, turno) => {
+    let jugador;
+    let direccion = 'http://localhost:8080/api/jugadores/jugador-proxy/' + turno + '/' + nombre;
+    await axios({
+            method: 'get',
+            url: direccion,
+            responseType: 'json',
+            withCredentials: false,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+            }
+        })
+        .then((response) => {
+            jugador = response.data;
+            console.log(jugador);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+    return jugador;
+};
+
+const obtener_jugadores = async() => {
+    let jugadores;
+    let direccion = 'http://localhost:8080/api/jugadores';
+    await axios({
+            method: 'get',
+            headers: {
+                'Access-Control-Allow-Origin': '*'
+            },
+            url: direccion,
+            responseType: 'json'
+
+        })
+        .then((response) => {
+            jugadores = response.data;
+
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+    return jugadores;
+};
+
+
+//TIEMPO DE LA PARTIDA
+function startTimer(duration, display) {
+    var timer = duration,
+        minutes, seconds;
+    setInterval(function() {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            timer = duration;
+        }
+    }, 1000);
+}
+
+window.onload = function() {
+    //startTimer(45, document.getElementById("timer"));
+};
+
+//---FIN MANEJO DEL JUEGO---
 
 //CARGA DIFERENTES PERSONAJES
 function cargarPersonaje(tipo) {
@@ -113,10 +236,10 @@ function dado() {
     imagenDado.style.backgroundImage = urlDado;
 }
 
-function playSound(){
+function playSound() {
     var clicksound = new Audio('../Sounds/footLand.wav');
     clicksound.play();
-    clicksound.loop = false;    
+    clicksound.loop = false;
 }
 
 //CARGAR EL TABLERO DINÁMICAMENTE
@@ -138,7 +261,7 @@ function cargarTablero(mas2Jugadores) {
             celda.id = "c" + c;
             if (c == 10) {
                 celda.style.backgroundSize = "70px 70px";
-                celda.style.backgroundImage = 'url(../Imagenes/Castillo1.png)';                
+                celda.style.backgroundImage = 'url(../Imagenes/Castillo1.png)';
             } else if (c == 91) {
                 celda.style.backgroundSize = "70px 70px";
                 celda.style.backgroundImage = 'url(../Imagenes/Castillo2.png)';
@@ -152,7 +275,7 @@ function cargarTablero(mas2Jugadores) {
                     }
                     let randomCharacter = Math.floor(Math.random() * 7) + 1;
                     console.log(randomCharacter);
-                    console.log(celda.style.backgroundImage =  cargarPersonaje(randomCharacter) );
+                    celda.style.backgroundImage = cargarPersonaje(randomCharacter);
                     celdaActual = celda.id;
                     playSound();
                 }
@@ -201,7 +324,7 @@ function cargarTablero(mas2Jugadores) {
                 celda.style.backgroundImage = 'url(../Imagenes/PowerUps/redGemGif.gif)';
                 break;
         }
-        
+
     }
 
     //ALEATORIZAR LAS TEXTURAS DE LAS CASILLAS CON POWER UPS
@@ -219,7 +342,7 @@ function cargarTablero(mas2Jugadores) {
 
     }
 
-    
+
 
     //POWER UPS
     /* POWER UP 1 ES MEJORA ATAQUE
@@ -229,7 +352,7 @@ function cargarTablero(mas2Jugadores) {
     */
 
     for (let p = 0; p < 14; p++) {
-        let nombre = "#c" + powerUpsArray[p].cellNumber;        
+        let nombre = "#c" + powerUpsArray[p].cellNumber;
         let celda = document.getElementById("c" + powerUpsArray[p].cellNumber);
         celda.className = "power-up" + powerUpsArray[p].powerUp;
         /*celda.innerHTML = "power-up " + tipoPowerUp(powerUpsArray[p].powerUp);*/

@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -23,6 +25,8 @@ import java.util.stream.StreamSupport;
 public class JugadorController {
     @Autowired
     private JugadorService jugadorService;
+
+
 
     @PostMapping
     @CrossOrigin
@@ -62,15 +66,7 @@ public class JugadorController {
     }
 
 
-    //@RequestMapping("/jugador-proxy")
-    @RequestMapping(path = "/jugador-proxy/{turno}/{nombreUsuario}", method = RequestMethod.GET)
-    //public JugadorObject jugador(@RequestParam(value = "turno", defaultValue = "Talvez") int turno) {
-    public JugadorObject jugador(@PathVariable int turno, @PathVariable String nombreUsuario) {
-        JugadorProxy jP = new JugadorProxy();
-        JugadorObject jO = new JugadorObject();
-        jO.setTurno(jP.turnoJugador(turno));
-        return jO;
-    }
+
 
 
     //Eliminar un jugador
@@ -85,6 +81,7 @@ public class JugadorController {
     }
 
     //Leer todos los jugadores
+    @CrossOrigin(origins = "*")
     @GetMapping
     public List<JugadorObject> readAll() {
         List<JugadorObject> jugadores = StreamSupport
