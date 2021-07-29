@@ -176,11 +176,6 @@ td {
     margin-bottom: 10%;
 }
 
-.titulo-personajes {
-    color: white;
-    font-size: 14px;
-}
-
 #title-characters {
     color: white;
     font-size: 26px;
@@ -212,7 +207,7 @@ td {
 .col-personajes {
     display: flex;
     justify-content: space-evenly;
-    padding: 0 0 1% 0;
+    padding: 0 0 10% 0;
 }
 
 .espacio-personaje {
