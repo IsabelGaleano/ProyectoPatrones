@@ -7,13 +7,8 @@ import java.util.ArrayList;
 
 public class GestorCastillo {
 
-    private static ArrayList<Castillo> castillos;
-
-    public GestorCastillo() {
-        this.castillos = new ArrayList<Castillo>();
-    }
-
-    public static ArrayList<Castillo> getCastillos(int cantidadCastillos) {
+    public  ArrayList<Castillo> getCastillos(int cantidadCastillos) {
+        ArrayList<Castillo> castillos = new ArrayList<Castillo>();
 
         for (int i = 1; i <= cantidadCastillos; i++) {
             Castillo castillo = new Castillo(i, 30, 20,null, null);

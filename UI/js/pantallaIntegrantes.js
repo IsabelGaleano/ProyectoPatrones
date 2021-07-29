@@ -36,6 +36,7 @@ const obtenerDatos = async () => {
     let castillos;
     let arrayAlias = [];
     let arrayJugadores = [];
+    let tablero;
     //await enviarCantidadCastillos(aliasJugadores.length);
     castillos = await crearCastillos(aliasJugadores.length);
     for (let i = 0; i < aliasJugadores.length; i++) {
@@ -53,7 +54,9 @@ const obtenerDatos = async () => {
 
     arrayJugadores = await obtenerJugadores(arrayAlias);
 
-    await crearTablero(arrayJugadores.join());
+    tablero =  await crearTablero(arrayJugadores.join());
+
+    await sesionLocal(tablero);
 
     //changeHTML();
 
@@ -73,6 +76,10 @@ const obtenerJugadores = async (arrayAlias) => {
 
 const changeHTML = () => {
     window.location.href = "../html/Tablero.html";
+}
+
+const sesionLocal = (tablero) => {
+    sessionStorage.setItem('tablero', JSON.stringify(tablero));
 }
 
 const aliasError = (posicion) => {
@@ -136,6 +143,7 @@ const enviarCantidadCastillos = async (castillos) => {
 
 
 const crearTablero = async (jugadores) => {
+    let tablero;
     await axios({
         method: 'post',
         url: `http://localhost:8080/api/tablero/crearTablero`,
@@ -144,11 +152,16 @@ const crearTablero = async (jugadores) => {
             jugadores: jugadores
         }
     }).then((response) => {
-        console.log(response.data)
+        tablero = response.data
     }).catch((response) => {
         console.error;
+        return null;
 
     });
+
+    console.log(tablero);
+
+    return tablero;
 
 }
 
