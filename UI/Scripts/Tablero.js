@@ -305,15 +305,15 @@ const setCasillas = () => {
                 if (casillas[i].tipo == "CasillaGema") {
                     switch (casillas[i].data) {
                         case "GemaVerde":
-                            celdas[casillas[i].id].style.backgroundImage = 'url(../Imagenes/PowerUps/greenGemGif.gif)';
+                            celdas[casillas[j].id].style.backgroundImage = 'url(../Imagenes/PowerUps/greenGemGif.gif)';
                             break;
     
                         case "GemaAzul":
-                            celdas[casillas[i].id].style.backgroundImage = 'url(../Imagenes/PowerUps/BlueGif.gif)';
+                            celdas[casillas[j].id].style.backgroundImage = 'url(../Imagenes/PowerUps/BlueGif.gif)';
                             break;
     
                         case "GemaAzul":
-                            celdas[casillas[i].id].style.backgroundImage = 'url(../Imagenes/PowerUps/redGemGif.gif)';
+                            celdas[casillas[j].id].style.backgroundImage = 'url(../Imagenes/PowerUps/redGemGif.gif)';
                             break;
                         default:
                             break;
@@ -322,18 +322,18 @@ const setCasillas = () => {
                  {
                     switch (casillas[i].data) {
                         case "MejoraAtaque":
-                            celdas[casillas[i].id].style.backgroundImage = 'url(../Imagenes/PowerUps/PowUpGif.gif)';
+                            celdas[casillas[j].id].style.backgroundImage = 'url(../Imagenes/PowerUps/PowUpGif.gif)';
                             break;
                         case "MejoraDefensa":
-                            celdas[casillas[i].id].style.backgroundImage = 'url(../Imagenes/PowerUps/DefUpGif.gif)';
+                            celdas[casillas[j].id].style.backgroundImage = 'url(../Imagenes/PowerUps/DefUpGif.gif)';
                             break;
     
                         case "TrampaAtaque":
-                            celdas[i].style.backgroundImage = 'url(../Imagenes/PowerUps/PowDwnGif.gif)';
+                            celdas[casillas[j].id].style.backgroundImage = 'url(../Imagenes/PowerUps/PowDwnGif.gif)';
                             break;
     
                         case "TrampaDefensa":
-                            celdas[casillas[i].id].style.backgroundImage = 'url(../Imagenes/PowerUps/DefDwnGif.gif)';
+                            celdas[casillas[j].id].style.backgroundImage = 'url(../Imagenes/PowerUps/DefDwnGif.gif)';
                             break;
                         default:
                             break;
