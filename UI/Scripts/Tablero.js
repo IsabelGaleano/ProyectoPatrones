@@ -237,7 +237,7 @@ function cargarTablero(mas2Jugadores) {
 
     //ALEATORIZAR LAS TEXTURAS DE LAS CASILLAS CON POWER UPS
     //NUMEROS ALEATORIOS PARA POWER UPS
-    for (let p = 15; p < 29;) {
+  /*  for (let p = 15; p < 29;) {
         let randomowerUp = Math.floor(Math.random() * 4) + 1;
         let randomNumberCell = Math.floor(Math.random() * 100) + 1;
 
@@ -248,7 +248,7 @@ function cargarTablero(mas2Jugadores) {
             p++;
         }
 
-    }
+    }*/
 
     
 
@@ -309,7 +309,7 @@ const setCasillas = () => {
                             celdas[casillas[j].id].style.backgroundImage = 'url(../Imagenes/PowerUps/BlueGif.gif)';
                             break;
     
-                        case "GemaAzul":
+                        case "GemaBlanca":
                             celdas[casillas[j].id].style.backgroundImage = 'url(../Imagenes/PowerUps/redGemGif.gif)';
                             break;
                         default:
