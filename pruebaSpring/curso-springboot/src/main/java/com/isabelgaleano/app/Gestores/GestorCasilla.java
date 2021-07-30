@@ -19,9 +19,10 @@ import java.util.ArrayList;
 import java.util.*;
 
 public class GestorCasilla {
-    private ArrayList<Casilla> arrCasillas = new ArrayList<Casilla>();;
+    private ArrayList<Casilla> arrCasillas = new ArrayList<Casilla>();
     ArrayList<CasillaGema> arrGemas= new ArrayList<>();
     ArrayList<CasillaPowerUp> arrPowerUp= new ArrayList<>();
+    int arregloIDs[] = new int[100];
     private Casilla prototipoGema;
     private Casilla prototipoPowerUp;
     private Casilla prototipoNormal;
@@ -93,6 +94,7 @@ public class GestorCasilla {
         }
 
 
+
     }
     /**Método Encargado de Unir las 3 listas en una sola: arrCasillas**/
     public void unir(){
@@ -122,10 +124,29 @@ public class GestorCasilla {
         Collections.shuffle(arrCasillas);
 
     }
-    public List <Casilla> generarCasillas(){
+
+    public void rellenarID() {
+        int i = 0;
+        llenarArregloID();
+        for (Casilla casilla: arrCasillas) {
+            casilla.setId(arregloIDs[i]);
+            i++;
+        }
+    }
+
+    public void llenarArregloID() {
+        for (int i = 0; i < arregloIDs.length; i++) {
+            arregloIDs[i] = i + 1;
+        }
+
+        Collections.shuffle(Collections.singletonList(arregloIDs));
+    }
+    public List <Casilla> generarCasillas(int cantidadCastillos){
+        arrCasillas.clear();
         rellenarArr();
         cambiarDatos();
         unir();
+        rellenarID();
         shuffle();
 
         return  arrCasillas;
