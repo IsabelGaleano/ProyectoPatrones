@@ -196,7 +196,7 @@ function cargarTablero(mas2Jugadores) {
 
 
     //CELDAS ALEATORIAS CON GEMAS
-    let celdasEspecialesArray = [];
+    /*let celdasEspecialesArray = [];
     let gemasArray = [];
     let powerUpsArray = [];
  
@@ -212,7 +212,7 @@ function cargarTablero(mas2Jugadores) {
         let random = { gema: randomGema, cellNumber: randomNumberCell };
         celdasEspecialesArray.push(randomNumberCell);
         gemasArray.push(random);
-    }
+    }*/
 
 
     /*for (let g = 0; g < 15; g++) {
@@ -295,15 +295,12 @@ function cargarTablero(mas2Jugadores) {
 const setCasillas = () => {
     let celdas = document.getElementsByTagName('td');
     let casillas = obtenerCasillas();
-
-    for (let i = 0; i < casillas.length; i++) {
-        for (let j = 0; j < celdas.length; j++) {
-            console.log(casillas[i].id);
-            console.log((celdas[j].id.split('C')[1]));
-            if(casillas[i].id == parseInt(celdas[j].id.split('c')[1])) 
-            {
-                if (casillas[i].tipo == "CasillaGema") {
-                    switch (casillas[i].data) {
+    console.log(celdas);
+    for (let i = 0; i < celdas.length; i++) {
+        for (let j = 0; j < casillas.length; j++) {
+        
+                if (casillas[j].tipo == "CasillaGema") {
+                    switch (casillas[j].data) {
                         case "GemaVerde":
                             celdas[casillas[j].id].style.backgroundImage = 'url(../Imagenes/PowerUps/greenGemGif.gif)';
                             break;
@@ -318,9 +315,9 @@ const setCasillas = () => {
                         default:
                             break;
                     }
-                } else if(casillas[i].tipo == "CasillaPowerUp")
+                } else if(casillas[j].tipo == "CasillaPowerUp")
                  {
-                    switch (casillas[i].data) {
+                    switch (casillas[j].data) {
                         case "MejoraAtaque":
                             celdas[casillas[j].id].style.backgroundImage = 'url(../Imagenes/PowerUps/PowUpGif.gif)';
                             break;
@@ -338,13 +335,13 @@ const setCasillas = () => {
                         default:
                             break;
                     }
-                } else if(casillas[i].tipo == "CasillaNormal") {
-                    celdas[i].style.backgroundImage += ',url(../Imagenes/green_texture.png)';
+                } else if(casillas[j].tipo == "CasillaNormal") {
+                    celdas[j].style.backgroundImage += ',url(../Imagenes/green_texture.png)';
     
                 }
             }
     
-        }
+        
         
     }
 }

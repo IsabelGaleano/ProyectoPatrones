@@ -146,8 +146,9 @@ public class GestorCasilla {
         rellenarArr();
         cambiarDatos();
         unir();
-        rellenarID();
         shuffle();
+        rellenarID();
+
 
         return  arrCasillas;
     }
