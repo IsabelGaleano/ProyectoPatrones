@@ -178,8 +178,8 @@ function cargarTablero(mas2Jugadores) {
                         document.getElementById(celdaActual).style.backgroundImage = '';
                     }
                     let randomCharacter = Math.floor(Math.random() * 7) + 1;
-                    console.log(randomCharacter);
-                    console.log(celda.style.backgroundImage =  cargarPersonaje(randomCharacter) );
+                    //console.log(randomCharacter);
+                    celda.style.backgroundImage =  cargarPersonaje(randomCharacter) ;
                     celdaActual = celda.id;
                     playSound();
                 }
@@ -229,7 +229,7 @@ function cargarTablero(mas2Jugadores) {
                 celda.style.backgroundImage = 'url(../Imagenes/PowerUps/BlueGif.gif)';
                 break;
             case 3:
-                celda.style.backgroundImage = 'url(../Imagenes/PowerUps/redGemGif.gif)';
+                celda.style.backgroundImage = 'url(../Imagenes/PowerUps/whiteGemGif.gif)';
                 break;
         }
         
