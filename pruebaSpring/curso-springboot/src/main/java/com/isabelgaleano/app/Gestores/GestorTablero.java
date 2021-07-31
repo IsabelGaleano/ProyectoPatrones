@@ -19,7 +19,8 @@ public class GestorTablero {
 
 
     public static Tablero crearTablero(ArrayList<JugadorObject> jugadores) {
-        casillas = (ArrayList<Casilla>) gestorCasilla.generarCasillas();
+        casillas = (ArrayList<Casilla>) gestorCasilla.generarCasillas(jugadores.size());
+
         ArrayList<Castillo> castillos = gestorCastillo.getCastillos(jugadores.size());
         tablero = new Tablero(casillas,jugadores,castillos,null,0);
         return tablero;

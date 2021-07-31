@@ -58,6 +58,9 @@ const obtenerDatos = async () => {
 
     await sesionLocal(tablero);
 
+    let obj = JSON.parse(sessionStorage.getItem('tablero'));
+    console.log(obj);
+
     changeHTML();
 
 }

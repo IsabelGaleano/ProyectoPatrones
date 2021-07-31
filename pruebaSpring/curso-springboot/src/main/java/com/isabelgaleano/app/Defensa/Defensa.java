@@ -6,16 +6,18 @@ public class Defensa {
     protected int ataque;
     protected int alcance;
     protected int precio;
+    protected String tipo;
 
     public Defensa() {
     }
 
-    public Defensa(String id, int vida, int ataque, int alcance, int precio) {
+    public Defensa(String id, int vida, int ataque, int alcance, int precio, String tipo) {
         this.id = id;
         this.vida = vida;
         this.ataque = ataque;
         this.alcance = alcance;
         this.precio = precio;
+        this.tipo = tipo;
     }
 
     public String getId() {
@@ -56,5 +58,13 @@ public class Defensa {
 
     public void setPrecio(int precio) {
         this.precio = precio;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 }
