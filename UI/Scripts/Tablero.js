@@ -35,6 +35,31 @@ btn_music.addEventListener("click", () => {
     
   });
 
+  const obtenerCasillasGemas = () => {
+    let tablero = JSON.parse(sessionStorage.getItem('tablero'));
+    let casillas = [];
+    let casillasGema = [];
+    casillas = tablero.casillas;
+    for (let i = 0; i < casillas.length; i++) {
+        let randomNumberCell = Math.floor(Math.random() * 100) + 1;
+        if (casillas[i].tipo == "CasillaGema") {
+            casillas[i].id = randomNumberCell;
+            casillasGema.push(casillas[i]);
+        }
+        
+    }
+
+    return casillasGema;
+   
+}
+
+const obtenerCasillas = () => {
+    let tablero = JSON.parse(sessionStorage.getItem('tablero'));
+    let casillas = [];
+    casillas = tablero.casillas;
+    return casillas;
+}
+
 
 $(document).ready(function() {
     cargarTablero(mas2Jugadores);
@@ -49,6 +74,8 @@ btn_ver_personajes.addEventListener('click', function() {
 botonDado.addEventListener('click', function() {
     dado();
 });
+
+
 
 //CARGA DIFERENTES PERSONAJES
 function cargarPersonaje(tipo) {
@@ -166,11 +193,13 @@ function cargarTablero(mas2Jugadores) {
         tablero.appendChild(fila);
     }
 
+
+
     //CELDAS ALEATORIAS CON GEMAS
-    let celdasEspecialesArray = [];
+    /*let celdasEspecialesArray = [];
     let gemasArray = [];
     let powerUpsArray = [];
-
+ 
 
     for (let g = 0; g < 15; g++) {
         let randomGema = Math.floor(Math.random() * 3) + 1;
@@ -183,13 +212,15 @@ function cargarTablero(mas2Jugadores) {
         let random = { gema: randomGema, cellNumber: randomNumberCell };
         celdasEspecialesArray.push(randomNumberCell);
         gemasArray.push(random);
-    }
+    }*/
 
 
-    for (let g = 0; g < 15; g++) {
+    /*for (let g = 0; g < 15; g++) {
         let celda = document.getElementById("c" + gemasArray[g].cellNumber);
         celda.className += "gema" + gemasArray[g].gema;
-        /*celda.innerHTML = "gema " + tipoGema(gemasArray[g].gema);    */
+        //celda.dataset.gema = true;
+        /*celda.innerHTML = "gema " + tipoGema(gemasArray[g].gema);    
+    
         switch (gemasArray[g].gema) {
             case 1:
                 celda.style.backgroundImage = 'url(../Imagenes/PowerUps/greenGemGif.gif)';
@@ -202,11 +233,11 @@ function cargarTablero(mas2Jugadores) {
                 break;
         }
         
-    }
+    }*/
 
     //ALEATORIZAR LAS TEXTURAS DE LAS CASILLAS CON POWER UPS
     //NUMEROS ALEATORIOS PARA POWER UPS
-    for (let p = 15; p < 29;) {
+  /*  for (let p = 15; p < 29;) {
         let randomowerUp = Math.floor(Math.random() * 4) + 1;
         let randomNumberCell = Math.floor(Math.random() * 100) + 1;
 
@@ -217,7 +248,7 @@ function cargarTablero(mas2Jugadores) {
             p++;
         }
 
-    }
+    }*/
 
     
 
@@ -228,11 +259,12 @@ function cargarTablero(mas2Jugadores) {
     POWER UP 4 ES TRAMPA DE DEFENSA
     */
 
-    for (let p = 0; p < 14; p++) {
+    /*for (let p = 0; p < 14; p++) 
+    {
         let nombre = "#c" + powerUpsArray[p].cellNumber;        
         let celda = document.getElementById("c" + powerUpsArray[p].cellNumber);
         celda.className = "power-up" + powerUpsArray[p].powerUp;
-        /*celda.innerHTML = "power-up " + tipoPowerUp(powerUpsArray[p].powerUp);*/
+        /*celda.innerHTML = "power-up " + tipoPowerUp(powerUpsArray[p].powerUp);
         celda.style.backgroundImage = 'url(../Imagenes/green_texture.png)';
 
         switch (powerUpsArray[p].powerUp) {
@@ -251,12 +283,70 @@ function cargarTablero(mas2Jugadores) {
         }
         celda.style.backgroundImage += ',url(../Imagenes/green_texture.png)';
 
-    }
+    }*/
     /*
     console.log(gemasArray);
     console.log(powerUpsArray);
     */
+
+    setCasillas();
 }
+
+const setCasillas = () => {
+    let celdas = document.getElementsByTagName('td');
+    let casillas = obtenerCasillas();
+    console.log(celdas);
+    for (let i = 0; i < celdas.length; i++) {
+        for (let j = 0; j < casillas.length; j++) {
+        
+                if (casillas[j].tipo == "CasillaGema") {
+                    switch (casillas[j].data) {
+                        case "GemaVerde":
+                            celdas[casillas[j].id].style.backgroundImage = 'url(../Imagenes/PowerUps/greenGemGif.gif)';
+                            break;
+    
+                        case "GemaAzul":
+                            celdas[casillas[j].id].style.backgroundImage = 'url(../Imagenes/PowerUps/BlueGif.gif)';
+                            break;
+    
+                        case "GemaBlanca":
+                            celdas[casillas[j].id].style.backgroundImage = 'url(../Imagenes/PowerUps/redGemGif.gif)';
+                            break;
+                        default:
+                            break;
+                    }
+                } else if(casillas[j].tipo == "CasillaPowerUp")
+                 {
+                    switch (casillas[j].data) {
+                        case "MejoraAtaque":
+                            celdas[casillas[j].id].style.backgroundImage = 'url(../Imagenes/PowerUps/PowUpGif.gif)';
+                            break;
+                        case "MejoraDefensa":
+                            celdas[casillas[j].id].style.backgroundImage = 'url(../Imagenes/PowerUps/DefUpGif.gif)';
+                            break;
+    
+                        case "TrampaAtaque":
+                            celdas[casillas[j].id].style.backgroundImage = 'url(../Imagenes/PowerUps/PowDwnGif.gif)';
+                            break;
+    
+                        case "TrampaDefensa":
+                            celdas[casillas[j].id].style.backgroundImage = 'url(../Imagenes/PowerUps/DefDwnGif.gif)';
+                            break;
+                        default:
+                            break;
+                    }
+                } else if(casillas[j].tipo == "CasillaNormal") {
+                    celdas[j].style.backgroundImage += ',url(../Imagenes/green_texture.png)';
+    
+                }
+            }
+    
+        
+        
+    }
+}
+
+
 
 //VERIFICA QUE EL NÚMERO ALEATORIO NO SE HAYA UTILIZADO
 function verifyNumber(mas2Jugadores, celdasEspecialesArray, randomNumberCell) {
