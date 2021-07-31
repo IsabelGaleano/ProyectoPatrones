@@ -171,7 +171,7 @@
                             onclick="abrirModalBallesta(1, 0)"><i class="fas fa-exclamation"></i></button>
     
                         <div class="ballestaImg">
-                            <img src="../Imagenes/ballesta5.png">
+                            <img src="../Imagenes/Ballesta.png">
                         </div>
     
                         <div class="vida">
@@ -189,7 +189,7 @@
                             onclick="abrirModalBallesta(1, 1)"><i class="fas fa-exclamation"></i></button>
     
                             <div class="ballestaImg">
-                                <img src="../Imagenes/ballesta5.png">
+                                <img src="../Imagenes/Ballesta.png">
                             </div>
         
                             <div class="vida">
@@ -260,16 +260,16 @@
 
                             </div>
                             <div class="div-tienda tienda-ballestas">
-                                <img src="../Imagenes/ballesta1.png" alt="Arquero" id="img-arquero"
-                                    class="img-character">
+                                <img src="../Imagenes/ballesta.png" alt="Ballesta" id="img-Ballesta"
+                                    class="img-Ballesta">
                                 <p id="titulo-tienda">Ballesta</p>
-                                <button type="button" id="btn-comprar-ballesta" class="btn-tienda">5</button>
+                                <button type="button" id="btn-comprar-ballesta" class="btn-tienda" onclick="abrirModalCompraB()">5</button>
                             </div>
                             <div class="div-tienda tienda-catapultas">
-                                <img src="../Imagenes/catapulta.png" alt="Arquero" id="img-arquero"
-                                    class="img-character">
+                                <img src="../Imagenes/catapulta.png" alt="Catapulta" id="img-Catapulta"
+                                    class="img-Catapulta">
                                 <p id="titulo-tienda">Catapulta</p>
-                                <button type="button" id="btn-comprar-catapulta" class="btn-tienda">8</button>
+                                <button type="button" id="btn-comprar-catapulta" class="btn-tienda" onclick="abrirModalCompraC()">8</button>
                             </div>
                         </div>
                     </div>
@@ -364,6 +364,53 @@
                             ataque: 3</h4>
                     </div>
                     <h4><img src="../Imagenes/Pop-upBallesta_Catapulta/coin.png" class="icon"> Precio: 5</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="overlay" id="idOverlayCompraB">
+            <div class="imgFondo">
+                
+                <div class="popupBallesta" id="idpopupCompraB">
+                    
+                    <h3> Compra de </h3>
+                    <h3> Ballesta</h3>
+
+                    <h4 style="display: flex;">
+                        <img src="../Imagenes/Ballesta.png" alt="" class="img-Ballesta">  
+                        &nbsp
+                        <p style="line-height: 60px;"> =  -5 </p>                                                
+                        <img src="../Imagenes/coin.png" alt="" class="img-gold">
+                    </h4>
+
+                    <div >
+                        <button type="button" id="btn-comprar-ballesta-OK" class="btn-tienda">OK</button>
+                        <button type="button" id="btn-comprar-ballesta-NO" class="btn-tienda" onclick="cerrarOverlayCompraB()">NO</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="overlay" id="idOverlayCompraC">
+            <div class="imgFondo">
+                <div class="popupCatapulta" id="idpopupCompraC">
+                                 
+                    <h3> Compra de </h3>
+                    <h3> Catapulta</h3>
+
+                    <h4 style="display: flex;">
+                        <img src="../Imagenes/catapulta.png" alt="" class="img-Catapulta">  
+                        &nbsp
+                        <p style="line-height: 60px;"> =  -8 </p>                                                
+                        <img src="../Imagenes/coin.png" alt="" class="img-gold">
+                    </h4>                    
+
+                    <div>
+                        <button type="button" id="btn-comprar-Catapulta-OK" class="btn-tienda">OK</button>
+                        <button type="button" id="btn-comprar-Catapulta-NO" class="btn-tienda" onclick="cerrarOverlayCompraC()">NO</button>
+                    </div>
+                    
                 </div>
             </div>
         </div>

@@ -178,7 +178,17 @@ td {
 }
 
 .img-character {
-  width: 45px;
+  width: 60px;
+  height: 60px;
+}
+
+.img-Ballesta, .img-Catapulta {
+  width: 60px;
+  height: 60px;
+}
+
+.img-gold{
+  width: 60px;
   height: 60px;
 }
 
