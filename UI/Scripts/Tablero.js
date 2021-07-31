@@ -53,6 +53,8 @@ btn_music.addEventListener("click", () => {
    
 }
 
+
+
 const obtenerCasillas = () => {
     let tablero = JSON.parse(sessionStorage.getItem('tablero'));
     let casillas = [];
@@ -112,6 +114,25 @@ function cargarPersonaje(tipo) {
     }
 
     return urlImagenPersonaje;
+}
+
+const crearDefensas = async (opcion) => {
+    let defensas;
+    await axios({
+        method: 'get',
+        url: `http://localhost:8080/api/defensas/${opcion}`,
+        responseType: 'json'
+    }).then((response) => {
+        defensas = response.data;
+    }).catch((response) => {
+        console.error;
+        return null;
+
+    });
+
+    console.log(defensas);
+    
+
 }
 
 function dado() {
@@ -310,7 +331,7 @@ const setCasillas = () => {
                             break;
     
                         case "GemaBlanca":
-                            celdas[casillas[j].id].style.backgroundImage = 'url(../Imagenes/PowerUps/redGemGif.gif)';
+                            celdas[casillas[j].id].style.backgroundImage = 'url(../Imagenes/PowerUps/whiteGemGif.gif)';
                             break;
                         default:
                             break;
