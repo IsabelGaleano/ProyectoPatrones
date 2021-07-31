@@ -8,7 +8,7 @@ import com.isabelgaleano.app.patronFabrica.productoConcreto.Jinete;
 
 public class FabricaJinete implements IPersonajesJuego {
     public Personaje crearPersonajes() {
-        Jinete elJinete = new Jinete(0, 15, 10, 6,4, new Ataque(6, 4,1),0,6,"Inactivo", null,"Jinete",false);
+        Jinete elJinete = new Jinete(0, 15, 10, 6,4, new Ataque(6, 4,1),0,6,"Inactivo", null,"Jinete",false, 0);
         return elJinete;
     }
 }
