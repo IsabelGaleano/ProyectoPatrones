@@ -190,7 +190,7 @@ function cargarTablero(mas2Jugadores) {
             } else if (c == 91) {
                 celda.style.backgroundSize = "70px 70px";
                 celda.style.backgroundImage = 'url(../Imagenes/Castillo2.png)';
-            }
+            } 
 
             celda.addEventListener('click', function() {
                 //console.log(document.getElementById(celdaActual));
