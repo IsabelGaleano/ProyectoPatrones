@@ -134,13 +134,29 @@ public class GestorCasilla {
         }
     }
 
+
     public void llenarArregloID() {
         for (int i = 0; i < arregloIDs.length; i++) {
-            arregloIDs[i] = i + 1;
+            arregloIDs[i] = i;
         }
 
         Collections.shuffle(Collections.singletonList(arregloIDs));
     }
+
+    public void validarCastillos(int cantidadCastillos) {
+        switch (cantidadCastillos) {
+            case 2:
+                break;
+
+            case 3:
+                break;
+
+            case 4:
+                break;
+
+        }
+    }
+
     public List <Casilla> generarCasillas(int cantidadCastillos){
         arrCasillas.clear();
         rellenarArr();
