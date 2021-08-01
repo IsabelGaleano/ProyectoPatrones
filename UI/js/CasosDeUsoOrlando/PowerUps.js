@@ -1,7 +1,7 @@
 let elementsArray = document.querySelectorAll(".btn-compra-personaje");
 elementsArray.forEach(function (elem) {
     elem.addEventListener("click", function () {
-        crearPersonaje(elem.value);
+        agregarPersonaToCastillo(elem.value);
     });
 });
 
@@ -28,14 +28,13 @@ const crearPersonaje = async (opcion) => {
         return null;
 
     });
-    console.log(personajes);
-    return personajes;
 
+    return personajes;
 }
 
-const agregarPersonaToCastillo = async () => {
+const agregarPersonaToCastillo = async (opcionPersonaje) => {
     let arrayPersonaje = [];
-    arrayPersonaje = crearPersonaje();
+    arrayPersonaje = await crearPersonaje(opcionPersonaje);
 
     let obj = JSON.parse(sessionStorage.getItem('tablero'));
     let jugador;
@@ -47,17 +46,17 @@ const agregarPersonaToCastillo = async () => {
     });
 
     let idCastillo = jugador.idCastillo;
-    let castillos = [];
-    let tropas = [];
-    castillos = obj.castillos;
+    let castillos = obj.castillos;
     for (let i = 0; i < castillos.length; i++) {
         if (idCastillo == castillos[i].id) {
             if(castillos[i].tropas == null){
                 castillos[i].tropas = arrayPersonaje;
             }else{
-                tropas[i] = castillos[i].tropas;
+                castillos[i].tropas = [...castillos[i].tropas,...arrayPersonaje];
             }
+            obj.castillos[i] = castillos[i];
         }
-    
+        
     }
+    sessionStorage.setItem('tablero', JSON.stringify(obj));
 }
