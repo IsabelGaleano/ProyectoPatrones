@@ -25,10 +25,18 @@ public class ProxyController {
     @RequestMapping(value = "/proxy", method=RequestMethod.POST,headers = "Accept=*/*",produces = "application/json", consumes="application/json")
 //Prueba api con objetos
     public List<JugadorObject> get2Product(@RequestBody List<JugadorObject> jugs) {
+
         JugadorProxy jP = new JugadorProxy();
-        JugadorObject jO = jug;
-        jO.setTurno(jP.turnoJugador(jO.getEstado()));
-        return user;
+        JugadorObject jO = new JugadorObject();
+        for (JugadorObject jugador : jugs) {
+            jugador.setTurno(jP.turnoJugador(jugador.getEstado()));
+            if(true) {
+
+            }
+        }
+
+
+        return jugs;
     }
 
 
