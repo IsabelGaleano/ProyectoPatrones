@@ -9,7 +9,7 @@ import com.isabelgaleano.app.patronFabrica.productoConcreto.Espadachin;
 
 public class FabricaEspadachin implements IPersonajesJuego {
     public Personaje crearPersonajes() {
-        Espadachin elEspadachin = new Espadachin(0, 15, 10, 2,5, new Ataque(2, 6,1),0,2,"Inactivo", null,"Espadachin",false);
+        Espadachin elEspadachin = new Espadachin(0, 15, 10, 2,5, new Ataque(2, 6,1),0,2,"Inactivo", null,"Espadachin",false, 0);
         return elEspadachin;
     }
 }

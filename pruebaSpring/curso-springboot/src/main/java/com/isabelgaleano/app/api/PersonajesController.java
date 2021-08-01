@@ -12,7 +12,7 @@ import java.util.ArrayList;
 @RequestMapping("/api/personajes")
 public class PersonajesController {
 
-    private GestorFabricaAbstracta gestorFabrica;
+    private GestorFabricaAbstracta gestorFabrica = new GestorFabricaAbstracta();
 
     @CrossOrigin
     @GetMapping("/{opcion}")
