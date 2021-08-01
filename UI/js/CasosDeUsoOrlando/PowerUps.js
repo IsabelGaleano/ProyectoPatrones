@@ -55,8 +55,7 @@ const agregarPersonaToCastillo = async () => {
             if(castillos[i].tropas == null){
                 castillos[i].tropas = arrayPersonaje;
             }else{
-                
-                tropas = castillos[i].tropas;
+                tropas[i] = castillos[i].tropas;
             }
         }
     
