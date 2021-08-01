@@ -7,7 +7,7 @@ import com.isabelgaleano.app.patronFabrica.productoConcreto.Ataque;
 
 public class FabricaArquero implements IPersonajesJuego {
     public Personaje crearPersonajes() {
-        Arquero elArquero = new Arquero(1, 10, 10, 3,3, new Ataque(1, 3,4),0,2,"Inactivo", null,"Arquero",false);
+        Arquero elArquero = new Arquero(0, 10, 10, 3,3, new Ataque(1, 3,4),0,2,"Inactivo", null,"Arquero",false, 0);
         return elArquero;
     }
 }

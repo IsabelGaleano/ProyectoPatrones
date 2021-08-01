@@ -157,7 +157,7 @@
                         <button id="btn-popup-ballestaJugador1" class="btn-popupBallesta" onclick="abrirModalBallesta(1, 0)"><i class="fas fa-exclamation"></i></button>
 
                         <div class="ballestaImg">
-                            <img src="../Imagenes/ballesta5.png">
+                            <img src="../Imagenes/Ballesta.png">
                         </div>
 
                         <div class="vida">
@@ -174,7 +174,7 @@
                         <button id="btn-popup-ballesta2Jugador1" class="btn-popupBallesta2" onclick="abrirModalBallesta(1, 1)"><i class="fas fa-exclamation"></i></button>
 
                         <div class="ballestaImg">
-                            <img src="../Imagenes/ballesta5.png">
+                            <img src="../Imagenes/Ballesta.png">
                         </div>
 
                         <div class="vida">
@@ -206,412 +206,191 @@
 
                 </div>
 
-                <!-- <div class="castilloBase" class="col-3">
-    
-                    <h3>NickName</h3>
-    
-                    <div class="castillo">
-    
-                        <button id="btn-popup-castillo" class="btn-popupCastillo"><i
-                                class="fas fa-exclamation"></i></button>
-    
-                        <div class="castilloImg">
-                            <img src="../Imagenes/castle.png" style="width: 28px;">
-                        </div>
-    
-                        <div class="vida">
-    
-                            <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
-    
-                        </div>
-    
-                        <h6>20</h6>
-    
-                        <div class="moneda">
-    
-                            <i class="fas fa-coins" style="color: gold;"></i>
-    
-                        </div>
-    
-                        <h6>920</h6>
-    
-    
-                    </div>
-    
-                    <div class="ballesta1">
-    
-                        <button id="btn-popup-ballestaJugador2" class="btn-popupBallesta"
-                            onclick="abrirModalBallesta(1, 0)"><i class="fas fa-exclamation"></i></button>
-    
-                        <div class="ballestaImg">
-                            <img src="../Imagenes/ballesta5.png">
-                        </div>
-    
-                        <div class="vida">
-                            <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
-                        </div>
-    
-                        <h6>20</h6>
-    
-                    </div>
-    
-                    <div class="ballesta2">
-    
-                        <button id="btn-popup-ballesta2Jugador2" class="btn-popupBallesta2"
-                            onclick="abrirModalBallesta(1, 1)"><i class="fas fa-exclamation"></i></button>
-    
-                        <div class="ballestaImg">
-                            <img src="../Imagenes/ballesta5.png">
-                        </div>
-    
-                        <div class="vida">
-                            <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
-                        </div>
-    
-                        <h6>20</h6>
-    
-                    </div>
-    
-                    <div class="catapulta">
-    
-                        <button id="btn-popup-catapulta" class="btn-popupCatapulta" onclick="abrirModalCatapulta(1, 1)"><i
-                                class="fas fa-exclamation"></i></button>
-    
-                        <div class="catapultaImg">
-                            <img src="../Imagenes/catapulta.png" />
-                        </div>
-    
-                        <div class="vida">
-                            <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
-                        </div>
-    
-                        <h6>20</h6>
-    
-                    </div>
-    
-    
-    
-                </div> -->
+
             </div>
 
             <table id="tablero" class="tablero" cellspacing="0"></table>
 
-            <div class="tarjetasInfo">
 
-                <!-- <div class="castilloBase" class="col-3">
+        </div>
+    </div>
 
-                    <h3>NickName</h3>
-    
-                    <div class="castillo">
-    
-                        <button id="btn-popup-castillo" class="btn-popupCastillo"><i
-                                class="fas fa-exclamation"></i></button>
-    
-                        <div class="castilloImg">
-                            <img src="../Imagenes/castle.png" style="width: 28px;">
+
+
+    <div class="col-3" style="border: 1px solid transparent;">
+        <!--Pantalla de tienda personajes -->
+
+        <!--Pantalla de tienda personajes -->
+
+        <div class="cnt-timer">
+            <h1>Tiempo</h1>
+            <p id="timer">x</p>
+        </div>
+
+        <div class=" character-container ">
+
+            <div>
+                <h1 id="title-characters">Tienda</h1>
+            </div>
+            <div class="items-tienda">
+                <div class="cnt-characters">
+
+                    <div class="tienda">
+                        <div class="div-tienda tienda-personajes">
+                            <div>
+                                <img src="../Imagenes/Characters/SkellieIdle.gif" alt="Arquero" id="img-arquero" class="img-character">
+                                <p id="titulo-tienda">Personajes</p>
+                                <button type="button" id="btn-ver-personajes" class="btn-tienda">Ver más</button>
+                            </div>
+
                         </div>
-    
-                        <div class="vida">
-    
-                            <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
-    
+                        <div class="div-tienda tienda-ballestas">
+                            <img src="../Imagenes/ballesta.png" alt="Ballesta" id="img-Ballesta" class="img-Ballesta">
+                            <p id="titulo-tienda">Ballesta</p>
+                            <button type="button" id="btn-comprar-ballesta" class="btn-tienda" onclick="abrirModalCompraB()">5</button>
                         </div>
-    
-                        <h6>20</h6>
-    
-                        <div class="moneda">
-    
-                            <i class="fas fa-coins" style="color: gold;"></i>
-    
+                        <div class="div-tienda tienda-catapultas">
+                            <img src="../Imagenes/catapulta.png" alt="Catapulta" id="img-Catapulta" class="img-Catapulta">
+                            <p id="titulo-tienda">Catapulta</p>
+                            <button type="button" id="btn-comprar-catapulta" class="btn-tienda" onclick="abrirModalCompraC()">8</button>
                         </div>
-    
-                        <h6>920</h6>
-    
-    
                     </div>
-    
-                    <div class="ballesta1">
-    
-                        <button id="btn-popup-ballestaJugador3" class="btn-popupBallesta"
-                            onclick="abrirModalBallesta(1, 0)"><i class="fas fa-exclamation"></i></button>
-    
-                        <div class="ballestaImg">
-                            <img src="../Imagenes/ballesta5.png">
-                        </div>
-    
-                        <div class="vida">
-                            <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
-                        </div>
-    
-                        <h6>20</h6>
-    
-                    </div>
-    
-                    <div class="ballesta2">
-    
-                        <button id="btn-popup-ballesta2Jugador3" class="btn-popupBallesta2"
-                            onclick="abrirModalBallesta(1, 1)"><i class="fas fa-exclamation"></i></button>
-    
-                        <div class="ballestaImg">
-                            <img src="../Imagenes/ballesta5.png">
-                        </div>
-    
-                        <div class="vida">
-                            <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
-                        </div>
-    
-                        <h6>20</h6>
-    
-                    </div>
-    
-                    <div class="catapulta">
-    
-                        <button id="btn-popup-catapulta" class="btn-popupCatapulta" onclick="abrirModalCatapulta(1, 0)"><i
-                                class="fas fa-exclamation"></i></button>
-    
-                        <div class="catapultaImg">
-                            <img src="../Imagenes/catapulta.png" />
-                        </div>
-    
-                        <div class="vida">
-                            <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
-                        </div>
-    
-                        <h6>20</h6>
-    
-                    </div>
-    
-    
-    
                 </div>
-                <div class="castilloBase" class="col-3">
-    
-                    <h3>NickName</h3>
-    
-                    <div class="castillo">
-    
-                        <button id="btn-popup-castillo" class="btn-popupCastillo"><i
-                                class="fas fa-exclamation"></i></button>
-    
-                        <div class="castilloImg">
-                            <img src="../Imagenes/castle.png" style="width: 28px;">
-                        </div>
-    
-                        <div class="vida">
-    
-                            <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
-    
-                        </div>
-    
-                        <h6>20</h6>
-    
-                        <div class="moneda">
-    
-                            <i class="fas fa-coins" style="color: gold;"></i>
-    
-                        </div>
-    
-                        <h6>920</h6>
-    
-    
-                    </div>
-    
-                    <div class="ballesta1">
-    
-                        <button id="btn-popup-ballestaJugador4" class="btn-popupBallesta"
-                            onclick="abrirModalBallesta(1, 0)"><i class="fas fa-exclamation"></i></button>
-    
-                        <div class="ballestaImg">
-                            <img src="../Imagenes/ballesta5.png">
-                        </div>
-    
-                        <div class="vida">
-                            <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
-                        </div>
-    
-                        <h6>20</h6>
-    
-                    </div>
-    
-                    <div class="ballesta2">
-    
-                        <button id="btn-popup-ballesta2Jugador4" class="btn-popupBallesta2"
-                            onclick="abrirModalBallesta(1, 1)"><i class="fas fa-exclamation"></i></button>
-    
-                        <div class="ballestaImg">
-                            <img src="../Imagenes/ballesta5.png">
-                        </div>
-    
-                        <div class="vida">
-                            <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
-                        </div>
-    
-                        <h6>20</h6>
-    
-                    </div>
-    
-                    <div class="catapulta">
-    
-                        <button id="btn-popup-catapulta" class="btn-popupCatapulta" onclick="abrirModalCatapulta(1, 1)"><i
-                                class="fas fa-exclamation"></i></button>
-    
-                        <div class="catapultaImg">
-                            <img src="../Imagenes/catapulta.png" />
-                        </div>
-    
-                        <div class="vida">
-                            <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
-                        </div>
-    
-                        <h6>20</h6>
-    
-                    </div>
-    
-    
-    
-                </div> -->
 
             </div>
+
+        </div>
+        <div class="tienda-personajes-ocultos" id="personajes-tienda">
+            <div class="col-personajes 1">
+                <div class="espacio-personaje">
+                    <img src="../Imagenes/Characters/ArcherIdleRight.gif" alt="Arquero" id="img-arquero" class="img-character">
+                    <button class="btn-compra-personaje" id="compra-arquero">10</button>
+                </div>
+                <div class="espacio-personaje">
+                    <img src="../Imagenes/Characters/AssasinIdleRight.gif" alt="Asesino" id="img-asesino" class="img-character">
+                    <button class="btn-compra-personaje" id="compra-asesino">5</button>
+                </div>
+                <div class="espacio-personaje">
+                    <img src="../Imagenes/Characters/BerserkIdleRight.gif" alt="Bersequer" id="img-bersequer" class="img-character">
+                    <button class="btn-compra-personaje" id="compra-bersequer">25</button>
+                </div>
+                <div class="espacio-personaje">
+                    <img src="../Imagenes/Characters/KnightIdleRight.gif" alt="Jinete" id="img-jinete" class="img-character">
+                    <button class="btn-compra-personaje" id="compra-jinete">15</button>
+                </div>
+            </div>
+            <div class="col-personajes 2">
+                <div class="espacio-personaje">
+                    <img src="../Imagenes/Characters/SpyIdleRight.gif" alt="Espia" id="img-espia" class="img-character">
+                    <button class="btn-compra-personaje" id="compra-espia">5</button>
+                </div>
+                <div class="espacio-personaje">
+                    <img src="../Imagenes/Characters/SwordsmanIdleRight.gif" alt="Espadachin" id="img-espadachin" class="img-character">
+                    <button class="btn-compra-personaje" id="compra-espadachin">15</button>
+                </div>
+
+                <div class="espacio-personaje">
+                    <img src="../Imagenes/Characters/MageIdleRight.gif" alt="Mago" id="img-mago" class="img-character">
+                    <button class="btn-compra-personaje" id="compra-mago">10</button>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="dado-container">
+            <div id="imagen-dado">
+            </div>
+            <button id="boton-dado">Tirar dado</button>
         </div>
 
 
 
-        <div class="col-3" style="border: 1px solid transparent;">
-            <!--Pantalla de tienda personajes -->
+    </div>
 
-            <!--Pantalla de tienda personajes -->
-
-            <div class="cnt-timer">
-                <h1>Tiempo</h1>
-                <p id="timer">x</p>
+    <div class="overlay" id="idOverlayCatapulta">
+        <div class="imgFondo">
+            <div class="popupCatapulta" id="idPopupCatapulta">
+                <a href="#" id="btn-cerrar-popupCatapulta" class="btn-cerrar-popupCatapulta" onclick="cerrarModalCatapulta()"> <i class="fas fa-times"></i></a>
+                <h3> Catapulta </h3>
+                <h4><img src="../Imagenes/heart.png" class="icon"> Vida: <span id="vidaCatapultaModal"></span></h4>
+                <h4><img src="../Imagenes/Pop-upBallesta_Catapulta/swords.png" class="icon"> Ataque: 5</h4>
+                <div class="attackRange">
+                    <h4><img src="../Imagenes/Pop-upBallesta_Catapulta/slash.png" id="swordRange"> <img src="../Imagenes/Pop-upBallesta_Catapulta/right-arrow.png" id="arrowAttack">Alcance de ataque: 3</h4>
+                </div>
+                <h4><img src="../Imagenes/coin.png" class="icon"> Precio: 8</h4>
             </div>
+        </div>
+    </div>
 
-            <div class=" character-container ">
+    <div class="overlay" id="idOverlayBallesta">
+        <div class="imgFondo">
+            <div class="popupBallesta" id="idPopupBallesta">
+                <a href="#" id="btn-cerrar-popupBallesta" class="btn-cerrar-popupBallesta" onclick="cerrarModalBallesta()"><i class="fas fa-times"></i></a>
+                <h3>Ballesta</h3>
+                <h4><img src="../Imagenes/heart.png" class="icon"> Vida: <span id="vidaBallestaModal"></span></h4>
+                <h4><img src="../Imagenes/Pop-upBallesta_Catapulta/swords.png" class="icon"> Ataque: 2</h4>
+                <div class="attackRange">
+                    <h4><img src="../Imagenes/Pop-upBallesta_Catapulta/slash.png" id="swordRange"> <img src="../Imagenes/Pop-upBallesta_Catapulta/right-arrow.png" id="arrowAttack">Alcance de ataque: 3</h4>
+                </div>
+                <h4><img src="../Imagenes/Pop-upBallesta_Catapulta/coin.png" class="icon"> Precio: 5</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay" id="idOverlayCompraB">
+        <div class="imgFondo">
+
+            <div class="popupBallesta" id="idpopupCompraB">
+
+                <h3> Compra de </h3>
+                <h3> Ballesta</h3>
+
+                <h4 style="display: flex;">
+                    <img src="../Imagenes/Ballesta.png" alt="" class="img-Ballesta"> &nbsp
+                    <p style="line-height: 60px;"> = -5 </p>
+                    <img src="../Imagenes/coin.png" alt="" class="img-gold">
+                </h4>
 
                 <div>
-                    <h1 id="title-characters">Tienda</h1>
-                </div>
-                <div class="items-tienda">
-                    <div class="cnt-characters">
-
-                        <div class="tienda">
-                            <div class="div-tienda tienda-personajes">
-                                <div>
-                                    <img src="../Imagenes/Characters/SkellieIdle.gif" alt="Arquero" id="img-arquero" class="img-character">
-                                    <p id="titulo-tienda">Personajes</p>
-                                    <button type="button" id="btn-ver-personajes" class="btn-tienda">Ver más</button>
-                                </div>
-
-                            </div>
-                            <div class="div-tienda tienda-ballestas">
-                                <img src="../Imagenes/ballesta1.png" alt="Arquero" id="img-arquero" class="img-character">
-                                <p id="titulo-tienda">Ballesta</p>
-                                <button type="button" id="btn-comprar-ballesta" class="btn-tienda">5</button>
-                            </div>
-                            <div class="div-tienda tienda-catapultas">
-                                <img src="../Imagenes/catapulta.png" alt="Arquero" id="img-arquero" class="img-character">
-                                <p id="titulo-tienda">Catapulta</p>
-                                <button type="button" id="btn-comprar-catapulta" class="btn-tienda">8</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!--
-                    <img src="../Imagenes/Characters/ArqueroFront.png" alt="Arquero" id="img-arquero" class="img-character">
-                    <img src="../Imagenes/Characters/AsesinoFront.png" alt="Asesino" id="img-asesino" class="img-character">
-                    <img src="../Imagenes/Characters/BersequerFront.png" alt="Bersequer" id="img-bersequer" class="img-character">
-                    <img src="../Imagenes/Characters/EspadachinFront.png" alt="Espadachin" id="img-espadachin" class="img-character">
-                    <img src="../Imagenes/Characters/EspiaFront.png" alt="Espia" id="img-espia" class="img-character">
-                    <img src="../Imagenes/Characters/JineteFront.png" alt="Jinete" id="img-jinete" class="img-character">
-                    <img src="../Imagenes/Characters/MagoFront.png" alt="Mago" id="img-mago" class="img-character">
-                    -->
+                    <button type="button" id="btn-comprar-ballesta-OK" class="btn-tienda">OK</button>
+                    <button type="button" id="btn-comprar-ballesta-NO" class="btn-tienda" onclick="cerrarOverlayCompraB()">NO</button>
                 </div>
 
-            </div>
-            <div class="tienda-personajes-ocultos" id="personajes-tienda">
-                <div class="col-personajes 1">
-                    <div class="espacio-personaje">
-                        <img src="../Imagenes/Characters/ArcherIdleRight.gif" alt="Arquero" id="img-arquero" class="img-character">
-                        <button class="btn-compra-personaje" id="compra-arquero">10</button>
-                    </div>
-                    <div class="espacio-personaje">
-                        <img src="../Imagenes/Characters/AssasinIdleRight.gif" alt="Asesino" id="img-asesino" class="img-character">
-                        <button class="btn-compra-personaje" id="compra-asesino">5</button>
-                    </div>
-                    <div class="espacio-personaje">
-                        <img src="../Imagenes/Characters/BerserkIdleRight.gif" alt="Bersequer" id="img-bersequer" class="img-character">
-                        <button class="btn-compra-personaje" id="compra-bersequer">25</button>
-                    </div>
-                    <div class="espacio-personaje">
-                        <img src="../Imagenes/Characters/KnightIdleRight.gif" alt="Jinete" id="img-jinete" class="img-character">
-                        <button class="btn-compra-personaje" id="compra-jinete">15</button>
-                    </div>
-                </div>
-                <div class="col-personajes 2">
-                    <div class="espacio-personaje">
-                        <img src="../Imagenes/Characters/SpyIdleRight.gif" alt="Espia" id="img-espia" class="img-character">
-                        <button class="btn-compra-personaje" id="compra-espia">5</button>
-                    </div>
-                    <div class="espacio-personaje">
-                        <img src="../Imagenes/Characters/SwordsmanIdleRight.gif" alt="Espadachin" id="img-espadachin" class="img-character">
-                        <button class="btn-compra-personaje" id="compra-espadachin">15</button>
-                    </div>
-
-                    <div class="espacio-personaje">
-                        <img src="../Imagenes/Characters/MageIdleRight.gif" alt="Mago" id="img-mago" class="img-character">
-                        <button class="btn-compra-personaje" id="compra-mago">10</button>
-                    </div>
-
-                </div>
-
-            </div>
-            <div class="dado-container">
-                <div id="imagen-dado">
-                </div>
-                <button id="boton-dado">Tirar dado</button>
-            </div>
-
-
-
-        </div>
-
-        <div class="overlay" id="idOverlayCatapulta">
-            <div class="imgFondo">
-                <div class="popupCatapulta" id="idPopupCatapulta">
-                    <a href="#" id="btn-cerrar-popupCatapulta" class="btn-cerrar-popupCatapulta" onclick="cerrarModalCatapulta()"> <i class="fas fa-times"></i></a>
-                    <h3> Catapulta </h3>
-                    <h4><img src="../Imagenes/heart.png" class="icon"> Vida: <span id="vidaCatapultaModal"></span></h4>
-                    <h4><img src="../Imagenes/Pop-upBallesta_Catapulta/swords.png" class="icon"> Ataque: 5</h4>
-                    <div class="attackRange">
-                        <h4><img src="../Imagenes/Pop-upBallesta_Catapulta/slash.png" id="swordRange"> <img src="../Imagenes/Pop-upBallesta_Catapulta/right-arrow.png" id="arrowAttack">Alcance de ataque: 3</h4>
-                    </div>
-                    <h4><img src="../Imagenes/coin.png" class="icon"> Precio: 8</h4>
-                </div>
             </div>
         </div>
+    </div>
 
-        <div class="overlay" id="idOverlayBallesta">
-            <div class="imgFondo">
-                <div class="popupBallesta" id="idPopupBallesta">
-                    <a href="#" id="btn-cerrar-popupBallesta" class="btn-cerrar-popupBallesta" onclick="cerrarModalBallesta()"><i class="fas fa-times"></i></a>
-                    <h3>Ballesta</h3>
-                    <h4><img src="../Imagenes/heart.png" class="icon"> Vida: <span id="vidaBallestaModal"></span></h4>
-                    <h4><img src="../Imagenes/Pop-upBallesta_Catapulta/swords.png" class="icon"> Ataque: 2</h4>
-                    <div class="attackRange">
-                        <h4><img src="../Imagenes/Pop-upBallesta_Catapulta/slash.png" id="swordRange"> <img src="../Imagenes/Pop-upBallesta_Catapulta/right-arrow.png" id="arrowAttack">Alcance de ataque: 3</h4>
-                    </div>
-                    <h4><img src="../Imagenes/Pop-upBallesta_Catapulta/coin.png" class="icon"> Precio: 5</h4>
+    <div class="overlay" id="idOverlayCompraC">
+        <div class="imgFondo">
+            <div class="popupCatapulta" id="idpopupCompraC">
+
+                <h3> Compra de </h3>
+                <h3> Catapulta</h3>
+
+                <h4 style="display: flex;">
+                    <img src="../Imagenes/catapulta.png" alt="" class="img-Catapulta"> &nbsp
+                    <p style="line-height: 60px;"> = -8 </p>
+                    <img src="../Imagenes/coin.png" alt="" class="img-gold">
+                </h4>
+
+                <div>
+                    <button type="button" id="btn-comprar-Catapulta-OK" class="btn-tienda">OK</button>
+                    <button type="button" id="btn-comprar-Catapulta-NO" class="btn-tienda" onclick="cerrarOverlayCompraC()">NO</button>
                 </div>
+
             </div>
         </div>
-        <!--<div id="console">
+    </div>
+    <!--<div id="console">
         Information console
     </div>-->
-        <div>
-            <button class="fa-volume-up" id="btn_music" type="button">
+    <div>
+        <button class="fa-volume-up" id="btn_music" type="button">
           
         </button>
-        </div>
+    </div>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script type="text/javascript" src="../Scripts/Tablero.js"></script>
 <script type="text/javascript" src="../Scripts/LocalData.js"></script>
 <script type="text/javascript" src="../Scripts/PopUp_Info_Catapulta_Ballesta.js"></script>

@@ -58,7 +58,10 @@ const obtenerDatos = async () => {
 
     await sesionLocal(tablero);
 
-    //changeHTML();
+    let obj = JSON.parse(sessionStorage.getItem('tablero'));
+    console.log(obj);
+
+    changeHTML();
 
 }
 
@@ -80,6 +83,7 @@ const changeHTML = () => {
 
 const sesionLocal = (tablero) => {
     sessionStorage.setItem('tablero', JSON.stringify(tablero));
+    sessionStorage.setItem('ObjTablero', tablero);
 }
 
 const aliasError = (posicion) => {
