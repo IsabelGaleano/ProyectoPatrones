@@ -31,3 +31,30 @@ function cerrarModalCatapulta(){
     overleyCatapulta.classList.remove('active');
     popupCatapulta.classList.remove('active');
 }
+
+
+    var overlayCompraB = document.getElementById('idOverlayCompraB'),
+    popupCompraBallesta = document.getElementById('idpopupCompraB'),
+    btnCerrarPopupBallesta = document.getElementById('btn-cerrar-popupCompraB');
+
+    function abrirModalCompraB(){       
+        overlayCompraB.classList.add('active');
+        popupCompraBallesta.classList.add('active');
+    }
+    function cerrarOverlayCompraB(){
+        overlayCompraB.classList.remove('active');
+        popupCompraBallesta.classList.remove('active');
+    }
+
+    var overlayCompraC = document.getElementById('idOverlayCompraC'),
+    popupCompraCatapulta = document.getElementById('idpopupCompraC'),
+    btnCerrarPopupCatapulta = document.getElementById('btn-cerrar-popupCompraC');
+
+    function abrirModalCompraC(){       
+        overlayCompraC.classList.add('active');
+        popupCompraCatapulta.classList.add('active');
+    }
+    function cerrarOverlayCompraC(){
+        overlayCompraC.classList.remove('active');
+        popupCompraCatapulta.classList.remove('active');
+    }
