@@ -26,6 +26,7 @@ public class GestorFabricaAbstracta {
 
 
     private static void agregarPersonaje(Personaje personaje) {
+        personajes.clear();
         personajes.add(personaje);
     }
 
