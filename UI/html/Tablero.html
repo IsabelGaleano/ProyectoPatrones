@@ -30,61 +30,135 @@
         <table id="tablero" class="tablero" cellspacing="0"></table>
     </canvas>
 -->
+<div class="titulo-principal">
+    <h1>Re<span>i</span>n<span>o</span>s C<span>e</span>nf<span>o</span>tec<span>o</span>s</h1>
+</div>
+
     <div class="row">
         <!--toda la pantalla -->
 
-        <div class="col-3" style="border: 1px solid transparent;">
-            <!--Pantalla de Isaias -->
-            <div class="cnt-Activos" class="row">
 
-                <h5 class="nick"> NickName </h5>
-                <div class="cnt-Jugador">
-                    <div class="cnt-Personaje">
-                        <div class="iconP"> </div>
-                        <div class=stats>
-                            <p>
+        
 
-                            <p><i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i> <span id="vida-P">8</span></p>
-                            <p><i class="fas fa-shield-alt" style="color:rgb(176,196,222);"></i> <span
-                                    id="defensa-P">9</span></p>
-                            <p><i class="fas fa-coins" style="color:gold;"></i> <span id="carga-P">10</span></p>
-                            <p> <i class="fab fa-superpowers" style="color:rgb(0,255,0);font-size:18px;"></i> <button
-                                    id="pU-P">Usar</button></p>
-
-
-
-                        </div>
-
-                    </div>
-                    <div class="cnt-Personaje">
-                        <div class="iconP"> </div>
-                        <div class=stats>
-                            <p><i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i> <span id="vida-P">4</span></p>
-                            <p><i class="fas fa-shield-alt" style="color:rgb(176,196,222);"></i> <span
-                                    id="defensa-P">5</span></p>
-                            <p><i class="fas fa-coins" style="color:gold;"></i> <span id="carga-P">2</span></p>
-                            <p> <i class="fab fa-superpowers" style="color:rgb(0,255,0);font-size:18px;"></i> <button
-                                    id="pU-P">Usar</button></p>
-
-                        </div>
-
-                    </div>
-                    <div class="cnt-Personaje">
-                        <div class="iconP"></div>
-                        <div class=stats>
-                            <p><i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i> <span id="vida-P">3</span></p>
-                            <p><i class="fas fa-shield-alt" style="color:rgb(176,196,222);"></i> <span
-                                    id="defensa-P">7</span></p>
-                            <p><i class="fas fa-coins" style="color:gold;"></i> <span id="carga-P">8</span></p>
-                            <p> <i class="fab fa-superpowers" style="color:rgb(0,255,0);font-size:18px;"></i> <button
-                                    id="pU-P">Usar</button></p>
-
-
-                        </div>
-
-                    </div>
-                </div>
+        <div class="col-4" style="border: 1px solid transparent;" id="castleInfo">
+            
+            <div class="topPanel">
                 
+                <div class="tarjetasInfo" >
+                    <div id="NickContainer">
+                        <h3 id="Nickname">NickName</h3>
+                    </div>
+                    
+                    <div class="castilloBase" class="col-3">
+                        
+        
+                        <div class="castillo">
+        
+                            <button id="btn-popup-castillo" class="btn-base"></button>                            
+        
+                            <div class="castilloImg" >
+                                <img src="../Imagenes/castle.png" >
+                            </div>
+        
+                            <div class="vida">
+        
+                                <img src="../Imagenes/heart.png" >
+                                <p id="castilloVida">20</p>
+        
+                            </div>
+        
+                            
+        
+                            <div class="moneda">
+        
+                                <img src="../Imagenes/coin.png">
+                                <p id="castilloCoins">500</p>
+                            </div>
+        
+                            
+        
+        
+                        </div>
+        
+                        <div class="ballesta1">
+        
+                            <button id="btn-popup-castillo" class="btn-base" onclick="abrirModalBallesta(1, 0)"></button>
+        
+                            <div class="ballestaImg" >
+                                <img src="../Imagenes/Ballesta.png">
+                            </div>
+        
+                            <div class="vida">
+        
+                                <img src="../Imagenes/heart.png" >
+                                <p id="ballesta1Vida">20</p>
+        
+                            </div>
+
+        
+                        </div>
+        
+                        <div class="ballesta2">
+        
+                            <button id="btn-popup-ballesta2Jugador1" class="btn-base"
+                                onclick="abrirModalBallesta(1, 1)"></button>
+        
+                                <div class="ballestaImg">
+                                    <img src="../Imagenes/Ballesta.png">
+                                </div>
+            
+                                <div class="vida">
+        
+                                    <img src="../Imagenes/heart.png">
+                                    <p id="ballesta2Vida">20</p>
+            
+                                </div>
+
+        
+                        </div>
+        
+                        <div class="catapulta">
+        
+                            <button id="btn-popup-catapulta" class="btn-base" onclick="abrirModalCatapulta(1, 0)"></button>
+        
+                            <div class="catapultaImg">
+                                <img src="../Imagenes/catapulta.png" />
+                            </div>
+        
+                            <div class="vida">
+        
+                                <img src="../Imagenes/heart.png">
+                                <p id="catapultaVida">20</p>
+        
+                            </div>
+        
+                        </div>
+        
+                    </div>                    
+                </div>
+
+                <div class="tarjetasInfo">
+                    <div class="act-toon">
+                        <div class="act-Personaje" >
+                            <div class="iconP"> </div>
+                            <div class=stats>
+                                <p><i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i> <span id="vida-P">6</span></p>
+                                <p><i class="fas fa-shield-alt" style="color:rgb(176,196,222);"></i> <span
+                                        id="defensa-P">5</span></p>
+                                <p><i class="fas fa-coins" style="color:gold;"></i> <span id="carga-P">5</span></p>
+                                <div id="act-pup-image"></div>
+                                <p> <button id="pU-P2">Activar</button></p>
+                            </div>    
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+
+            
+            <div class="cnt-Activos" class="row">
+                               
                 <div class="cnt-Jugador">
                     <div class="cnt-Personaje">
                         <div class="iconP"> </div>
@@ -123,114 +197,80 @@
                     </div>
 
                 </div>
+                <div class="cnt-Jugador">
+                    
+                    <div class="cnt-Personaje">
+                        <div class="iconP"> </div>
+                        <div class=stats>
+                            
+                            <p><i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i> <span id="vida-P">8</span></p>
+                            <p><i class="fas fa-shield-alt" style="color:rgb(176,196,222);"></i> <span
+                                    id="defensa-P">9</span></p>
+                            <p><i class="fas fa-coins" style="color:gold;"></i> <span id="carga-P">10</span></p>
+                            <p> <i class="fab fa-superpowers" style="color:rgb(0,255,0);font-size:18px;"></i> <button
+                                    id="pU-P">Usar</button></p>
+
+                        </div>
+
+                    </div>
+                    <div class="cnt-Personaje">
+                        <div class="iconP"> </div>
+                        <div class=stats>
+                            <p><i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i> <span id="vida-P">4</span></p>
+                            <p><i class="fas fa-shield-alt" style="color:rgb(176,196,222);"></i> <span
+                                    id="defensa-P">5</span></p>
+                            <p><i class="fas fa-coins" style="color:gold;"></i> <span id="carga-P">2</span></p>
+                            <p> <i class="fab fa-superpowers" style="color:rgb(0,255,0);font-size:18px;"></i> <button
+                                    id="pU-P">Usar</button></p>
+
+                        </div>
+
+                    </div>
+                    <div class="cnt-Personaje">
+                        <div class="iconP"></div>
+                        <div class=stats>
+                            <p><i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i> <span id="vida-P">3</span></p>
+                            <p><i class="fas fa-shield-alt" style="color:rgb(176,196,222);"></i> <span
+                                    id="defensa-P">7</span></p>
+                            <p><i class="fas fa-coins" style="color:gold;"></i> <span id="carga-P">8</span></p>
+                            <p> <i class="fab fa-superpowers" style="color:rgb(0,255,0);font-size:18px;"></i> <button
+                                    id="pU-P">Usar</button></p>
+
+
+                        </div>
+                        
+                    </div>
+                    <div class="cnt-Personaje">
+                        <div class="iconP"></div>
+                        <div class=stats>
+                            <p><i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i> <span id="vida-P">3</span></p>
+                            <p><i class="fas fa-shield-alt" style="color:rgb(176,196,222);"></i> <span
+                                    id="defensa-P">7</span></p>
+                            <p><i class="fas fa-coins" style="color:gold;"></i> <span id="carga-P">8</span></p>
+                            <p> <i class="fab fa-superpowers" style="color:rgb(0,255,0);font-size:18px;"></i> <button
+                                    id="pU-P">Usar</button></p>
+
+
+                        </div>
+                        
+                    </div>
+                </div>
                 
+               
             </div>
 
 
         </div>
 
-        <div id="contenedorTablero" class="col-6" style="border: 1px solid transparent;">
+        <div id="contenedorTablero" class="col-5" style="border: 1px solid transparent;">
             <!--Pantalla de tablero -->
-            <div class="tarjetasInfo">
-                <h3 id="Nickname">NickName</h3>
-                <div class="castilloBase" class="col-3">
 
-                    
-    
-                    <div class="castillo">
-    
-                        <button id="btn-popup-castillo" class="btn-popupCastillo"><i
-                                class="fas fa-exclamation"></i></button>
-    
-                        <div class="castilloImg">
-                            <img src="../Imagenes/castle.png" style="width: 28px;">
-                        </div>
-    
-                        <div class="vida">
-    
-                            <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
-    
-                        </div>
-    
-                        <h6>20</h6>
-    
-                        <div class="moneda">
-    
-                            <i class="fas fa-coins" style="color: gold;"></i>
-    
-                        </div>
-    
-                        <h6>920</h6>
-    
-    
-                    </div>
-    
-                    <div class="ballesta1">
-    
-                        <button id="btn-popup-ballestaJugador1" class="btn-popupBallesta"
-                            onclick="abrirModalBallesta(1, 0)"><i class="fas fa-exclamation"></i></button>
-    
-                        <div class="ballestaImg">
-                            <img src="../Imagenes/Ballesta.png">
-                        </div>
-    
-                        <div class="vida">
-                            <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
-                        </div>
-    
-                        <h6> <span id="vidaBallesta"></span></h6>
-                        <h6>20</h6>
-    
-                    </div>
-    
-                    <div class="ballesta2">
-    
-                        <button id="btn-popup-ballesta2Jugador1" class="btn-popupBallesta2"
-                            onclick="abrirModalBallesta(1, 1)"><i class="fas fa-exclamation"></i></button>
-    
-                            <div class="ballestaImg">
-                                <img src="../Imagenes/Ballesta.png">
-                            </div>
-        
-                            <div class="vida">
-                                <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
-                            </div>
-        
-                            <h6> <span id="vidaBallesta"></span></h6>
-                            <h6>20</h6>
-    
-                    </div>
-    
-                    <div class="catapulta">
-    
-                        <button id="btn-popup-catapulta" class="btn-popupCatapulta" onclick="abrirModalCatapulta(1, 0)"><i
-                                class="fas fa-exclamation"></i></button>
-    
-                        <div class="catapultaImg">
-                            <img src="../Imagenes/catapulta.png" />
-                        </div>
-    
-                        <div class="vida">
-                            <i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i>
-                        </div>
-    
-                        <h6> <span id="vidaCatapulta"></span></h6>
-                        <h6>20</h6>
-    
-                    </div>
-    
-                </div>
-    
-                
-            </div>
             
             <table id="tablero" class="tablero" cellspacing="0"></table>
 
             
             </div>
-
             
-
         <div  class="col-3" style="border: 1px solid transparent;">
             <!--Pantalla de tienda personajes -->
 
@@ -414,9 +454,7 @@
                 </div>
             </div>
         </div>
-        <!--<div id="console">
-        Information console
-    </div>-->
+
     <div>
         <button class="fa-volume-up" id="btn_music" type="button">
           

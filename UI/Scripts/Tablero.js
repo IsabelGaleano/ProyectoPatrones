@@ -186,10 +186,10 @@ function cargarTablero(mas2Jugadores) {
             celda.id = "c" + c;
             if (c == 10) {
                 celda.style.backgroundSize = "70px 70px";
-                celda.style.backgroundImage = 'url(../Imagenes/Castillo1.png)';                
+                celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo1-100.png)';                
             } else if (c == 91) {
                 celda.style.backgroundSize = "70px 70px";
-                celda.style.backgroundImage = 'url(../Imagenes/Castillo2.png)';
+                celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo2-100.png)';
             }
 
             celda.addEventListener('click', function() {

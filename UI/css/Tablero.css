@@ -25,7 +25,8 @@ body {
   height: 200px;
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.75);
-  border: 2px solid aquamarine;
+  background-image: url('../Imagenes/ui/thinframesquare.png');
+    background-size: 100% 100%;
   border-radius: 5%;
   position: fixed;
   bottom: 45px;
@@ -100,7 +101,8 @@ td {
 
 /*--TIMER--*/
 .cnt-timer {
-  border: 2px solid aquamarine;
+  background-image: url('../Imagenes/ui/thinframerectan.png');
+    background-size: 100% 100%;
   font-family: 'Press Start 2P';
     background-color: rgba(0, 0, 0, 0.75);
     border-radius: 5%;
@@ -137,8 +139,9 @@ td {
 /*--SECCION DE PERSONAJES--*/
 .character-container {
     background-color: rgba(0, 0, 0, 0.75);
-    border: 2px solid aquamarine;
-  
+    /*border: 2px solid aquamarine;*/
+    background-image: url('../Imagenes/ui/thinframerectan.png');
+    background-size: 100% 100%;
     border-radius: 5%;
     width: 22.5%;
     height: 25%;
@@ -194,7 +197,8 @@ td {
 
 .tienda-personajes-ocultos {
     display: none;
-    border: 2px solid aquamarine;  
+    background-image: url('../Imagenes/ui/thinframerectan.png');
+    background-size: 100% 100%;
     background-color: rgba(0, 0, 0, 0.75);
     border-radius: 5%;
     width: 22.5%;
@@ -217,6 +221,7 @@ td {
 
 #contenedorTablero{
   display: flex;
+  flex: 1;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -225,6 +230,7 @@ td {
 
 .tarjetasInfo{
   display:flex;
+  flex: 1;
   flex-direction: column;
   align-items: center;
   margin: 10px;  
@@ -257,4 +263,18 @@ td {
 .fade{
   opacity: 0.6;
   transition: 0.3s;
+}
+
+.titulo-principal {
+  padding-top: 10px;
+  text-align: center;
+  color: #1c3b2d;
+  font-size: 4em;
+  font-family: 'Press Start 2P', cursive;
+  text-shadow: 0.1em 0.1em 0.05em rgb(120, 224, 135);
+  background-color: rgb(145, 141, 138);
+  background: rgba(0, 0, 0, .3);
+  padding: 15px;
+  
+  
 }
