@@ -2,10 +2,9 @@
 .cnt-Activos {
     background-color: rgba(0, 0, 0, 0.75);
     /*border: 2px aquamarine solid;*/
-    width: 90%;
-    margin: 50px;
-    margin-left: auto;
-    
+    width: 93%;
+    height: 375px;
+    margin-left: 15px;
     color: white;
     height:max-content;
     border-radius: 5px;

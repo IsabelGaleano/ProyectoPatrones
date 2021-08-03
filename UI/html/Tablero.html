@@ -24,7 +24,7 @@
     <!--SCRIPTS-->
 </head>
 
-<body>
+<body id="idBody">
     <!--
     <canvas id="table-container" class="canvas">
         <table id="tablero" class="tablero" cellspacing="0"></table>
@@ -54,7 +54,7 @@
         
                         <div class="castillo">
         
-                            <button id="btn-popup-castillo" class="btn-base"></button>                            
+                           <!--  <button id="btn-popup-castillo" class="btn-base"></button>                             -->
         
                             <div class="castilloImg" >
                                 <img src="../Imagenes/castle.png" >
@@ -271,15 +271,27 @@
             
             </div>
             
-        <div  class="col-3" style="border: 1px solid transparent;">
-            <!--Pantalla de tienda personajes -->
+        <div  class="col-3" id="shopInfo" style="border: 1px solid transparent;">
 
-            <!--Pantalla de tienda personajes -->
-
-            <div class="cnt-timer">
-                <h1>Tiempo</h1>
-                <p id="timer">x</p>
+            <div id="topCont">                
+                <div class="dado-container">
+                    <div id="imagen-dado">
+                    </div>
+                    <button id="boton-dado">Roll</button>
+                </div>
+                <div id="turnoCont">
+                    <div class="cnt-timer">
+                        <h1>Tiempo</h1>
+                        <p id="timer">xx:xx</p>
+                    </div>
+                    <div class="cnt-timer">
+                        <h1>Movimientos</h1>
+                        <p id="Movimientos">X</p>
+                    </div>
+                </div>
+                
             </div>
+            
 
             <div class=" character-container ">
 
@@ -288,17 +300,8 @@
                 </div>
                 <div class="items-tienda">
                     <div class="cnt-characters">
-
                         <div class="tienda">
-                            <div class="div-tienda tienda-personajes">
-                                <div>
-                                    <img src="../Imagenes/Characters/SkellieIdle.gif" alt="Arquero" id="img-arquero"
-                                        class="img-character">
-                                    <p id="titulo-tienda">Personajes</p>
-                                    <button type="button" id="btn-ver-personajes" class="btn-tienda">Ver más</button>
-                                </div>
 
-                            </div>
                             <div class="div-tienda tienda-ballestas">
                                 <img src="../Imagenes/ballesta.png" alt="Ballesta" id="img-Ballesta"
                                     class="img-Ballesta">
@@ -311,60 +314,68 @@
                                 <p id="titulo-tienda">Catapulta</p>
                                 <button type="button" id="btn-comprar-catapulta" class="btn-tienda" onclick="abrirModalCompraC()">8</button>
                             </div>
+
                         </div>
                     </div>
                     
                 </div>
 
-            </div>
-            <div class="tienda-personajes-ocultos" id="personajes-tienda">
-                <div class="col-personajes 1">
-                    <div class="espacio-personaje">
-                        <img src="../Imagenes/Characters/ArcherIdleRight.gif" alt="Arquero" id="img-arquero"
-                            class="img-character">
-                        <button value = "1" class="btn-compra-personaje" id="compra-arquero">10</button>
+                <div class="items-tienda">
+                    <div class="cnt-characters">
+                        <div class="tienda">
+                            <div class="col-personajes 1">
+                                <div class="espacio-personaje">
+                                    <img src="../Imagenes/Characters/ArcherIdleRight.gif" alt="Arquero" id="img-arquero"
+                                        class="img-character">
+                                    <button value = "1" class="btn-compra-personaje" id="compra-arquero">10</button>
+                                </div>
+                                <div class="espacio-personaje">
+                                    <img src="../Imagenes/Characters/AssasinIdleRight.gif" alt="Asesino" id="img-asesino"
+                                        class="img-character">
+                                    <button value = "3" class="btn-compra-personaje" id="compra-asesino">5</button>
+                                </div>
+                                <div class="espacio-personaje">
+                                    <img src="../Imagenes/Characters/BerserkIdleRight.gif" alt="Bersequer" id="img-bersequer"
+                                        class="img-character">
+                                    <button value = "4" class="btn-compra-personaje" id="compra-bersequer">25</button>
+                                </div>
+                                <div class="espacio-personaje">
+                                    <img src="../Imagenes/Characters/KnightIdleRight.gif" alt="Jinete" id="img-jinete"
+                                        class="img-character">
+                                    <button value = "6" class="btn-compra-personaje" id="compra-jinete">15</button>
+                                </div>
+                            </div>                            
+                        </div>
                     </div>
-                    <div class="espacio-personaje">
-                        <img src="../Imagenes/Characters/AssasinIdleRight.gif" alt="Asesino" id="img-asesino"
-                            class="img-character">
-                        <button value = "3" class="btn-compra-personaje" id="compra-asesino">5</button>
-                    </div>
-                    <div class="espacio-personaje">
-                        <img src="../Imagenes/Characters/BerserkIdleRight.gif" alt="Bersequer" id="img-bersequer"
-                            class="img-character">
-                        <button value = "4" class="btn-compra-personaje" id="compra-bersequer">25</button>
-                    </div>
-                    <div class="espacio-personaje">
-                        <img src="../Imagenes/Characters/KnightIdleRight.gif" alt="Jinete" id="img-jinete"
-                            class="img-character">
-                        <button value = "6" class="btn-compra-personaje" id="compra-jinete">15</button>
-                    </div>
-                </div>
-                <div class="col-personajes 2">
-                    <div class="espacio-personaje">
-                        <img src="../Imagenes/Characters/SpyIdleRight.gif" alt="Espia" id="img-espia"
-                            class="img-character">
-                        <button value = "5" class="btn-compra-personaje" id="compra-espia">5</button>
-                    </div>
-                    <div class="espacio-personaje">
-                        <img src="../Imagenes/Characters/SwordsmanIdleRight.gif" alt="Espadachin" id="img-espadachin"
-                            class="img-character">
-                        <button value = "2" class="btn-compra-personaje" id="compra-espadachin">15</button>
-                    </div>
-                    
-                    <div class="espacio-personaje">
-                        <img src="../Imagenes/Characters/MageIdleRight.gif" alt="Mago" id="img-mago" class="img-character">
-                        <button value = "7" class="btn-compra-personaje" id="compra-mago">10</button>
-                    </div>
-
                 </div>
 
-            </div>
-            <div class="dado-container">
-                <div id="imagen-dado">
+                <div class="items-tienda">
+                    <div class="cnt-characters">
+                        <div class="tienda">
+                            <div class="col-personajes 2">
+                                <div class="espacio-personaje">
+                                    <img src="../Imagenes/Characters/SpyIdleRight.gif" alt="Espia" id="img-espia"
+                                        class="img-character">
+                                    <button value = "5" class="btn-compra-personaje" id="compra-espia">5</button>
+                                </div>
+                                <div class="espacio-personaje">
+                                    <img src="../Imagenes/Characters/SwordsmanIdleRight.gif" alt="Espadachin" id="img-espadachin"
+                                        class="img-character">
+                                    <button value = "2" class="btn-compra-personaje" id="compra-espadachin">15</button>
+                                </div>
+                                
+                                <div class="espacio-personaje">
+                                    <img src="../Imagenes/Characters/MageIdleRight.gif" alt="Mago" id="img-mago" class="img-character">
+                                    <button value = "7" class="btn-compra-personaje" id="compra-mago">10</button>
+                                </div>
+            
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <button id="boton-dado">Tirar dado</button>
+
             </div>
+            
 
 
 

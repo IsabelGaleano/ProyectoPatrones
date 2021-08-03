@@ -70,6 +70,9 @@
 .castilloBase div {
     color: #ffffff;    
     margin: 1% 1.5% 1.5% 1.5%;    
+    display: flex;
+    justify-content: space-around;
+    
 }
 
 .castilloBase h3 {
