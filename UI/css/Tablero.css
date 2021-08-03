@@ -3,7 +3,7 @@ body {
   font-family: 'Press Start 2P';
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url('../Imagenes/Backgrounds/game_background_4.png');
+  background-image: url('../Imagenes/Backgrounds/bg_01.PNG');  
   overflow-x: hidden;
 }
 
@@ -26,16 +26,14 @@ body {
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.75);
   background-image: url('../Imagenes/ui/thinframesquare.png');
-    background-size: 100% 100%;
-  border-radius: 5%;
-  position: fixed;
-  bottom: 45px;
-  font-size: 13px;
+  background-size: 100% 100%;
+  border-radius: 5%;    
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-repeat: no-repeat;
+  margin-right: 5px;
 }
 
 #imagen-dado {
@@ -64,8 +62,8 @@ body {
 .btn-compra-personaje{
   
   margin-top: 10px;
-  width: 45px;
-  height: 20px;
+  width: 60px;
+  height: 25px;
   font-size: 10px;
   background-color: transparent;    
     color: beige;
@@ -73,6 +71,7 @@ body {
     background-repeat: no-repeat;
     background-size:contain;
     border: transparent;
+    padding:0%;
 }
 .btn-compra-personaje:hover{
   color: yellow;
@@ -99,69 +98,101 @@ td {
     background-size:contain;     
 }
 
+#shopInfo{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+#topCont{
+
+    width: 80%;
+    height: 100%;        
+    display: flex;    
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#turnoCont{
+
+  width: 80%;
+  height: 100%;        
+  display: flex;    
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
 /*--TIMER--*/
 .cnt-timer {
-  background-image: url('../Imagenes/ui/thinframerectan.png');
+    background-image: url('../Imagenes/ui/thinframerectan.png');
     background-size: 100% 100%;
-  font-family: 'Press Start 2P';
+    font-family: 'Press Start 2P';
     background-color: rgba(0, 0, 0, 0.75);
     border-radius: 5%;
-    width: 11%;
-    height: 11%;
-    position: fixed;
-    top: 10%;
-    right: 12.7%;
+    width: 70%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 20px;
+    margin-left: 5px;
 }
 
 .cnt-timer h1 {
-  color: white;
+  color: aquamarine;
 }
 
 .cnt-timer p {
-  color: white;
+  color: aquamarine;
   margin-top: 5%;
 }
 
-/*--CONSOLE--*/
-/*#console {
-    position: fixed;
-    position: fixed;
-    bottom: 2%;
-    right: 37.5%;
-    border: 1px solid black;
-    width: 25%;
-    height: 10%;
-}*/
+
 /*--SECCION DE PERSONAJES--*/
 .character-container {
-    background-color: rgba(0, 0, 0, 0.75);
-    /*border: 2px solid aquamarine;*/
-    background-image: url('../Imagenes/ui/thinframerectan.png');
+    background-color: rgba(0, 0, 0, 0.75);    
+    background-image: url('../Imagenes/ui/thinframesquare.png');
     background-size: 100% 100%;
     border-radius: 5%;
-    width: 22.5%;
-    height: 25%;
-    position: fixed;
-    bottom: 52%;
-    /*right: 3%;*/
+    width: 80%;
+    height: 100%;        
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .tienda {
     display: inline-flex;
     justify-content: space-evenly;
+    width: 90%;
+    padding: 15px;
+     
+}
+
+.items-tienda{
+  width: 100%;
 }
 
 .tienda-ballestas {
-    padding: 0 15% 0 15%;
+    padding: 0 10% 0 10%;
 }
-
+.tienda-catapultas {
+  padding: 0 10% 0 10%;
+}
 #titulo-tienda {
     color: white;
     font-size: 10px;
@@ -178,6 +209,7 @@ td {
 
 .cnt-characters {
   text-align: center;
+  
 }
 
 .img-character {
@@ -202,21 +234,20 @@ td {
     background-color: rgba(0, 0, 0, 0.75);
     border-radius: 5%;
     width: 22.5%;
-    height: 25%;
-    position: fixed;
-    bottom: 27%;
-    /*right: 3%;*/
+    height: 25%;    
 }
 
 .col-personajes {
     display: flex;
-    justify-content: space-evenly;
-    padding: 0 0 10% 0;
+    justify-content: space-around;
+    
 }
 
 .espacio-personaje {
     display: flex;
     flex-direction: column;
+    margin: 0 10px 0 10px ;
+    
 }
 
 #contenedorTablero{
@@ -274,7 +305,6 @@ td {
   text-shadow: 0.1em 0.1em 0.05em rgb(120, 224, 135);
   background-color: rgb(145, 141, 138);
   background: rgba(0, 0, 0, .3);
-  padding: 15px;
-  
-  
+  padding: 15px; 
 }
+
