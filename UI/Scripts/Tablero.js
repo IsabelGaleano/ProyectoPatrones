@@ -4,7 +4,7 @@
 let tablero = document.getElementById("tablero");
 let mas2Jugadores = false;
 let imagenDado = document.getElementById("imagen-dado");
-let botonDado = document.getElementById("boton-dado");
+
 let imgBody = document.getElementById("idBody");
 let btn_ver_personajes = document.getElementById("btn-ver-personajes")
 let tiendaAbierta = false;
@@ -93,9 +93,7 @@ btn_ver_personajes.addEventListener('click', function() {
 
 });
 
-botonDado.addEventListener('click', function() {
-    dado();
-});
+
 
 //---MANEJO DEL JUEGO---
 
@@ -159,31 +157,7 @@ const crearDefensas = async(opcion) => {
 
 }
 
-function dado() {
-    let randomNumber = Math.floor(Math.random() * 6) + 1;
-    let urlDado;
-    switch (randomNumber) {
-        case 1:
-            urlDado = 'url(../Imagenes/CarasDado/Cara1.png)';
-            break;
-        case 2:
-            urlDado = 'url(../Imagenes/CarasDado/Cara2.png)';
-            break;
-        case 3:
-            urlDado = 'url(../Imagenes/CarasDado/Cara3.png)';
-            break;
-        case 4:
-            urlDado = 'url(../Imagenes/CarasDado/Cara4.png)';
-            break;
-        case 5:
-            urlDado = 'url(../Imagenes/CarasDado/Cara5.png)';
-            break;
-        case 6:
-            urlDado = 'url(../Imagenes/CarasDado/Cara6.png)';
-            break;
-    }
-    imagenDado.style.backgroundImage = urlDado;
-}
+
 
 function playSound() {
     var clicksound = new Audio('../Sounds/footLand.wav');

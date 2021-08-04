@@ -1,6 +1,8 @@
 let tableroJSON = JSON.parse(sessionStorage.getItem('tablero'));
+let botonDado = document.getElementById("boton-dado");
 let cantidadJugadores = tableroJSON.jugadores.length;
 let jugadorActual;
+let dadoTirado = false;
 
 
 $(document).ready(function() {
@@ -10,6 +12,40 @@ $(document).ready(function() {
     partida();
     //juego();
 });
+
+botonDado.addEventListener('click', function() {
+    if (dadoTirado == false) {
+        dado();
+        dadoTirado = true;
+    }
+
+});
+
+function dado() {
+    let randomNumber = Math.floor(Math.random() * 6) + 1;
+    let urlDado;
+    switch (randomNumber) {
+        case 1:
+            urlDado = 'url(../Imagenes/CarasDado/Cara1.png)';
+            break;
+        case 2:
+            urlDado = 'url(../Imagenes/CarasDado/Cara2.png)';
+            break;
+        case 3:
+            urlDado = 'url(../Imagenes/CarasDado/Cara3.png)';
+            break;
+        case 4:
+            urlDado = 'url(../Imagenes/CarasDado/Cara4.png)';
+            break;
+        case 5:
+            urlDado = 'url(../Imagenes/CarasDado/Cara5.png)';
+            break;
+        case 6:
+            urlDado = 'url(../Imagenes/CarasDado/Cara6.png)';
+            break;
+    }
+    imagenDado.style.backgroundImage = urlDado;
+}
 
 function turnos() {
     tableroJSON.jugadores[1].estado = 2;
@@ -37,18 +73,15 @@ let partida = async() => {
     console.log(JSON.stringify(jugadores));
     //jugadores = JSON.parse(jugadores);
     let posicionJugadorActual = 0;
+
     //SI NO HAY NINGÚN JUGADOR, SE CONTINUA EL CICLO
     while (estadoPartida == false) {
         console.log("Turno diferente" + posicionJugadorActual);
-        //console.log(jugadores.length - 1);
 
         jugadores[posicionJugadorActual].estado = 1;
-        //
-        //ARREGLAR BIEN EL PROXY PARA CAMBIAR EL TURNO DEL JUGADOR
-        //
+
         jugadores = await verificar_jugadores(aliasJugadores.join(), posicionJugadorActual);
         //jugadores = await verificar_jugadores(JSON.parse(jugadores));
-        console.log(aliasJugadores.join());
         if (posicionJugadorActual == jugadores.length + 1) {
             posicionJugadorActual = 0;
         }
@@ -68,6 +101,7 @@ let partida = async() => {
         } else {
             posicionJugadorActual++;
         }
+        dadoTirado = false;
 
     }
 }
