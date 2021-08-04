@@ -146,15 +146,134 @@ public class GestorCasilla {
     public void validarCastillos(int cantidadCastillos) {
         switch (cantidadCastillos) {
             case 2:
+                encontrarRepeticionesDos();
                 break;
-
             case 3:
+                encontrarRepeticionesTres();
                 break;
 
             case 4:
+                encontrarRepeticionesCuatro();
                 break;
 
         }
+    }
+
+    public void encontrarRepeticionesDos() {
+        Casilla temp;
+        for (int i = 0; i < arrCasillas.size(); i++) {
+            if (i == 9) {
+                if (arrCasillas.get(i).getTipo() != "CasillaNormal") {
+                    temp = intercambiarCasilla(arrCasillas.get(i), 9);
+                    temp.setId(9);
+                    arrCasillas.set(9, temp);
+                }
+            }
+
+            if (i == 90) {
+                if (arrCasillas.get(i).getTipo() != "CasillaNormal") {
+                    temp = intercambiarCasilla(arrCasillas.get(i), 90);
+                    temp.setId(90);
+                    arrCasillas.set(90, temp);
+                }
+            }
+
+
+        }
+    }
+
+
+    public void encontrarRepeticionesTres() {
+        Casilla temp;
+        for (int i = 0; i < arrCasillas.size(); i++) {
+            if (i == 0) {
+                if (arrCasillas.get(i).getTipo() != "CasillaNormal") {
+                    temp = intercambiarCasilla(arrCasillas.get(i), 0);
+                    temp.setId(0);
+                    arrCasillas.set(0, temp);
+
+                }
+            }
+
+
+            if (i == 9) {
+                if (arrCasillas.get(i).getTipo() != "CasillaNormal") {
+                    temp = intercambiarCasilla(arrCasillas.get(i), 9);
+                    temp.setId(9);
+                    arrCasillas.set(9, temp);
+                }
+            }
+
+            if (i == 90) {
+                if (arrCasillas.get(i).getTipo() != "CasillaNormal") {
+                    temp = intercambiarCasilla(arrCasillas.get(i), 90);
+                    temp.setId(90);
+                    arrCasillas.set(90, temp);
+                }
+            }
+
+
+        }
+    }
+
+
+    public void encontrarRepeticionesCuatro() {
+        Casilla temp;
+        for (int i = 0; i < arrCasillas.size(); i++) {
+
+            if (i == 0) {
+                if (arrCasillas.get(i).getTipo() != "CasillaNormal") {
+                    temp = intercambiarCasilla(arrCasillas.get(i), 0);
+                    temp.setId(0);
+                    arrCasillas.set(0, temp);
+                }
+            }
+
+            if (i == 9) {
+                if (arrCasillas.get(i).getTipo() != "CasillaNormal") {
+                    temp = intercambiarCasilla(arrCasillas.get(i), 9);
+                    temp.setId(9);
+                    arrCasillas.set(9, temp);
+                }
+            }
+
+            if (i == 90) {
+                if (arrCasillas.get(i).getTipo() != "CasillaNormal") {
+                    temp = intercambiarCasilla(arrCasillas.get(i), 99);
+                    temp.setId(90);
+                    arrCasillas.set(90, temp);
+                }
+            }
+
+            if (i == 99) {
+                if (arrCasillas.get(i).getTipo() != "CasillaNormal") {
+                    temp = intercambiarCasilla(arrCasillas.get(i),99);
+                    temp.setId(99);
+                    arrCasillas.set(99, temp);
+                }
+            }
+
+
+        }
+    }
+
+
+
+    public Casilla intercambiarCasilla(Casilla casilla, int posicion) {
+        ArrayList<Casilla> casillasTemp = new ArrayList<>();
+        ArrayList<Integer> posicionesCasillas = new ArrayList<>();
+        Casilla temp;
+        for (int i = 20; i < 85 ; i++) {
+            if (arrCasillas.get(i).getTipo().equals("CasillaNormal")) {
+                casillasTemp.add(arrCasillas.get(i));
+                posicionesCasillas.add(i);
+            }
+        }
+
+        casilla.setId(posicionesCasillas.get(0));
+        arrCasillas.set(posicionesCasillas.get(0), casilla);
+
+        return casillasTemp.get(0);
     }
 
     public List <Casilla> generarCasillas(int cantidadCastillos){
@@ -164,6 +283,7 @@ public class GestorCasilla {
         unir();
         shuffle();
         rellenarID();
+        validarCastillos(cantidadCastillos);
 
 
         return  arrCasillas;

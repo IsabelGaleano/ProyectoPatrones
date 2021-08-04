@@ -52,14 +52,12 @@ const obtenerDatos = async() => {
     }
 
     arrayJugadores = await obtenerJugadores(arrayAlias);
-
-    tablero = await crearTablero(arrayJugadores.join());
+    tablero =  await crearTablero(arrayJugadores.join());
 
     await sesionLocal(tablero);
 
     let obj = JSON.parse(sessionStorage.getItem('tablero'));
-    console.log(obj);
-
+ 
     changeHTML();
 
 }
