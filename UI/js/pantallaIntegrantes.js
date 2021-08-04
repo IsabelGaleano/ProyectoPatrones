@@ -1,4 +1,3 @@
-
 document.querySelector('#agregar').addEventListener('click', e => {
     let listadoAlias = `<div class="form__group" id="remove">
     <div class="inputText">
@@ -29,7 +28,7 @@ const eliminar = () => {
     }
 }
 
-const obtenerDatos = async () => {
+const obtenerDatos = async() => {
     let aliasJugadores = document.getElementsByClassName('form__input');
     let valorAlias;
     let jugador;
@@ -44,7 +43,7 @@ const obtenerDatos = async () => {
         valorAlias = aliasJugadores[i].value;
         arrayAlias.push(valorAlias);
         jugador = await validarAlias(valorAlias);
-        
+
         if (jugador == null) {
             await registrarJugador(valorAlias, castillos[i].id);
         } else {
@@ -63,7 +62,7 @@ const obtenerDatos = async () => {
 
 }
 
-const obtenerJugadores = async (arrayAlias) => {
+const obtenerJugadores = async(arrayAlias) => {
     let arrayJugadores = [];
     let jugador = null;
     for (let i = 0; i < arrayAlias.length; i++) {
@@ -95,7 +94,7 @@ const aliasError = (posicion) => {
 }
 
 
-const validarAlias = async (alias) => {
+const validarAlias = async(alias) => {
     let foo;
     await axios({
         method: 'get',
@@ -111,7 +110,7 @@ const validarAlias = async (alias) => {
     return foo;
 }
 
-const crearCastillos = async (cantidad) => {
+const crearCastillos = async(cantidad) => {
     let castillos;
     await axios({
         method: 'get',
@@ -129,7 +128,7 @@ const crearCastillos = async (cantidad) => {
 
 }
 
-const enviarCantidadCastillos = async (castillos) => {
+const enviarCantidadCastillos = async(castillos) => {
     await axios({
         method: 'get',
         url: `http://localhost:8080/api/castillos/${castillos}`,
@@ -144,7 +143,7 @@ const enviarCantidadCastillos = async (castillos) => {
 }
 
 
-const crearTablero = async (jugadores) => {
+const crearTablero = async(jugadores) => {
     let tablero;
     await axios({
         method: 'post',
@@ -168,7 +167,7 @@ const crearTablero = async (jugadores) => {
 }
 
 
-const registrarJugador = async (alias, idCastillo) => {
+const registrarJugador = async(alias, idCastillo) => {
     await axios({
         method: 'post',
         url: 'http://localhost:8080/api/jugadores',
@@ -194,7 +193,7 @@ const registrarJugador = async (alias, idCastillo) => {
 };
 
 
-const actualizarIDCastillo = async (jugador, alias, idCastillo) => {
+const actualizarIDCastillo = async(jugador, alias, idCastillo) => {
     await axios({
         method: 'put',
         url: `http://localhost:8080/api/jugadores/updateIDCastillo/${alias}/${idCastillo}`,
@@ -208,4 +207,3 @@ const actualizarIDCastillo = async (jugador, alias, idCastillo) => {
         console.log(console.error())
     });
 };
-

@@ -129,6 +129,48 @@ p::selection {
     background-image: url('../imgReglasJuego/fondoFooter.jpg');
     background-size:cover;
     background-repeat: no-repeat;    
-    height: 46px;
+    height: 50px;
     width: 100%;    
 }
+
+#btn_music{     
+    height: 100px;
+    width: 100px;    
+    border: transparent;
+    position: absolute;
+    top: 50px;
+    right: 50px;
+}
+
+.fa-volume-up{    
+    background-image: url('../Imagenes/ui/ui/musicGif.gif');
+    background-size:contain;     
+    background-repeat: no-repeat;
+    background-color: transparent;     
+}
+
+.fa-volume-mute{
+    background-image: url('../Imagenes/ui/ui/music_t.png') ;    
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-color: transparent;    
+}
+
+.fade{
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+.titulo-principal {
+    padding-top: 10px;
+    text-align: center;
+    color: #1c3b2d;
+    font-size: 4em;
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 0.1em 0.1em 0.05em rgb(120, 224, 135);
+    background-color: rgb(145, 141, 138);
+    background: rgba(0, 0, 0, .3);
+    padding: 15px;
+    
+    
+  }
