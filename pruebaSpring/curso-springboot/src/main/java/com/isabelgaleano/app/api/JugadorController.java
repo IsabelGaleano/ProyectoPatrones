@@ -66,7 +66,8 @@ public class JugadorController {
     }
 
     @PutMapping("updateIDCastillo/{alias}/{idCastillo}")
-    public ResponseEntity<?> updateIDCastillo(@RequestBody JugadorObject jugadorDetails, @PathVariable(value = "alias")String alias , @PathVariable(value = "idCastillo") int idCastillo) {
+    public ResponseEntity<?> updateIDCastillo(@RequestBody JugadorObject jugadorDetails, @PathVariable(value = "alias")String alias ,
+                                              @PathVariable(value = "idCastillo") int idCastillo) {
         Optional<JugadorObject> jugador = jugadorService.findByAlias(alias);
         jugadorDetails.setIdCastillo(idCastillo);
         if (!jugador.isPresent()) {
