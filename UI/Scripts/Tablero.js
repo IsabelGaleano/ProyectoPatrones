@@ -63,6 +63,13 @@ const obtenerCasillas = () => {
 }
 
 
+const obtenerCantidad = () => {
+    let tablero = JSON.parse(sessionStorage.getItem('tablero'));
+    let personajes = [];
+    personajes = tablero.jugadores;
+    return personajes.length;
+}
+
 $(document).ready(function() {
     cargarTablero(mas2Jugadores);
     imagenDado.style.backgroundImage = 'url(../Imagenes/CarasDado/Cara1.png)';
@@ -171,6 +178,8 @@ function playSound(){
 function cargarTablero(mas2Jugadores) {
     //CREACION DE LAS CELDAS 
     //FILAS
+    let cantidad = obtenerCantidad();
+    console.log(cantidad);
     for (let i = 1; i <= 10; i++) {
         let fila = document.createElement("tr");
         fila.id = "fila" + i;
@@ -184,13 +193,51 @@ function cargarTablero(mas2Jugadores) {
         for (let c = sumatoriaCeldas; c <= 10 * i; c++) {
             let celda = document.createElement("td");
             celda.id = "c" + c;
-            if (c == 10) {
-                celda.style.backgroundSize = "70px 70px";
-                celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo1-100.png)';                
-            } else if (c == 91) {
-                celda.style.backgroundSize = "70px 70px";
-                celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo2-100.png)';
+            
+            if(cantidad == 2) {
+                if (c == 10) {
+                    celda.style.backgroundSize = "70px 70px";
+                    celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo1-100.png)';                
+                } else if (c == 91) {
+                    celda.style.backgroundSize = "70px 70px";
+                    celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo2-100.png)';
+                }
+
+            } else if(cantidad == 3) {
+
+                if (c == 1) {
+                    celda.style.backgroundSize = "70px 70px";
+                    celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo1-100.png)';                
+                } else if (c == 10) {
+                    celda.style.backgroundSize = "70px 70px";
+                    celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo2-100.png)';
+                } else if (c == 91) {
+                    celda.style.backgroundSize = "70px 70px";
+                    celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo2-100.png)';
+                }
+
+            } else if(cantidad == 4) {
+
+                if (c == 1) {
+                    celda.style.backgroundSize = "70px 70px";
+                    celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo1-100.png)';                
+                } else if (c == 10) {
+                    celda.style.backgroundSize = "70px 70px";
+                    celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo2-100.png)';
+                } else if (c == 91) {
+                    celda.style.backgroundSize = "70px 70px";
+                    celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo2-100.png)';
+                } else if (c == 100) {
+                    celda.style.backgroundSize = "70px 70px";
+                    celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo2-100.png)';
+                } 
+
             }
+        
+                
+
+            
+            
 
             celda.addEventListener('click', function() {
                 //console.log(document.getElementById(celdaActual));

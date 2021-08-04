@@ -264,13 +264,13 @@ public class GestorCasilla {
         ArrayList<Integer> posicionesCasillas = new ArrayList<>();
         Casilla temp;
         for (int i = 20; i < 85 ; i++) {
-            if (arrCasillas.get(i).getTipo() == "CasillaNormal") {
+            if (arrCasillas.get(i).getTipo().equals("CasillaNormal")) {
                 casillasTemp.add(arrCasillas.get(i));
                 posicionesCasillas.add(i);
             }
         }
 
-        casilla.setId(posicion);
+        casilla.setId(posicionesCasillas.get(0));
         arrCasillas.set(posicionesCasillas.get(0), casilla);
 
         return casillasTemp.get(0);
@@ -283,7 +283,7 @@ public class GestorCasilla {
         unir();
         shuffle();
         rellenarID();
-        //validarCastillos(cantidadCastillos);
+        validarCastillos(cantidadCastillos);
 
 
         return  arrCasillas;
