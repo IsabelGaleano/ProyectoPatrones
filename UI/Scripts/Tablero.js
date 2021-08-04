@@ -89,7 +89,7 @@ $(document).ready(function() {
     //juego();
 });
 
-btn_ver_personajes.addEventListener('click', function() {
+/*btn_ver_personajes.addEventListener('click', function() {
     if (tiendaAbierta == false) {
         document.getElementById("personajes-tienda").style.display = 'inline-block';
         tiendaAbierta = true;
@@ -98,7 +98,7 @@ btn_ver_personajes.addEventListener('click', function() {
         tiendaAbierta = false;
     }
 
-});
+});*/
 
 
 
