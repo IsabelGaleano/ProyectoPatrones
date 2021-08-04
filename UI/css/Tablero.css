@@ -1,85 +1,110 @@
-/*CSS DEL TABLERO*/
-body {
-  font-family: 'Press Start 2P';
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url('../Imagenes/Backgrounds/bg_01.PNG');  
-  overflow-x: hidden;
-}
-
-.tablero {
-    width: 700px;
-    max-height: max-content;    
+    /*CSS DEL TABLERO*/
     
-    /*position: fixed;*/
-    top: 50%;
-    left: 50%;
-    /* bring your own prefixes */
-    /*transform: translate(-50%, -50%);*/
-    background-image: url('../Imagenes/gray_texture.png');
-}
-
-/*--SECCION DEL DADO--*/
-.dado-container {
-  width: 200px;
-  height: 200px;
-  padding: 20px;
-  background-color: rgba(0, 0, 0, 0.75);
-  background-image: url('../Imagenes/ui/thinframesquare.png');
-  background-size: 100% 100%;
-  border-radius: 5%;    
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-repeat: no-repeat;
-  margin-right: 5px;
-}
-
-#imagen-dado {
-  width: 100px;
-  height: 100px;
-  background-repeat: no-repeat;
-  background-size: 100px;
-}
-
-#boton-dado {
-  margin-top: 10px;
-  width: 80%;
-  height: 35%;  
-  background-color: transparent;    
-    color: beige;
-    background-image: url("../Imagenes/ui/button12.png");
-    background-repeat: no-repeat;
-    background-size:contain;
-    border: transparent;
-}
-#boton-dado:hover{
-  color: yellow;
-  font-size: larger;
-}
-
-.btn-compra-personaje{
-  
-  margin-top: 10px;
-  width: 60px;
-  height: 25px;
-  font-size: 10px;
-  background-color: transparent;    
-    color: beige;
-    background-image: url("../Imagenes/ui/button12.png");
-    background-repeat: no-repeat;
-    background-size:contain;
-    border: transparent;
-    padding:0%;
-}
-.btn-compra-personaje:hover{
-  color: yellow;
-  
-}
-
-
-/*
+    body {
+        font-family: 'Press Start 2P';
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: url('../Imagenes/Backgrounds/game_background_4.png');
+        overflow-x: hidden;
+        font-family: 'Press Start 2P';
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: url('../Imagenes/Backgrounds/bg_01.PNG');
+        overflow-x: hidden;
+    }
+    
+    .tablero {
+        width: 700px;
+        max-height: max-content;
+        /*position: fixed;*/
+        top: 50%;
+        left: 50%;
+        /* bring your own prefixes */
+        /*transform: translate(-50%, -50%);*/
+        background-image: url('../Imagenes/gray_texture.png');
+    }
+    /*--SECCION DEL DADO--*/
+    
+    .dado-container {
+        width: 200px;
+        height: 200px;
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.75);
+        border: 2px solid aquamarine;
+        border-radius: 5%;
+        position: fixed;
+        bottom: 45px;
+        font-size: 13px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 200px;
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.75);
+        background-image: url('../Imagenes/ui/thinframesquare.png');
+        background-size: 100% 100%;
+        border-radius: 5%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-repeat: no-repeat;
+        margin-right: 5px;
+    }
+    
+    #imagen-dado {
+        width: 100px;
+        height: 100px;
+        background-repeat: no-repeat;
+        background-size: 100px;
+    }
+    
+    #boton-dado {
+        margin-top: 10px;
+        width: 80%;
+        height: 35%;
+        background-color: transparent;
+        color: beige;
+        background-image: url("../Imagenes/ui/button12.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        border: transparent;
+    }
+    
+    #boton-dado:hover {
+        color: yellow;
+        font-size: larger;
+    }
+    
+    .btn-compra-personaje {
+        margin-top: 10px;
+        width: 45px;
+        height: 20px;
+        font-size: 10px;
+        background-color: transparent;
+    }
+    
+    .btn-compra-personaje {
+        margin-top: 10px;
+        width: 60px;
+        height: 25px;
+        font-size: 10px;
+        background-color: transparent;
+        color: beige;
+        background-image: url("../Imagenes/ui/button12.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        border: transparent;
+        padding: 0%;
+    }
+    
+    .btn-compra-personaje:hover {
+        color: yellow;
+    }
+    /*
 .canvas {
     width: 800px;
     height: 600px;
@@ -88,223 +113,219 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
 }*/
-td {
-    text-align: center;    
-    width: 70px;
-    height: 70px;    
-    border: 1px solid transparent;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size:contain;     
-}
-
-#shopInfo{
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
-
-#topCont{
-
-    width: 80%;
-    height: 100%;        
-    display: flex;    
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-#turnoCont{
-
-  width: 80%;
-  height: 100%;        
-  display: flex;    
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
-/*--TIMER--*/
-.cnt-timer {
-    background-image: url('../Imagenes/ui/thinframerectan.png');
-    background-size: 100% 100%;
-    font-family: 'Press Start 2P';
-    background-color: rgba(0, 0, 0, 0.75);
-    border-radius: 5%;
-    width: 70%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-    margin-left: 5px;
-}
-
-.cnt-timer h1 {
-  color: aquamarine;
-}
-
-.cnt-timer p {
-  color: aquamarine;
-  margin-top: 5%;
-}
-
-
-/*--SECCION DE PERSONAJES--*/
-.character-container {
-    background-color: rgba(0, 0, 0, 0.75);    
-    background-image: url('../Imagenes/ui/thinframesquare.png');
-    background-size: 100% 100%;
-    border-radius: 5%;
-    width: 80%;
-    height: 100%;        
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-.tienda {
-    display: inline-flex;
-    justify-content: space-evenly;
-    width: 90%;
-    padding: 15px;
-     
-}
-
-.items-tienda{
-  width: 100%;
-}
-
-.tienda-ballestas {
-    padding: 0 10% 0 10%;
-}
-.tienda-catapultas {
-  padding: 0 10% 0 10%;
-}
-#titulo-tienda {
-    color: white;
-    font-size: 10px;
-    margin-top: 10%;
-    margin-bottom: 10%;
-}
-
-#title-characters {
-    color: white;
-    font-size: 26px;
-    margin-top: 10%;
-    margin-bottom: 10%;
-}
-
-.cnt-characters {
-  text-align: center;
-  
-}
-
-.img-character {
-  width: 60px;
-  height: 60px;
-}
-
-.img-Ballesta, .img-Catapulta {
-  width: 60px;
-  height: 60px;
-}
-
-.img-gold{
-  width: 60px;
-  height: 60px;
-}
-
-.tienda-personajes-ocultos {
-    display: none;
-    background-image: url('../Imagenes/ui/thinframerectan.png');
-    background-size: 100% 100%;
-    background-color: rgba(0, 0, 0, 0.75);
-    border-radius: 5%;
-    width: 22.5%;
-    height: 25%;    
-}
-
-.col-personajes {
-    display: flex;
-    justify-content: space-around;
     
-}
-
-.espacio-personaje {
-    display: flex;
-    flex-direction: column;
-    margin: 0 10px 0 10px ;
+    td {
+        text-align: center;
+        width: 70px;
+        height: 70px;
+        border: 1px solid transparent;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+    }
     
-}
-
-#contenedorTablero{
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: transparent;
-}
-
-.tarjetasInfo{
-  display:flex;
-  flex: 1;
-  flex-direction: column;
-  align-items: center;
-  margin: 10px;  
-  font-family: 'Press Start 2P', cursive;
-}
-
-#btn_music{     
-  height: 100px;
-  width: 100px;    
-  border: transparent;
-  position: absolute;
-  top: 50px;
-  right: 50px;
-}
-
-.fa-volume-up{    
-  background-image: url('../Imagenes/ui/ui/musicGif.gif');
-  background-size:contain;     
-  background-repeat: no-repeat;
-  background-color: transparent;     
-}
-
-.fa-volume-mute{
-  background-image: url('../Imagenes/ui/ui/music_t.png') ;    
-  background-size:contain;
-  background-repeat: no-repeat;
-  background-color: transparent;    
-}
-
-.fade{
-  opacity: 0.6;
-  transition: 0.3s;
-}
-
-.titulo-principal {
-  padding-top: 10px;
-  text-align: center;
-  color: #1c3b2d;
-  font-size: 4em;
-  font-family: 'Press Start 2P', cursive;
-  text-shadow: 0.1em 0.1em 0.05em rgb(120, 224, 135);
-  background-color: rgb(145, 141, 138);
-  background: rgba(0, 0, 0, .3);
-  padding: 15px; 
-}
-
+    #shopInfo {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+    
+    #topCont {
+        width: 80%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    
+    #turnoCont {
+        width: 80%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    /*--TIMER--*/
+    
+    .cnt-timer {
+        background-image: url('../Imagenes/ui/thinframerectan.png');
+        background-size: 100% 100%;
+        font-family: 'Press Start 2P';
+        background-color: rgba(0, 0, 0, 0.75);
+        border-radius: 5%;
+        width: 70%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+        margin-left: 5px;
+    }
+    
+    .cnt-timer h1 {
+        color: aquamarine;
+    }
+    
+    .cnt-timer p {
+        color: aquamarine;
+        margin-top: 5%;
+    }
+    /*--SECCION DE PERSONAJES--*/
+    
+    .character-container {
+        background-color: rgba(0, 0, 0, 0.75);
+        background-image: url('../Imagenes/ui/thinframesquare.png');
+        background-size: 100% 100%;
+        border-radius: 5%;
+        width: 80%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    
+    .tienda {
+        display: inline-flex;
+        justify-content: space-evenly;
+        width: 90%;
+        padding: 15px;
+    }
+    
+    .items-tienda {
+        width: 100%;
+    }
+    
+    .tienda-ballestas {
+        padding: 0 10% 0 10%;
+    }
+    
+    .tienda-catapultas {
+        padding: 0 10% 0 10%;
+    }
+    
+    #titulo-tienda {
+        color: white;
+        font-size: 10px;
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
+    
+    #title-characters {
+        color: white;
+        font-size: 26px;
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
+    
+    .cnt-characters {
+        text-align: center;
+    }
+    
+    .img-character {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .img-Ballesta,
+    .img-Catapulta {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .img-gold {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .tienda-personajes-ocultos {
+        display: none;
+        background-image: url('../Imagenes/ui/thinframerectan.png');
+        background-size: 100% 100%;
+        background-color: rgba(0, 0, 0, 0.75);
+        border-radius: 5%;
+        width: 22.5%;
+        height: 25%;
+    }
+    
+    .col-personajes {
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    .espacio-personaje {
+        display: flex;
+        flex-direction: column;
+        margin: 0 10px 0 10px;
+    }
+    
+    #contenedorTablero {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: transparent;
+    }
+    
+    .tarjetasInfo {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        align-items: center;
+        margin: 10px;
+        font-family: 'Press Start 2P', cursive;
+    }
+    
+    #btn_music {
+        height: 100px;
+        width: 100px;
+        border: transparent;
+        position: absolute;
+        top: 50px;
+        right: 50px;
+    }
+    
+    .fa-volume-up {
+        background-image: url('../Imagenes/ui/ui/musicGif.gif');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-color: transparent;
+    }
+    
+    .fa-volume-mute {
+        background-image: url('../Imagenes/ui/ui/music_t.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-color: transparent;
+    }
+    
+    .fade {
+        opacity: 0.6;
+        transition: 0.3s;
+    }
+    
+    .titulo-principal {
+        padding-top: 10px;
+        text-align: center;
+        color: #1c3b2d;
+        font-size: 4em;
+        font-family: 'Press Start 2P', cursive;
+        text-shadow: 0.1em 0.1em 0.05em rgb(120, 224, 135);
+        background-color: rgb(145, 141, 138);
+        background: rgba(0, 0, 0, .3);
+        padding: 15px;
+    }
