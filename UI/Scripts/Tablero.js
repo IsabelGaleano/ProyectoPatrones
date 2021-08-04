@@ -8,7 +8,7 @@ let botonDado = document.getElementById("boton-dado");
 let btn_ver_personajes = document.getElementById("btn-ver-personajes")
 let tiendaAbierta = false;
 let celdaActual;
-let turnoJugador = document.getElementById("turno-jugador");
+let jugadorActivo = document.getElementById("jugador-activo");
 
 const audio = new Audio('../Sounds/music_funkyWhistle.wav');
 const icon = document.querySelector("#btn_music > i");

@@ -45,6 +45,22 @@ public class JugadorObject implements Serializable {
         this.idCastillo = idCastillo;
     }
 
+    @Override
+    public String toString() {
+        return "JugadorObject{" +
+                "turno=" + turno +
+                ", id=" + id +
+                ", alias='" + alias + '\'' +
+                ", partidasGanadas=" + partidasGanadas +
+                ", partidasPerdidas=" + partidasPerdidas +
+                ", estado=" + estado +
+                ", tropasCompradas=" + tropasCompradas +
+                ", tropasDerrotadas=" + tropasDerrotadas +
+                ", idCastillo=" + idCastillo +
+                ", oroGanado=" + oroGanado +
+                '}';
+    }
+
     public boolean isTurno() {
         return turno;
     }
