@@ -1,21 +1,24 @@
 
 .cnt-Activos {
     background-color: rgba(0, 0, 0, 0.75);
-    border: 2px aquamarine solid;
-    width: 100%;
-    margin: 10px;
-    border-radius: 5%;
+    /*border: 2px aquamarine solid;*/
+    width: 93%;
+    height: 375px;
+    margin-left: 15px;
     color: white;
-    height: 50%;
-    margin-top: 25%;
+    height:max-content;
+    border-radius: 5px;
     text-align: center;
     font-family: 'Press Start 2P';
     font-size: 10px;
-    padding: 8px 0;
+    padding: 30px 30px ;
+    flex: 1;
+    background-image: url('../Imagenes/ui/thinframerectan.png');
+    background-size: 100% 100%;
   }
   
   .cnt-Jugador {
-    background-color: rgba(0, 0, 0, 0.80);
+    /*background-color: rgba(0, 0, 0, 0.80);*/
     width: 100%;
     display: flex;
     align-items: center;
@@ -23,8 +26,7 @@
 
   }
   
-  .cnt-Personaje {
-    background-color: rgba(0, 0, 0, 0.75);
+  .cnt-Personaje {    
     width: 33%;
     margin: 5px;
     padding: 2px;
@@ -34,12 +36,13 @@
   }
   
   .cnt-Personaje .iconP {
-    width: 50%;
+    width: 100%;
     background-image: url("../Imagenes/Characters/SkellieIdle.gif");
     /* The image used */
-    background-color: rgba(0, 0, 0, 0.75);
+    
     /* Used if the image is unavailable */
-    height: 100%;
+    height: 80%;
+    
     background-position: center;
     /* Center the image */
     background-repeat: no-repeat;
@@ -47,8 +50,26 @@
     background-size: contain;
   }
   
-  .nick {
-
+  .act-Personaje {    
+    width: 90%;
+    margin: 5px;
+    padding: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .act-Personaje .iconP {
+    
+    background-image: url("../Imagenes/Characters/SkellieIdle.gif");
+    width: 200px;
+    height: 100px;    
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: contain;
   }
 
   .btn-tienda {
@@ -74,7 +95,7 @@
   .stats button {
     display: inline-block;
     width: 60px;    
-    height: 23px;
+    height: 22px;
     padding: 3px;
     background-color: transparent;    
     color: beige;
@@ -82,9 +103,28 @@
     background-repeat: no-repeat;
     background-size:cover;
     border: transparent;
+    
   }
   
   .stats button:hover {
+   
+    color: yellow;    
+
+  }
+  .stats #pU-P2{
+    display: inline-block;
+    width: 140px;    
+    height: 50px;
+    padding: 3px;
+    background-color: transparent;    
+    color: beige;
+    background-image: url("../Imagenes/ui/button12.png");
+    background-repeat: no-repeat;
+    background-size:cover;
+    border: transparent;
+    
+  }
+  .stats #pU-P2:hover {
    
     color: yellow;    
 
@@ -96,4 +136,16 @@
   
   .cnt-Activos h5 {
     margin: 9px 0;
+  }
+
+  .act-Personaje #act-pup-image {
+    width: 80px;
+    background-image: url("../Imagenes/PowerUps/DefUpGif.gif");
+    height: 80px;    
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: contain;
+    margin: auto;
   }

@@ -5,6 +5,7 @@ let tablero = document.getElementById("tablero");
 let mas2Jugadores = false;
 let imagenDado = document.getElementById("imagen-dado");
 let botonDado = document.getElementById("boton-dado");
+let imgBody = document.getElementById("idBody");
 let btn_ver_personajes = document.getElementById("btn-ver-personajes")
 let tiendaAbierta = false;
 let celdaActual;
@@ -209,10 +210,10 @@ function cargarTablero(mas2Jugadores) {
             celda.id = "c" + c;
             if (c == 10) {
                 celda.style.backgroundSize = "70px 70px";
-                celda.style.backgroundImage = 'url(../Imagenes/Castillo1.png)';
+                celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo1-100.png)';
             } else if (c == 91) {
                 celda.style.backgroundSize = "70px 70px";
-                celda.style.backgroundImage = 'url(../Imagenes/Castillo2.png)';
+                celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo2-100.png)';
             }
 
             celda.addEventListener('click', function() {
@@ -451,51 +452,40 @@ function tipoPowerUp(numero) {
 }
 
 
+function fondo() {
+    let randomNumber = Math.floor(Math.random() * 9) + 1;
+    let urlBody;
+    switch (randomNumber) {
+        case 1:
+            urlBody = 'url(../Imagenes/Backgrounds/bg_01.png)';
+            break;
+        case 2:
+            urlBody = 'url(../Imagenes/Backgrounds/bg_02.png)';
+            break;
+        case 3:
+            urlBody = 'url(../Imagenes/Backgrounds/bg_03.png)';
+            break;
+        case 4:
+            urlBody = 'url(../Imagenes/Backgrounds/bg_04.png)';
+            break;
+        case 5:
+            urlBody = 'url(../Imagenes/Backgrounds/bg_05.png)';
+            break;
+        case 6:
+            urlBody = 'url(../Imagenes/Backgrounds/bg_06.png)';
+            break;
+        case 7:
+            urlBody = 'url(../Imagenes/Backgrounds/bg_07.png)';
+            break;
+        case 8:
+            urlBody = 'url(../Imagenes/Backgrounds/bg_08.png)';
+            break;
+        case 9:
+            urlBody = 'url(../Imagenes/Backgrounds/bg_09.png)';
+            break;
 
-//const trialCharacter = new Character(0, 0, 67.14, 67.14, 0, 0, 9, false);
-
-/*
-function drawCharacter(cellCol, cellRow) {
-    var spriteWidth = 67.14;
-    var spriteHeight = 67.14;
-    //var col = 2;
-    //var row = 3;
-    var sourceX = spriteWidth * cellCol;
-    var sourceY = spriteHeight * cellRow;
-    ctx.drawImage(charactersSprite, sourceX, sourceY, spriteWidth, spriteHeight, cellCol * 80, cellRow * 60, spriteWidth, spriteHeight);
-
-}
-
-function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH) {
-    ctx.drawImage(img, sX, sY, sW, sH, dX, dY, dW, dH);
-}
-
-class Character {
-    constructor(x, y, width, height, frameX, frameY, speed, moving) {
-        this.x = x;
-        this.y = y;
-        this.width = width;
-        this.height = height;
-        this.frameX = frameX;
-        this.frameY = frameY;
-        this.speed = speed;
-        this.moving = moving;
     }
-};
-
-
-
-function animate(character) {
-    drawSprite(charactersSprite, character.width * character.frameX, character.height * character.frameY, character.width, character.height, character.x, character.y, character.width, character.height);
+    imgBody.style.backgroundImage = urlBody;
 }
 
-function movePlayer(character) {
-    character.y -= player.speed;
-}
-
-//SPRITE WIDTH: 470 HEIGHT: 562
-const charactersSprite = new Image();
-charactersSprite.src = "Imagenes/characters_sprite_sheet.png";
-
-const trialCharacter = new Character(0, 0, 67.14, 70.25, 0, 0, 9, false);
-*/
+fondo();
