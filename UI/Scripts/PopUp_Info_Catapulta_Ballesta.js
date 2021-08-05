@@ -61,3 +61,102 @@ function cerrarModalCatapulta(){
         overlayCompraC.classList.remove('active');
         popupCompraCatapulta.classList.remove('active');
     }
+
+/* ----------------------  Modales compra personajes ------------------------------------*/ 
+
+    var overlayCompraArquero = document.getElementById('idOverlayCompraArquero'),
+    popupCompraArquero = document.getElementById('idpopupCompraArquero');
+
+    function abrirModalCompraArquero(){       
+        overlayCompraArquero.classList.add('active');
+        popupCompraArquero.classList.add('active');
+    }
+    function cerrarOverlayCompraArquero(){
+        overlayCompraArquero.classList.remove('active');
+        popupCompraArquero.classList.remove('active');
+    }
+
+    var overlayCompraAsesino = document.getElementById('idOverlayCompraAsesino'),
+    popupCompraAsesino = document.getElementById('idpopupCompraAsesino');
+
+    function abrirModalCompraAsesino(){       
+        overlayCompraAsesino.classList.add('active');
+        popupCompraAsesino.classList.add('active');
+    }
+    function cerrarOverlayCompraAsesino(){
+        overlayCompraAsesino.classList.remove('active');
+        popupCompraAsesino.classList.remove('active');
+    }
+
+    var overlayCompraBerserker = document.getElementById('idOverlayCompraBerserker'),
+    popupCompraBerserker = document.getElementById('idpopupCompraBerserker');
+
+    function abrirModalCompraBerserker(){       
+        overlayCompraBerserker.classList.add('active');
+        popupCompraBerserker.classList.add('active');
+    }
+    function cerrarOverlayCompraBerserker(){
+        overlayCompraBerserker.classList.remove('active');
+        popupCompraBerserker.classList.remove('active');
+    }
+
+    var overlayCompraKnight = document.getElementById('idOverlayCompraKnight'),
+    popupCompraKnight = document.getElementById('idpopupCompraKnight');
+
+    function abrirModalCompraKnight(){       
+        overlayCompraKnight.classList.add('active');
+        popupCompraKnight.classList.add('active');
+    }
+    function cerrarOverlayCompraKnight(){
+        overlayCompraKnight.classList.remove('active');
+        popupCompraKnight.classList.remove('active');
+    }
+
+    var overlayCompraEspia = document.getElementById('idOverlayCompraEspia'),
+    popupCompraEspia = document.getElementById('idpopupCompraEspia');
+
+    function abrirModalCompraEspia(){       
+        overlayCompraEspia.classList.add('active');
+        popupCompraEspia.classList.add('active');
+    }
+    function cerrarOverlayCompraEspia(){
+        overlayCompraEspia.classList.remove('active');
+        popupCompraEspia.classList.remove('active');
+    }
+
+    var overlayCompraSwordsman = document.getElementById('idOverlayCompraSwordsman'),
+    popupCompraSwordsman = document.getElementById('idpopupCompraSwordsman');
+
+    function abrirModalCompraSwordsman(){       
+        overlayCompraSwordsman.classList.add('active');
+        popupCompraSwordsman.classList.add('active');
+    }
+    function cerrarOverlayCompraSwordsman(){
+        overlayCompraSwordsman.classList.remove('active');
+        popupCompraSwordsman.classList.remove('active');
+    }
+    var overlayCompraMago = document.getElementById('idOverlayCompraMago'),
+    popupCompraMago = document.getElementById('idpopupCompraMago');
+
+    function abrirModalCompraMago(){       
+        overlayCompraMago.classList.add('active');
+        popupCompraMago.classList.add('active');
+    }
+    function cerrarOverlayCompraMago(){
+        overlayCompraMago.classList.remove('active');
+        popupCompraMago.classList.remove('active');
+    }
+
+    /*------------------ overlay mensaje --------------------------*/
+
+    var overlayMensaje = document.getElementById('idOverlayMensaje'),
+    popupMensaje = document.getElementById('idpopupMensaje');
+
+    function abrirModalMensaje(){       
+        overlayMensaje.classList.add('active');
+        popupMensaje.classList.add('active');
+    }
+    function cerrarOverlayMensaje(){
+        overlayMensaje.classList.remove('active');
+        popupMensaje.classList.remove('active');
+    }
