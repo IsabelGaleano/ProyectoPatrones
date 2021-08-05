@@ -27,6 +27,8 @@ function cerrarModalBallesta(){
     popupBallesta.classList.remove('active');
 }
 
+
+
 function cerrarModalCatapulta(){
     overleyCatapulta.classList.remove('active');
     popupCatapulta.classList.remove('active');
@@ -41,9 +43,10 @@ function cerrarModalCatapulta(){
         overlayCompraB.classList.add('active');
         popupCompraBallesta.classList.add('active');
     }
-    function cerrarOverlayCompraB(){
+    const cerrarOverlayCompraB = () =>{
         overlayCompraB.classList.remove('active');
         popupCompraBallesta.classList.remove('active');
+
     }
 
     var overlayCompraC = document.getElementById('idOverlayCompraC'),
