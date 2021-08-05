@@ -9,7 +9,7 @@ let imgBody = document.getElementById("idBody");
 let btn_ver_personajes = document.getElementById("btn-ver-personajes")
 let tiendaAbierta = false;
 let celdaActual;
-let jugadorActivo = document.getElementById("jugador-activo");
+let jugadorActivo = document.getElementById("Nickname");
 
 const audio = new Audio('../Sounds/music_funkyWhistle.wav');
 const icon = document.querySelector("#btn_music > i");
