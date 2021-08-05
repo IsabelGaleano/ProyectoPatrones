@@ -222,10 +222,6 @@ function cargarTablero(mas2Jugadores) {
             }
 
 
-
-
-
-
             celda.addEventListener('click', function() {
                 //console.log(document.getElementById(celdaActual));
                 if (celda.id != "c10" && celda.id != "c91") {

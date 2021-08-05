@@ -2,39 +2,60 @@ let elementsArray = document.querySelectorAll(".btn-compra-personaje");
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
 //COMPRA DE LOS PERSONAJES DE LA TIENDA
-elementsArray.forEach(function(elem) {
-    elem.addEventListener("click", async function() {
-        console.log(elem.textContent);
-        cancelarPersonaje();
-        if (tropaCompradaXTurno == false) {
-            agregarPersonaToCastillo(elem.value, elem.textContent);
-            await delay(1000);
-            console.log(JSON.parse(sessionStorage.getItem('tablero')));
-            tropaCompradaXTurno = true;
-        }
+elementsArray.forEach(function (elem) {
+    elem.addEventListener("click", async function () {
+        agregarBarra(elem.value);
+        verificarCompraPersonaje(elem.value, elem.textContent);
 
     });
 });
 
-const cancelarPersonaje = () => {
-    let bandera = true;
-    let contador = 1;
-    setInterval(function(){ 
-        contador = contador + 1;
+const agregarBarra = (value) => {
+    let id = "espacio" + value;
+    let divBar = `<div class="wrapper-bar" id="wrapperBar">
+    <div id="myProgress">
+        <div id="myBar"></div>
+    </div>
+    <div>
+        <button id="buttonBar" type="button">X</button>
+    </div>
 
-        if(contador == 10) {
-            bandera = false;
-        }
-    }, 1000);
+</div>`;
 
-    console.log(contador)
+    document.getElementById(id).insertAdjacentHTML("beforeend", divBar);
+
 }
-const crearPersonaje = async(opcion) => {
+
+const verificarCompraPersonaje = async (opcionPersonaje, costo) => {
+    var elem = document.getElementById("myBar");
+    let buttonCancel = document.getElementById('buttonBar');
+    var width = 1;
+    var id = setInterval(frame, 150);
+    function frame() {
+        if (width >= 100) {
+            if (tropaCompradaXTurno == false) {
+                agregarPersonaToCastillo(opcionPersonaje, costo);
+
+            }
+            clearInterval(id);
+
+        } else {
+            width++;
+            elem.style.width = width + '%';
+            buttonCancel.addEventListener('click', function () {
+                clearInterval(id);
+            });
+
+        }
+    }
+
+}
+const crearPersonaje = async (opcion) => {
 
     let obj = JSON.parse(sessionStorage.getItem('tablero'));
     let jugador;
 
-    obj.jugadores.forEach(function(element) {
+    obj.jugadores.forEach(function (element) {
         if (element.turno) {
             jugador = element;
         }
@@ -56,7 +77,7 @@ const crearPersonaje = async(opcion) => {
     return personajes;
 }
 
-const agregarPersonaToCastillo = async(opcionPersonaje, costo) => {
+const agregarPersonaToCastillo = async (opcionPersonaje, costo) => {
     let arrayPersonaje = [];
     arrayPersonaje = await crearPersonaje(opcionPersonaje);
     console.log(arrayPersonaje);
@@ -68,7 +89,7 @@ const agregarPersonaToCastillo = async(opcionPersonaje, costo) => {
     //DETERMINAR EL JUGADOR
     //SE PODRIA ELIMINAR PORQUE YA EXISTE LA VARIABLE JUGADORACTUAL DE TURNO.JS
     //CONSIDERAR
-    obj.jugadores.forEach(function(element) {
+    obj.jugadores.forEach(function (element) {
         if (element.turno) {
             jugador = element;
         }
@@ -79,7 +100,7 @@ const agregarPersonaToCastillo = async(opcionPersonaje, costo) => {
 
     //VALIDAR SI LA TROPA YA FUE COMPRADA
     if (castillos[idCastillo - 1].tropas != null) {
-        castillos[idCastillo - 1].tropas.forEach(function(element) {
+        castillos[idCastillo - 1].tropas.forEach(function (element) {
             if (element.tipo == arrayPersonaje[0].tipo) {
                 tropaComprada = true;
             }
@@ -96,10 +117,10 @@ const agregarPersonaToCastillo = async(opcionPersonaje, costo) => {
                 if (castillos[i].tropas == null) {
                     castillos[i].tropas = personaje;
                 } else {
-                    if(castillos[i].tropas.length < 3){
+                    if (castillos[i].tropas.length < 3) {
                         personaje.estado = "Activo";
                     }
-                    castillos[i].tropas = [...castillos[i].tropas,personaje];
+                    castillos[i].tropas = [...castillos[i].tropas, personaje];
                 }
                 obj.castillos[i] = castillos[i];
             }
@@ -107,6 +128,7 @@ const agregarPersonaToCastillo = async(opcionPersonaje, costo) => {
         }
         //console.log(obj.castillos);
         sessionStorage.setItem('tablero', JSON.stringify(obj));
+        tropaCompradaXTurno = true;
         actualizarInfoCastilloJugador();
         actualizarPersonajesJugador(1);
     } else {

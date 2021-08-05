@@ -1,9 +1,9 @@
-$(document).ready(function() {
+/*$(document).ready(function() {
     removerPowers();
-});
+});*/
 
 
-const crearPersonajeTemp = async(opcion) => {
+const crearPersonajeTemp = async (opcion) => {
     let personajes;
     await axios({
         method: 'get',
@@ -38,7 +38,7 @@ const obtenerPower = () => {
 }
 
 
-const removerPowers = async() => {
+const removerPowers = async () => {
     let personajes = [];
     let casillas = [];
     let personajesNuevos = [];
@@ -59,25 +59,24 @@ const removerPowers = async() => {
 }
 
 
-const visitarPersonajes = async(personajes) => {
-    let personajesRequest;
+const visitarPersonajes = async (personajes) => {
+    let personajesRequest = { listPersonajes: personajes };
+    let personajeResponse;
     await axios({
         method: 'post',
         url: `http://localhost:8080/api/visitante`,
         responseType: 'json',
-        data: {
-            personajes
-        }
+        data: personajesRequest
     }).then((response) => {
-        personajesRequest = response.data
-    }).catch((response) => {
-        console.error(response);
-        return null;
+            personajesResponse = response.data
+        }).catch((response) => {
+            console.log(response);
+            return null;
 
-    });
+        });
 
     console.log(personajesRequest);
 
-    return personajesRequest;
+    return personajeResponse;
 
 }
