@@ -130,7 +130,7 @@ function cargarPersonaje(tipo) {
             urlImagenPersonaje = 'url(../Imagenes/Characters/SpyIdleRight.gif)';
             break;
     }
-    urlImagenPersonaje = urlImagenPersonaje + ' ,url(../Imagenes/PowerUps/defupAni.gif)';
+    urlImagenPersonaje =   ' url(../Imagenes/PowerUps/powerDwnOver.gif),'+urlImagenPersonaje;
     return urlImagenPersonaje;
 }
 
