@@ -158,7 +158,7 @@ const waitFor = (time) => {
 
 //EL TIEMPO DE CADA TURNO. EL VALOR DE LA VARIABLE i ES LA CANTIDAD DE SEGUNDOS DEL TIMER
 async function timer(display) {
-    for (let i = 5; i >= 0; i--) {
+    for (let i = 45; i >= 0; i--) {
         if (i < 10) {
             display.textContent = "00" + ":0" + i;
         } else {
