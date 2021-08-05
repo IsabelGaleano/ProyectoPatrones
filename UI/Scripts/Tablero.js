@@ -89,17 +89,6 @@ $(document).ready(function() {
     //juego();
 });
 
-/*btn_ver_personajes.addEventListener('click', function() {
-    if (tiendaAbierta == false) {
-        document.getElementById("personajes-tienda").style.display = 'inline-block';
-        tiendaAbierta = true;
-    } else {
-        document.getElementById("personajes-tienda").style.display = 'none';
-        tiendaAbierta = false;
-    }
-
-});*/
-
 
 
 //---MANEJO DEL JUEGO---
@@ -191,21 +180,21 @@ function cargarTablero(mas2Jugadores) {
         for (let c = sumatoriaCeldas; c <= 10 * i; c++) {
             let celda = document.createElement("td");
             celda.id = "c" + c;
-            
-            if(cantidad == 2) {
+
+            if (cantidad == 2) {
                 if (c == 10) {
                     celda.style.backgroundSize = "70px 70px";
-                    celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo1-100.png)';                
+                    celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo1-100.png)';
                 } else if (c == 91) {
                     celda.style.backgroundSize = "70px 70px";
                     celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo2-100.png)';
                 }
 
-            } else if(cantidad == 3) {
+            } else if (cantidad == 3) {
 
                 if (c == 1) {
                     celda.style.backgroundSize = "70px 70px";
-                    celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo1-100.png)';                
+                    celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo1-100.png)';
                 } else if (c == 10) {
                     celda.style.backgroundSize = "70px 70px";
                     celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo2-100.png)';
@@ -214,11 +203,11 @@ function cargarTablero(mas2Jugadores) {
                     celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo2-100.png)';
                 }
 
-            } else if(cantidad == 4) {
+            } else if (cantidad == 4) {
 
                 if (c == 1) {
                     celda.style.backgroundSize = "70px 70px";
-                    celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo1-100.png)';                
+                    celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo1-100.png)';
                 } else if (c == 10) {
                     celda.style.backgroundSize = "70px 70px";
                     celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo2-100.png)';
@@ -228,14 +217,14 @@ function cargarTablero(mas2Jugadores) {
                 } else if (c == 100) {
                     celda.style.backgroundSize = "70px 70px";
                     celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo2-100.png)';
-                } 
+                }
 
             }
-        
-                
 
-            
-            
+
+
+
+
 
             celda.addEventListener('click', function() {
                 //console.log(document.getElementById(celdaActual));
@@ -361,7 +350,7 @@ function cargarTablero(mas2Jugadores) {
 const setCasillas = () => {
     let celdas = document.getElementsByTagName('td');
     let casillas = obtenerCasillas();
-    console.log(celdas);
+    //console.log(celdas);
     for (let i = 0; i < celdas.length; i++) {
         for (let j = 0; j < casillas.length; j++) {
 
