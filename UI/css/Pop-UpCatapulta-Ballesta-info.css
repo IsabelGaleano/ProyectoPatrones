@@ -1,8 +1,10 @@
 .imgFondo{
-    background-image: url("../Imagenes/Pop-upBallesta_Catapulta/fondoPop-up.png");    
+    background-image: url("../Imagenes/ui/thinframesquare.png");    
+    background-color: rgba(0, 0, 0, 0.75);
     background-repeat: no-repeat;
     background-position: center;
     background-size:contain;         
+    background-size: 100% 100%;
     
 }
 
@@ -92,7 +94,9 @@
     width: 35px;
 }
 
-#idpopupCompraB, #idpopupCompraC{
+#idpopupCompraB, #idpopupCompraC, #idpopupCompraArquero
+, #idpopupCompraAsesino, #idpopupCompraBerserker, #idpopupCompraKnight,
+ #idpopupCompraEspia, #idpopupCompraSwordsman, #idpopupCompraMago{
     display: flex;
     flex-direction: column;
     min-width: 300px;
@@ -100,6 +104,17 @@
     justify-content: center;
     align-items: center;
 }
+
+#idpopupMensaje{
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    min-height: 150px;
+    justify-content: center;
+    align-items: center;
+}
+
+
 
 .popupCatapulta.active, .popupBallesta.active { opacity: 1; transform: scale(1);}
 
