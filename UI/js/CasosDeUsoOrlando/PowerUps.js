@@ -5,7 +5,7 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
 elementsArray.forEach(function(elem) {
     elem.addEventListener("click", async function() {
         console.log(elem.textContent);
-
+        cancelarPersonaje();
         if (tropaCompradaXTurno == false) {
             agregarPersonaToCastillo(elem.value, elem.textContent);
             await delay(1000);
@@ -16,6 +16,19 @@ elementsArray.forEach(function(elem) {
     });
 });
 
+const cancelarPersonaje = () => {
+    let bandera = true;
+    let contador = 1;
+    setInterval(function(){ 
+        contador = contador + 1;
+
+        if(contador == 10) {
+            bandera = false;
+        }
+    }, 1000);
+
+    console.log(contador)
+}
 const crearPersonaje = async(opcion) => {
 
     let obj = JSON.parse(sessionStorage.getItem('tablero'));
@@ -51,7 +64,7 @@ const agregarPersonaToCastillo = async(opcionPersonaje, costo) => {
     let jugador;
     //PARA VALIDAR SI LA TROPA YA HABIA SIDO COMPRADA POR EL MISMO JUGADOR
     let tropaComprada = false;
-
+    let [personaje] = arrayPersonaje;
     //DETERMINAR EL JUGADOR
     //SE PODRIA ELIMINAR PORQUE YA EXISTE LA VARIABLE JUGADORACTUAL DE TURNO.JS
     //CONSIDERAR
@@ -81,9 +94,12 @@ const agregarPersonaToCastillo = async(opcionPersonaje, costo) => {
         for (let i = 0; i < castillos.length; i++) {
             if (idCastillo == castillos[i].id) {
                 if (castillos[i].tropas == null) {
-                    castillos[i].tropas = arrayPersonaje;
+                    castillos[i].tropas = personaje;
                 } else {
-                    castillos[i].tropas = [...castillos[i].tropas, ...arrayPersonaje];
+                    if(castillos[i].tropas.length < 3){
+                        personaje.estado = "Activo";
+                    }
+                    castillos[i].tropas = [...castillos[i].tropas,personaje];
                 }
                 obj.castillos[i] = castillos[i];
             }

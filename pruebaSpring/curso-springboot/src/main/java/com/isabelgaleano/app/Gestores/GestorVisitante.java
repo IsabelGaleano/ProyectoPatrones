@@ -43,8 +43,11 @@ public class GestorVisitante {
         visitor.visit(personajes);
     }
 
-    public  List<Personaje> visitarPersonajes(Personaje personaje) {
-        agregarPersonaje(personaje);
+    public  List<Personaje> visitarPersonajes(List<Personaje> personajeR) {
+
+        for (Personaje p: personajeR) {
+            agregarPersonaje(p);
+        }
         agregarVisitantes();
         ejecutarVisitantes();
         return personajes;
