@@ -43,13 +43,14 @@ const verificarCompraPersonaje = async (opcionPersonaje, costo) => {
             width++;
             elem.style.width = width + '%';
             buttonCancel.addEventListener('click', function () {
-                clearInterval(id);
+            clearInterval(id);
             });
 
         }
     }
 
 }
+
 const crearPersonaje = async (opcion) => {
 
     let obj = JSON.parse(sessionStorage.getItem('tablero'));
