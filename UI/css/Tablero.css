@@ -308,10 +308,10 @@
     .titulo-principal {
         padding-top: 10px;
         text-align: center;
-        color: #1c3b2d;
+        color: rgb(72, 247, 188);
         font-size: 4em;
         font-family: 'Press Start 2P', cursive;
-        text-shadow: 0.1em 0.1em 0.05em rgb(120, 224, 135);
+        text-shadow: 0.1em 0.1em 0.05em rgb(65, 3, 145);
         background-color: rgb(145, 141, 138);
         background: rgba(0, 0, 0, .3);
         padding: 15px;
