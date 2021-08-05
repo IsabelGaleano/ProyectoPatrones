@@ -9,7 +9,7 @@ let imgBody = document.getElementById("idBody");
 let btn_ver_personajes = document.getElementById("btn-ver-personajes")
 let tiendaAbierta = false;
 let celdaActual;
-let jugadorActivo = document.getElementById("jugador-activo");
+let jugadorActivo = document.getElementById("Nickname");
 
 const audio = new Audio('../Sounds/music_funkyWhistle.wav');
 const icon = document.querySelector("#btn_music > i");
@@ -89,7 +89,7 @@ $(document).ready(function() {
     //juego();
 });
 
-btn_ver_personajes.addEventListener('click', function() {
+/*btn_ver_personajes.addEventListener('click', function() {
     if (tiendaAbierta == false) {
         document.getElementById("personajes-tienda").style.display = 'inline-block';
         tiendaAbierta = true;
@@ -98,7 +98,7 @@ btn_ver_personajes.addEventListener('click', function() {
         tiendaAbierta = false;
     }
 
-});
+});*/
 
 
 
