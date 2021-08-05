@@ -1,10 +1,19 @@
 package com.isabelgaleano.app.api;
 
+import com.fasterxml.jackson.core.ObjectCodec;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.isabelgaleano.app.PatronPrototipo.iPrototipo.Casilla;
+import com.isabelgaleano.app.PatronPrototipo.prototipo.CasillaGema;
+import com.isabelgaleano.app.entity.User;
+import com.isabelgaleano.app.proxy.implementacion.JugadorProxy;
 import com.isabelgaleano.app.service.JugadorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -16,6 +25,8 @@ import java.util.stream.StreamSupport;
 public class JugadorController {
     @Autowired
     private JugadorService jugadorService;
+
+
 
     @PostMapping
     @CrossOrigin
@@ -55,7 +66,8 @@ public class JugadorController {
     }
 
     @PutMapping("updateIDCastillo/{alias}/{idCastillo}")
-    public ResponseEntity<?> updateIDCastillo(@RequestBody JugadorObject jugadorDetails, @PathVariable(value = "alias")String alias , @PathVariable(value = "idCastillo") int idCastillo) {
+    public ResponseEntity<?> updateIDCastillo(@RequestBody JugadorObject jugadorDetails, @PathVariable(value = "alias")String alias ,
+                                              @PathVariable(value = "idCastillo") int idCastillo) {
         Optional<JugadorObject> jugador = jugadorService.findByAlias(alias);
         jugadorDetails.setIdCastillo(idCastillo);
         if (!jugador.isPresent()) {
@@ -91,6 +103,7 @@ public class JugadorController {
     }
 
     //Leer todos los jugadores
+    @CrossOrigin(origins = "*")
     @GetMapping
     public List<JugadorObject> readAll() {
         List<JugadorObject> jugadores = StreamSupport
@@ -100,6 +113,15 @@ public class JugadorController {
         return jugadores;
 
     }
+
+
+    //@RequestMapping(value = "/x", method=RequestMethod.POST,headers = "Accept=*/*",produces = "application/json", consumes="application/json")
+    //Prueba api con objetos
+    /*public User get2Product(@RequestBody User user) {
+        User usuario = user;
+        user.setName("Prueba");
+        return user;
+    }*/
 
     @RequestMapping("/hello")
     public String helloWorld() {

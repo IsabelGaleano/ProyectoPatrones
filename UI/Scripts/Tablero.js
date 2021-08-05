@@ -4,38 +4,50 @@
 let tablero = document.getElementById("tablero");
 let mas2Jugadores = false;
 let imagenDado = document.getElementById("imagen-dado");
-let botonDado = document.getElementById("boton-dado");
-let btn_ver_personajes = document.getElementById("btn-ver-personajes")
-let celdaActual;
 
-const audio =  new Audio('../Sounds/music_funkyWhistle.wav');  
+let imgBody = document.getElementById("idBody");
+let btn_ver_personajes = document.getElementById("btn-ver-personajes")
+let tiendaAbierta = false;
+let celdaActual;
+let jugadorActivo = document.getElementById("Nickname");
+
+const audio = new Audio('../Sounds/music_funkyWhistle.wav');
 const icon = document.querySelector("#btn_music > i");
 const btn_music = document.querySelector("#btn_music");
-audio.volume = 0.2;
+audio.volume = 0.1;
 audio.loop = true;
-audio.play();
-    
+//audio.play();
+
+
+//PERMITE GUARDAR ARRAYS Y OBJETOS EN LOCALSTORAGE
+Storage.prototype.setObj = function(key, obj) {
+
+    return this.setItem(key, JSON.stringify(obj))
+}
+Storage.prototype.getObj = function(key) {
+    return JSON.parse(this.getItem(key))
+}
 
 btn_music.addEventListener("click", () => {
     if (audio.paused) {
-      audio.volume = 0.2;
-      audio.loop = true;
-      audio.play();
-      btn_music.classList.add('fa-volume-up');
-      btn_music.classList.remove('fa-volume-mute');
-      
-      
-      
-    } else {
-      audio.pause();
-      btn_music.classList.add('fa-volume-mute');
-      btn_music.classList.remove('fa-volume-up');
-      
-    }    
-    
-  });
+        audio.volume = 0.2;
+        audio.loop = true;
+        audio.play();
+        btn_music.classList.add('fa-volume-up');
+        btn_music.classList.remove('fa-volume-mute');
 
-  const obtenerCasillasGemas = () => {
+
+
+    } else {
+        audio.pause();
+        btn_music.classList.add('fa-volume-mute');
+        btn_music.classList.remove('fa-volume-up');
+
+    }
+
+});
+
+const obtenerCasillasGemas = () => {
     let tablero = JSON.parse(sessionStorage.getItem('tablero'));
     let casillas = [];
     let casillasGema = [];
@@ -46,11 +58,11 @@ btn_music.addEventListener("click", () => {
             casillas[i].id = randomNumberCell;
             casillasGema.push(casillas[i]);
         }
-        
+
     }
 
     return casillasGema;
-   
+
 }
 
 
@@ -63,20 +75,26 @@ const obtenerCasillas = () => {
 }
 
 
+const obtenerCantidad = () => {
+    let tablero = JSON.parse(sessionStorage.getItem('tablero'));
+    let personajes = [];
+    personajes = tablero.jugadores;
+    return personajes.length;
+}
+
 $(document).ready(function() {
     cargarTablero(mas2Jugadores);
     imagenDado.style.backgroundImage = 'url(../Imagenes/CarasDado/Cara1.png)';
+    //partida();
     //juego();
 });
 
-btn_ver_personajes.addEventListener('click', function() {
-    document.getElementById("personajes-tienda").style.display = 'block';
-});
 
-botonDado.addEventListener('click', function() {
-    dado();
-});
 
+//---MANEJO DEL JUEGO---
+
+
+//---FIN MANEJO DEL JUEGO---
 
 
 //CARGA DIFERENTES PERSONAJES
@@ -112,11 +130,11 @@ function cargarPersonaje(tipo) {
             urlImagenPersonaje = 'url(../Imagenes/Characters/SpyIdleRight.gif)';
             break;
     }
-
+    urlImagenPersonaje = urlImagenPersonaje + ' ,url(../Imagenes/PowerUps/powerupAni.gif)';
     return urlImagenPersonaje;
 }
 
-const crearDefensas = async (opcion) => {
+const crearDefensas = async(opcion) => {
     let defensas;
     await axios({
         method: 'get',
@@ -131,46 +149,24 @@ const crearDefensas = async (opcion) => {
     });
 
     console.log(defensas);
-    
+
 
 }
 
-function dado() {
-    let randomNumber = Math.floor(Math.random() * 6) + 1;
-    let urlDado;
-    switch (randomNumber) {
-        case 1:
-            urlDado = 'url(../Imagenes/CarasDado/Cara1.png)';
-            break;
-        case 2:
-            urlDado = 'url(../Imagenes/CarasDado/Cara2.png)';
-            break;
-        case 3:
-            urlDado = 'url(../Imagenes/CarasDado/Cara3.png)';
-            break;
-        case 4:
-            urlDado = 'url(../Imagenes/CarasDado/Cara4.png)';
-            break;
-        case 5:
-            urlDado = 'url(../Imagenes/CarasDado/Cara5.png)';
-            break;
-        case 6:
-            urlDado = 'url(../Imagenes/CarasDado/Cara6.png)';
-            break;
-    }
-    imagenDado.style.backgroundImage = urlDado;
-}
 
-function playSound(){
+
+function playSound() {
     var clicksound = new Audio('../Sounds/footLand.wav');
     clicksound.play();
-    clicksound.loop = false;    
+    clicksound.loop = false;
 }
 
 //CARGAR EL TABLERO DINÁMICAMENTE
 function cargarTablero(mas2Jugadores) {
     //CREACION DE LAS CELDAS 
     //FILAS
+    let cantidad = obtenerCantidad();
+    console.log(cantidad);
     for (let i = 1; i <= 10; i++) {
         let fila = document.createElement("tr");
         fila.id = "fila" + i;
@@ -184,13 +180,51 @@ function cargarTablero(mas2Jugadores) {
         for (let c = sumatoriaCeldas; c <= 10 * i; c++) {
             let celda = document.createElement("td");
             celda.id = "c" + c;
-            if (c == 10) {
-                celda.style.backgroundSize = "70px 70px";
-                celda.style.backgroundImage = 'url(../Imagenes/Castillo1.png)';                
-            } else if (c == 91) {
-                celda.style.backgroundSize = "70px 70px";
-                celda.style.backgroundImage = 'url(../Imagenes/Castillo2.png)';
+
+            if (cantidad == 2) {
+                if (c == 10) {
+                    celda.style.backgroundSize = "70px 70px";
+                    celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo1-100.png)';
+                } else if (c == 91) {
+                    celda.style.backgroundSize = "70px 70px";
+                    celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo2-100.png)';
+                }
+
+            } else if (cantidad == 3) {
+
+                if (c == 1) {
+                    celda.style.backgroundSize = "70px 70px";
+                    celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo1-100.png)';
+                } else if (c == 10) {
+                    celda.style.backgroundSize = "70px 70px";
+                    celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo2-100.png)';
+                } else if (c == 91) {
+                    celda.style.backgroundSize = "70px 70px";
+                    celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo2-100.png)';
+                }
+
+            } else if (cantidad == 4) {
+
+                if (c == 1) {
+                    celda.style.backgroundSize = "70px 70px";
+                    celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo1-100.png)';
+                } else if (c == 10) {
+                    celda.style.backgroundSize = "70px 70px";
+                    celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo2-100.png)';
+                } else if (c == 91) {
+                    celda.style.backgroundSize = "70px 70px";
+                    celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo2-100.png)';
+                } else if (c == 100) {
+                    celda.style.backgroundSize = "70px 70px";
+                    celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo2-100.png)';
+                }
+
             }
+
+
+
+
+
 
             celda.addEventListener('click', function() {
                 //console.log(document.getElementById(celdaActual));
@@ -200,7 +234,7 @@ function cargarTablero(mas2Jugadores) {
                     }
                     let randomCharacter = Math.floor(Math.random() * 7) + 1;
                     //console.log(randomCharacter);
-                    celda.style.backgroundImage =  cargarPersonaje(randomCharacter) ;
+                    celda.style.backgroundImage = cargarPersonaje(randomCharacter);
                     celdaActual = celda.id;
                     playSound();
                 }
@@ -258,20 +292,20 @@ function cargarTablero(mas2Jugadores) {
 
     //ALEATORIZAR LAS TEXTURAS DE LAS CASILLAS CON POWER UPS
     //NUMEROS ALEATORIOS PARA POWER UPS
-  /*  for (let p = 15; p < 29;) {
-        let randomowerUp = Math.floor(Math.random() * 4) + 1;
-        let randomNumberCell = Math.floor(Math.random() * 100) + 1;
+    /*  for (let p = 15; p < 29;) {
+          let randomowerUp = Math.floor(Math.random() * 4) + 1;
+          let randomNumberCell = Math.floor(Math.random() * 100) + 1;
 
-        if (verifyNumber(mas2Jugadores, celdasEspecialesArray, randomNumberCell) == false) {
-            let random = { powerUp: randomowerUp, cellNumber: randomNumberCell };
-            celdasEspecialesArray.push(randomNumberCell);
-            powerUpsArray.push(random);
-            p++;
-        }
+          if (verifyNumber(mas2Jugadores, celdasEspecialesArray, randomNumberCell) == false) {
+              let random = { powerUp: randomowerUp, cellNumber: randomNumberCell };
+              celdasEspecialesArray.push(randomNumberCell);
+              powerUpsArray.push(random);
+              p++;
+          }
 
-    }*/
+      }*/
 
-    
+
 
     //POWER UPS
     /* POWER UP 1 ES MEJORA ATAQUE
@@ -316,54 +350,53 @@ function cargarTablero(mas2Jugadores) {
 const setCasillas = () => {
     let celdas = document.getElementsByTagName('td');
     let casillas = obtenerCasillas();
-    console.log(celdas);
+    //console.log(celdas);
     for (let i = 0; i < celdas.length; i++) {
         for (let j = 0; j < casillas.length; j++) {
-        
-                if (casillas[j].tipo == "CasillaGema") {
-                    switch (casillas[j].data) {
-                        case "GemaVerde":
-                            celdas[casillas[j].id].style.backgroundImage = 'url(../Imagenes/PowerUps/greenGemGif.gif)';
-                            break;
-    
-                        case "GemaAzul":
-                            celdas[casillas[j].id].style.backgroundImage = 'url(../Imagenes/PowerUps/BlueGif.gif)';
-                            break;
-    
-                        case "GemaBlanca":
-                            celdas[casillas[j].id].style.backgroundImage = 'url(../Imagenes/PowerUps/whiteGemGif.gif)';
-                            break;
-                        default:
-                            break;
-                    }
-                } else if(casillas[j].tipo == "CasillaPowerUp")
-                 {
-                    switch (casillas[j].data) {
-                        case "MejoraAtaque":
-                            celdas[casillas[j].id].style.backgroundImage = 'url(../Imagenes/PowerUps/PowUpGif.gif)';
-                            break;
-                        case "MejoraDefensa":
-                            celdas[casillas[j].id].style.backgroundImage = 'url(../Imagenes/PowerUps/DefUpGif.gif)';
-                            break;
-    
-                        case "TrampaAtaque":
-                            celdas[casillas[j].id].style.backgroundImage = 'url(../Imagenes/PowerUps/PowDwnGif.gif)';
-                            break;
-    
-                        case "TrampaDefensa":
-                            celdas[casillas[j].id].style.backgroundImage = 'url(../Imagenes/PowerUps/DefDwnGif.gif)';
-                            break;
-                        default:
-                            break;
-                    }
-                } else if(casillas[j].tipo == "CasillaNormal") {
-                    celdas[j].style.backgroundImage += ',url(../Imagenes/green_texture.png)';
-    
+
+            if (casillas[j].tipo == "CasillaGema") {
+                switch (casillas[j].data) {
+                    case "GemaVerde":
+                        celdas[casillas[j].id].style.backgroundImage = 'url(../Imagenes/PowerUps/greenGemGif.gif)';
+                        break;
+
+                    case "GemaAzul":
+                        celdas[casillas[j].id].style.backgroundImage = 'url(../Imagenes/PowerUps/BlueGif.gif)';
+                        break;
+
+                    case "GemaBlanca":
+                        celdas[casillas[j].id].style.backgroundImage = 'url(../Imagenes/PowerUps/whiteGemGif.gif)';
+                        break;
+                    default:
+                        break;
                 }
+            } else if (casillas[j].tipo == "CasillaPowerUp") {
+                switch (casillas[j].data) {
+                    case "MejoraAtaque":
+                        celdas[casillas[j].id].style.backgroundImage = 'url(../Imagenes/PowerUps/PowUpGif.gif)';
+                        break;
+                    case "MejoraDefensa":
+                        celdas[casillas[j].id].style.backgroundImage = 'url(../Imagenes/PowerUps/DefUpGif.gif)';
+                        break;
+
+                    case "TrampaAtaque":
+                        celdas[casillas[j].id].style.backgroundImage = 'url(../Imagenes/PowerUps/PowDwnGif.gif)';
+                        break;
+
+                    case "TrampaDefensa":
+                        celdas[casillas[j].id].style.backgroundImage = 'url(../Imagenes/PowerUps/DefDwnGif.gif)';
+                        break;
+                    default:
+                        break;
+                }
+            } else if (casillas[j].tipo == "CasillaNormal") {
+                celdas[j].style.backgroundImage += ',url(../Imagenes/green_texture.png)';
+
             }
-    
-        
-        
+        }
+
+
+
     }
 }
 
@@ -429,51 +462,40 @@ function tipoPowerUp(numero) {
 }
 
 
+function fondo() {
+    let randomNumber = Math.floor(Math.random() * 9) + 1;
+    let urlBody;
+    switch (randomNumber) {
+        case 1:
+            urlBody = 'url(../Imagenes/Backgrounds/bg_01.png)';
+            break;
+        case 2:
+            urlBody = 'url(../Imagenes/Backgrounds/bg_02.png)';
+            break;
+        case 3:
+            urlBody = 'url(../Imagenes/Backgrounds/bg_03.png)';
+            break;
+        case 4:
+            urlBody = 'url(../Imagenes/Backgrounds/bg_04.png)';
+            break;
+        case 5:
+            urlBody = 'url(../Imagenes/Backgrounds/bg_05.png)';
+            break;
+        case 6:
+            urlBody = 'url(../Imagenes/Backgrounds/bg_06.png)';
+            break;
+        case 7:
+            urlBody = 'url(../Imagenes/Backgrounds/bg_07.png)';
+            break;
+        case 8:
+            urlBody = 'url(../Imagenes/Backgrounds/bg_08.png)';
+            break;
+        case 9:
+            urlBody = 'url(../Imagenes/Backgrounds/bg_09.png)';
+            break;
 
-//const trialCharacter = new Character(0, 0, 67.14, 67.14, 0, 0, 9, false);
-
-/*
-function drawCharacter(cellCol, cellRow) {
-    var spriteWidth = 67.14;
-    var spriteHeight = 67.14;
-    //var col = 2;
-    //var row = 3;
-    var sourceX = spriteWidth * cellCol;
-    var sourceY = spriteHeight * cellRow;
-    ctx.drawImage(charactersSprite, sourceX, sourceY, spriteWidth, spriteHeight, cellCol * 80, cellRow * 60, spriteWidth, spriteHeight);
-
-}
-
-function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH) {
-    ctx.drawImage(img, sX, sY, sW, sH, dX, dY, dW, dH);
-}
-
-class Character {
-    constructor(x, y, width, height, frameX, frameY, speed, moving) {
-        this.x = x;
-        this.y = y;
-        this.width = width;
-        this.height = height;
-        this.frameX = frameX;
-        this.frameY = frameY;
-        this.speed = speed;
-        this.moving = moving;
     }
-};
-
-
-
-function animate(character) {
-    drawSprite(charactersSprite, character.width * character.frameX, character.height * character.frameY, character.width, character.height, character.x, character.y, character.width, character.height);
+    imgBody.style.backgroundImage = urlBody;
 }
 
-function movePlayer(character) {
-    character.y -= player.speed;
-}
-
-//SPRITE WIDTH: 470 HEIGHT: 562
-const charactersSprite = new Image();
-charactersSprite.src = "Imagenes/characters_sprite_sheet.png";
-
-const trialCharacter = new Character(0, 0, 67.14, 70.25, 0, 0, 9, false);
-*/
+fondo();
