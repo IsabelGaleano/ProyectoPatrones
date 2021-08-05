@@ -92,7 +92,7 @@ let partida = async() => {
             }
         }
         //console.log(jugadorActual);
-        jugadorActivo.textContent = "Turno de: " + jugadorActual.alias;
+        jugadorActivo.textContent = jugadorActual.alias;
 
 
         let tiempo = await timer(document.getElementById("timer"));
