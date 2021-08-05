@@ -22,14 +22,17 @@ public class JugadorObject implements Serializable {
     private int estado;
     private int tropasCompradas;
     private int tropasDerrotadas;
+    private int idCastillo;
 
     @Column(length = 200)
     private double oroGanado;
 
+
+
     public JugadorObject() {
     }
 
-    public JugadorObject(boolean turno, Long id, String alias, int partidasGanadas, int partidasPerdidas, int estado, int tropasCompradas, int tropasDerrotadas, double oroGanado) {
+    public JugadorObject(boolean turno, Long id, String alias, int partidasGanadas, int partidasPerdidas, int estado, int tropasCompradas, int tropasDerrotadas, double oroGanado, int idCastillo) {
         this.turno = turno;
         this.id = id;
         this.alias = alias;
@@ -39,6 +42,23 @@ public class JugadorObject implements Serializable {
         this.tropasCompradas = tropasCompradas;
         this.tropasDerrotadas = tropasDerrotadas;
         this.oroGanado = oroGanado;
+        this.idCastillo = idCastillo;
+    }
+
+    @Override
+    public String toString() {
+        return "JugadorObject{" +
+                "turno=" + turno +
+                ", id=" + id +
+                ", alias='" + alias + '\'' +
+                ", partidasGanadas=" + partidasGanadas +
+                ", partidasPerdidas=" + partidasPerdidas +
+                ", estado=" + estado +
+                ", tropasCompradas=" + tropasCompradas +
+                ", tropasDerrotadas=" + tropasDerrotadas +
+                ", idCastillo=" + idCastillo +
+                ", oroGanado=" + oroGanado +
+                '}';
     }
 
     public boolean isTurno() {
@@ -121,5 +141,11 @@ public class JugadorObject implements Serializable {
         this.turno = turno;
     }
 
+    public int getIdCastillo() {
+        return idCastillo;
+    }
 
+    public void setIdCastillo(int idCastillo) {
+        this.idCastillo = idCastillo;
+    }
 }

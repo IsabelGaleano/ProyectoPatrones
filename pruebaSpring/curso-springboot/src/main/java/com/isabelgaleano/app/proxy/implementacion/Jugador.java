@@ -6,7 +6,8 @@ public class Jugador implements IJugador {
 
     @Override
     public boolean turnoJugador(int turno) {
-        if(turno == 1) {
+        //SI EL ESTADO ES 2, ES EL TURNO
+        if(turno == 2) {
             return true;
         } else
             return false;

@@ -8,7 +8,7 @@ import com.isabelgaleano.app.patronFabrica.productoConcreto.Ataque;
 
 public class FabricaAsesino implements IPersonajesJuego {
     public Personaje crearPersonajes() {
-        Asesino elAsesino = new Asesino(3, 5, 10, 4,3, new Ataque(3, 3,2),0,2,"Inactivo", null,"Asesino",false);
+        Asesino elAsesino = new Asesino(0, 5, 10, 4,3, new Ataque(3, 3,2),0,2,"Inactivo", null,"Asesino",false, 0);
         return elAsesino;
     }
 }

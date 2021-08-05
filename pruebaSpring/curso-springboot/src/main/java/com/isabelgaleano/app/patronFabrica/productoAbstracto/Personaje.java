@@ -16,12 +16,12 @@ public abstract class Personaje {
     protected PowerUp powerUp;
     protected String tipo;
     protected boolean estadoDecorado;
-
+    protected int idCasilla;
 
     public Personaje() {
     }
 
-    public Personaje(int id, int precio, int vida, int cantMovimientos, int defensa, Ataque ataque, int cantOro, int maxOro, String estado, PowerUp powerUp, String tipo, boolean estadoDecorado) {
+    public Personaje(int id, int precio, int vida, int cantMovimientos, int defensa, Ataque ataque, int cantOro, int maxOro, String estado, PowerUp powerUp, String tipo, boolean estadoDecorado, int idCasilla) {
         this.id = id;
         this.precio = precio;
         this.vida = vida;
@@ -34,8 +34,8 @@ public abstract class Personaje {
         this.powerUp = powerUp;
         this.tipo = tipo;
         this.estadoDecorado = estadoDecorado;
+        this.idCasilla = idCasilla;
     }
-
 
     public abstract void aceptar(IVisitor iVisitor);
 
@@ -133,5 +133,13 @@ public abstract class Personaje {
 
     public void setEstadoDecorado(boolean estadoDecorado) {
         this.estadoDecorado = estadoDecorado;
+    }
+
+    public int getIdCasilla() {
+        return idCasilla;
+    }
+
+    public void setIdCasilla(int idCasilla) {
+        this.idCasilla = idCasilla;
     }
 }

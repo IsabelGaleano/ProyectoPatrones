@@ -1,6 +1,5 @@
 package com.isabelgaleano.app.api;
 
-
 import com.isabelgaleano.app.Gestores.GestorFabricaAbstracta;
 import com.isabelgaleano.app.patronFabrica.productoAbstracto.Personaje;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +12,7 @@ import java.util.ArrayList;
 @RequestMapping("/api/personajes")
 public class PersonajesController {
 
-    private GestorFabricaAbstracta gestorFabrica;
+    private GestorFabricaAbstracta gestorFabrica = new GestorFabricaAbstracta();
 
     @CrossOrigin
     @GetMapping("/{opcion}")

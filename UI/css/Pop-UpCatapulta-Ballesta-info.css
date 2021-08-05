@@ -1,9 +1,8 @@
 .imgFondo{
-    background-image: url("../Imagenes/Pop-upBallesta_Catapulta/fondoPop-up.png");
-    
+    background-image: url("../Imagenes/Pop-upBallesta_Catapulta/fondoPop-up.png");    
     background-repeat: no-repeat;
     background-position: center;
-    background-size:contain;     
+    background-size:contain;         
     
 }
 
@@ -30,7 +29,7 @@
     visibility: visible;
 }
 
-.popupCatapulta, .popupBallesta{
+.popupCatapulta, .popupBallesta {
     padding: 20px;
     text-align: center;
     width: 290px;
@@ -91,6 +90,15 @@
 #swordRange{
     margin-bottom: -4px;
     width: 35px;
+}
+
+#idpopupCompraB, #idpopupCompraC{
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    min-height: 300px;
+    justify-content: center;
+    align-items: center;
 }
 
 .popupCatapulta.active, .popupBallesta.active { opacity: 1; transform: scale(1);}
