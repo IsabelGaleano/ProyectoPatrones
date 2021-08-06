@@ -25,7 +25,7 @@ public class GestorDefensa {
                 break;
 
             case 2:
-                defensa = new Catapulta("0",3,5,2,8,"Ballesta");
+                defensa = new Catapulta("0",3,5,2,8,"Catapulta");
                 defensas.add(defensa);
                 break;
 
