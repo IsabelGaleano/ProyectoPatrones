@@ -2,13 +2,21 @@ let elementsArray = document.querySelectorAll("#btn-compra-personaje");
 //const delay = ms => new Promise(res => setTimeout(res, ms));
 
 //COMPRA DE LOS PERSONAJES DE LA TIENDA
-elementsArray.forEach(function(elem) {
+/*elementsArray.forEach(function(elem) {
     elem.addEventListener("click", async function() {
         console.log("Pasa algo");
         agregarBarra(elem.value);
         verificarCompraPersonaje(elem.value, elem.textContent);
 
     });
+});*/
+
+
+document.querySelector('#btn-comprar-Arquero-OK').addEventListener('click', async (e) => {
+    console.log("me odio");
+    agregarBarra(1);
+    await verificarCompraPersonaje(1, 10);
+    cerrarOverlayCompraArquero();
 });
 
 const agregarBarra = (value) => {
@@ -27,32 +35,66 @@ const agregarBarra = (value) => {
 
 }
 
-const verificarCompraPersonaje = async(opcionPersonaje, costo) => {
+const rebajarMonedas = (cantidadOro) => {
+    let idCastillo = jugadorActual.idCastillo;
+    let obj = JSON.parse(sessionStorage.getItem('tablero'));
+    let castillos = [];
+    castillos = obj.castillos;
+
+    for (let i = 0; i < castillos.length; i++) {
+        
+        if (castillos[i].id == idCastillo) {
+            
+            castillos[i].oro = castillos[i].oro - cantidadOro;
+        }
+        
+    }
+
+    obj.castillos = castillos;
+    sessionStorage.setItem('tablero', JSON.stringify(obj));
+}
+
+const verificarCompraPersonaje = async(opcion, monedas) => {
     var elem = document.getElementById("myBar");
     let buttonCancel = document.getElementById('buttonBar');
     var width = 1;
     var id = setInterval(frame, 150);
-
     function frame() {
         if (width >= 100) {
             if (tropaCompradaXTurno == false) {
-                agregarPersonajeToCastillo(opcionPersonaje, costo);
+                if(opcion == 1) {
+                    compraArquero();
+                }
 
             }
+            
             clearInterval(id);
+            rebajarMonedas(monedas);
+            eliminarBarra();
 
         } else {
             width++;
             elem.style.width = width + '%';
             buttonCancel.addEventListener('click', function() {
                 clearInterval(id);
+                rebajarMonedas(monedas);
+                eliminarBarra();
             });
 
         }
     }
 
+
 }
 
+const eliminarBarra = () => {
+    
+    let element = document.getElementById('wrapperBar');
+    if(element != null) {
+        element.parentNode.removeChild(element);
+    }
+   
+}
 const crearPersonaje = async(opcion) => {
 
     let obj = JSON.parse(sessionStorage.getItem('tablero'));
@@ -209,8 +251,6 @@ const compraArquero = async() => {
         //console.log(obj.castillos);
         sessionStorage.setItem('tablero', JSON.stringify(obj));
         tropaCompradaXTurno = true;
-        agregarBarra(1);
-        verificarCompraPersonaje(1, 10);
         actualizarInfoCastilloJugador();
         actualizarPersonajesJugador(1);
         cerrarOverlayCompraArquero();
