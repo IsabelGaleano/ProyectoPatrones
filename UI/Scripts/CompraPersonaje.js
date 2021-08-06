@@ -26,7 +26,7 @@ const agregarBarra = (value) => {
         <div id="myBar"></div>
     </div>
     <div>
-        <button id="buttonBar" type="button">X</button>
+        <button id="buttonBar" type="button"></button>
     </div>
 
 </div>`;
