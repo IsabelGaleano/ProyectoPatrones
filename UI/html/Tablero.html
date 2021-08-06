@@ -99,7 +99,7 @@
 
                         <div class="ballesta2">
 
-                            <button id="btn-popup-ballesta2Jugador1" class="btn-base" onclick="abrirModalBallesta(1, 1)"></button>
+                            <button id="btn-popup-ballesta2" class="btn-base" onclick="abrirModalBallesta(1, 1)"></button>
 
                             <div class="ballestaImg">
                                 <img src="../Imagenes/Ballesta.png">
@@ -111,7 +111,6 @@
                                 <p id="ballesta2Vida">20</p>
 
                             </div>
-
 
                         </div>
 
@@ -144,7 +143,7 @@
                                 <p><i class="fas fa-shield-alt" style="color:rgb(176,196,222);"></i> <span id="defensa-P">5</span></p>
                                 <p><i class="fas fa-coins" style="color:gold;"></i> <span id="carga-P">5</span></p>
                                 <div id="act-pup-image"></div>
-                                <p> <button id="pU-P2">Activar</button></p>
+                                <p> <button id="pU-P2" onclick="abrirModalMensaje()">Activar</button></p>
                             </div>
                         </div>
                     </div>
@@ -157,81 +156,87 @@
             <div class="cnt-Activos" class="row">
 
                 <div class="cnt-Jugador">
-                    <div class="cnt-Personaje">
+                    <div class="cnt-Personaje" id="Arquero">
                         <div class="iconP"> </div>
                         <div class=stats>
-                            <p><i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i> <span id="vida-P">6</span></p>
-                            <p><i class="fas fa-shield-alt" style="color:rgb(176,196,222);"></i> <span id="defensa-P">5</span></p>
-                            <p><i class="fas fa-coins" style="color:gold;"></i> <span id="carga-P">5</span></p>
-                            <p> <i class="fab fa-superpowers" style="color:rgb(0,255,0);font-size:18px;"></i> <button id="pU-P">Usar</button></p>
+                            <p><i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i> <span id="vida-P">10</span>
+                            </p>
+                            <p><i class="fas fa-shield-alt" style="color:rgb(176,196,222);"></i> <span id="defensa-P">3</span></p>
+                            <p><i class="fas fa-arrow-right"></i> <span id="carga-P">3</span></p>
+                            <p>
+                                <i id="icon-usabilidad-arquero" class="fas fa-times" style="color:rgb(204, 4, 4);font-size:18px;"></i> <button class="usar-personaje" id="pU-P">N/D</button>
+                            </p>
+                            <!--
+                            <p> <p>Disponible</p> <button id="pU-P">Usar</button></p>
+                            -->
                         </div>
 
 
                     </div>
-                    <div class="cnt-Personaje">
+                    <div class="cnt-Personaje" id="Espadachin">
                         <div class="iconP"></div>
                         <div class=stats>
                             <p><i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i> <span id="vida-P">9</span></p>
                             <p><i class="fas fa-shield-alt" style="color:rgb(176,196,222);"></i> <span id="defensa-P">8</span></p>
-                            <p><i class="fas fa-coins" style="color:gold;"></i> <span id="carga-P">7</span></p>
-                            <p> <i class="fab fa-superpowers" style="color:rgb(0,255,0);font-size:18px;"></i> <button id="pU-P">Usar</button></p>
+                            <p><i class="fas fa-arrow-right"></i> <span id="carga-P">2</span></p>
+                            <p><i id="icon-usabilidad-espadachin" class="fas fa-times" style="color:rgb(204, 4, 4);font-size:18px;"></i> <button class="usar-personaje" id="pU-P">N/D</button></p>
                         </div>
                     </div>
-                    <div class="cnt-Personaje">
+                    <div class="cnt-Personaje" id="Bersequer">
                         <div class="iconP"></div>
                         <div class=stats>
                             <p><i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i> <span id="vida-P">9</span></p>
-                            <p><i class="fas fa-shield-alt" style="color:rgb(176,196,222);"></i> <span id="defensa-P">8</span></p>
-                            <p><i class="fas fa-coins" style="color:gold;"></i> <span id="carga-P">7</span></p>
-                            <p> <i class="fab fa-superpowers" style="color:rgb(0,255,0);font-size:18px;"></i> <button id="pU-P">Usar</button></p>
+                            <p><i class="fas fa-arrow-right"></i> <span id="defensa-P">1</span></p>
+                            <p><i class="fas fa-arrow-right"></i> <span id="carga-P">1</span></p>
+                            <p> <i id="icon-usabilidad-bersequer" class="fas fa-times" style="color:rgb(204, 4, 4);font-size:18px;"></i> <button class="usar-personaje" id="pU-P">N/D</button></p>
                         </div>
                     </div>
 
                 </div>
                 <div class="cnt-Jugador">
 
-                    <div class="cnt-Personaje">
+                    <div class="cnt-Personaje" id="Mago">
                         <div class="iconP"> </div>
                         <div class=stats>
 
                             <p><i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i> <span id="vida-P">8</span></p>
                             <p><i class="fas fa-shield-alt" style="color:rgb(176,196,222);"></i> <span id="defensa-P">9</span></p>
-                            <p><i class="fas fa-coins" style="color:gold;"></i> <span id="carga-P">10</span></p>
-                            <p> <i class="fab fa-superpowers" style="color:rgb(0,255,0);font-size:18px;"></i> <button id="pU-P">Usar</button></p>
+                            <p><i class="fas fa-arrow-right"></i>> <span id="carga-P">2</span></p>
+                            <p> <i id="icon-usabilidad-mago" class="fas fa-times" style="color:rgb(204, 4, 4);font-size:18px;"></i> <button class="usar-personaje" id="pU-P">N/D</button></p>
 
                         </div>
 
                     </div>
-                    <div class="cnt-Personaje">
+                    <div class="cnt-Personaje" id="Asesino">
                         <div class="iconP"> </div>
                         <div class=stats>
                             <p><i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i> <span id="vida-P">4</span></p>
                             <p><i class="fas fa-shield-alt" style="color:rgb(176,196,222);"></i> <span id="defensa-P">5</span></p>
-                            <p><i class="fas fa-coins" style="color:gold;"></i> <span id="carga-P">2</span></p>
-                            <p> <i class="fab fa-superpowers" style="color:rgb(0,255,0);font-size:18px;"></i> <button id="pU-P">Usar</button></p>
+                            <p><i class="fas fa-arrow-right"></i> <span id="carga-P">4</span></p>
+                            <p> <i id="icon-usabilidad-asesino" class="fas fa-times" style="color:rgb(204, 4, 4);font-size:18px;"></i> <button class="usar-personaje" id="pU-P">N/D</button></p>
 
                         </div>
 
                     </div>
-                    <div class="cnt-Personaje">
+                    <div class="cnt-Personaje" id="Jinete">
                         <div class="iconP"></div>
                         <div class=stats>
                             <p><i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i> <span id="vida-P">3</span></p>
                             <p><i class="fas fa-shield-alt" style="color:rgb(176,196,222);"></i> <span id="defensa-P">7</span></p>
-                            <p><i class="fas fa-coins" style="color:gold;"></i> <span id="carga-P">8</span></p>
-                            <p> <i class="fab fa-superpowers" style="color:rgb(0,255,0);font-size:18px;"></i> <button id="pU-P">Usar</button></p>
+                            <p><i class="fas fa-arrow-right"></i> <span id="carga-P">6</span></p>
+                            <p> <i id="icon-usabilidad-jinete" class="fas fa-times" style="color:rgb(204, 4, 4);font-size:18px;"></i> <button class="usar-personaje" id="pU-P">N/D</button></p>
 
 
                         </div>
 
                     </div>
-                    <div class="cnt-Personaje">
+                    <div class="cnt-Personaje" id="Espia">
                         <div class="iconP"></div>
                         <div class=stats>
                             <p><i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i> <span id="vida-P">3</span></p>
                             <p><i class="fas fa-shield-alt" style="color:rgb(176,196,222);"></i> <span id="defensa-P">7</span></p>
-                            <p><i class="fas fa-coins" style="color:gold;"></i> <span id="carga-P">8</span></p>
-                            <p> <i class="fab fa-superpowers" style="color:rgb(0,255,0);font-size:18px;"></i> <button id="pU-P">Usar</button></p>
+                            <p><i class="fas fa-arrow-right"></i> <span id="carga-P">5</span></p>
+                            <p> <i id="icon-usabilidad-espia" class="fas fa-times" style="color:rgb(204, 4, 4);font-size:18px;"></i> <button class="usar-personaje" id="pU-P">N/D</button></p>
 
 
                         </div>
@@ -265,11 +270,11 @@
                 <div id="turnoCont">
                     <div class="cnt-timer">
                         <h1>Tiempo</h1>
-                        <p id="timer">xx:xx</p>
+                        <p id="timer"></p>
                     </div>
                     <div class="cnt-timer">
                         <h1>Movimientos</h1>
-                        <p id="Movimientos">X</p>
+                        <p id="Movimientos"></p>
                     </div>
                 </div>
 
@@ -286,14 +291,14 @@
                         <div class="tienda">
 
                             <div class="div-tienda tienda-ballestas">
-                                <img src="../Imagenes/ballesta1.png" alt="Arquero" id="img-arquero" class="img-character">
+                                <img src="../Imagenes/ballesta.png" alt="Ballesta" id="img-Ballesta" class="img-Ballesta">
                                 <p id="titulo-tienda">Ballesta</p>
-                                <button type="button" id="btn-comprar-ballesta" class="btn-tienda">5</button>
+                                <button type="button" id="btn-comprar-ballesta" class="btn-tienda" onclick="abrirModalCompraB()">5</button>
                             </div>
                             <div class="div-tienda tienda-catapultas">
-                                <img src="../Imagenes/catapulta.png" alt="Arquero" id="img-arquero" class="img-character">
+                                <img src="../Imagenes/catapulta.png" alt="Catapulta" id="img-Catapulta" class="img-Catapulta">
                                 <p id="titulo-tienda">Catapulta</p>
-                                <button type="button" id="btn-comprar-catapulta" class="btn-tienda">8</button>
+                                <button type="button" id="btn-comprar-catapulta" class="btn-tienda" onclick="abrirModalCompraC()">8</button>
                             </div>
 
                         </div>
@@ -305,21 +310,21 @@
                     <div class="cnt-characters">
                         <div class="tienda">
                             <div class="col-personajes 1">
-                                <div class="espacio-personaje">
+                                <div class="espacio-personaje" id="espacio1">
                                     <img src="../Imagenes/Characters/ArcherIdleRight.gif" alt="Arquero" id="img-arquero" class="img-character">
-                                    <button value="1" class="btn-compra-personaje" id="compra-arquero">10</button>
+                                    <button value="1" class="btn-compra-personaje" id="compra-arquero" onclick="abrirModalCompraArquero()">10</button>
                                 </div>
-                                <div class="espacio-personaje">
+                                <div class="espacio-personaje" id="espacio3">
                                     <img src="../Imagenes/Characters/AssasinIdleRight.gif" alt="Asesino" id="img-asesino" class="img-character">
-                                    <button value="3" class="btn-compra-personaje" id="compra-asesino">5</button>
+                                    <button value="3" class="btn-compra-personaje" id="compra-asesino" onclick="abrirModalCompraAsesino()">5</button>
                                 </div>
-                                <div class="espacio-personaje">
+                                <div class="espacio-personaje" id="espacio4">
                                     <img src="../Imagenes/Characters/BerserkIdleRight.gif" alt="Bersequer" id="img-bersequer" class="img-character">
-                                    <button value="4" class="btn-compra-personaje" id="compra-bersequer">25</button>
+                                    <button value="4" class="btn-compra-personaje" id="compra-bersequer" onclick="abrirModalCompraBerserker()">25</button>
                                 </div>
-                                <div class="espacio-personaje">
+                                <div class="espacio-personaje" id="espacio6">
                                     <img src="../Imagenes/Characters/KnightIdleRight.gif" alt="Jinete" id="img-jinete" class="img-character">
-                                    <button value="6" class="btn-compra-personaje" id="compra-jinete">15</button>
+                                    <button value="6" class="btn-compra-personaje" id="compra-jinete" onclick="abrirModalCompraKnight()">15</button>
                                 </div>
                             </div>
                         </div>
@@ -330,18 +335,18 @@
                     <div class="cnt-characters">
                         <div class="tienda">
                             <div class="col-personajes 2">
-                                <div class="espacio-personaje">
+                                <div class="espacio-personaje" id="espacio5">
                                     <img src="../Imagenes/Characters/SpyIdleRight.gif" alt="Espia" id="img-espia" class="img-character">
-                                    <button value="5" class="btn-compra-personaje" id="compra-espia">5</button>
+                                    <button value="5" class="btn-compra-personaje" id="compra-espia" onclick="abrirModalCompraEspia()">5</button>
                                 </div>
-                                <div class="espacio-personaje">
+                                <div class="espacio-personaje" id="espacio2">
                                     <img src="../Imagenes/Characters/SwordsmanIdleRight.gif" alt="Espadachin" id="img-espadachin" class="img-character">
-                                    <button value="2" class="btn-compra-personaje" id="compra-espadachin">15</button>
+                                    <button value="2" class="btn-compra-personaje" id="compra-espadachin" onclick="abrirModalCompraSwordsman()">15</button>
                                 </div>
 
-                                <div class="espacio-personaje">
+                                <div class="espacio-personaje" id="espacio7">
                                     <img src="../Imagenes/Characters/MageIdleRight.gif" alt="Mago" id="img-mago" class="img-character">
-                                    <button value="7" class="btn-compra-personaje" id="compra-mago">10</button>
+                                    <button value="7" class="btn-compra-personaje" id="compra-mago" onclick="abrirModalCompraMago()">10</button>
                                 </div>
 
                             </div>
@@ -381,7 +386,7 @@
                     <div class="attackRange">
                         <h4><img src="../Imagenes/Pop-upBallesta_Catapulta/slash.png" id="swordRange"> <img src="../Imagenes/Pop-upBallesta_Catapulta/right-arrow.png" id="arrowAttack">Alcance de ataque: 3</h4>
                     </div>
-                    <h4><img src="../Imagenes/Pop-upBallesta_Catapulta/coin.png" class="icon"> Precio: 5</h4>
+                    <h4><img src="../Imagenes/coin.png" class="icon"> Precio: 5</h4>
                 </div>
             </div>
         </div>
@@ -391,7 +396,7 @@
 
                 <div class="popupBallesta" id="idpopupCompraB">
 
-                    <h3> Compra de </h3>
+                    <h3> Comprar una </h3>
                     <h3> Ballesta</h3>
 
                     <h4 style="display: flex;">
@@ -413,7 +418,7 @@
             <div class="imgFondo">
                 <div class="popupCatapulta" id="idpopupCompraC">
 
-                    <h3> Compra de </h3>
+                    <h3> Comprar una </h3>
                     <h3> Catapulta</h3>
 
                     <h4 style="display: flex;">
@@ -431,19 +436,193 @@
             </div>
         </div>
 
+        <div class="overlay" id="idOverlayCompraArquero">
+            <div class="imgFondo">
+                <div class="popupCatapulta" id="idpopupCompraArquero">
+
+                    <h3> Comprar un </h3>
+                    <h3> Arquero</h3>
+                    <h3 id="infoModalArquero" style="color:red;display:none;">Tropa ya comprada</h3>
+
+                    <h4 style="display: flex;">
+                        <img src="../Imagenes/Characters/ArcherAttackRight.gif" alt="" class="img-Catapulta"> &nbsp
+                        <p style="line-height: 60px;"> = -10 </p>
+                        <img src="../Imagenes/coin.png" alt="" class="img-gold">
+                    </h4>
+
+                    <div>
+                        <button type="button" value="1" id="btn-comprar-Arquero-OK" class="btn-tienda">OK</button>
+                        <button type="button" id="btn-comprar-Arquero-NO" class="btn-tienda" onclick="cerrarOverlayCompraArquero()">NO</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="overlay" id="idOverlayCompraAsesino">
+            <div class="imgFondo">
+                <div class="popupCatapulta" id="idpopupCompraAsesino">
+
+                    <h3> Comprar un </h3>
+                    <h3> Asesino</h3>
+                    <h3 id="infoModalAsesino" style="color:red;display:none;">Tropa ya comprada</h3>
+                    <h4 style="display: flex;">
+                        <img src="../Imagenes/Characters/AssasinAttackRight.gif" alt="" class="img-Catapulta"> &nbsp
+                        <p style="line-height: 60px;"> = -5 </p>
+                        <img src="../Imagenes/coin.png" alt="" class="img-gold">
+                    </h4>
+
+                    <div>
+                        <button type="button" value="3" id="btn-comprar-Asesino-OK" class="btn-tienda">OK</button>
+                        <button type="button" id="btn-comprar-Asesino-NO" class="btn-tienda" onclick="cerrarOverlayCompraAsesino()">NO</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="overlay" id="idOverlayCompraBerserker">
+            <div class="imgFondo">
+                <div class="popupCatapulta" id="idpopupCompraBerserker">
+
+                    <h3> Comprar un </h3>
+                    <h3> Berserker</h3>
+                    <h3 id="infoModalBerserker" style="color:red;display:none;">Tropa ya comprada</h3>
+                    <h4 style="display: flex;">
+                        <img src="../Imagenes/Characters/BerserkAttackRight.gif" alt="" class="img-Catapulta"> &nbsp
+                        <p style="line-height: 60px;"> = -25 </p>
+                        <img src="../Imagenes/coin.png" alt="" class="img-gold">
+                    </h4>
+
+                    <div>
+                        <button type="button" value="4" id="btn-comprar-Berserker-OK" class="btn-tienda">OK</button>
+                        <button type="button" id="btn-comprar-Berserker-NO" class="btn-tienda" onclick="cerrarOverlayCompraBerserker()">NO</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="overlay" id="idOverlayCompraKnight">
+            <div class="imgFondo">
+                <div class="popupCatapulta" id="idpopupCompraKnight">
+
+                    <h3> Comprar un </h3>
+                    <h3> Caballero</h3>
+                    <h3 id="infoModalJinete" style="color:red;display:none;">Tropa ya comprada</h3>
+                    <h4 style="display: flex;">
+                        <img src="../Imagenes/Characters/KnightAttackRight.gif" alt="" class="img-Catapulta"> &nbsp
+                        <p style="line-height: 60px;"> = -15 </p>
+                        <img src="../Imagenes/coin.png" alt="" class="img-gold">
+                    </h4>
+
+                    <div>
+                        <button type="button" value="6" id="btn-comprar-Knight-OK" class="btn-tienda">OK</button>
+                        <button type="button" id="btn-comprar-Knight-NO" class="btn-tienda" onclick="cerrarOverlayCompraKnight()">NO</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="overlay" id="idOverlayCompraEspia">
+            <div class="imgFondo">
+                <div class="popupCatapulta" id="idpopupCompraEspia">
+
+                    <h3> Comprar un </h3>
+                    <h3> Espia</h3>
+                    <h3 id="infoModalEspia" style="color:red;display:none;">Tropa ya comprada</h3>
+                    <h4 style="display: flex;">
+                        <img src="../Imagenes/Characters/SpyWalkRight.gif" alt="" class="img-Catapulta"> &nbsp
+                        <p style="line-height: 60px;"> = -5 </p>
+                        <img src="../Imagenes/coin.png" alt="" class="img-gold">
+                    </h4>
+
+                    <div>
+                        <button type="button" value="5" id="btn-comprar-Espia-OK" class="btn-tienda">OK</button>
+                        <button type="button" id="btn-comprar-Espia-NO" class="btn-tienda" onclick="cerrarOverlayCompraEspia()">NO</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="overlay" id="idOverlayCompraSwordsman">
+            <div class="imgFondo">
+                <div class="popupCatapulta" id="idpopupCompraSwordsman">
+
+                    <h3> Comprar un </h3>
+                    <h3> Espadachín</h3>
+                    <h3 id="infoModalEspadachin" style="color:red;display:none;">Tropa ya comprada</h3>
+                    <h4 style="display: flex;">
+                        <img src="../Imagenes/Characters/SwordsmanAttackRight.gif" alt="" class="img-Catapulta"> &nbsp
+                        <p style="line-height: 60px;"> = -15 </p>
+                        <img src="../Imagenes/coin.png" alt="" class="img-gold">
+                    </h4>
+
+                    <div>
+                        <button type="button" value="2" id="btn-comprar-Swordsman-OK" class="btn-tienda">OK</button>
+                        <button type="button" id="btn-comprar-Swordsman-NO" class="btn-tienda" onclick="cerrarOverlayCompraSwordsman()">NO</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="overlay" id="idOverlayCompraMago">
+            <div class="imgFondo">
+                <div class="popupCatapulta" id="idpopupCompraMago">
+
+                    <h3> Comprar un </h3>
+                    <h3> Mago</h3>
+                    <h3 id="infoModalMago" style="color:red;display:none;">Tropa ya comprada</h3>
+                    <h4 style="display: flex;">
+                        <img src="../Imagenes/Characters/MageAttackRight.gif" alt="" class="img-Catapulta"> &nbsp
+                        <p style="line-height: 60px;"> = -10 </p>
+                        <img src="../Imagenes/coin.png" alt="" class="img-gold">
+                    </h4>
+
+                    <div>
+                        <button type="button" value="7" id="btn-comprar-Mago-OK" class="btn-tienda">OK</button>
+                        <button type="button" id="btn-comprar-Mago-NO" class="btn-tienda" onclick="cerrarOverlayCompraMago()">NO</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="overlay" id="idOverlayMensaje">
+            <div class="imgFondo">
+                <div class="popupCatapulta" id="idpopupMensaje">
+                    <img src="../Imagenes/favicon.png" alt="" style="width: 60px;">
+                    <h3> It's Dangerous to Go Alone! Take This. </h3>
+                    <div>
+                        <button type="button" id="btn-Mensaje-OK" class="btn-tienda" onclick="cerrarOverlayMensaje()">OK</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!--  -->
         <div>
             <button class="fa-volume-up" id="btn_music" type="button">
           
         </button>
         </div>
 </body>
-<script type="text/javascript" src="../js/CasosDeUsoOrlando/PowerUps.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script type="text/javascript" src="../Scripts/Tablero.js"></script>
 <script type="text/javascript" src="../Scripts/Turnos.js"></script>
+
 <script type="text/javascript" src="../Scripts/Movimientos.js"></script>
+<script type="text/javascript" src="../Scripts/OperacionesCastillo.js"></script>
+<script type="text/javascript" src="../Scripts/PersonajesJugador.js"></script>
+<script type="text/javascript" src="../Scripts/CompraPersonaje.js"></script>
+
 <script type="text/javascript" src="../Scripts/LocalData.js"></script>
 <script type="text/javascript" src="../Scripts/PopUp_Info_Catapulta_Ballesta.js"></script>
+<script type="text/javascript" src="../Scripts/removerPower.js"></script>
+<script type="text/javascript" src="../js/CasosDeUsoOrlando/PowerUps.js"></script>
 <script>
     incializarDatosPopUp();
 </script>

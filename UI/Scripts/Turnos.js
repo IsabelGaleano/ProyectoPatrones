@@ -1,9 +1,12 @@
 let tableroJSON = JSON.parse(sessionStorage.getItem('tablero'));
 let botonDado = document.getElementById("boton-dado");
+let cuadroMovimientos = document.getElementById("Movimientos");
 let cantidadJugadores = tableroJSON.jugadores.length;
 let jugadorActual;
 let dadoTirado = false;
-
+let tropaCompradaXTurno = false;
+let numeroDadoSacado;
+const diceSound = new Audio('../Sounds/diceRoll.wav');
 
 $(document).ready(function() {
 
@@ -24,27 +27,37 @@ botonDado.addEventListener('click', function() {
 function dado() {
     let randomNumber = Math.floor(Math.random() * 6) + 1;
     let urlDado;
+
     switch (randomNumber) {
         case 1:
             urlDado = 'url(../Imagenes/CarasDado/Cara1.png)';
+            numeroDadoSacado = 1;
             break;
         case 2:
             urlDado = 'url(../Imagenes/CarasDado/Cara2.png)';
+            numeroDadoSacado = 2;
             break;
         case 3:
             urlDado = 'url(../Imagenes/CarasDado/Cara3.png)';
+            numeroDadoSacado = 3;
             break;
         case 4:
             urlDado = 'url(../Imagenes/CarasDado/Cara4.png)';
+            numeroDadoSacado = 4;
             break;
         case 5:
             urlDado = 'url(../Imagenes/CarasDado/Cara5.png)';
+            numeroDadoSacado = 5;
             break;
         case 6:
             urlDado = 'url(../Imagenes/CarasDado/Cara6.png)';
+            numeroDadoSacado = 6;
             break;
     }
     imagenDado.style.backgroundImage = urlDado;
+    cuadroMovimientos.textContent = numeroDadoSacado;
+    diceSound.play();
+    //imagenDado.className = "dado" + numeroDadoSacado;
 }
 
 function turnos() {
@@ -57,6 +70,9 @@ function turnos() {
     }
 }
 
+//FUNCION PRINCIPAL DEL JUEGO
+//MANEJA LOS TURNOS, COMPRAS DE PERSONAJES, ETC
+//FLUJO PRINCIPAL DE LA PARTIDA CON LOS TURNOS DE LOS JUGADORES INGRESADOS
 let partida = async() => {
     //Esta variable determina si la partida se acabó
     let estadoPartida = false;
@@ -69,8 +85,7 @@ let partida = async() => {
         aliasJugadores.push(jugadores[i].alias);
     }
 
-
-    console.log(JSON.stringify(jugadores));
+    //console.log(JSON.stringify(jugadores));
     //jugadores = JSON.parse(jugadores);
     let posicionJugadorActual = 0;
 
@@ -92,16 +107,21 @@ let partida = async() => {
             }
         }
         //console.log(jugadorActual);
-        jugadorActivo.textContent = "Turno de: " + jugadorActual.alias;
+        jugadorActivo.textContent = jugadorActual.alias;
 
-
+        tableroJSON.jugadores = jugadores;
+        sessionStorage.setItem('tablero', JSON.stringify(tableroJSON));
+        actualizarInfoCastilloJugador();
+        actualizarPersonajesJugador(2);
         let tiempo = await timer(document.getElementById("timer"));
         if (posicionJugadorActual == jugadores.length - 1) {
             posicionJugadorActual = 0;
         } else {
             posicionJugadorActual++;
         }
+
         dadoTirado = false;
+        tropaCompradaXTurno = false;
 
     }
 }

@@ -140,7 +140,9 @@
 
 .castillo .castilloImg {
     background-image: url('../Imagenes/castle.png');
-    
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
 }
 
 .ballesta1 {

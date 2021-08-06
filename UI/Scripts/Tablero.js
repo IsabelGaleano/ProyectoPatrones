@@ -9,7 +9,7 @@ let imgBody = document.getElementById("idBody");
 let btn_ver_personajes = document.getElementById("btn-ver-personajes")
 let tiendaAbierta = false;
 let celdaActual;
-let jugadorActivo = document.getElementById("jugador-activo");
+let jugadorActivo = document.getElementById("Nickname");
 
 const audio = new Audio('../Sounds/music_funkyWhistle.wav');
 const icon = document.querySelector("#btn_music > i");
@@ -89,17 +89,6 @@ $(document).ready(function() {
     //juego();
 });
 
-btn_ver_personajes.addEventListener('click', function() {
-    if (tiendaAbierta == false) {
-        document.getElementById("personajes-tienda").style.display = 'inline-block';
-        tiendaAbierta = true;
-    } else {
-        document.getElementById("personajes-tienda").style.display = 'none';
-        tiendaAbierta = false;
-    }
-
-});
-
 
 
 //---MANEJO DEL JUEGO---
@@ -141,7 +130,7 @@ function cargarPersonaje(tipo) {
             urlImagenPersonaje = 'url(../Imagenes/Characters/SpyIdleRight.gif)';
             break;
     }
-
+    urlImagenPersonaje =   urlImagenPersonaje;
     return urlImagenPersonaje;
 }
 
@@ -191,51 +180,48 @@ function cargarTablero(mas2Jugadores) {
         for (let c = sumatoriaCeldas; c <= 10 * i; c++) {
             let celda = document.createElement("td");
             celda.id = "c" + c;
+
+                if (cantidad == 2) {
+                    if (c == 10) {
+                        celda.style.backgroundSize = "70px 70px";
+                        celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo1-100.png)';
+                    } else if (c == 91) {
+                        celda.style.backgroundSize = "70px 70px";
+                        celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo2-100.png)';
+                    }
+    
+                } else if (cantidad == 3) {
+    
+                    if (c == 1) {
+                        celda.style.backgroundSize = "70px 70px";
+                        celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo3-100.png)';
+                    } else if (c == 10) {
+                        celda.style.backgroundSize = "70px 70px";
+                        celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo1-100.png)';
+                    } else if (c == 91) {
+                        celda.style.backgroundSize = "70px 70px";
+                        celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo2-100.png)';
+                    }
+    
+                } else if (cantidad == 4) {
+    
+                    if (c == 1) {
+                        celda.style.backgroundSize = "70px 70px";
+                        celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo4-100.png)';
+                    } else if (c == 10) {
+                        celda.style.backgroundSize = "70px 70px";
+                        celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo1-100.png)';
+                    } else if (c == 91) {
+                        celda.style.backgroundSize = "70px 70px";
+                        celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo2-100.png)';
+                    } else if (c == 100) {
+                        celda.style.backgroundSize = "70px 70px";
+                        celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo3-100.png)';
+                    }
+    
+                }            
             
-            if(cantidad == 2) {
-                if (c == 10) {
-                    celda.style.backgroundSize = "70px 70px";
-                    celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo1-100.png)';                
-                } else if (c == 91) {
-                    celda.style.backgroundSize = "70px 70px";
-                    celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo2-100.png)';
-                }
 
-            } else if(cantidad == 3) {
-
-                if (c == 1) {
-                    celda.style.backgroundSize = "70px 70px";
-                    celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo1-100.png)';                
-                } else if (c == 10) {
-                    celda.style.backgroundSize = "70px 70px";
-                    celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo2-100.png)';
-                } else if (c == 91) {
-                    celda.style.backgroundSize = "70px 70px";
-                    celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo2-100.png)';
-                }
-
-            } else if(cantidad == 4) {
-
-                if (c == 1) {
-                    celda.style.backgroundSize = "70px 70px";
-                    celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo1-100.png)';                
-                } else if (c == 10) {
-                    celda.style.backgroundSize = "70px 70px";
-                    celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo2-100.png)';
-                } else if (c == 91) {
-                    celda.style.backgroundSize = "70px 70px";
-                    celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo2-100.png)';
-                } else if (c == 100) {
-                    celda.style.backgroundSize = "70px 70px";
-                    celda.style.backgroundImage = 'url(../Imagenes/Castillos/Castillo2-100.png)';
-                } 
-
-            }
-        
-                
-
-            
-            
 
             celda.addEventListener('click', function() {
                 //console.log(document.getElementById(celdaActual));
@@ -258,110 +244,14 @@ function cargarTablero(mas2Jugadores) {
         }
         tablero.appendChild(fila);
     }
-
-
-
-    //CELDAS ALEATORIAS CON GEMAS
-    /*let celdasEspecialesArray = [];
-    let gemasArray = [];
-    let powerUpsArray = [];
- 
-
-    for (let g = 0; g < 15; g++) {
-        let randomGema = Math.floor(Math.random() * 3) + 1;
-        let randomNumberCell = Math.floor(Math.random() * 100) + 1;
-        //let casillaRepetida = false;
-
-        while (verifyNumber(mas2Jugadores, celdasEspecialesArray, randomNumberCell)) {
-            randomNumberCell = Math.floor(Math.random() * 100) + 1;
-        }
-        let random = { gema: randomGema, cellNumber: randomNumberCell };
-        celdasEspecialesArray.push(randomNumberCell);
-        gemasArray.push(random);
-    }*/
-
-
-    /*for (let g = 0; g < 15; g++) {
-        let celda = document.getElementById("c" + gemasArray[g].cellNumber);
-        celda.className += "gema" + gemasArray[g].gema;
-        //celda.dataset.gema = true;
-        /*celda.innerHTML = "gema " + tipoGema(gemasArray[g].gema);    
-    
-        switch (gemasArray[g].gema) {
-            case 1:
-                celda.style.backgroundImage = 'url(../Imagenes/PowerUps/greenGemGif.gif)';
-                break;
-            case 2:
-                celda.style.backgroundImage = 'url(../Imagenes/PowerUps/BlueGif.gif)';
-                break;
-            case 3:
-                celda.style.backgroundImage = 'url(../Imagenes/PowerUps/whiteGemGif.gif)';
-                break;
-        }
-        
-    }*/
-
-    //ALEATORIZAR LAS TEXTURAS DE LAS CASILLAS CON POWER UPS
-    //NUMEROS ALEATORIOS PARA POWER UPS
-    /*  for (let p = 15; p < 29;) {
-          let randomowerUp = Math.floor(Math.random() * 4) + 1;
-          let randomNumberCell = Math.floor(Math.random() * 100) + 1;
-
-          if (verifyNumber(mas2Jugadores, celdasEspecialesArray, randomNumberCell) == false) {
-              let random = { powerUp: randomowerUp, cellNumber: randomNumberCell };
-              celdasEspecialesArray.push(randomNumberCell);
-              powerUpsArray.push(random);
-              p++;
-          }
-
-      }*/
-
-
-
-    //POWER UPS
-    /* POWER UP 1 ES MEJORA ATAQUE
-    POWER UP 2 ES MEJORA EN DEFENSA 
-    POWER UP 3 ES TRAMPA DE ATAQUE 
-    POWER UP 4 ES TRAMPA DE DEFENSA
-    */
-
-    /*for (let p = 0; p < 14; p++) 
-    {
-        let nombre = "#c" + powerUpsArray[p].cellNumber;        
-        let celda = document.getElementById("c" + powerUpsArray[p].cellNumber);
-        celda.className = "power-up" + powerUpsArray[p].powerUp;
-        /*celda.innerHTML = "power-up " + tipoPowerUp(powerUpsArray[p].powerUp);
-        celda.style.backgroundImage = 'url(../Imagenes/green_texture.png)';
-
-        switch (powerUpsArray[p].powerUp) {
-            case 1:
-                celda.style.backgroundImage = 'url(../Imagenes/PowerUps/PowUpGif.gif)';
-                break;
-            case 2:
-                celda.style.backgroundImage = 'url(../Imagenes/PowerUps/DefUpGif.gif)';
-                break;
-            case 3:
-                celda.style.backgroundImage = 'url(../Imagenes/PowerUps/PowDwnGif.gif)';
-                break;
-            case 4:
-                celda.style.backgroundImage = 'url(../Imagenes/PowerUps/DefDwnGif.gif)';
-                break;
-        }
-        celda.style.backgroundImage += ',url(../Imagenes/green_texture.png)';
-
-    }*/
-    /*
-    console.log(gemasArray);
-    console.log(powerUpsArray);
-    */
-
+  
     setCasillas();
 }
 
 const setCasillas = () => {
     let celdas = document.getElementsByTagName('td');
     let casillas = obtenerCasillas();
-    console.log(celdas);
+    //console.log(celdas);
     for (let i = 0; i < celdas.length; i++) {
         for (let j = 0; j < casillas.length; j++) {
 
