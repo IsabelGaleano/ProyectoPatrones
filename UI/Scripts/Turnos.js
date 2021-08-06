@@ -6,6 +6,7 @@ let jugadorActual;
 let dadoTirado = false;
 let tropaCompradaXTurno = false;
 let numeroDadoSacado;
+const diceSound = new Audio('../Sounds/diceRoll.wav');
 
 $(document).ready(function() {
 
@@ -55,6 +56,7 @@ function dado() {
     }
     imagenDado.style.backgroundImage = urlDado;
     cuadroMovimientos.textContent = numeroDadoSacado;
+    diceSound.play();
     //imagenDado.className = "dado" + numeroDadoSacado;
 }
 
