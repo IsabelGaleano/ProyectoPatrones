@@ -1,4 +1,4 @@
-let elementsArray = document.querySelectorAll("#btn-comprar-OK");
+let elementsArray = document.querySelectorAll("#btn-compra-personaje");
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
 //COMPRA DE LOS PERSONAJES DE LA TIENDA
