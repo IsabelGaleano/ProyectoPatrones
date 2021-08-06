@@ -130,7 +130,7 @@ function cargarPersonaje(tipo) {
             urlImagenPersonaje = 'url(../Imagenes/Characters/SpyIdleRight.gif)';
             break;
     }
-    urlImagenPersonaje = urlImagenPersonaje + ' ,url(../Imagenes/PowerUps/defupAni.gif)';
+    urlImagenPersonaje =   urlImagenPersonaje;
     return urlImagenPersonaje;
 }
 
@@ -221,10 +221,6 @@ function cargarTablero(mas2Jugadores) {
     
                 }            
             
-
-
-
-
 
 
             celda.addEventListener('click', function() {

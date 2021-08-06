@@ -26,9 +26,9 @@ public class ControllerVisitante {
 
     @RequestMapping(method=RequestMethod.POST,consumes="application/json",produces="application/json")
     @ResponseBody
-    public List<Personaje> savePerson(@RequestBody PersonajesModelo personajesModelo) {
+    public List<Personaje> savePerson(@RequestBody PersonajesModelo personajesRequest) {
         List<Personaje> response = new ArrayList<Personaje>();
-        for (Personaje personaje: personajesModelo.getListPersonajes()){
+        for (Personaje personaje: personajesRequest.getListPersonajes()){
             response.add(personaje);
         }
         return response;
