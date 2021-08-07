@@ -12,9 +12,14 @@ const jugadorAct=()=>{
 }
 const intentarCompraBallesta=async(e)=>{
     if(espacioBallesta()){
-        console.log("Agregando Ballesta!!");
+       if(validarOro(5)){ 
+
+        console.log("Agregando Ballesta!");
     
-    await agregarDefensaCastillo(1);
+        await agregarDefensaCastillo(1,5);}
+         else{
+        console.log("Oro insuficiente!!");
+        }
     }
     else{
         console.log("Ballestas llenas!!");
@@ -23,8 +28,12 @@ const intentarCompraBallesta=async(e)=>{
 }
 const intentarCompraCatapulta=async(e)=>{
     if(espacioCatapulta()){
+        if(validarOro(8)){
         console.log("Agregando Catapulta");
-        await agregarDefensaCastillo(2);
+        await agregarDefensaCastillo(2,8);}
+        else{
+        console.log("Oro insuficiente!!");
+        }
     }
     else{
         console.log("Catapulta llena!!");
@@ -36,10 +45,10 @@ const espacioBallesta = function(){
     let obj = JSON.parse(sessionStorage.getItem('tablero'));
     let  idCastillo= jugadorAct().idCastillo;
    
-    if(obj.castillos[idCastillo].defensas==null){
+    if(obj.castillos[idCastillo-1].defensas==null){
         return true;
     }
-    let defensas = obj.castillos[idCastillo].defensas;
+    let defensas = obj.castillos[idCastillo-1].defensas;
     
     let ballestas=0;
 
@@ -58,7 +67,7 @@ const espacioBallesta = function(){
 const espacioCatapulta = function(){
     let obj = JSON.parse(sessionStorage.getItem('tablero'));
     let  idCastillo= jugadorAct().idCastillo;
-    let defensas = obj.castillos[idCastillo].defensas;
+    let defensas = obj.castillos[idCastillo-1].defensas;
     let res= true;
     let catapultas=0;
     if(defensas!=null){
@@ -77,6 +86,20 @@ const espacioCatapulta = function(){
     return res;
 
 }
+const validarOro=function(costo){
+    let res= true;
+    let idCastillo = jugadorAct().idCastillo;
+    let obj =JSON.parse(sessionStorage.getItem('tablero'));
+    let castillos= obj.castillos;
+  
+    let  oroJugador = castillos[idCastillo-1].oroJugador;
+
+    if(oroJugador-costo<0){
+        res = false;
+    }
+    return res;
+
+}
 
 const defensasJugador= async()=>{
     let arrdefensas=[];
@@ -84,7 +107,7 @@ const defensasJugador= async()=>{
     let obj = JSON.parse(sessionStorage.getItem('tablero'));
     let castillos=obj.castillos;
     for (let i = 0; i < castillos.length; i++) {
-        if (idCastillo == castillos[i].id) {
+        if (idCastillo-1 == castillos[i].id) {
      
             if (castillos[i].defensas == null) {
                 return arrdefensas;
@@ -137,6 +160,7 @@ const agregarDefensaCastillo= async(opcion, costo)=>{
 
     let obj = JSON.parse(sessionStorage.getItem('tablero'));
     let jugador;
+
    
 
     obj.jugadores.forEach(function(element) {
@@ -145,17 +169,21 @@ const agregarDefensaCastillo= async(opcion, costo)=>{
         }
     });
     let idCastillo = jugador.idCastillo;
+  
     let castillos = obj.castillos;
+    castillos[idCastillo - 1].oro -= costo;
 
         for (let i = 0; i < castillos.length; i++) {
-            //if (idCastillo == castillos[i].id) {
+            if (idCastillo == castillos[i].id) {
               if(castillos[i].defensas==null){
                     castillos[i].defensas=arrayDefensa;
                 }else{ 
                     castillos[i].defensas.push(arrayDefensa[0]);
                 } 
-                obj.castillos[i] = castillos[i];    
+                   
                 }
+                obj.castillos[i] = castillos[i];
+            }
                
                                      
     sessionStorage.setItem('tablero', JSON.stringify(obj));    
