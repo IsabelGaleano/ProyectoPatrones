@@ -11,13 +11,24 @@ let tiendaAbierta = false;
 let celdaActual;
 let jugadorActivo = document.getElementById("Nickname");
 
-const audio = new Audio('../Sounds/music_funkyWhistle.wav');
+const clickAudio = new Audio('../Sounds/buttonClickSound.wav');
+const MOAudio = new Audio('../Sounds/buttonHoverSound.wav');
+const BGM = new Audio('../Sounds/music_funkyWhistle.wav');
 const icon = document.querySelector("#btn_music > i");
 const btn_music = document.querySelector("#btn_music");
-audio.volume = 0.1;
-audio.loop = true;
-//audio.play();
+BGM.volume = 0.1;
+BGM.loop = true;
 
+
+$("button").click(function(){
+    clickAudio.volume= 0.1;
+    clickAudio.play();
+});
+
+$("button").mouseenter(function(){
+    MOAudio.volume= 0.03;
+    MOAudio.play();
+});
 
 //PERMITE GUARDAR ARRAYS Y OBJETOS EN LOCALSTORAGE
 Storage.prototype.setObj = function(key, obj) {
@@ -29,17 +40,17 @@ Storage.prototype.getObj = function(key) {
 }
 
 btn_music.addEventListener("click", () => {
-    if (audio.paused) {
-        audio.volume = 0.2;
-        audio.loop = true;
-        audio.play();
+    if (BGM.paused) {
+        BGM.volume = 0.2;
+        BGM.loop = true;
+        BGM.play();
         btn_music.classList.add('fa-volume-up');
         btn_music.classList.remove('fa-volume-mute');
 
 
 
     } else {
-        audio.pause();
+        BGM.pause();
         btn_music.classList.add('fa-volume-mute');
         btn_music.classList.remove('fa-volume-up');
 
@@ -400,3 +411,7 @@ function fondo() {
 }
 
 fondo();
+
+
+
+
