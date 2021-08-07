@@ -10,10 +10,15 @@ const jugadorAct=()=>{
 
     return jugador;
 }
-const intentarCompra=async(e)=>{
-    await crearDefensa(1);
+const intentarCompraBallesta=async(e)=>{
+    await agregarDefensaCastillo(1);
 
 }
+const intentarCompraCatapulta=async(e)=>{
+    await agregarDefensaCastillo(2);
+
+}
+
 const defensasJugador= async()=>{
     let arrdefensas=[];
     let idCastillo=jugadorAct().idCastillo;
@@ -26,7 +31,8 @@ const defensasJugador= async()=>{
                 return arrdefensas;
             } else {
                 for(let j=0;j<castillos[i].defensas.length;j++){
-                    arrdefensas[j]=[...castillos[i].defensas[j]];
+                    if(castillo[i].defensas[j].id){}
+                   
                 }
             
                              
@@ -70,15 +76,12 @@ const crearDefensa=async(opcion)=>{
 }
 
 const agregarDefensaCastillo= async(opcion, costo)=>{
-    let arraydefensa = [];
+    let arrayDefensa = [];
     arrayDefensa = await crearDefensa(opcion);
-    
-    console.log(arrayDefensa);
+
     let obj = JSON.parse(sessionStorage.getItem('tablero'));
     let jugador;
    
-    let defensaComprada= false;
-    let [defensa] = arraydefensa;
 
     obj.jugadores.forEach(function(element) {
         if (element.turno) {
@@ -89,22 +92,27 @@ const agregarDefensaCastillo= async(opcion, costo)=>{
     let castillos = obj.castillos;
 
         for (let i = 0; i < castillos.length; i++) {
-            if (idCastillo == castillos[i].id) {
-                if (castillos[i].defensas == null) {
-                    castillos[i].defensas = defensa;
-                } else { 
-                    castillos[i].defensas = [...castillos[i].defensas, defensa];
-                }
+            //if (idCastillo == castillos[i].id) {
+              if(castillos[i].defensas==null){
+                    castillos[i].defensas=arrayDefensa;
+                }else{
                 
-            }
-            obj.castillos[i] = castillos[i];             
+                    castillos[i].defensas.push(arrayDefensa[0]);}
+                
+               
+                
+                
+                }
+                obj.castillos[i] = castillos[i];  
+                       
        
-    } 
+        
     sessionStorage.setItem('tablero', JSON.stringify(obj));    
-    }
+    
 
 
+}
 
-   
 
-document.querySelector('#btn-comprar-ballesta-OK').addEventListener('click', intentarCompra);
+document.querySelector('#btn-comprar-ballesta-OK').addEventListener('click', intentarCompraBallesta);
+document.querySelector('#btn-comprar-Catapulta-OK').addEventListener('click', intentarCompraCatapulta);
