@@ -37,6 +37,15 @@ const obtenerPower = () => {
     return casillasPower;
 
 }
+const obtenerJugadoresPrueba = () => {
+    let tablero = JSON.parse(sessionStorage.getItem('tablero'));
+    let jugadores = [];
+    jugadores = tablero.jugadores;
+
+    return jugadores;
+
+}
+
 
 
 const removerPowers = async () => {
@@ -44,6 +53,7 @@ const removerPowers = async () => {
     let personajesNuevos = [];
     let personajes = [];
     let tipoPower;
+    let jugadores = [];
     /*for (let i = 1; i <= 3; i++) {
         personaje = await crearPersonajeTemp(i);
         personajes.push(personaje[0]);
@@ -69,6 +79,8 @@ const removerPowers = async () => {
 
 
     personajesNuevos = await visitarPersonajes(objVisitantePersonajes);
+    jugadores = obtenerJugadoresPrueba();
+    await visitarJugadores(jugadores);
     console.log(personajesNuevos);
 }
 
@@ -93,5 +105,30 @@ const visitarPersonajes = async (personajes) => {
     return personajesResponse;
 
 }
+
+
+const visitarJugadores = async (jugadores) => {
+    let personajesResponse;
+    await axios({
+        method: 'post',
+        url: `http://localhost:8080/api/jugadores/pasarPersonajes`,
+        responseType: 'json',
+        data: jugadores
+    }).then((response) => {
+        personajesResponse = response.data
+    }).catch((response) => {
+        console.log(response);
+        return null;
+
+    });
+
+    console.log(personajesResponse);
+
+    return personajesResponse;
+
+}
+
+
+
 
 
