@@ -15,6 +15,6 @@ public abstract class Manejador {
         this.nextInChain = nextInChain;
     }
 
-    public abstract void manejar(Personaje personaje, Casilla casilla, ArrayList<Personaje> decorados);
+    public abstract void manejar(Personaje personaje, String tipoCasilla);
 
 }

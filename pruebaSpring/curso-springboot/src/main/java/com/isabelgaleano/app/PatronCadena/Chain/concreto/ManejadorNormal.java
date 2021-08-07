@@ -10,8 +10,8 @@ public class ManejadorNormal extends Manejador {
 
 
     @Override
-    public void manejar(Personaje personaje, Casilla casilla, ArrayList<Personaje> decorados) {
-        if(casilla.getData().equalsIgnoreCase("CasillaNormal")){
+    public void manejar(Personaje personaje, String tipoCasilla) {
+        if(tipoCasilla.equals("CasillaNormal")){
 
 
 

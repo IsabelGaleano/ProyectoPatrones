@@ -24,9 +24,9 @@ public class GestorCadena {
         return manejadorPowerUp;
 
     }
-    public void IniciarValidacion(Personaje personaje, Casilla casilla, ArrayList<Personaje> decorados){
+    public void IniciarValidacion(Personaje personaje, String tipoCasilla){
         manejador= configurar();
-        manejador.manejar(personaje,casilla, decorados);
+        manejador.manejar(personaje,tipoCasilla);
 
     }
 }
