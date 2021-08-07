@@ -13,10 +13,45 @@ let elementsArray = document.querySelectorAll("#btn-compra-personaje");
 
 
 document.querySelector('#btn-comprar-Arquero-OK').addEventListener('click', async (e) => {
-    console.log("me odio");
     agregarBarra(1);
     await verificarCompraPersonaje(1, 10);
     cerrarOverlayCompraArquero();
+});
+
+document.querySelector('#btn-comprar-Asesino-OK').addEventListener('click', async (e) => {
+    agregarBarra(3);
+    await verificarCompraPersonaje(3, 5);
+    cerrarOverlayCompraAsesino();
+});
+
+document.querySelector('#btn-comprar-Berserker-OK').addEventListener('click', async (e) => {
+    agregarBarra(4);
+    await verificarCompraPersonaje(4, 25);
+    cerrarOverlayCompraBerserker();
+});
+
+document.querySelector('#btn-comprar-Knight-OK').addEventListener('click', async (e) => {
+    agregarBarra(6);
+    await verificarCompraPersonaje(6, 15);
+    cerrarOverlayCompraKnight();
+});
+
+document.querySelector('#btn-comprar-Espia-OK').addEventListener('click', async (e) => {
+    agregarBarra(5);
+    await verificarCompraPersonaje(5, 5);
+    cerrarOverlayCompraEspia();
+});
+
+document.querySelector('#btn-comprar-Swordsman-OK').addEventListener('click', async (e) => {
+    agregarBarra(2);
+    await verificarCompraPersonaje(2, 15);
+    cerrarOverlayCompraSwordsman();
+});
+
+document.querySelector('#btn-comprar-Mago-OK').addEventListener('click', async (e) => {
+    agregarBarra(7);
+    await verificarCompraPersonaje(7, 10);
+    cerrarOverlayCompraMago();
 });
 
 const agregarBarra = (value) => {
@@ -64,6 +99,18 @@ const verificarCompraPersonaje = async(opcion, monedas) => {
             if (tropaCompradaXTurno == false) {
                 if(opcion == 1) {
                     compraArquero();
+                } else if(opcion == 3) {
+                    compraAsesino();
+                } else if (opcion == 4) {
+                    compraBerserker();
+                } else if (opcion == 6) {
+                    compraJinete();
+                } else if(opcion == 5) {
+                    compraEspia();
+                } else if (opcion == 2) {
+                    compraEspadachin();
+                } else if (opcion == 7) {
+                    compraMago();
                 }
 
             }
@@ -314,8 +361,6 @@ const compraEspadachin = async() => {
         //console.log(obj.castillos);
         sessionStorage.setItem('tablero', JSON.stringify(obj));
         tropaCompradaXTurno = true;
-        agregarBarra(2);
-        verificarCompraPersonaje(2, 15);
         actualizarInfoCastilloJugador();
         actualizarPersonajesJugador(1);
         cerrarOverlayCompraSwordsman();
@@ -379,8 +424,6 @@ const compraAsesino = async() => {
         //console.log(obj.castillos);
         sessionStorage.setItem('tablero', JSON.stringify(obj));
         tropaCompradaXTurno = true;
-        agregarBarra(3);
-        verificarCompraPersonaje(3, 5);
         actualizarInfoCastilloJugador();
         actualizarPersonajesJugador(1);
     } else {
@@ -443,8 +486,6 @@ const compraBerserker = async() => {
         //console.log(obj.castillos);
         sessionStorage.setItem('tablero', JSON.stringify(obj));
         tropaCompradaXTurno = true;
-        agregarBarra(4);
-        verificarCompraPersonaje(4, 25);
         actualizarInfoCastilloJugador();
         actualizarPersonajesJugador(1);
         cerrarOverlayCompraBerserker();
@@ -508,8 +549,6 @@ const compraEspia = async() => {
         //console.log(obj.castillos);
         sessionStorage.setItem('tablero', JSON.stringify(obj));
         tropaCompradaXTurno = true;
-        agregarBarra(5);
-        verificarCompraPersonaje(5, 5);
         actualizarInfoCastilloJugador();
         actualizarPersonajesJugador(1);
         cerrarOverlayCompraEspia();
@@ -573,8 +612,6 @@ const compraJinete = async() => {
         //console.log(obj.castillos);
         sessionStorage.setItem('tablero', JSON.stringify(obj));
         tropaCompradaXTurno = true;
-        agregarBarra(6);
-        verificarCompraPersonaje(6, 15);
         actualizarInfoCastilloJugador();
         actualizarPersonajesJugador(1);
         cerrarOverlayCompraKnight();
@@ -638,8 +675,6 @@ const compraMago = async() => {
         console.log(castillos[idCastillo - 1]);
         sessionStorage.setItem('tablero', JSON.stringify(obj));
         tropaCompradaXTurno = true;
-        agregarBarra(7);
-        verificarCompraPersonaje(7, 10);
         actualizarInfoCastilloJugador();
         actualizarPersonajesJugador(1);
         cerrarOverlayCompraMago();
