@@ -62,7 +62,8 @@ const removerPowers = async () => {
             id: element.id,
             defensa: element.defensa,
             ataque: element.ataque.puntos,
-            tipoPowerUp: element.powerUp.tipo
+            tipoPowerUp: element.powerUp.tipo,
+            estadoDecorado: element.estadoDecorado
         }
     });
 
@@ -73,7 +74,7 @@ const removerPowers = async () => {
 
 
 const visitarPersonajes = async (personajes) => {
-    let personajeResponse;
+    let personajesResponse;
     await axios({
         method: 'post',
         url: `http://localhost:8080/api/visitante`,
@@ -87,31 +88,10 @@ const visitarPersonajes = async (personajes) => {
 
     });
 
-    //console.log(personajesRequest);
+    console.log(personajesResponse);
 
-    return personajeResponse;
-
-}
-
-const visitarPersonaje = async (arquero) => {
-    let personajeResponse;
-    await axios({
-        method: 'post',
-        url: `http://localhost:8080/api/visitante/visitarPersonaje`,
-        responseType: 'json',
-        Data: {
-            arquero: arquero
-        }
-    }).then((response) => {
-        personajesResponse = response.data
-    }).catch((response) => {
-        console.log(response);
-        return null;
-
-    });
-
-
-    return personajeResponse;
+    return personajesResponse;
 
 }
+
 

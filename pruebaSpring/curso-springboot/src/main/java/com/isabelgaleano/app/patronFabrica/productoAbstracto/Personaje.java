@@ -40,8 +40,6 @@ public abstract class Personaje implements Serializable {
         this.idCasilla = idCasilla;
     }
 
-    public abstract void aceptar(IVisitor iVisitor);
-
     public int getId() {
         return id;
     }

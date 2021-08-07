@@ -1,6 +1,7 @@
 package com.isabelgaleano.app.api;
 
 import com.isabelgaleano.app.Gestores.GestorVisitante;
+import com.isabelgaleano.app.Modelo.PersonajeVisitante;
 import com.isabelgaleano.app.Modelo.PersonajesModelo;
 import com.isabelgaleano.app.patronFabrica.productoAbstracto.Personaje;
 import com.isabelgaleano.app.patronFabrica.productoConcreto.Arquero;
@@ -14,54 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-class VisitanteRequest implements Serializable {
-    private int id;
-    private int defensa;
-    private String tipoPowerUp;
-    private int ataque;
-
-    public VisitanteRequest() {
-    }
-
-    public VisitanteRequest(int id, int defensa, String tipoPowerUp, int ataque) {
-        this.id = id;
-        this.defensa = defensa;
-        this.tipoPowerUp = tipoPowerUp;
-        this.ataque = ataque;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getDefensa() {
-        return defensa;
-    }
-
-    public void setDefensa(int defensa) {
-        this.defensa = defensa;
-    }
-
-    public String getTipoPowerUp() {
-        return tipoPowerUp;
-    }
-
-    public void setTipoPowerUp(String tipoPowerUp) {
-        this.tipoPowerUp = tipoPowerUp;
-    }
-
-    public int getAtaque() {
-        return ataque;
-    }
-
-    public void setAtaque(int ataque) {
-        this.ataque = ataque;
-    }
-}
 @CrossOrigin
 @RestController
 @RequestMapping("/api/visitante")
@@ -77,11 +30,8 @@ public class ControllerVisitante {
 
     @RequestMapping(method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
     @ResponseBody
-    public List<VisitanteRequest> savePerson(@RequestBody List<VisitanteRequest> listPersonajes) {
-        List<VisitanteRequest> response = new ArrayList<VisitanteRequest>();
-        for (VisitanteRequest personaje : listPersonajes) {
-            response.add(personaje);
-        }
+    public List<PersonajeVisitante> savePerson(@RequestBody List<PersonajeVisitante> listPersonajes) {
+        List<PersonajeVisitante> response = gestorVisitante.visitarPersonajes(listPersonajes);
         return response;
     }
     /*
