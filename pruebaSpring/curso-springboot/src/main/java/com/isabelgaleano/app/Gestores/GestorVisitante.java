@@ -52,4 +52,12 @@ public class GestorVisitante {
         ejecutarVisitantes();
         return personajes;
     }
+
+    public  List<Personaje> visitarPersonaje(Personaje personaje) {
+
+        agregarPersonaje(personaje);
+        agregarVisitantes();
+        ejecutarVisitantes();
+        return personajes;
+    }
 }
