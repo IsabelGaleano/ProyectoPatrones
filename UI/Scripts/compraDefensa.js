@@ -11,11 +11,70 @@ const jugadorAct=()=>{
     return jugador;
 }
 const intentarCompraBallesta=async(e)=>{
+    if(espacioBallesta()){
+        console.log("Agregando Ballesta!!");
+    
     await agregarDefensaCastillo(1);
+    }
+    else{
+        console.log("Ballestas llenas!!");
+    }
 
 }
 const intentarCompraCatapulta=async(e)=>{
-    await agregarDefensaCastillo(2);
+    if(espacioCatapulta()){
+        console.log("Agregando Catapulta");
+        await agregarDefensaCastillo(2);
+    }
+    else{
+        console.log("Catapulta llena!!");
+    }
+    
+
+}
+const espacioBallesta = function(){
+    let obj = JSON.parse(sessionStorage.getItem('tablero'));
+    let  idCastillo= jugadorAct().idCastillo;
+   
+    if(obj.castillos[idCastillo].defensas==null){
+        return true;
+    }
+    let defensas = obj.castillos[idCastillo].defensas;
+    
+    let ballestas=0;
+
+    for(let i=0;i<defensas.length;i++){
+        if(defensas[i].tipo=="Ballesta"){
+            ballestas++;
+        }
+
+    }
+    if(ballestas>=2){
+        return false;
+    }
+    return true;
+
+}
+const espacioCatapulta = function(){
+    let obj = JSON.parse(sessionStorage.getItem('tablero'));
+    let  idCastillo= jugadorAct().idCastillo;
+    let defensas = obj.castillos[idCastillo].defensas;
+    let res= true;
+    let catapultas=0;
+    if(defensas!=null){
+        for(let i=0;i<defensas.length;i++){
+            if(defensas[i].tipo=="Catapulta"){
+                catapultas++;
+            }
+    
+        }
+        
+    }
+    if(catapultas>=1){
+        console.log("Ya existe Catapulta ")
+        res=false;
+    }
+    return res;
 
 }
 
@@ -40,9 +99,6 @@ const defensasJugador= async()=>{
 
     }
     console.log(arrdefensas);
-
-    
-
 
 }
 return arrdefensas;
@@ -95,22 +151,15 @@ const agregarDefensaCastillo= async(opcion, costo)=>{
             //if (idCastillo == castillos[i].id) {
               if(castillos[i].defensas==null){
                     castillos[i].defensas=arrayDefensa;
-                }else{
-                
-                    castillos[i].defensas.push(arrayDefensa[0]);}
-                
-               
-                
-                
+                }else{ 
+                    castillos[i].defensas.push(arrayDefensa[0]);
+                } 
+                obj.castillos[i] = castillos[i];    
                 }
-                obj.castillos[i] = castillos[i];  
-                       
-       
-        
+               
+                                     
     sessionStorage.setItem('tablero', JSON.stringify(obj));    
     
-
-
 }
 
 
