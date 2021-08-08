@@ -169,7 +169,7 @@ const crearPersonaje = async(opcion) => {
         return null;
 
     });
-
+    personajes[0].estado = "Activo";
     return personajes;
 }
 
@@ -179,7 +179,9 @@ const crearPersonaje = async(opcion) => {
 const agregarPersonajeToCastillo = async(opcionPersonaje, costo) => {
     let arrayPersonaje = [];
     arrayPersonaje = await crearPersonaje(opcionPersonaje);
+    arrayPersonaje[0].id = jugadorActual.id;
     console.log(arrayPersonaje);
+
     let obj = JSON.parse(sessionStorage.getItem('tablero'));
     let jugador;
     //PARA VALIDAR SI LA TROPA YA HABIA SIDO COMPRADA POR EL MISMO JUGADOR
@@ -252,6 +254,7 @@ const compraArquero = async() => {
     //1 ES EL ID DE ARQUERO
     let arrayPersonaje = [];
     arrayPersonaje = await crearPersonaje(1);
+    arrayPersonaje[0].id = jugadorActual.id;
     //console.log(arrayPersonaje);
     let obj = JSON.parse(sessionStorage.getItem('tablero'));
 
@@ -321,6 +324,7 @@ const compraEspadachin = async() => {
     //2 ES EL ID DE ESPADACHIN
     let arrayPersonaje = [];
     arrayPersonaje = await crearPersonaje(2);
+    arrayPersonaje[0].id = jugadorActual.id;
     console.log(arrayPersonaje);
     let obj = JSON.parse(sessionStorage.getItem('tablero'));
     //PARA VALIDAR SI LA TROPA YA HABIA SIDO COMPRADA POR EL MISMO JUGADOR
@@ -386,6 +390,7 @@ const compraAsesino = async() => {
     //3 ES EL ID DE ASESINO
     let arrayPersonaje = [];
     arrayPersonaje = await crearPersonaje(3);
+    arrayPersonaje[0].id = jugadorActual.id;
     console.log(arrayPersonaje);
     let obj = JSON.parse(sessionStorage.getItem('tablero'));
     //PARA VALIDAR SI LA TROPA YA HABIA SIDO COMPRADA POR EL MISMO JUGADOR
@@ -450,6 +455,7 @@ const compraBerserker = async() => {
     //4 ES EL ID DE BERSERKER
     let arrayPersonaje = [];
     arrayPersonaje = await crearPersonaje(4);
+    arrayPersonaje[0].id = jugadorActual.id;
     console.log(arrayPersonaje);
     let obj = JSON.parse(sessionStorage.getItem('tablero'));
     //PARA VALIDAR SI LA TROPA YA HABIA SIDO COMPRADA POR EL MISMO JUGADOR
@@ -515,6 +521,7 @@ const compraEspia = async() => {
     //5 ES EL ID DE ESPIA
     let arrayPersonaje = [];
     arrayPersonaje = await crearPersonaje(5);
+    arrayPersonaje[0].id = jugadorActual.id;
     console.log(arrayPersonaje);
     let obj = JSON.parse(sessionStorage.getItem('tablero'));
     //PARA VALIDAR SI LA TROPA YA HABIA SIDO COMPRADA POR EL MISMO JUGADOR
@@ -580,6 +587,7 @@ const compraJinete = async() => {
     //6 ES EL ID DE JINETE
     let arrayPersonaje = [];
     arrayPersonaje = await crearPersonaje(6);
+    arrayPersonaje[0].id = jugadorActual.id;
     console.log(arrayPersonaje);
     let obj = JSON.parse(sessionStorage.getItem('tablero'));
     //PARA VALIDAR SI LA TROPA YA HABIA SIDO COMPRADA POR EL MISMO JUGADOR
@@ -645,6 +653,7 @@ const compraMago = async() => {
     //7 ES EL ID DE MAGO
     let arrayPersonaje = [];
     arrayPersonaje = await crearPersonaje(7);
+    arrayPersonaje[0].id = jugadorActual.id;
     console.log(arrayPersonaje);
     let obj = JSON.parse(sessionStorage.getItem('tablero'));
     //PARA VALIDAR SI LA TROPA YA HABIA SIDO COMPRADA POR EL MISMO JUGADOR

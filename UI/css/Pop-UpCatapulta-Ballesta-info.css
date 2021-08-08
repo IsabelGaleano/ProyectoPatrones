@@ -1,14 +1,14 @@
-.imgFondo{
-    background-image: url("../Imagenes/ui/thinframesquare.png");    
+.imgFondo {
+    background-image: url("../Imagenes/ui/thinframesquare.png");
     background-color: rgba(0, 0, 0, 0.75);
     background-repeat: no-repeat;
     background-position: center;
-    background-size:contain;         
+    background-size: contain;
     background-size: 100% 100%;
-    
 }
 
-#btn-popup-ballesta, #btn-popup-Catapulta {
+#btn-popup-ballesta,
+#btn-popup-Catapulta {
     background-color: rgb(20, 211, 20);
     border-color: rgb(20, 211, 20);
     cursor: pointer;
@@ -27,11 +27,12 @@
     visibility: hidden;
 }
 
-.overlay.active{
+.overlay.active {
     visibility: visible;
 }
 
-.popupCatapulta, .popupBallesta {
+.popupCatapulta,
+.popupBallesta {
     padding: 20px;
     text-align: center;
     width: 290px;
@@ -40,8 +41,8 @@
     transform: scale(0.7);
 }
 
-
-.popupCatapulta .btn-cerrar-popupCatapulta, .popupBallesta .btn-cerrar-popupBallesta{
+.popupCatapulta .btn-cerrar-popupCatapulta,
+.popupBallesta .btn-cerrar-popupBallesta {
     font-size: 20px;
     line-height: 10px;
     display: block;
@@ -49,12 +50,14 @@
     color: aliceblue;
 }
 
-.popupBallesta .btn-cerrar-popupBallesta:hover, .popupCatapulta .btn-cerrar-popupCatapulta:hover{
+.popupBallesta .btn-cerrar-popupBallesta:hover,
+.popupCatapulta .btn-cerrar-popupCatapulta:hover {
     transition: .4s;
     color: rgb(125, 252, 94);
 }
 
-.popupBallesta h3, .popupCatapulta h3{
+.popupBallesta h3,
+.popupCatapulta h3 {
     font-family: 'Press Start 2P', cursive;
     color: aliceblue;
     margin: 0px;
@@ -62,41 +65,48 @@
     opacity: 0;
 }
 
-.popupBallesta h4, .popupCatapulta h4{
+.popupBallesta h4,
+.popupCatapulta h4 {
     font-family: 'Press Start 2P', cursive;
     color: aliceblue;
     opacity: 0;
     margin-bottom: 15px;
 }
 
-.icon{
+.icon {
     width: 30px;
     margin-bottom: -4px;
-    
     background-repeat: no-repeat;
     background-position: center;
-    background-size:contain;     
+    background-size: contain;
 }
 
 .attackRange {
     padding-right: 20px;
 }
 
-#arrowAttack{
+#arrowAttack {
     margin-right: 10px;
     margin-left: -9px;
     margin-bottom: -4px;
     width: 29px;
 }
 
-#swordRange{
+#swordRange {
     margin-bottom: -4px;
     width: 35px;
 }
 
-#idpopupCompraB, #idpopupCompraC, #idpopupCompraArquero
-, #idpopupCompraAsesino, #idpopupCompraBerserker, #idpopupCompraKnight,
- #idpopupCompraEspia, #idpopupCompraSwordsman, #idpopupCompraMago{
+#idpopupCompraB,
+#idpopupCompraC,
+#idpopupCambioTurno,
+#idpopupCompraArquero,
+#idpopupCompraAsesino,
+#idpopupCompraBerserker,
+#idpopupCompraKnight,
+#idpopupCompraEspia,
+#idpopupCompraSwordsman,
+#idpopupCompraMago {
     display: flex;
     flex-direction: column;
     min-width: 300px;
@@ -105,7 +115,7 @@
     align-items: center;
 }
 
-#idpopupMensaje{
+#idpopupMensaje {
     display: flex;
     flex-direction: column;
     min-width: 300px;
@@ -114,30 +124,63 @@
     align-items: center;
 }
 
+.popupCatapulta.active,
+.popupBallesta.active {
+    opacity: 1;
+    transform: scale(1);
+}
 
+.popupCatapulta.active h3,
+.popupBallesta.active h3 {
+    animation: entradaTituloC 0.8s ease .5s forwards;
+}
 
-.popupCatapulta.active, .popupBallesta.active { opacity: 1; transform: scale(1);}
-
-.popupCatapulta.active h3, .popupBallesta.active h3 { animation: entradaTituloC 0.8s ease .5s forwards; }
-
-.popupCatapulta.active h4, .popupBallesta.active h4 { animation: entradaInfoC 0.8s ease .5s forwards; }
+.popupCatapulta.active h4,
+.popupBallesta.active h4 {
+    animation: entradaInfoC 0.8s ease .5s forwards;
+}
 
 @keyframes entradaTituloC {
-    from { transform: translateY(-25px);
+    from {
+        transform: translateY(-25px);
         opacity: 0;
-    } 
-    to { 
+    }
+    to {
         transform: translateY(0);
         opacity: 1;
     }
 }
 
 @keyframes entradaInfoC {
-    from { transform: translateY(25px);
+    from {
+        transform: translateY(25px);
         opacity: 0;
-    } 
-    to { 
+    }
+    to {
         transform: translateY(0);
         opacity: 1;
+    }
+}
+
+
+/*--LOADER PARA TURNOS --*/
+
+.loader-turno {
+    border: 16px solid #f3f3f3;
+    /* Light grey */
+    border-top: 16px solid #3498db;
+    /* Blue */
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
     }
 }

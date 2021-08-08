@@ -146,7 +146,7 @@
                                 <p> <button id="pU-P2" onclick="abrirModalDefenseUp()">Activar</button></p>
                             </div>
                         </div>
-                    </div> 
+                    </div>
 
                 </div>
 
@@ -436,6 +436,24 @@
             </div>
         </div>
 
+        <!--OVERLAY DE CAMBIO DE TURNO-->
+        <div class="overlay" id="idOverlayCambioTurno">
+            <div class="imgFondo">
+                <div class="popupCatapulta" id="idpopupCambioTurno">
+
+                    <h3 id="titulo-cambio-turno"></h3>
+                    <div class="loader-turno"></div>
+                    <h4 style="display: flex;">
+
+                        <p id="overlay-info-turno" style="line-height: 60px;"> </p>
+
+                    </h4>
+
+                </div>
+            </div>
+        </div>
+        <!--FIN OVERLAY DE CAMBIO DE TURNO-->
+
         <div class="overlay" id="idOverlayCompraArquero">
             <div class="imgFondo">
                 <div class="popupCatapulta" id="idpopupCompraArquero">
@@ -594,7 +612,7 @@
             <div class="imgFondo">
                 <div class="popupCatapulta" id="idpopupMensaje">
                     <img id="imganeMensaje" src="../Imagenes/ui/checkbox_bg.png" alt="" style="width: 60px;">
-                    <h3 id="mensajeTexto"  > It's Dangerous to Go Alone! Take This. </h3>
+                    <h3 id="mensajeTexto"> It's Dangerous to Go Alone! Take This. </h3>
                     <div>
                         <button type="button" id="btn-Mensaje-OK" class="btn-tienda" onclick="cerrarOverlayMensaje()">OK</button>
                     </div>
@@ -607,16 +625,16 @@
             <div class="imgFondo">
                 <div class="popupCatapulta" id="idpopupGemaAzul">
 
-                    <h3> Desea tomar la  </h3>
+                    <h3> Desea tomar la </h3>
                     <h3>gema azul?</h3>
-                    
+
 
                     <h4 style="display: flex;">
                         <img src="../Imagenes/PowerUps/BlueGif.gif" alt="" class="img-Catapulta"> &nbsp
-                        <p style="line-height: 60px;"> = +2  </p>
+                        <p style="line-height: 60px;"> = +2 </p>
                         <img src="../Imagenes/coin.png" alt="" class="img-gold">
                     </h4>
-                    
+
                     <div>
                         <button type="button" id="btn-GemaAzul-OK" class="btn-tienda" onclick="cerrarOverlayGemaAzul()">Si</button>
                         <button type="button" id="btn-GemaAzul-NO" class="btn-tienda" onclick="cerrarOverlayGemaAzul()">NO</button>
@@ -630,16 +648,16 @@
             <div class="imgFondo">
                 <div class="popupCatapulta" id="idpopupGemaBlanca">
 
-                    <h3> Desea tomar la  </h3>
+                    <h3> Desea tomar la </h3>
                     <h3>gema blanca?</h3>
-                    
+
 
                     <h4 style="display: flex;">
                         <img src="../Imagenes/PowerUps/whiteGemGif.gif" alt="" class="img-Catapulta"> &nbsp
-                        <p style="line-height: 60px;"> = +1   </p>
+                        <p style="line-height: 60px;"> = +1 </p>
                         <img src="../Imagenes/coin.png" alt="" class="img-gold">
                     </h4>
-                    
+
                     <div>
                         <button type="button" id="btn-GemaBlanca-OK" class="btn-tienda" onclick="cerrarOverlayGemaBlanca()">Si</button>
                         <button type="button" id="btn-GemaBlanca-NO" class="btn-tienda" onclick="cerrarOverlayGemaBlanca()">NO</button>
@@ -653,16 +671,16 @@
             <div class="imgFondo">
                 <div class="popupCatapulta" id="idpopupGemaVerde">
 
-                    <h3> Desea tomar la  </h3>
+                    <h3> Desea tomar la </h3>
                     <h3>gema verde?</h3>
-                    
+
 
                     <h4 style="display: flex;">
                         <img src="../Imagenes/PowerUps/greenGemGif.gif" alt="" class="img-Catapulta"> &nbsp
                         <p style="line-height: 60px;"> = +3 </p>
                         <img src="../Imagenes/coin.png" alt="" class="img-gold">
                     </h4>
-                    
+
                     <div>
                         <button type="button" id="btn-GemaVerde-OK" class="btn-tienda" onclick="cerrarOverlayGemaVerde()">Si</button>
                         <button type="button" id="btn-GemaVerde-NO" class="btn-tienda" onclick="cerrarOverlayGemaVerde()">NO</button>
@@ -678,14 +696,14 @@
 
                     <h3> Desea usar </h3>
                     <h3>la mejora?</h3>
-                    
+
 
                     <h4 style="display: flex;">
                         <img src="../Imagenes/PowerUps/PowUpGif.gif" alt="" class="img-Catapulta"> &nbsp
-                        <p style="line-height: 60px;"> = +2 ATK   </p>
-                        
+                        <p style="line-height: 60px;"> = +2 ATK </p>
+
                     </h4>
-                    
+
                     <div>
                         <button type="button" id="btn-PowerUp-OK" class="btn-tienda" onclick="cerrarOverlayPowerUp()">Activar</button>
                         <button type="button" id="btn-PowerUp-NO" class="btn-tienda" onclick="cerrarOverlayPowerUp()">Guardar</button>
@@ -701,18 +719,18 @@
 
                     <h3> Desea usar </h3>
                     <h3>la mejora?</h3>
-                    
+
 
                     <h4 style="display: flex;">
                         <img src="../Imagenes/PowerUps/DefUpGif.gif" alt="" class="img-Catapulta"> &nbsp
-                        <p style="line-height: 60px;"> = +2 DEF   </p>
-                        
+                        <p style="line-height: 60px;"> = +2 DEF </p>
+
                     </h4>
-                    
+
                     <div>
                         <button type="button" id="btn-DefenseUp-OK" class="btn-tienda" onclick="cerrarOverlayDefenseUp()">Activar</button>
                         <button type="button" id="btn-DefenseUp-NO" class="btn-tienda" onclick="cerrarOverlayDefenseUp()">Guardar</button>
-                        
+
                     </div>
 
                 </div>
