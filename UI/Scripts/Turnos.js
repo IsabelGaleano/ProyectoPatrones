@@ -24,7 +24,14 @@ botonDado.addEventListener('click', function() {
 
 });
 
-function dado() {
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+async function dado() {
+    imagenDado.style.backgroundImage = 'url(../Imagenes/CarasDado/diceRollGif.gif)';
+    diceSound.play();
+    await sleep(2000);
     let randomNumber = Math.floor(Math.random() * 6) + 1;
     let urlDado;
 
@@ -56,7 +63,7 @@ function dado() {
     }
     imagenDado.style.backgroundImage = urlDado;
     cuadroMovimientos.textContent = numeroDadoSacado;
-    diceSound.play();
+    
     //imagenDado.className = "dado" + numeroDadoSacado;
 }
 
@@ -79,38 +86,43 @@ let partida = async() => {
     //Jugador ganador de la partida
     let ganadorPartida;
     let jugadores = tableroJSON.jugadores;
-    let aliasJugadores = [];
-    //obtener alias
-    for (let i = 0; i < jugadores.length; i++) {
-        aliasJugadores.push(jugadores[i].alias);
-    }
+    let partidaIniciada = false;
 
-    //console.log(JSON.stringify(jugadores));
-    //jugadores = JSON.parse(jugadores);
     let posicionJugadorActual = 0;
 
     //SI NO HAY NINGÚN JUGADOR, SE CONTINUA EL CICLO
     while (estadoPartida == false) {
         console.log("Turno diferente" + posicionJugadorActual);
 
-        jugadores[posicionJugadorActual].estado = 1;
-
-        jugadores = await verificar_jugadores(aliasJugadores.join(), posicionJugadorActual);
-        //jugadores = await verificar_jugadores(JSON.parse(jugadores));
         if (posicionJugadorActual == jugadores.length + 1) {
             posicionJugadorActual = 0;
         }
+        //ESTABLECE EL ESTADO
+        for (let i = 0; i < jugadores.length; i++) {
+            if (i != posicionJugadorActual) {
+                jugadores[i].estado = 1;
+            }
+        }
+        jugadores[posicionJugadorActual].estado = 2;
+
+        jugadores = await visitarJugadores(jugadores);
+        //console.log(jugadores);
+
+
         for (let i = 0; i < jugadores.length; i++) {
             if (jugadores[i].turno == true) {
                 jugadorActual = jugadores[i];
 
             }
         }
+        //TURNOS OVERLAY
+        await cambioTurno(jugadorActual.alias, partidaIniciada);
+
         //console.log(jugadorActual);
         jugadorActivo.textContent = jugadorActual.alias;
-
-        tableroJSON.jugadores = jugadores;
-        sessionStorage.setItem('tablero', JSON.stringify(tableroJSON));
+        let tableroActual = JSON.parse(sessionStorage.getItem('tablero'));
+        tableroActual.jugadores = jugadores;
+        sessionStorage.setItem('tablero', JSON.stringify(tableroActual));
         actualizarInfoCastilloJugador();
         actualizarPersonajesJugador(2);
         let tiempo = await timer(document.getElementById("timer"));
@@ -122,6 +134,7 @@ let partida = async() => {
 
         dadoTirado = false;
         tropaCompradaXTurno = false;
+        partidaIniciada = true;
 
     }
 }
@@ -171,27 +184,22 @@ async function timer(display) {
     }
 };
 
-//TIEMPO DE LA PARTIDA
-async function startTimer(duration, display) {
-    return new Promise((resolve, reject) => {
-        var timer = duration,
-            minutes, seconds;
-        setInterval(function() {
-            minutes = parseInt(timer / 60, 10);
-            seconds = parseInt(timer % 60, 10);
 
-            minutes = minutes < 10 ? "0" + minutes : minutes;
-            seconds = seconds < 10 ? "0" + seconds : seconds;
+//CAMBIO DE TURNO
+async function cambioTurno(turnoPersona, partidaComenzada) {
+    abrirModalCambioTurno();
+    if (partidaComenzada == false) {
+        document.getElementById("titulo-cambio-turno").textContent = "Inicio de partida";
+        document.getElementById("overlay-info-turno").textContent = "Turno de: " + turnoPersona;
+    } else {
+        document.getElementById("titulo-cambio-turno").textContent = "Cambio de turno";
+        document.getElementById("overlay-info-turno").textContent = "Turno de: " + turnoPersona;
+    }
 
-            display.textContent = minutes + ":" + seconds;
-
-            if (--timer < 0) {
-                timer = duration;
-            }
-        }, 1000);
-        return true;
-    });
-
+    for (let i = 5; i >= 0; i--) {
+        await waitFor(1000);
+    }
+    cerrarOverlayCambioTurno();
 }
 
 
