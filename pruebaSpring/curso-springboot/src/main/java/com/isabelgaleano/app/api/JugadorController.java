@@ -115,8 +115,13 @@ public class JugadorController {
 
     }
     @PostMapping("/pasarPersonajes")
-    public List<JugadorObject> savePerson(@RequestBody List<JugadorObject> listJugadores) {
+    public List<JugadorObject> proxy(@RequestBody List<JugadorObject> listJugadores) {
         List<JugadorObject> response = listJugadores;
+        JugadorProxy jP = new JugadorProxy();
+        for (JugadorObject jugador : response) {
+            //System.out.println(jugador.toString());
+            jugador.setTurno(jP.turnoJugador(jugador.getEstado()));
+        }
         return response;
     }
 

@@ -1,9 +1,9 @@
-$(document).ready(function () {
+$(document).ready(function() {
     removerPowers();
 });
 
 
-const crearPersonajeTemp = async (opcion) => {
+const crearPersonajeTemp = async(opcion) => {
     let personajes;
     await axios({
         method: 'get',
@@ -16,7 +16,7 @@ const crearPersonajeTemp = async (opcion) => {
         return null;
 
     });
-    console.log(personajes);
+    //console.log(personajes);
     return personajes;
 
 }
@@ -48,7 +48,7 @@ const obtenerJugadoresPrueba = () => {
 
 
 
-const removerPowers = async () => {
+const removerPowers = async() => {
     let casillas = [];
     let personajesNuevos = [];
     let personajes = [];
@@ -67,7 +67,7 @@ const removerPowers = async () => {
         personajes[i].powerUp = tipoPower;
     }
 
-    let objVisitantePersonajes = personajes.map(function (element) {
+    let objVisitantePersonajes = personajes.map(function(element) {
         return {
             id: element.id,
             defensa: element.defensa,
@@ -81,11 +81,11 @@ const removerPowers = async () => {
     personajesNuevos = await visitarPersonajes(objVisitantePersonajes);
     jugadores = obtenerJugadoresPrueba();
     await visitarJugadores(jugadores);
-    console.log(personajesNuevos);
+    //console.log(personajesNuevos);
 }
 
 
-const visitarPersonajes = async (personajes) => {
+const visitarPersonajes = async(personajes) => {
     let personajesResponse;
     await axios({
         method: 'post',
@@ -100,14 +100,14 @@ const visitarPersonajes = async (personajes) => {
 
     });
 
-    console.log(personajesResponse);
+    //console.log(personajesResponse);
 
     return personajesResponse;
 
 }
 
-
-const visitarJugadores = async (jugadores) => {
+//PROXY
+const visitarJugadores = async(jugadores) => {
     let personajesResponse;
     await axios({
         method: 'post',
@@ -122,13 +122,8 @@ const visitarJugadores = async (jugadores) => {
 
     });
 
-    console.log(personajesResponse);
+    //console.log(personajesResponse);
 
     return personajesResponse;
 
 }
-
-
-
-
-
