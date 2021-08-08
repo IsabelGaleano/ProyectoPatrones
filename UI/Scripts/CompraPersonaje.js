@@ -12,43 +12,44 @@ let elementsArray = document.querySelectorAll("#btn-compra-personaje");
 });*/
 
 
-document.querySelector('#btn-comprar-Arquero-OK').addEventListener('click', async (e) => {
+document.querySelector('#btn-comprar-Arquero-OK').addEventListener('click', async(e) => {
     agregarBarra(1);
+    console.log("Click extra");
     await verificarCompraPersonaje(1, 10);
     cerrarOverlayCompraArquero();
 });
 
-document.querySelector('#btn-comprar-Asesino-OK').addEventListener('click', async (e) => {
+document.querySelector('#btn-comprar-Asesino-OK').addEventListener('click', async(e) => {
     agregarBarra(3);
     await verificarCompraPersonaje(3, 5);
     cerrarOverlayCompraAsesino();
 });
 
-document.querySelector('#btn-comprar-Berserker-OK').addEventListener('click', async (e) => {
+document.querySelector('#btn-comprar-Berserker-OK').addEventListener('click', async(e) => {
     agregarBarra(4);
     await verificarCompraPersonaje(4, 25);
     cerrarOverlayCompraBerserker();
 });
 
-document.querySelector('#btn-comprar-Knight-OK').addEventListener('click', async (e) => {
+document.querySelector('#btn-comprar-Knight-OK').addEventListener('click', async(e) => {
     agregarBarra(6);
     await verificarCompraPersonaje(6, 15);
     cerrarOverlayCompraKnight();
 });
 
-document.querySelector('#btn-comprar-Espia-OK').addEventListener('click', async (e) => {
+document.querySelector('#btn-comprar-Espia-OK').addEventListener('click', async(e) => {
     agregarBarra(5);
     await verificarCompraPersonaje(5, 5);
     cerrarOverlayCompraEspia();
 });
 
-document.querySelector('#btn-comprar-Swordsman-OK').addEventListener('click', async (e) => {
+document.querySelector('#btn-comprar-Swordsman-OK').addEventListener('click', async(e) => {
     agregarBarra(2);
     await verificarCompraPersonaje(2, 15);
     cerrarOverlayCompraSwordsman();
 });
 
-document.querySelector('#btn-comprar-Mago-OK').addEventListener('click', async (e) => {
+document.querySelector('#btn-comprar-Mago-OK').addEventListener('click', async(e) => {
     agregarBarra(7);
     await verificarCompraPersonaje(7, 10);
     cerrarOverlayCompraMago();
@@ -77,15 +78,16 @@ const rebajarMonedas = (cantidadOro) => {
     castillos = obj.castillos;
 
     for (let i = 0; i < castillos.length; i++) {
-        
+
         if (castillos[i].id == idCastillo) {
-            
+
             castillos[i].oro = castillos[i].oro - cantidadOro;
         }
-        
+
     }
 
     obj.castillos = castillos;
+    //console.log(obj.castillos[jugadorActual.idCastillo - 1]);
     sessionStorage.setItem('tablero', JSON.stringify(obj));
 }
 
@@ -94,18 +96,20 @@ const verificarCompraPersonaje = async(opcion, monedas) => {
     let buttonCancel = document.getElementById('buttonBar');
     var width = 1;
     var id = setInterval(frame, 150);
+
     function frame() {
         if (width >= 100) {
+            rebajarMonedas(monedas);
             if (tropaCompradaXTurno == false) {
-                if(opcion == 1) {
+                if (opcion == 1) {
                     compraArquero();
-                } else if(opcion == 3) {
+                } else if (opcion == 3) {
                     compraAsesino();
                 } else if (opcion == 4) {
                     compraBerserker();
                 } else if (opcion == 6) {
                     compraJinete();
-                } else if(opcion == 5) {
+                } else if (opcion == 5) {
                     compraEspia();
                 } else if (opcion == 2) {
                     compraEspadachin();
@@ -114,9 +118,9 @@ const verificarCompraPersonaje = async(opcion, monedas) => {
                 }
 
             }
-            
+
             clearInterval(id);
-            rebajarMonedas(monedas);
+
             eliminarBarra();
 
         } else {
@@ -135,12 +139,12 @@ const verificarCompraPersonaje = async(opcion, monedas) => {
 }
 
 const eliminarBarra = () => {
-    
+
     let element = document.getElementById('wrapperBar');
-    if(element != null) {
+    if (element != null) {
         element.parentNode.removeChild(element);
     }
-   
+
 }
 const crearPersonaje = async(opcion) => {
 
@@ -248,14 +252,17 @@ const compraArquero = async() => {
     //1 ES EL ID DE ARQUERO
     let arrayPersonaje = [];
     arrayPersonaje = await crearPersonaje(1);
-    console.log(arrayPersonaje);
+    //console.log(arrayPersonaje);
     let obj = JSON.parse(sessionStorage.getItem('tablero'));
+
     //PARA VALIDAR SI LA TROPA YA HABIA SIDO COMPRADA POR EL MISMO JUGADOR
     let tropaComprada = false;
     let [personaje] = arrayPersonaje;
 
     let idCastillo = jugadorActual.idCastillo;
     let castillos = obj.castillos;
+
+    console.log(obj.castillos[idCastillo - 1]);
     //VALIDAR SI LA TROPA YA FUE COMPRADA
     if (castillos[idCastillo - 1].tropas != null) {
         if (castillos[idCastillo - 1].tropas == Array) {
@@ -284,19 +291,22 @@ const compraArquero = async() => {
         for (let i = 0; i < castillos.length; i++) {
             if (idCastillo == castillos[i].id) {
                 if (castillos[i].tropas == null) {
-                    castillos[i].tropas = personaje;
+                    castillos[i].tropas = arrayPersonaje;
+                    //castillos[i].tropas = personaje;
                 } else {
+                    castillos[i].tropas = [...castillos[i].tropas, ...arrayPersonaje];
                     if (castillos[i].tropas.length < 3) {
                         personaje.estado = "Activo";
                     }
-                    castillos[i].tropas = [...castillos[i].tropas, personaje];
+                    //castillos[i].tropas = [...castillos[i].tropas,personaje];
                 }
                 obj.castillos[i] = castillos[i];
             }
 
         }
-        //console.log(obj.castillos);
+        //console.log(obj.castillos[idCastillo - 1]);
         sessionStorage.setItem('tablero', JSON.stringify(obj));
+        console.log("Click principal");
         tropaCompradaXTurno = true;
         actualizarInfoCastilloJugador();
         actualizarPersonajesJugador(1);
@@ -347,12 +357,14 @@ const compraEspadachin = async() => {
         for (let i = 0; i < castillos.length; i++) {
             if (idCastillo == castillos[i].id) {
                 if (castillos[i].tropas == null) {
-                    castillos[i].tropas = personaje;
+                    castillos[i].tropas = arrayPersonaje;
+                    //castillos[i].tropas = personaje;
                 } else {
+                    castillos[i].tropas = [...castillos[i].tropas, ...arrayPersonaje];
                     if (castillos[i].tropas.length < 3) {
                         personaje.estado = "Activo";
                     }
-                    castillos[i].tropas = [...castillos[i].tropas, personaje];
+                    //castillos[i].tropas = [...castillos[i].tropas,personaje];
                 }
                 obj.castillos[i] = castillos[i];
             }
@@ -410,12 +422,14 @@ const compraAsesino = async() => {
         for (let i = 0; i < castillos.length; i++) {
             if (idCastillo == castillos[i].id) {
                 if (castillos[i].tropas == null) {
-                    castillos[i].tropas = personaje;
+                    castillos[i].tropas = arrayPersonaje;
+                    //castillos[i].tropas = personaje;
                 } else {
+                    castillos[i].tropas = [...castillos[i].tropas, ...arrayPersonaje];
                     if (castillos[i].tropas.length < 3) {
                         personaje.estado = "Activo";
                     }
-                    castillos[i].tropas = [...castillos[i].tropas, personaje];
+                    //castillos[i].tropas = [...castillos[i].tropas,personaje];
                 }
                 obj.castillos[i] = castillos[i];
             }
@@ -472,12 +486,14 @@ const compraBerserker = async() => {
         for (let i = 0; i < castillos.length; i++) {
             if (idCastillo == castillos[i].id) {
                 if (castillos[i].tropas == null) {
-                    castillos[i].tropas = personaje;
+                    castillos[i].tropas = arrayPersonaje;
+                    //castillos[i].tropas = personaje;
                 } else {
+                    castillos[i].tropas = [...castillos[i].tropas, ...arrayPersonaje];
                     if (castillos[i].tropas.length < 3) {
                         personaje.estado = "Activo";
                     }
-                    castillos[i].tropas = [...castillos[i].tropas, personaje];
+                    //castillos[i].tropas = [...castillos[i].tropas,personaje];
                 }
                 obj.castillos[i] = castillos[i];
             }
@@ -535,12 +551,14 @@ const compraEspia = async() => {
         for (let i = 0; i < castillos.length; i++) {
             if (idCastillo == castillos[i].id) {
                 if (castillos[i].tropas == null) {
-                    castillos[i].tropas = personaje;
+                    castillos[i].tropas = arrayPersonaje;
+                    //castillos[i].tropas = personaje;
                 } else {
+                    castillos[i].tropas = [...castillos[i].tropas, ...arrayPersonaje];
                     if (castillos[i].tropas.length < 3) {
                         personaje.estado = "Activo";
                     }
-                    castillos[i].tropas = [...castillos[i].tropas, personaje];
+                    //castillos[i].tropas = [...castillos[i].tropas,personaje];
                 }
                 obj.castillos[i] = castillos[i];
             }
@@ -598,12 +616,14 @@ const compraJinete = async() => {
         for (let i = 0; i < castillos.length; i++) {
             if (idCastillo == castillos[i].id) {
                 if (castillos[i].tropas == null) {
-                    castillos[i].tropas = personaje;
+                    castillos[i].tropas = arrayPersonaje;
+                    //castillos[i].tropas = personaje;
                 } else {
+                    castillos[i].tropas = [...castillos[i].tropas, ...arrayPersonaje];
                     if (castillos[i].tropas.length < 3) {
                         personaje.estado = "Activo";
                     }
-                    castillos[i].tropas = [...castillos[i].tropas, personaje];
+                    //castillos[i].tropas = [...castillos[i].tropas,personaje];
                 }
                 obj.castillos[i] = castillos[i];
             }
@@ -661,12 +681,14 @@ const compraMago = async() => {
         for (let i = 0; i < castillos.length; i++) {
             if (idCastillo == castillos[i].id) {
                 if (castillos[i].tropas == null) {
-                    castillos[i].tropas = personaje;
+                    castillos[i].tropas = arrayPersonaje;
+                    //castillos[i].tropas = personaje;
                 } else {
+                    castillos[i].tropas = [...castillos[i].tropas, ...arrayPersonaje];
                     if (castillos[i].tropas.length < 3) {
                         personaje.estado = "Activo";
                     }
-                    castillos[i].tropas = [...castillos[i].tropas, personaje];
+                    //castillos[i].tropas = [...castillos[i].tropas,personaje];
                 }
                 obj.castillos[i] = castillos[i];
             }
