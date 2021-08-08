@@ -164,7 +164,7 @@
                             <p><i class="fas fa-shield-alt" style="color:rgb(176,196,222);"></i> <span id="defensa-P">3</span></p>
                             <p><i class="fas fa-arrow-right"></i> <span id="carga-P">3</span></p>
                             <p>
-                                <i id="icon-usabilidad-arquero" class="fas fa-times" style="color:rgb(204, 4, 4);font-size:18px;"></i> <button onclick="obtenerDataTC()" class="usar-personaje" id="pU-P">N/D</button>
+                                <i id="icon-usabilidad-arquero" class="fas fa-times" style="color:rgb(204, 4, 4);font-size:18px;"></i> <button onclick="obtenerDatosTropaCasilla()" class="usar-personaje" id="pU-P">N/D</button>
                             </p>
                             <!--
                             <p> <p>Disponible</p> <button id="pU-P">Usar</button></p>
@@ -687,8 +687,8 @@
                     </h4>
                     
                     <div>
-                        <button type="button" id="btn-PowerUp-OK" class="btn-tienda" onclick="cerrarOverlayPowerUp()">Activar</button>
-                        <button type="button" id="btn-PowerUp-NO" class="btn-tienda" onclick="cerrarOverlayPowerUp()">Guardar</button>
+                        <button value = "1" type="button" id="btn-PowerUp-A" class="btn-tienda" onclick="cerrarOverlayPowerUp()">Activar</button>
+                        <button value = "2" type="button" id="btn-PowerUp-A" class="btn-tienda" onclick="cerrarOverlayPowerUp()">Guardar</button>
                     </div>
 
                 </div>
@@ -710,8 +710,8 @@
                     </h4>
                     
                     <div>
-                        <button type="button" id="btn-DefenseUp-OK" class="btn-tienda" onclick="cerrarOverlayDefenseUp()">Activar</button>
-                        <button type="button" id="btn-DefenseUp-NO" class="btn-tienda" onclick="cerrarOverlayDefenseUp()">Guardar</button>
+                        <button value = "1"  type="button" id="btn-PowerUp-B" class="btn-tienda" onclick="cerrarOverlayDefenseUp()">Activar</button>
+                        <button value = "2" type="button" id="btn-PowerUp-B" class="btn-tienda" onclick="cerrarOverlayDefenseUp()">Guardar</button>
                         
                     </div>
 

@@ -1,5 +1,6 @@
 package com.isabelgaleano.app.PatronCadena.Chain.concreto;
 
+import com.isabelgaleano.app.Modelo.PersonajeChain;
 import com.isabelgaleano.app.PatronCadena.Chain.abstracto.Manejador;
 import com.isabelgaleano.app.PatronPrototipo.iPrototipo.Casilla;
 import com.isabelgaleano.app.patronFabrica.productoAbstracto.Personaje;
@@ -10,8 +11,8 @@ public class ManejadorNormal extends Manejador {
 
 
     @Override
-    public void manejar(Personaje personaje, String tipoCasilla) {
-        if(tipoCasilla.equals("CasillaNormal")){
+    public void manejar(PersonajeChain personaje) {
+        if(personaje.getTipoCasilla().equals("CasillaNormal")){
 
 
 

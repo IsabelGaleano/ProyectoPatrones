@@ -1,5 +1,6 @@
 package com.isabelgaleano.app.PatronCadena.Chain.concreto;
 
+import com.isabelgaleano.app.Modelo.PersonajeChain;
 import com.isabelgaleano.app.PatronCadena.Chain.abstracto.Manejador;
 import com.isabelgaleano.app.PatronPrototipo.iPrototipo.Casilla;
 import com.isabelgaleano.app.patronFabrica.productoAbstracto.Personaje;
@@ -10,35 +11,33 @@ import java.util.ArrayList;
 public class ManejadorGema extends Manejador {
 
     @Override
-    public void manejar(Personaje personaje, String tipoCasilla) {
-        if (tipoCasilla.equals("GemaVerde")) {
-            if (personaje.getCantOro() + 3 > personaje.getMaxOro()) {
-                personaje.setCantOro(personaje.getMaxOro());
+    public void manejar(PersonajeChain personaje) {
+        if (personaje.getTipoCasilla().equals("GemaVerde")) {
+            if (personaje.getOro() + 3 > personaje.getMaxOro()) {
+                personaje.setOro(personaje.getMaxOro());
             } else {
-                personaje.setCantOro(personaje.getCantOro() + 3);
+                personaje.setOro(personaje.getOro() + 3);
             }
 
 
-
-
-        } else if (tipoCasilla.equals("GemaAzul")) {
-            if (personaje.getCantOro() + 3 > personaje.getMaxOro()) {
-                personaje.setCantOro(personaje.getMaxOro());
+        } else if (personaje.getTipoCasilla().equals("GemaAzul")) {
+            if (personaje.getOro() + 3 > personaje.getMaxOro()) {
+                personaje.setOro(personaje.getMaxOro());
             } else {
-                personaje.setCantOro(personaje.getCantOro() + 2);
+                personaje.setOro(personaje.getOro() + 2);
             }
 
 
-        } else if (tipoCasilla.equals("GemaBlanca")) {
-            if (personaje.getCantOro() + 3 > personaje.getMaxOro()) {
-                personaje.setCantOro(personaje.getMaxOro());
+        } else if (personaje.getTipoCasilla().equals("GemaBlanca")) {
+            if (personaje.getOro() + 3 > personaje.getMaxOro()) {
+                personaje.setOro(personaje.getMaxOro());
             } else {
-                personaje.setCantOro(personaje.getCantOro() + 1);
+                personaje.setOro(personaje.getOro() + 1);
             }
 
 
         } else {
-            getNextInChain().manejar(personaje, tipoCasilla);
+            getNextInChain().manejar(personaje);
         }
     }
 
