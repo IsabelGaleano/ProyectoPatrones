@@ -3,6 +3,7 @@ package com.isabelgaleano.app.api;
 import com.fasterxml.jackson.core.ObjectCodec;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.isabelgaleano.app.Modelo.PersonajeVisitante;
 import com.isabelgaleano.app.PatronPrototipo.iPrototipo.Casilla;
 import com.isabelgaleano.app.PatronPrototipo.prototipo.CasillaGema;
 import com.isabelgaleano.app.entity.User;
@@ -112,6 +113,11 @@ public class JugadorController {
 
         return jugadores;
 
+    }
+    @PostMapping("/pasarPersonajes")
+    public List<JugadorObject> savePerson(@RequestBody List<JugadorObject> listJugadores) {
+        List<JugadorObject> response = listJugadores;
+        return response;
     }
 
 
