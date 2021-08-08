@@ -24,7 +24,14 @@ botonDado.addEventListener('click', function() {
 
 });
 
-function dado() {
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+async function dado() {
+    imagenDado.style.backgroundImage = 'url(../Imagenes/CarasDado/diceRollGif.gif)';
+    diceSound.play();
+    await sleep(2000);
     let randomNumber = Math.floor(Math.random() * 6) + 1;
     let urlDado;
 
@@ -56,7 +63,7 @@ function dado() {
     }
     imagenDado.style.backgroundImage = urlDado;
     cuadroMovimientos.textContent = numeroDadoSacado;
-    diceSound.play();
+    
     //imagenDado.className = "dado" + numeroDadoSacado;
 }
 
