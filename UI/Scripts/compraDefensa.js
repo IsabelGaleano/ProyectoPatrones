@@ -11,36 +11,50 @@ const jugadorAct=()=>{
     return jugador;
 }
 const intentarCompraBallesta=async(e)=>{
+    
+   
     if(espacioBallesta()){
        if(validarOro(5)){ 
+        setMensaje("¡Ballesta Agregada!","../Imagenes/ui/okCheck.png");
 
-        console.log("Agregando Ballesta!");
+        
     
         await agregarDefensaCastillo(1,5);}
          else{
-        console.log("Oro insuficiente!!");
+            setMensaje("¡Oro insuficiente!","../Imagenes/ui/checkbox_01.png");
         }
     }
     else{
-        console.log("Ballestas llenas!!");
+        setMensaje("!Ballestas llenas¡","../Imagenes/ui/checkbox_01.png");
     }
+    abrirModalMensaje()
 
 }
 const intentarCompraCatapulta=async(e)=>{
+   
     if(espacioCatapulta()){
         if(validarOro(8)){
-        console.log("Agregando Catapulta");
+        setMensaje("¡Catapulta Agregada!","../Imagenes/ui/okCheck.png")
         await agregarDefensaCastillo(2,8);}
         else{
-        console.log("Oro insuficiente!!");
+        setMensaje("¡Oro Insuficiente!","../Imagenes/ui/checkbox_01.png")
         }
     }
     else{
-        console.log("Catapulta llena!!");
+        setMensaje("¡Ya tienes una catapulta!","../Imagenes/ui/checkbox_01.png")
     }
+    abrirModalMensaje()
     
 
 }
+
+
+const setMensaje=(mensaje,imagenSrc)=>{
+    document.getElementById("imganeMensaje").src=imagenSrc;
+    let texto= document.getElementById("mensajeTexto");
+    texto.innerHTML= mensaje;
+}
+
 const espacioBallesta = function(){
     let obj = JSON.parse(sessionStorage.getItem('tablero'));
     let  idCastillo= jugadorAct().idCastillo;
@@ -80,7 +94,7 @@ const espacioCatapulta = function(){
         
     }
     if(catapultas>=1){
-        console.log("Ya existe Catapulta ")
+
         res=false;
     }
     return res;
@@ -101,31 +115,7 @@ const validarOro=function(costo){
 
 }
 
-const defensasJugador= async()=>{
-    let arrdefensas=[];
-    let idCastillo=jugadorAct().idCastillo;
-    let obj = JSON.parse(sessionStorage.getItem('tablero'));
-    let castillos=obj.castillos;
-    for (let i = 0; i < castillos.length; i++) {
-        if (idCastillo-1 == castillos[i].id) {
-     
-            if (castillos[i].defensas == null) {
-                return arrdefensas;
-            } else {
-                for(let j=0;j<castillos[i].defensas.length;j++){
-                    if(castillo[i].defensas[j].id){}
-                   
-                }
-            
-                             
-        }
 
-    }
-    console.log(arrdefensas);
-
-}
-return arrdefensas;
-}
 const crearDefensa=async(opcion)=>{
 
     let obj = JSON.parse(sessionStorage.getItem('tablero'));
@@ -149,7 +139,7 @@ const crearDefensa=async(opcion)=>{
         return null;
 
     });
-    console.log(defensas);
+    
     return defensas;
     
 }

@@ -198,10 +198,11 @@ function cerrarModalCatapulta(){
 
     var overlayMensaje = document.getElementById('idOverlayMensaje'),
     popupMensaje = document.getElementById('idpopupMensaje');
+    
 
-    function abrirModalMensaje(){      
+   window.abrirModalMensaje =function abrirModalMensaje(){      
         popAudio.volume= 1;
-    popAudio.play(); 
+         popAudio.play(); 
         overlayMensaje.classList.add('active');
         popupMensaje.classList.add('active');
     }
