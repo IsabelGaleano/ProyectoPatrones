@@ -83,6 +83,7 @@ let partida = async() => {
     //obtener alias
     for (let i = 0; i < jugadores.length; i++) {
         aliasJugadores.push(jugadores[i].alias);
+        //jugadores[i].idCastillo = i + 1;
     }
 
     //console.log(JSON.stringify(jugadores));
@@ -108,9 +109,9 @@ let partida = async() => {
         }
         //console.log(jugadorActual);
         jugadorActivo.textContent = jugadorActual.alias;
-
-        tableroJSON.jugadores = jugadores;
-        sessionStorage.setItem('tablero', JSON.stringify(tableroJSON));
+        let tableroActual = JSON.parse(sessionStorage.getItem('tablero'));
+        tableroActual.jugadores = jugadores;
+        sessionStorage.setItem('tablero', JSON.stringify(tableroActual));
         actualizarInfoCastilloJugador();
         actualizarPersonajesJugador(2);
         let tiempo = await timer(document.getElementById("timer"));

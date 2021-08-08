@@ -17,7 +17,7 @@ public class Mago extends Personaje {
         super(id, precio, vida, cantMovimientos, defensa, ataque, cantOro, maxOro, estado, powerUp, tipo, estadoDecorado, idCasilla);
     }
 
-    @Override
+    /*@Override
     public void aceptar(IVisitor iVisitor) {
         if (this.powerUp != null) {
             if (powerUp.getClass().equals(MejoraAtaque.class)) {
@@ -38,7 +38,7 @@ public class Mago extends Personaje {
                 }
             }
         }
-    }
+    }*/
 
 
 }
