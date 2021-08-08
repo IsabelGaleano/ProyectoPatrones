@@ -31,7 +31,7 @@ public class Espia extends Personaje {
         this.visibilidad = visibilidad;}
 
 
-    @Override
+    /*@Override
     public void aceptar(IVisitor iVisitor) {
         if (this.powerUp != null) {
             if (powerUp.getClass().equals(MejoraAtaque.class)) {
@@ -52,5 +52,5 @@ public class Espia extends Personaje {
                 }
             }
         }
-    }
+    }*/
 }

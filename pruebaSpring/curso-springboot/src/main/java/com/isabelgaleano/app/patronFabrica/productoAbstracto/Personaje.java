@@ -3,7 +3,10 @@ import com.isabelgaleano.app.PatronPrototipo.Contenido.PowerUps.PowerUp;
 import com.isabelgaleano.app.patronFabrica.productoConcreto.Ataque;
 import com.isabelgaleano.app.patronVisitante.abstracto.IVisitor;
 
-public abstract class Personaje {
+import java.io.Serializable;
+
+
+public abstract class Personaje implements Serializable {
     protected int id;
     protected int precio;
     protected int vida;
@@ -36,8 +39,6 @@ public abstract class Personaje {
         this.estadoDecorado = estadoDecorado;
         this.idCasilla = idCasilla;
     }
-
-    public abstract void aceptar(IVisitor iVisitor);
 
     public int getId() {
         return id;

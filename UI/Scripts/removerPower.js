@@ -1,6 +1,6 @@
-/*$(document).ready(function() {
+$(document).ready(function () {
     removerPowers();
-});*/
+});
 
 
 const crearPersonajeTemp = async (opcion) => {
@@ -16,6 +16,7 @@ const crearPersonajeTemp = async (opcion) => {
         return null;
 
     });
+    console.log(personajes);
     return personajes;
 
 }
@@ -36,47 +37,98 @@ const obtenerPower = () => {
     return casillasPower;
 
 }
+const obtenerJugadoresPrueba = () => {
+    let tablero = JSON.parse(sessionStorage.getItem('tablero'));
+    let jugadores = [];
+    jugadores = tablero.jugadores;
+
+    return jugadores;
+
+}
+
 
 
 const removerPowers = async () => {
-    let personajes = [];
     let casillas = [];
     let personajesNuevos = [];
-    let personaje;
-    for (let i = 1; i <= 3; i++) {
+    let personajes = [];
+    let tipoPower;
+    let jugadores = [];
+    /*for (let i = 1; i <= 3; i++) {
         personaje = await crearPersonajeTemp(i);
         personajes.push(personaje[0]);
-    }
+    }*/
+
+    personajes = await crearPersonajeTemp(1);
 
     casillas = obtenerPower();
     for (let i = 0; i < personajes.length; i++) {
-
-        personajes[i].powerUp = casillas[i].pU;
+        tipoPower = casillas[i].pU;
+        personajes[i].powerUp = tipoPower;
     }
 
-    personajesNuevos = await visitarPersonajes(personajes);
+    let objVisitantePersonajes = personajes.map(function (element) {
+        return {
+            id: element.id,
+            defensa: element.defensa,
+            ataque: element.ataque.puntos,
+            tipoPowerUp: element.powerUp.tipo,
+            estadoDecorado: element.estadoDecorado
+        }
+    });
+
+
+    personajesNuevos = await visitarPersonajes(objVisitantePersonajes);
+    jugadores = obtenerJugadoresPrueba();
+    await visitarJugadores(jugadores);
     console.log(personajesNuevos);
 }
 
 
 const visitarPersonajes = async (personajes) => {
-    let personajesRequest = { listPersonajes: personajes };
-    let personajeResponse;
+    let personajesResponse;
     await axios({
         method: 'post',
         url: `http://localhost:8080/api/visitante`,
         responseType: 'json',
-        data: personajesRequest
+        data: personajes
     }).then((response) => {
-            personajesResponse = response.data
-        }).catch((response) => {
-            console.log(response);
-            return null;
+        personajesResponse = response.data
+    }).catch((response) => {
+        console.log(response);
+        return null;
 
-        });
+    });
 
-    console.log(personajesRequest);
+    console.log(personajesResponse);
 
-    return personajeResponse;
+    return personajesResponse;
 
 }
+
+
+const visitarJugadores = async (jugadores) => {
+    let personajesResponse;
+    await axios({
+        method: 'post',
+        url: `http://localhost:8080/api/jugadores/pasarPersonajes`,
+        responseType: 'json',
+        data: jugadores
+    }).then((response) => {
+        personajesResponse = response.data
+    }).catch((response) => {
+        console.log(response);
+        return null;
+
+    });
+
+    console.log(personajesResponse);
+
+    return personajesResponse;
+
+}
+
+
+
+
+
