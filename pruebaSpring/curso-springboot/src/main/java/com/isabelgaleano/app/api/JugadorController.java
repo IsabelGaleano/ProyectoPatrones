@@ -71,11 +71,13 @@ public class JugadorController {
                                               @PathVariable(value = "idCastillo") int idCastillo) {
         Optional<JugadorObject> jugador = jugadorService.findByAlias(alias);
         jugadorDetails.setIdCastillo(idCastillo);
+        jugadorDetails.setId((long) idCastillo);
         if (!jugador.isPresent()) {
             return ResponseEntity.notFound().build();
         }
 
         jugador.get().setIdCastillo(jugadorDetails.getIdCastillo());
+        jugador.get().setId(jugadorDetails.getId());
 
         return  ResponseEntity.status(HttpStatus.CREATED).body(jugadorService.save(jugador.get()));
     }
