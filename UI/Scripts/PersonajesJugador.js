@@ -4,12 +4,11 @@
 
 //***--FALTA ACTUALIZAR LA TABLA DE PERSONAJES SEGUN LAS TROPAS COMPRADAS DE CADA JUGADOR POR TURNO--***
 function actualizarPersonajesJugador(tipo) {
-    //console.log(jugadorActual);
 
     //JUGADOR ACTUAL ES DE TURNOS.JS
     let idCastillo = jugadorActual.idCastillo;
     let obj = JSON.parse(sessionStorage.getItem('tablero'));
-    console.log(obj);
+    //console.log(obj);
     console.log(obj.castillos[idCastillo - 1].tropas);
     let arqueroPasado = false;
     let espadachinPasado = false;
@@ -21,7 +20,7 @@ function actualizarPersonajesJugador(tipo) {
 
     if (obj.castillos[idCastillo - 1].tropas != null) {
         obj.castillos[idCastillo - 1].tropas.forEach(function(element) {
-            console.log(element);
+            //console.log(element);
             //ARQUERO
             //ARQUERO
             if (element.tipo == "Arquero" && arqueroPasado == false) {
@@ -95,7 +94,6 @@ function actualizarPersonajesJugador(tipo) {
 
 //ICONO VERDE DE DISPONIBILIDAD
 function iconoUsarArquero() {
-    console.log(document.getElementById("icon-usabilidad-arquero"));
     document.getElementById("icon-usabilidad-arquero").setAttribute('class', 'fab fa-superpowers');
     document.getElementById("icon-usabilidad-arquero").className = "fab fa-superpowers";
     document.getElementById("icon-usabilidad-arquero").style = "color:rgb(0,255,0);font-size:18px;"
