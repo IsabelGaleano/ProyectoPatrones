@@ -1,7 +1,104 @@
-//let elementsArray = document.querySelectorAll("#btn-PowerUp");
-//cuando llame este metodo dentro de otro le descomenta el llamado al metodo
-//const obtenerDatosTropaCasilla = async () => {
-async function obtenerDatosTropaCasilla() {
+var btns = document.querySelectorAll(".pw");
+
+btns.forEach(function(elem) {
+    elem.addEventListener("click", async function() {
+        validarDatosModal(elem.value);
+    });
+});
+
+
+
+const validarDatosModal = async (action) => {
+    
+    let obj = JSON.parse(sessionStorage.getItem('tablero'));
+    let jugador;
+
+    obj.jugadores.forEach(function (element) {
+        if (element.turno) {
+            jugador = element;
+        }
+    });
+
+    let idCastillo = jugadorActual.idCastillo;
+    let castillos = obj.castillos;
+    let casillas = obj.casillas;
+    let tropas = [];
+    let casillaActual;
+    for (let i = 0; i < castillos.length; i++) {
+        if (idCastillo == castillos[i].id) {
+            tropas = castillos[i].tropas;
+        }
+    }
+
+
+    for (let i = 0; i < tropas.length; i++) {
+        if (tropas[i].estado.toLowerCase() == "activo") {
+            let index = casillas.findIndex((obj => obj.id == tropas[i].idCasilla));
+            casillaActual = casillas[13];
+            let change;
+            cerrarOverlayPowerUp();
+            if((casillaActual.data == "MejoraAtaque" || casillaActual.data == "MejoraDefensa") && tropas[i].powerUp != null){
+                //abrirModalConfirmChange();
+                if(action == "3"){
+                    change = true;
+                    await obtenerDatosTropaCasilla(change);
+                }
+                cerrarOverlayConfirmChange();
+            }else if(casillaActual.data == "MejoraAtaque" && tropas[i].powerUp == null){
+                abrirModalPowerUp();
+                switch(action)  {
+                    case "1":
+                        //llamar al gestor decorador y cambiar los datos
+                        tropas[i].ataque.puntos += 2;
+                        tropas[i].estadoDecorado = true;
+                        console.log(tropas[i]);
+                        break;
+    
+                    case "3":
+                        change = false;
+                        await obtenerDatosTropaCasilla(change);
+                        break;
+                
+                }
+                cerrarOverlayPowerUp();
+            }else if (casillaActual.data == "MejoraDefensa" && tropas[i].powerUp == null){
+                switch(action)  {
+                    case "2": 
+                        tropas[i].defensa += 2;
+                        tropas[i].estadoDecorado = true;
+                        console.log(tropas[i]);
+                        break;
+    
+                    case "3":
+                        change = false;
+                        await obtenerDatosTropaCasilla(change);
+                        break;
+                }
+                cerrarOverlayDefenseUp();
+
+            }
+            else if(casillaActual.data == "TrampaAtaque"){
+                document.getElementById("mensajeTexto").innerHTML = "Caíste en una trampa. -2 de Ataque.";
+                tropas[i].ataque.puntos -= 2;
+                tropas[i].estadoDecorado = true;
+                abrirModalMensaje();
+
+            }else if(casillaActual.data == "TrampaDefensa"){
+                document.getElementById("mensajeTexto").innerHTML = "Caíste en una trampa. -2 de Defensa.";
+                //llamar al gestor decorador y cambiar los datos
+                tropas[i].defensa -= 2;
+                tropas[i].estadoDecorado = true;
+                abrirModalMensaje();
+            }
+            
+        }
+    }
+
+    
+    
+}
+
+async function obtenerDatosTropaCasilla(change) {
     let obj = JSON.parse(sessionStorage.getItem('tablero'));
     let jugador;
 
@@ -29,17 +126,8 @@ async function obtenerDatosTropaCasilla() {
     for (let i = 0; i < tropas.length; i++) {
         if (tropas[i].estado.toLowerCase() == "activo") {
             let index = casillas.findIndex((obj => obj.id == tropas[i].idCasilla));
-            casillaActual = casillas[42];
+            casillaActual = casillas[13];
 
-            //validacion PowerUps
-            //if(){
-                
-            //}
-
-            //validacionGema
-            //if(){
-
-            //}
             let cambio = false;
 
             let cambioCasilla = { data: "CasillaNormal", id: casillaActual.id, tipo: "CasillaNormal" };
@@ -51,17 +139,17 @@ async function obtenerDatosTropaCasilla() {
                 oro : tropas[i].cantOro,
                 maxOro:  tropas[i].maxOro,
                 tipoCasilla : casillaActual.data,
-                cambio : cambio
+                cambio : change
             };
 
             let data = await validarCasillaTropa(dataObject);
 
-            if(tropas[i].powerUp == null){
+            if(tropas[i].powerUp == null || data.cambio == true){
                 tropas[i].powerUp = data.powerUp;
             }
             tropas[i].cantOro = data.oro;
 
-            if (tropas[i].powerUp != null || tropas[i].estadoDecorado == true) {
+            if (tropas[i].powerUp != null || tropas[i].estadoDecorado == true || change == true) {
                 casillaActual = cambioCasilla;
             }
             obj.casillas = casillas;
