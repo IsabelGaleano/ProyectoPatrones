@@ -17,7 +17,6 @@ div{
     font-family: 'Press Start 2P', cursive;
     text-shadow: 0.1em 0.1em 0.05em rgb(120, 224, 135);
     
-    
 }
 
 body {
@@ -70,7 +69,10 @@ body {
 .button3 {
     background: #d3c265;
 }
-
+.button4 {
+    background: rgb(65, 3, 145);
+    
+}
 .flecha1, .flecha3 {
     padding-left: 145px;
 }
@@ -157,6 +159,7 @@ path.two {
     width: 100px;    
     border: transparent;
     position: absolute;
+    
     top: 50px;
     right: 50px;
 }
