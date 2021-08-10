@@ -704,8 +704,8 @@
                     </h4>
 
                     <div>
-                        <button type="button" id="btn-PowerUp-OK" class="btn-tienda" onclick="cerrarOverlayPowerUp()">Activar</button>
-                        <button type="button" id="btn-PowerUp-NO" class="btn-tienda" onclick="cerrarOverlayPowerUp()">Guardar</button>
+                        <button value="1" type="button" id="btn-PowerUp-A" class="btn-tienda pw">Activar</button>
+                        <button value="3" type="button" id="btn-Guardar" class="btn-tienda pw">Guardar</button>
                     </div>
 
                 </div>
@@ -727,8 +727,30 @@
                     </h4>
 
                     <div>
-                        <button type="button" id="btn-DefenseUp-OK" class="btn-tienda" onclick="cerrarOverlayDefenseUp()">Activar</button>
-                        <button type="button" id="btn-DefenseUp-NO" class="btn-tienda" onclick="cerrarOverlayDefenseUp()">Guardar</button>
+                        <button value="2" type="button" id="btn-PowerUp-B" class="btn-tienda pw">Activar</button>
+                        <button value="3" type="button" id="btn-Guardar" class="btn-tienda pw">Guardar</button>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="overlay" id="idOverlayConfirmChange">
+            <div class="imgFondo">
+                <div class="popupCatapulta" id="idpopupConfirmChange">
+
+                    <h3> Desea conservar <br>o cambiar la mejora? </h3>
+
+                    <h4 style="display: flex;">
+                        <!-- <img src="../Imagenes/PowerUps/DefUpGif.gif" alt="" class="img-Catapulta"> &nbsp
+                        <p style="line-height: 60px;"> = +2 DEF   </p>
+                        -->
+                    </h4>
+
+                    <div>
+                        <button value="4" type="button" id="btn-Almacenar" class="btn-tienda pw" onclick="cerrarOverlayConfirmChange()">Conservar</button>
+                        <button value="3" type="button" id="btn-Cambiar" class="btn-tienda pw" onclick="cerrarOverlayConfirmChange()">Cambiar</button>
 
                     </div>
 
@@ -748,7 +770,10 @@
 <script type="text/javascript" src="../Scripts/Tablero.js"></script>
 <script type="text/javascript" src="../Scripts/Turnos.js"></script>
 
+<script type="text/javascript" src="../js/CasosDeUsoOrlando/Power.js">
+</script>
 
+<script type="text/javascript" src="../Scripts/Movimientos.js"></script>
 <script type="text/javascript" src="../Scripts/OperacionesCastillo.js"></script>
 <script type="text/javascript" src="../Scripts/PersonajesJugador.js"></script>
 <script type="text/javascript" src="../Scripts/CompraPersonaje.js"></script>
