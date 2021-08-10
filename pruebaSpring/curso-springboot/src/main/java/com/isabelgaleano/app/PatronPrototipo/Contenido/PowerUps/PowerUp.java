@@ -1,5 +1,13 @@
 package com.isabelgaleano.app.PatronPrototipo.Contenido.PowerUps;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "tipo")
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = MejoraAtaque.class, name = "MejoraAtaque"),
+        @JsonSubTypes.Type(value = MejoraDefensa.class, name = "MejoraDefensa"),
+})
 public abstract class PowerUp {
     int statMod; /** Modificador de estadística*/
     public String tipo;
