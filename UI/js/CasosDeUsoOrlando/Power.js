@@ -34,7 +34,7 @@ const validarDatosModal = async (action) => {
     for (let i = 0; i < tropas.length; i++) {
         if (tropas[i].estado.toLowerCase() == "activo") {
             let index = casillas.findIndex((obj => obj.id == tropas[i].idCasilla));
-            casillaActual = casillas[13];
+            casillaActual = casillas[7];
             let change;
             cerrarOverlayPowerUp();
             if((casillaActual.data == "MejoraAtaque" || casillaActual.data == "MejoraDefensa") && tropas[i].powerUp != null){
@@ -78,13 +78,18 @@ const validarDatosModal = async (action) => {
 
             }
             else if(casillaActual.data == "TrampaAtaque"){
+
                 document.getElementById("mensajeTexto").innerHTML = "Caíste en una trampa. -2 de Ataque.";
+                //
+                document.getElementById("imganeMensaje").src="../Imagenes/PowerUps/PowDwnGif.gif";
+                //
                 tropas[i].ataque.puntos -= 2;
                 tropas[i].estadoDecorado = true;
                 abrirModalMensaje();
 
             }else if(casillaActual.data == "TrampaDefensa"){
                 document.getElementById("mensajeTexto").innerHTML = "Caíste en una trampa. -2 de Defensa.";
+                document.getElementById("imganeMensaje").src="../Imagenes/PowerUps/DefDwnGif.gif";
                 //llamar al gestor decorador y cambiar los datos
                 tropas[i].defensa -= 2;
                 tropas[i].estadoDecorado = true;
@@ -126,7 +131,7 @@ async function obtenerDatosTropaCasilla(change) {
     for (let i = 0; i < tropas.length; i++) {
         if (tropas[i].estado.toLowerCase() == "activo") {
             let index = casillas.findIndex((obj => obj.id == tropas[i].idCasilla));
-            casillaActual = casillas[13];
+            casillaActual = casillas[7];
 
             let cambio = false;
 
@@ -174,21 +179,4 @@ const validarCasillaTropa = async (objeto) => {
     });
 
     return objectResponse;
-}
-
-const cambiarPowerUp = async (tropas, tipoCasilla, answer) => {
-    await axios({
-        method: 'put',
-        url: `http://localhost:8080/api/personajes/activarPowerUp/${tropas}/${tipoCasilla}/${answer}`,
-        responseType: 'json',
-        data: {
-            tropas: tropas
-        }
-    }).then((response) => {
-        console.log(response.data)
-    }).catch((response) => {
-        console.log(console.error())
-    });
-
-
 }
