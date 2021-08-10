@@ -1,0 +1,291 @@
+/*  #e7d1b3 beige
+    #f7c331 amarillo
+    #f7882f anaranjado
+    #292c2a verde muy oscuro
+    #ececec gris 
+    */
+
+.header_landing {
+    margin: 0 auto;
+    width: 100%;
+    background: transparent;
+    position: fixed;
+    z-index: 3;
+}
+
+header nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: rgba(34, 34, 34, 0.26);
+    padding: 10px;
+}
+
+.navegador_derecha {
+    text-align: right;
+    text-decoration: none;
+}
+
+
+/*Contenido*/
+
+.landing_wrapper {
+    width: 100%;
+    height: auto;
+}
+
+.main_img_container {
+    position: relative;
+    height: auto;
+    width: 100%;
+    z-index: -1;
+}
+
+.main_img {
+    height: auto;
+    width: 100%;
+}
+
+.contenido_wrapper {
+    position: absolute;
+    display: grid;
+    grid-template-columns: 30% 1fr;
+    top: 100px;
+    left: 10%;
+    width: 80%;
+}
+
+.main_logo {
+    margin: 20px;
+    z-index: -1;
+}
+
+.contenido {
+    width: 100%;
+    margin: auto;
+    z-index: 2;
+}
+
+.contenido h1 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 60px;
+    color: #ececec;
+    font-weight: 900;
+}
+
+.contenido h2 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 50px;
+    color: #ececec;
+    font-weight: 900;
+}
+
+.separador {
+    width: 100%;
+    height: 2px;
+    background: #ececec;
+    margin: 25px 0 25px 0;
+}
+
+.contenido h3 {
+    display: block;
+    font-family: 'Roboto', sans-serif;
+    color: #ececec;
+    padding: 15px;
+    line-height: 30px;
+}
+
+.contenido p {
+    color: #ececec;
+    font-size: 20px;
+}
+
+.contenido h3 span {
+    font-weight: bold;
+}
+
+.btn_container {
+    padding-top: 30px;
+}
+
+.call_to_action {
+    display: inline-block;
+    margin: auto;
+    position: relative;
+    border: none;
+    box-sizing: border-box;
+    background: #f7882f;
+    font-size: 20px;
+    letter-spacing: 3px;
+    padding: 12px 20px;
+    color: #ececec;
+    overflow: hidden;
+}
+
+.opciones {
+    display: grid;
+    margin: auto;
+    width: 80%;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 30px;
+    margin-top: 30px;
+}
+
+.opciones div div {
+    height: 150px;
+    width: 100%;
+}
+
+.mv {
+    height: 150px;
+    width: auto;
+}
+
+.opciones div h4 {
+    display: inline-block;
+    border-bottom: 1px solid #f7882f;
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: 3px;
+    color: #f7882f;
+    line-height: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.opciones div p {
+    color: #292c2a;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.two_columns {
+    display: grid;
+    margin: auto;
+    grid-template-columns: 25% 1fr;
+    column-gap: 30px;
+    margin-top: 20px;
+}
+
+.two_columns div img {
+    width: 100%;
+    height: 100%;
+}
+
+.two_columns div h2 {
+    color: #292c2a;
+    font-family: 'Roboto', sans-serif;
+    font-size: 60px;
+    line-height: 75px;
+}
+
+.mishka_tipo {
+    width: auto;
+    height: 80px;
+}
+
+.logo_main {
+    height: 300px;
+    width: auto;
+}
+
+#valores {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#valores div {
+    margin: 5px;
+    font-size: 16px;
+}
+
+.img_container {
+    height: 100px;
+    width: 100%;
+}
+
+.necia {
+    display: grid;
+    grid-template-columns: 25% 75%;
+}
+
+.necia p {
+    padding: 4px;
+}
+
+.titulo_valores {
+    text-align: center;
+    color: #f7882f;
+    margin: 40px;
+}
+
+hr {
+    border: 1px solid #f7882f;
+}
+
+.integrantes {
+    display: grid;
+    grid-template-columns: auto 2fr;
+    margin: auto;
+}
+
+.integrantes img {
+    height: 200px;
+}
+
+.contenedor_integrantes {
+    width: 70%;
+    margin: 15px auto;
+}
+
+.contenedor_integrantes2 {
+    width: 70%;
+    margin: 15px auto;
+}
+
+.info {
+    padding: 5px;
+}
+
+.integrantes p {
+    padding: 5px;
+}
+
+.integrantes h3 {
+    color: #f7c331;
+}
+
+.integrantes span {
+    font-size: 14px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.integrantes2 {
+    display: grid;
+    grid-template-columns: 2fr auto;
+    margin: auto;
+}
+
+.integrantes2 img {
+    height: 200px;
+    width: 200px;
+}
+
+.integrantes2 p {
+    padding: 5px;
+}
+
+.integrantes2 h3 {
+    color: #f7c331;
+}
+
+.integrantes2 span {
+    font-size: 14px;
+    font-family: 'Raleway', sans-serif;
+}
+
+#contenedor_boton {
+    margin: 0 auto;
+    width: 30%;
+}
