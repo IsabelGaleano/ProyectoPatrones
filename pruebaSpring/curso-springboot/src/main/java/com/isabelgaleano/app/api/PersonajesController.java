@@ -1,11 +1,15 @@
 package com.isabelgaleano.app.api;
 
+import com.isabelgaleano.app.Gestores.GestorCadena;
 import com.isabelgaleano.app.Gestores.GestorFabricaAbstracta;
+import com.isabelgaleano.app.PatronPrototipo.iPrototipo.Casilla;
 import com.isabelgaleano.app.patronFabrica.productoAbstracto.Personaje;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 @CrossOrigin
 @RestController
@@ -13,6 +17,7 @@ import java.util.ArrayList;
 public class PersonajesController {
 
     private GestorFabricaAbstracta gestorFabrica = new GestorFabricaAbstracta();
+    private GestorCadena gestorCadena = new GestorCadena();
 
     @CrossOrigin
     @GetMapping("/{opcion}")
@@ -22,5 +27,16 @@ public class PersonajesController {
         return ResponseEntity.ok().body(personajes);
 
     }
+
+    /*
+    @PutMapping("validacionCasilla/{personaje}/{tipoCasilla}")
+    public ResponseEntity<?> update(@RequestBody Personaje personaje, @PathVariable(value = "tipoCasilla") String tipoCasilla) {
+        gestorCadena.IniciarValidacion(personaje, tipoCasilla);
+
+       // return ResponseEntity.status(HttpStatus.CREATED).body(personaje, tipoCasilla);
+    }
+
+
+     */
 
 }

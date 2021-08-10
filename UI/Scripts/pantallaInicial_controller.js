@@ -1,6 +1,7 @@
 const audio =  new Audio('../Sounds/music_8bitJam.wav');  
 const icon = document.querySelector("#btn_music > i");
 const button = document.querySelector("#btn_music");
+const pics = document.querySelectorAll("profilepic");
 audio.volume = 0.2;
 audio.loop = true;
 audio.play();
@@ -24,3 +25,16 @@ button.addEventListener("click", () => {
     }    
     
   });
+
+window.onload =
+function frame(){
+  pics.forEach(element => {
+    let imagen = element.style.backgroundImage;
+    element.style.backgroundImage = 'url(../Imagenes/ui/thinframesquare.png),' + imagen;
+  });
+};
+
+
+
+
+  

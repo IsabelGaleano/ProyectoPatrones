@@ -140,7 +140,8 @@
 
   .act-Personaje #act-pup-image {
     width: 80px;
-    background-image: url("../Imagenes/PowerUps/DefUpGif.gif");
+    background-image: url("../Imagenes/ui/checkbox_bg.png");
+    border-radius: 10%;
     height: 80px;    
     background-position: center;
     /* Center the image */

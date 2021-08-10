@@ -3,6 +3,7 @@ package com.isabelgaleano.app.api;
 import com.fasterxml.jackson.core.ObjectCodec;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.isabelgaleano.app.Modelo.PersonajeVisitante;
 import com.isabelgaleano.app.PatronPrototipo.iPrototipo.Casilla;
 import com.isabelgaleano.app.PatronPrototipo.prototipo.CasillaGema;
 import com.isabelgaleano.app.entity.User;
@@ -70,11 +71,13 @@ public class JugadorController {
                                               @PathVariable(value = "idCastillo") int idCastillo) {
         Optional<JugadorObject> jugador = jugadorService.findByAlias(alias);
         jugadorDetails.setIdCastillo(idCastillo);
+       // jugadorDetails.setId((long) idCastillo);
         if (!jugador.isPresent()) {
             return ResponseEntity.notFound().build();
         }
 
         jugador.get().setIdCastillo(jugadorDetails.getIdCastillo());
+        //jugador.get().setId(jugadorDetails.getId());
 
         return  ResponseEntity.status(HttpStatus.CREATED).body(jugadorService.save(jugador.get()));
     }
@@ -112,6 +115,16 @@ public class JugadorController {
 
         return jugadores;
 
+    }
+    @PostMapping("/pasarPersonajes")
+    public List<JugadorObject> proxy(@RequestBody List<JugadorObject> listJugadores) {
+        List<JugadorObject> response = listJugadores;
+        JugadorProxy jP = new JugadorProxy();
+        for (JugadorObject jugador : response) {
+            //System.out.println(jugador.toString());
+            jugador.setTurno(jP.turnoJugador(jugador.getEstado()));
+        }
+        return response;
     }
 
 

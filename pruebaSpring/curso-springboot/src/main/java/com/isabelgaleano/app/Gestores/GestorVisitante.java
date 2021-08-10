@@ -1,6 +1,5 @@
 package com.isabelgaleano.app.Gestores;
-
-import com.isabelgaleano.app.patronFabrica.productoAbstracto.Personaje;
+import com.isabelgaleano.app.Modelo.PersonajeVisitante;
 import com.isabelgaleano.app.patronVisitante.abstracto.IVisitor;
 import com.isabelgaleano.app.patronVisitante.concreto.RemoverPowerDownAtaque;
 import com.isabelgaleano.app.patronVisitante.concreto.RemoverPowerDownDefensa;
@@ -13,15 +12,15 @@ import java.util.List;
 
 public class GestorVisitante {
 
-    List<Personaje> personajes;
+    List<PersonajeVisitante> personajes;
     ArrayList<IVisitor> visitantes;
 
     public GestorVisitante() {
-        this.personajes = new ArrayList<Personaje>();
+        this.personajes = new ArrayList<PersonajeVisitante>();
         this.visitantes = new ArrayList<IVisitor>();
     }
 
-    private void agregarPersonaje(Personaje pPersonaje) {
+    private void agregarPersonaje(PersonajeVisitante pPersonaje) {
         personajes.add(pPersonaje);
     }
 
@@ -43,10 +42,13 @@ public class GestorVisitante {
         visitor.visit(personajes);
     }
 
-    public  List<Personaje> visitarPersonajes(Personaje personaje) {
-        agregarPersonaje(personaje);
+    public  List<PersonajeVisitante> visitarPersonajes(List<PersonajeVisitante> personajeR) {
+        for (PersonajeVisitante p: personajeR) {
+            agregarPersonaje(p);
+        }
         agregarVisitantes();
         ejecutarVisitantes();
         return personajes;
     }
+
 }
