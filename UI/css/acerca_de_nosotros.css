@@ -229,18 +229,16 @@ header nav {
 }
 
 .titulo_valores {
-    padding-top: 10px;
-        text-align: center;
-        color: rgb(72, 247, 188);
-        font-size: 4em;
-        font-family: 'Press Start 2P', cursive;
-        text-shadow: 0.1em 0.1em 0.05em rgb(65, 3, 145);
-        background-color: rgb(145, 141, 138);
-        background: rgba(0, 0, 0, .3);
-        padding: 50px;
-        margin-top: 0%;
-        margin-bottom: 0%;
-
+    padding-top: 70px;
+    text-align: center;
+    color: #1c3b2d;
+    font-size: 3em;
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 0.1em 0.1em 0.05em rgb(120, 224, 135);
+    background: rgb(2,0,36);
+background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(0,0,0,0.5) 63%, rgba(0,0,0,0.25) 80%, rgba(255,255,255,0) 100%);
+    margin-top: 0%;
+    margin-bottom: 70px;
 }
 
 hr {
@@ -252,20 +250,18 @@ hr {
     display: grid;
     grid-template-columns: auto 2fr;
     margin: auto;
-    padding: 20px;
-    background-image: url('../Imagenes/ui/plank_16.png');    
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-        font-family: cursive;
-        font-style: oblique;
-        margin-bottom: 0%;
-        
-        width: 70%;
+    padding: 20px;       
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(0,0,0,0.5) 63%, rgba(0,0,0,0.25) 80%, rgba(255,255,255,0) 100%);
+    border-radius: 10px;
+    width: 70%;
 }
 
 .integrantes img {
     height: 200px;
+    width: 200px;
     border-radius: 10px;
+    border: 5px rgba(120, 224, 136, 0.301) solid;
+    
 }
 
 .contenedor_integrantes {
@@ -304,21 +300,17 @@ hr {
     display: grid;
     grid-template-columns: 2fr auto;
     margin: auto;
-    padding: 20px;
-    background-image: url('../Imagenes/ui/plank_15.png');    
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-        font-family: cursive;
-        font-style: oblique;
-        margin-bottom: 0%;
-        
-        width: 70%;
+    padding: 20px;       
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(0,0,0,0.5) 63%, rgba(0,0,0,0.25) 80%, rgba(255,255,255,0) 100%);
+    border-radius: 10px;
+    width: 70%;
 }
 
 .integrantes2 img {
     height: 200px;
     width: 200px;
     border-radius: 10px;
+    border: 5px rgba(120, 224, 136, 0.301) solid;
     
 }
 
