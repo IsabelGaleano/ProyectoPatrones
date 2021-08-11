@@ -4,7 +4,7 @@ import javax.persistence.Table;
 import java.io.Serializable;
 
 
-//Le dice que esta clase es una entidad
+
 @Entity
 @Table(name = "users")
 public class User implements Serializable {

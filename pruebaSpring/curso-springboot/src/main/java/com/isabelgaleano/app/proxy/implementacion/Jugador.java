@@ -6,9 +6,7 @@ public class Jugador implements IJugador {
 
     @Override
     public boolean turnoJugador(int turno) {
-        //SI EL ESTADO ES 2, ES EL TURNO
-       // int age = 20;
-       //  boolean isOldEnough = age > 18 ? true : false;
+
         if(turno == 2) {
             return true;
         } else
