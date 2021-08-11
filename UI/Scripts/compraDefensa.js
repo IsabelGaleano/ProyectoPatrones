@@ -189,14 +189,12 @@ const agregarDefensaCastillo= async(opcion, costo)=>{
     
 }
 function visualDefensas(){
+    let res;
+    res=reset();
     let obj = JSON.parse(sessionStorage.getItem('tablero'));
     let  idCastillo= jugadorAct().idCastillo;
-    let castillos= obj.castillos[idCastillo-1];
-
-   
-   
- 
-    let defensas = obj.castillos[idCastillo-1].defensas;
+    let castillo= obj.castillos[idCastillo-1];
+    let defensas = castillo.defensas;
     
     let ballestas=0;
     let catapulta=0;
