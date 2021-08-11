@@ -15,10 +15,11 @@ public class PersonajeChain implements Serializable {
     private int maxOro;
     private String tipoCasilla;
     private boolean cambio;
+    private int activar;
 
     public PersonajeChain(){}
 
-    public PersonajeChain(int id, Ataque ataque, int defensa, boolean estadoDecorado, PowerUp powerUp, int oro, int maxOro, String tipoCasilla, boolean cambio) {
+    public PersonajeChain(int id, Ataque ataque, int defensa, boolean estadoDecorado, PowerUp powerUp, int oro, int maxOro, String tipoCasilla, boolean cambio, int activar) {
         this.id = id;
         this.ataque = ataque;
         this.defensa = defensa;
@@ -28,6 +29,7 @@ public class PersonajeChain implements Serializable {
         this.maxOro = maxOro;
         this.tipoCasilla = tipoCasilla;
         this.cambio = cambio;
+        this.activar = activar;
     }
 
     public int getId() {
@@ -100,5 +102,13 @@ public class PersonajeChain implements Serializable {
 
     public void setCambio(boolean cambio) {
         this.cambio = cambio;
+    }
+
+    public int getActivar() {
+        return activar;
+    }
+
+    public void setActivar(int activar) {
+        this.activar = activar;
     }
 }
