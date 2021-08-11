@@ -1,4 +1,5 @@
 let elementsArray = document.querySelectorAll("#btn-compra-personaje");
+
 //const delay = ms => new Promise(res => setTimeout(res, ms));
 
 //COMPRA DE LOS PERSONAJES DE LA TIENDA
@@ -12,50 +13,76 @@ let elementsArray = document.querySelectorAll("#btn-compra-personaje");
 });*/
 
 
+function validarCinco(){
+    let res= true;
+    let idCastillo = jugadorAct().idCastillo;
+    let obj =JSON.parse(sessionStorage.getItem('tablero'));
+    let castillos= obj.castillos;
+  
+    let  oroJugador = castillos[idCastillo-1].oro;
+
+    if(oroJugador<=5){
+        res = false;
+    }
+    return res;
+}
 document.querySelector('#btn-comprar-Arquero-OK').addEventListener('click', async(e) => {
-    agregarBarra(1);
+
+    if(validarCinco()){
+    agregarBarra(1);}
     console.log("Click extra");
     await verificarCompraPersonaje(1, 10);
     cerrarOverlayCompraArquero();
+   
 });
 
 document.querySelector('#btn-comprar-Asesino-OK').addEventListener('click', async(e) => {
-    agregarBarra(3);
+    if(validarCinco()){
+    agregarBarra(3);}
     await verificarCompraPersonaje(3, 5);
     cerrarOverlayCompraAsesino();
+    
 });
 
 document.querySelector('#btn-comprar-Berserker-OK').addEventListener('click', async(e) => {
-    agregarBarra(4);
+   if(validarCinco){ agregarBarra(4);}
     await verificarCompraPersonaje(4, 25);
     cerrarOverlayCompraBerserker();
+    
 });
 
 document.querySelector('#btn-comprar-Knight-OK').addEventListener('click', async(e) => {
-    agregarBarra(6);
+   if(validarCinco()) {agregarBarra(6);}
     await verificarCompraPersonaje(6, 15);
     cerrarOverlayCompraKnight();
+    
 });
 
 document.querySelector('#btn-comprar-Espia-OK').addEventListener('click', async(e) => {
-    agregarBarra(5);
+   if(validarCinco()) {agregarBarra(5);}
     await verificarCompraPersonaje(5, 5);
     cerrarOverlayCompraEspia();
+   
 });
 
 document.querySelector('#btn-comprar-Swordsman-OK').addEventListener('click', async(e) => {
-    agregarBarra(2);
+    
+    if(validarCinco()){agregarBarra(2);}
     await verificarCompraPersonaje(2, 15);
     cerrarOverlayCompraSwordsman();
+   
 });
 
 document.querySelector('#btn-comprar-Mago-OK').addEventListener('click', async(e) => {
     agregarBarra(7);
+    if(validarCinco()){agregarBarra(7);}
     await verificarCompraPersonaje(7, 10);
     cerrarOverlayCompraMago();
+  
 });
 
 const agregarBarra = (value) => {
+    
     let id = "espacio" + value;
     let divBar = `<div class="wrapper-bar" id="wrapperBar">
     <div id="myProgress">
@@ -69,6 +96,7 @@ const agregarBarra = (value) => {
 
     document.getElementById(id).insertAdjacentHTML("beforeend", divBar);
 
+    
 }
 
 const rebajarMonedas = (cantidadOro) => {
@@ -92,11 +120,13 @@ const rebajarMonedas = (cantidadOro) => {
 }
 
 const verificarCompraPersonaje = async(opcion, monedas) => {
+    if(validarOro(monedas)==true){
     var elem = document.getElementById("myBar");
     let buttonCancel = document.getElementById('buttonBar');
     var width = 1;
     var id = setInterval(frame, 50);
 
+ 
     function frame() {
         if (width >= 100) {
             rebajarMonedas(monedas);
@@ -134,6 +164,15 @@ const verificarCompraPersonaje = async(opcion, monedas) => {
 
         }
     }
+
+ 
+}
+ else{
+     setMensaje("¡Oro insuficiente!","../Imagenes/ui/checkbox_01.png");
+     abrirModalMensaje();
+     
+ }
+ actualizarInfoCastilloJugador();
 
 
 }
@@ -211,7 +250,6 @@ const agregarPersonajeToCastillo = async(opcionPersonaje, costo) => {
     //SI LA TROPA NO HA SIDO COMPRADA, SE PROSIGUE CON EL RESTO
     if (tropaComprada == false) {
         //RESTAR ORO AL CASTILLO
-        castillos[idCastillo - 1].oro -= costo;
 
         for (let i = 0; i < castillos.length; i++) {
             if (idCastillo == castillos[i].id) {
@@ -230,11 +268,12 @@ const agregarPersonajeToCastillo = async(opcionPersonaje, costo) => {
         //console.log(obj.castillos);
         sessionStorage.setItem('tablero', JSON.stringify(obj));
         tropaCompradaXTurno = true;
-        actualizarInfoCastilloJugador();
+      
         actualizarPersonajesJugador(1);
     } else {
         console.log("Tropa previamente comprada");
     }
+    actualizarInfoCastilloJugador();
 
 
 }
@@ -289,7 +328,6 @@ const compraArquero = async() => {
     //SI LA TROPA NO HA SIDO COMPRADA, SE PROSIGUE CON EL RESTO
     if (tropaComprada == false) {
         //RESTAR ORO AL CASTILLO
-        castillos[idCastillo - 1].oro -= 10;
 
         for (let i = 0; i < castillos.length; i++) {
             if (idCastillo == castillos[i].id) {
@@ -356,7 +394,6 @@ const compraEspadachin = async() => {
     //SI LA TROPA NO HA SIDO COMPRADA, SE PROSIGUE CON EL RESTO
     if (tropaComprada == false) {
         //RESTAR ORO AL CASTILLO
-        castillos[idCastillo - 1].oro -= 10;
 
         for (let i = 0; i < castillos.length; i++) {
             if (idCastillo == castillos[i].id) {
@@ -422,7 +459,6 @@ const compraAsesino = async() => {
     //SI LA TROPA NO HA SIDO COMPRADA, SE PROSIGUE CON EL RESTO
     if (tropaComprada == false) {
         //RESTAR ORO AL CASTILLO
-        castillos[idCastillo - 1].oro -= 10;
 
         for (let i = 0; i < castillos.length; i++) {
             if (idCastillo == castillos[i].id) {
@@ -487,7 +523,6 @@ const compraBerserker = async() => {
     //SI LA TROPA NO HA SIDO COMPRADA, SE PROSIGUE CON EL RESTO
     if (tropaComprada == false) {
         //RESTAR ORO AL CASTILLO
-        castillos[idCastillo - 1].oro -= 10;
 
         for (let i = 0; i < castillos.length; i++) {
             if (idCastillo == castillos[i].id) {
@@ -553,7 +588,6 @@ const compraEspia = async() => {
     //SI LA TROPA NO HA SIDO COMPRADA, SE PROSIGUE CON EL RESTO
     if (tropaComprada == false) {
         //RESTAR ORO AL CASTILLO
-        castillos[idCastillo - 1].oro -= 10;
 
         for (let i = 0; i < castillos.length; i++) {
             if (idCastillo == castillos[i].id) {
@@ -619,7 +653,6 @@ const compraJinete = async() => {
     //SI LA TROPA NO HA SIDO COMPRADA, SE PROSIGUE CON EL RESTO
     if (tropaComprada == false) {
         //RESTAR ORO AL CASTILLO
-        castillos[idCastillo - 1].oro -= 10;
 
         for (let i = 0; i < castillos.length; i++) {
             if (idCastillo == castillos[i].id) {
@@ -685,7 +718,6 @@ const compraMago = async() => {
     //SI LA TROPA NO HA SIDO COMPRADA, SE PROSIGUE CON EL RESTO
     if (tropaComprada == false) {
         //RESTAR ORO AL CASTILLO
-        castillos[idCastillo - 1].oro -= 10;
 
         for (let i = 0; i < castillos.length; i++) {
             if (idCastillo == castillos[i].id) {
