@@ -193,14 +193,19 @@ async function timer(display) {
             display.textContent = "00" + ":" + i;
         }
 
+        if (i == 40) {
+           await removerPowersTurnos();
+        }
+
         await waitFor(1000);
     }
+
+    
 };
 
 
 //CAMBIO DE TURNO
 async function cambioTurno(turnoPersona, partidaComenzada) {
-    await removerPowersTurnos();
     abrirModalCambioTurno();
     if (partidaComenzada == false) {
         document.getElementById("titulo-cambio-turno").textContent = "Inicio de partida";
