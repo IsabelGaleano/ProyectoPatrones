@@ -116,6 +116,7 @@ botonesUsarPersonaje.forEach(function(elem) {
                             celdaAnteriorPersonajeJ1 = idCelda;
 
                             objComb.celda = idCelda;
+                            //metodo validar
                         } else {
                             idCelda = "c19";
                             document.getElementById(idCelda).style.backgroundImage = cargarPersonaje(tipoPersonajeActual);
@@ -125,6 +126,7 @@ botonesUsarPersonaje.forEach(function(elem) {
                             celdaAnteriorPersonajeJ2 = idCelda;
 
                             objComb.celda = idCelda;
+                            //validar 
                         }
                         if (posicionPersonajeArray == undefined) {
                             posicionPersonajeArray = 0;
