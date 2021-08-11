@@ -36,6 +36,7 @@ const intentarCompraBallesta=async(e)=>{
     }
     abrirModalMensaje()
     visualDefensas();
+    
 
 }
 const intentarCompraCatapulta=async(e)=>{
@@ -230,6 +231,7 @@ if(defensas!=null){
 
     }
  }
+ actualizarInfoCastilloJugador();
 
 }
 const reset= ()=>{
