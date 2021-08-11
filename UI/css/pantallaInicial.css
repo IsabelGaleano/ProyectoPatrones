@@ -10,13 +10,16 @@ div{
 }
 
 .titulo-principal {
-    padding-top: 100px;
+    padding-top: 30px;
     text-align: center;
     color: #1c3b2d;
     font-size: 30px;
     font-family: 'Press Start 2P', cursive;
     text-shadow: 0.1em 0.1em 0.05em rgb(120, 224, 135);
-    
+    background: rgb(2,0,36);
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, 
+    rgba(0,0,0,0.5) 63%, rgba(0,0,0,0.25) 80%, 
+    rgba(255,255,255,0) 100%);
     
 }
 
@@ -70,7 +73,10 @@ body {
 .button3 {
     background: #d3c265;
 }
-
+.button4 {
+    background: rgb(65, 3, 145);
+    
+}
 .flecha1, .flecha3 {
     padding-left: 145px;
 }
@@ -157,6 +163,7 @@ path.two {
     width: 100px;    
     border: transparent;
     position: absolute;
+    
     top: 50px;
     right: 50px;
 }
