@@ -26,8 +26,6 @@ public class JugadorController {
     @Autowired
     private JugadorService jugadorService;
 
-
-
     @PostMapping
     @CrossOrigin
     //Create a new JUGADOR
