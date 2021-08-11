@@ -1,15 +1,11 @@
-//PARAMETRO TIPO 
-//1 ES SI ES DE TIENDA
-//2 ES SI SOLO SE ACTUALIZA POR TURNO
-
 //***--FALTA ACTUALIZAR LA TABLA DE PERSONAJES SEGUN LAS TROPAS COMPRADAS DE CADA JUGADOR POR TURNO--***
-function actualizarPersonajesJugador(tipo) {
+function actualizarPersonajesJugador() {
 
     //JUGADOR ACTUAL ES DE TURNOS.JS
     let idCastillo = jugadorActual.idCastillo;
     let obj = JSON.parse(sessionStorage.getItem('tablero'));
-    //console.log(obj);
-    console.log(obj.castillos[idCastillo - 1].tropas);
+    console.log(obj);
+    //console.log(obj.castillos[idCastillo - 1].tropas);
     let arqueroPasado = false;
     let espadachinPasado = false;
     let berserquerPasado = false;
@@ -20,8 +16,6 @@ function actualizarPersonajesJugador(tipo) {
 
     if (obj.castillos[idCastillo - 1].tropas != null) {
         obj.castillos[idCastillo - 1].tropas.forEach(function(element) {
-            //console.log(element);
-            //ARQUERO
             //ARQUERO
             if (element.tipo == "Arquero" && arqueroPasado == false) {
                 iconoUsarArquero();
@@ -76,8 +70,7 @@ function actualizarPersonajesJugador(tipo) {
         });
 
     } else {
-
-        console.log("ninguna tropa");
+        //console.log("ninguna tropa");
         NDArquero();
         NDAsesino();
         NDEspadachin();
