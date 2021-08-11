@@ -28,15 +28,4 @@ public class PersonajesController {
 
     }
 
-    /*
-    @PutMapping("validacionCasilla/{personaje}/{tipoCasilla}")
-    public ResponseEntity<?> update(@RequestBody Personaje personaje, @PathVariable(value = "tipoCasilla") String tipoCasilla) {
-        gestorCadena.IniciarValidacion(personaje, tipoCasilla);
-
-       // return ResponseEntity.status(HttpStatus.CREATED).body(personaje, tipoCasilla);
-    }
-
-
-     */
-
 }

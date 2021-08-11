@@ -21,67 +21,7 @@ import java.util.Optional;
 public class ProxyController {
     @Autowired
     private JugadorService jugadorService;
-    /*
-    @RequestMapping(path = "/proxy/{turno}/{nombreUsuario}", method = RequestMethod.GET)
-    public JugadorObject jugador(@PathVariable int turno, @PathVariable String nombreUsuario) {
-    //public JugadorObject jugador(@PathVariable(value = "turno") int turno, @PathVariable(value = "nombreUsuario") String nombreUsuario) {
-        JugadorProxy jP = new JugadorProxy();
-        JugadorObject jO = new JugadorObject();
-        jO.setTurno(jP.turnoJugador(turno));
-        return jO;
-    }*/
 
-    //Modificar para que reciba todos los jugadores y los evalue
-    //@RequestMapping(value = "/proxy", method=RequestMethod.POST,headers = "Accept=*/*",produces = "application/json", consumes="application/json")
-    /*
-    @RequestMapping(value = "/proxy", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseBody
-    public List<JugadorObject> get2Product(@RequestBody List<JugadorObject> jugs) {
-
-        JugadorProxy jP = new JugadorProxy();
-        JugadorObject jO = new JugadorObject();
-        for (JugadorObject jugador : jugs) {
-            jugador.setTurno(jP.turnoJugador(jugador.getEstado()));
-        }
-
-        return jugs;
-    }*/
-    /*
-    @CrossOrigin
-    @PostMapping("/turnos")
-    public ResponseEntity<List<JugadorObject>> proxy(@RequestBody List<JugadorObject> jugs) {
-        System.out.println(jugs.size());
-        JugadorProxy jP = new JugadorProxy();
-        JugadorObject jO = new JugadorObject();
-        for (JugadorObject jugador : jugs) {
-            System.out.println(jugador.toString());
-            jugador.setTurno(jP.turnoJugador(jugador.getEstado()));
-        }
-
-        return ResponseEntity.ok(jugs);
-
-    }*/
-    //@RequestMapping(value = "/proxy", method = RequestMethod.POST,headers = "Accept=*/*", produces = "application/json; charset=utf-8; text/plain", consumes="application/json; charset=utf-8; text/plain")
-    /*
-    @PostMapping("/turnos")
-    public ResponseEntity<ArrayList<JugadorObject>> proxy(@RequestBody Jugadores jugadores) {
-        ArrayList<JugadorObject> jugadoresArr = new ArrayList<JugadorObject>();
-
-        String[] elements = jugadores.getJugadores().split(",");
-
-        for (String p: Arrays.asList(elements)) {
-            Optional<JugadorObject> jugador = jugadorService.findByAlias(p);
-            if (jugador.isPresent()) {
-                jugadoresArr.add(jugador.get());
-            }
-        }
-
-
-        return ResponseEntity.ok().body(jugadoresArr);
-
-    }
-
-     */
     @PostMapping("/turnos/{orden}")
     public ResponseEntity<ArrayList<JugadorObject>> proxy(@RequestBody Jugadores jugadores, @PathVariable(value = "orden")int orden) {
         ArrayList<JugadorObject> jugadoresArr = new ArrayList<JugadorObject>();
@@ -107,14 +47,6 @@ public class ProxyController {
             jugadorService.save(jO);
         }
 
-        //PROXY
-        /*
-        JugadorProxy jP = new JugadorProxy();
-        for (JugadorObject jugador : jugadoresArr) {
-            System.out.println(jugador.toString());
-            jugador.setTurno(jP.turnoJugador(jugador.getEstado()));
-            jugadorService.save(jugador);
-        }*/
 
         return ResponseEntity.ok().body(jugadoresArr);
 

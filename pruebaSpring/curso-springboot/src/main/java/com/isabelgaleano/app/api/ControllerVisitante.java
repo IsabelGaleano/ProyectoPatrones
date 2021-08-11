@@ -21,12 +21,6 @@ import java.util.Optional;
 public class ControllerVisitante {
     private GestorVisitante gestorVisitante = new GestorVisitante();
 
-    /*@PostMapping
-    public ResponseEntity<List<Personaje>> create (@RequestBody PersonajesModelo personajesModelo) {
-
-        List<Personaje> personajes1 = gestorVisitante.visitarPersonajes(personajesModelo.getListPersonajes());
-        return ResponseEntity.ok(personajes1);
-    }*/
 
     @RequestMapping(method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
     @ResponseBody
@@ -34,13 +28,5 @@ public class ControllerVisitante {
         List<PersonajeVisitante> response = gestorVisitante.visitarPersonajes(listPersonajes);
         return response;
     }
-    /*
-    @CrossOrigin
-    @PostMapping("/visitarPersonaje")
-    public ResponseEntity<List<Personaje>> visitar(@RequestBody Arquero arquero) {
-        List<Personaje> personajes1 = gestorVisitante.visitarPersonaje(arquero);
 
-        return ResponseEntity.ok(personajes1);
-    }
-*/
 }
