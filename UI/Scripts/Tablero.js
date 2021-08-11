@@ -246,6 +246,8 @@ function cargarTablero(mas2Jugadores) {
                     celdaActual = celda.id;
                     playSound();
                 }
+                
+                
             });
 
             //celda.className = "celda";
@@ -409,6 +411,7 @@ function fondo() {
     }
     imgBody.style.backgroundImage = urlBody;
 }
+
 
 fondo();
 

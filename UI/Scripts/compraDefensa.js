@@ -1,3 +1,10 @@
+let imgBallestaA=document.querySelector('.ballesta1')
+imgBallestaA.style.opacity="0.2";
+let imgBallestaB=document.querySelector('.ballesta2')
+imgBallestaB.style.opacity="0.2";
+let imgCatapulta=document.querySelector('.catapulta')
+imgCatapulta.style.opacity="0.2";
+
 
 const jugadorAct=()=>{
     let obj = JSON.parse(sessionStorage.getItem('tablero'));
@@ -28,6 +35,7 @@ const intentarCompraBallesta=async(e)=>{
         setMensaje("!Ballestas llenas¡","../Imagenes/ui/checkbox_01.png");
     }
     abrirModalMensaje()
+    visualDefensas();
 
 }
 const intentarCompraCatapulta=async(e)=>{
@@ -44,6 +52,7 @@ const intentarCompraCatapulta=async(e)=>{
         setMensaje("¡Ya tienes una catapulta!","../Imagenes/ui/checkbox_01.png")
     }
     abrirModalMensaje()
+    visualDefensas();
     
 
 }
@@ -179,6 +188,63 @@ const agregarDefensaCastillo= async(opcion, costo)=>{
     sessionStorage.setItem('tablero', JSON.stringify(obj));    
     
 }
+function visualDefensas(){
+    let obj = JSON.parse(sessionStorage.getItem('tablero'));
+    let  idCastillo= jugadorAct().idCastillo;
+    let castillos= obj.castillos[idCastillo-1];
+
+   
+   
+ 
+    let defensas = obj.castillos[idCastillo-1].defensas;
+    
+    let ballestas=0;
+    let catapulta=0;
+    
+if(defensas!=null){
+    for(let i=0;i<defensas.length;i++){
+        if(defensas[i].tipo=="Ballesta"){
+            ballestas++;
+        }
+        if(defensas[i].tipo=="Catapulta"){
+            catapulta++;
+        }
+
+    }
+    if(ballestas>=1){
+        imgBallestaA.style.opacity="1";
+        if(ballestas==2){
+            imgBallestaB.style.opacity="1";
+        }
+
+      
+    }
+     else{ 
+        imgBallestaA.style.opacity="0.2";
+        imgBallestaB.style.opacity="0.2";
+
+     }
+    if(catapulta>=1){
+        imgCatapulta.style.opacity="1";
+
+    } else{
+        imgCatapulta.style.opacity="0.2";
+
+    }
+ }
+
+}
+const reset= ()=>{
+    
+imgBallestaA.style.opacity="0.2";
+
+imgBallestaB.style.opacity="0.2";
+
+imgCatapulta.style.opacity="0.2";
+   
+
+}
+
 
 
 document.querySelector('#btn-comprar-ballesta-OK').addEventListener('click', intentarCompraBallesta);
