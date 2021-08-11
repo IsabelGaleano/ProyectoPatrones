@@ -193,8 +193,14 @@ async function timer(display) {
             display.textContent = "00" + ":" + i;
         }
 
+        if (i == 40) {
+           await removerPowersTurnos();
+        }
+
         await waitFor(1000);
     }
+
+    
 };
 
 
@@ -216,6 +222,41 @@ async function cambioTurno(turnoPersona, partidaComenzada) {
 }
 
 
+const removerPowersTurnos = async() => {
+    let castillosTablero = [];
+    castillosTablero = tableroJSON.castillos;
+    let personajesTablero = [];
+    let personajesConPower = [];
+    let personajesNuevos = [];
+    for (let i = 0; i < castillosTablero.length; i++) {
+        
+        if(jugadorActual.idCastillo == castillosTablero[i].id) {
+            personajesTablero = castillosTablero[i].tropas;
+        }
+    }
+
+    for (let i = 0; i < personajesTablero; i++) {
+        
+        if (personajesTablero[i].powerUp != null) {
+            personajesConPower.push(personajesTablero[i]);
+        }
+        
+    }
+
+    let objVisitantePersonajes = personajesConPower.map(function(element) {
+        return {
+            id: element.id,
+            defensa: element.defensa,
+            ataque: element.ataque.puntos,
+            tipoPowerUp: element.powerUp.tipo,
+            estadoDecorado: element.estadoDecorado
+        }
+    });
+
+
+    personajesNuevos = await visitarPersonajes(objVisitantePersonajes);
+    console.log(personajesNuevos);
+}
 
 
 /*

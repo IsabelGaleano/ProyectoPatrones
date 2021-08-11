@@ -74,7 +74,7 @@ botonesUsarPersonaje.forEach(function(elem) {
                             movActual = true
                         }
                     } else if (obj.jugadores[1].id == jugadorActual.id) {
-                        if (primerMovimientoArqueroJ1 == true) {
+                        if (primerMovimientoArqueroJ2 == true) {
                             movActual = true
                         }
                     }
