@@ -1,3 +1,5 @@
+var btnAct = document.querySelectorAll(".btnAct");
+
 var btns = document.querySelectorAll(".pw");
 
 btns.forEach(function (elem) {
@@ -31,14 +33,14 @@ const validarDatosModal = async (action) => {
     let change;
     let activar = 0;
     if ((casillaActual.data == "MejoraAtaque" || casillaActual.data == "MejoraDefensa") && tropa.powerUp != null) {
-        abrirModalConfirmChange();
+
         if (action == "3") {
             change = true;
             await obtenerDatosTropaCasilla(change);
         }
         cerrarOverlayConfirmChange();
     } else if (casillaActual.data == "MejoraAtaque" && tropa.powerUp == null) {
-        //abrirModalPowerUp();
+
         switch (action) {
             case "1":
                 activar = 1;
@@ -82,7 +84,6 @@ const validarDatosModal = async (action) => {
         obtenerDatosTropaCasilla(change);
         abrirModalMensaje();
     }
-
 }
 
 async function obtenerDatosTropaCasilla(change) {
