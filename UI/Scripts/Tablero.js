@@ -316,10 +316,11 @@ function cargarTablero(mas2Jugadores) {
 const setCasillas = () => {
     let celdas = document.getElementsByTagName('td');
     let casillas = obtenerCasillas();
+    
     //console.log(celdas);
     for (let i = 0; i < celdas.length; i++) {
         for (let j = 0; j < casillas.length; j++) {
-
+        
             if (casillas[j].tipo == "CasillaGema") {
                 switch (casillas[j].data) {
                     case "GemaVerde":
