@@ -95,7 +95,7 @@ const verificarCompraPersonaje = async(opcion, monedas) => {
     var elem = document.getElementById("myBar");
     let buttonCancel = document.getElementById('buttonBar');
     var width = 1;
-    var id = setInterval(frame, 150);
+    var id = setInterval(frame, 50);
 
     function frame() {
         if (width >= 100) {

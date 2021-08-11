@@ -3,9 +3,12 @@ let botonDado = document.getElementById("boton-dado");
 let cuadroMovimientos = document.getElementById("Movimientos");
 let cantidadJugadores = tableroJSON.jugadores.length;
 let jugadorActual;
+let castilloActual;
 let dadoTirado = false;
 let tropaCompradaXTurno = false;
 let numeroDadoSacado;
+
+let movimientosRestantesPersonaje;
 const diceSound = new Audio('../Sounds/diceRoll.wav');
 
 $(document).ready(function() {
@@ -26,7 +29,7 @@ botonDado.addEventListener('click', function() {
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
-  }
+}
 
 async function dado() {
     imagenDado.style.backgroundImage = 'url(../Imagenes/CarasDado/diceRollGif.gif)';
@@ -63,7 +66,7 @@ async function dado() {
     }
     imagenDado.style.backgroundImage = urlDado;
     cuadroMovimientos.textContent = numeroDadoSacado;
-    
+
     //imagenDado.className = "dado" + numeroDadoSacado;
 }
 
@@ -108,13 +111,14 @@ let partida = async() => {
         jugadores = await visitarJugadores(jugadores);
         //console.log(jugadores);
 
-
+        //JUGADOR ACTUAL
         for (let i = 0; i < jugadores.length; i++) {
             if (jugadores[i].turno == true) {
                 jugadorActual = jugadores[i];
 
             }
         }
+
         //TURNOS OVERLAY
         await cambioTurno(jugadorActual.alias, partidaIniciada);
 
@@ -122,6 +126,8 @@ let partida = async() => {
         jugadorActivo.textContent = jugadorActual.alias;
         let tableroActual = JSON.parse(sessionStorage.getItem('tablero'));
         tableroActual.jugadores = jugadores;
+
+
         sessionStorage.setItem('tablero', JSON.stringify(tableroActual));
         actualizarInfoCastilloJugador();
         actualizarPersonajesJugador(2);
@@ -133,9 +139,15 @@ let partida = async() => {
             posicionJugadorActual++;
         }
 
+        //MOVIMIENTOS
+        eliminarFondoCasillasMovimientos();
+
         dadoTirado = false;
         tropaCompradaXTurno = false;
+        numeroDadoSacado = 0;
+        cuadroMovimientos.textContent = '';
         partidaIniciada = true;
+        movimientoXTurno = false;
 
     }
 }
@@ -197,7 +209,7 @@ async function cambioTurno(turnoPersona, partidaComenzada) {
         document.getElementById("overlay-info-turno").textContent = "Turno de: " + turnoPersona;
     }
 
-    for (let i = 5; i >= 0; i--) {
+    for (let i = 3; i >= 0; i--) {
         await waitFor(1000);
     }
     cerrarOverlayCambioTurno();

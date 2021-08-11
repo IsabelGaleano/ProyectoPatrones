@@ -330,11 +330,27 @@ function abrirModalDefenseUp() {
     idOverlayDefenseUp.classList.add('active');
     popupDefenseUp.classList.add('active');
 
-}
+    }
+    function cerrarOverlayDefenseUp(){
+        popAudio.volume= 1;
+        popAudio.play();
+        idOverlayDefenseUp.classList.remove('active');
+        popupMensaje.classList.remove('active');
+    }
 
-function cerrarOverlayDefenseUp() {
-    popAudio.volume = 1;
-    popAudio.play();
-    idOverlayDefenseUp.classList.remove('active');
-    popupMensaje.classList.remove('active');
-}
+    var idOverlayConfirmChange = document.getElementById('idOverlayConfirmChange'),
+    popupConfirmChange = document.getElementById('idpopupConfirmChange');
+
+    function abrirModalConfirmChange(){
+        OVAudio.volume= 1;
+        OVAudio.play();
+        idOverlayConfirmChange.classList.add('active');
+        popupConfirmChange.classList.add('active');
+
+    }
+    function cerrarOverlayConfirmChange(){
+        popAudio.volume= 1;
+        popAudio.play();
+        idOverlayConfirmChange.classList.remove('active');
+        popupMensaje.classList.remove('active');
+    }
