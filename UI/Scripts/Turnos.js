@@ -131,6 +131,7 @@ let partida = async() => {
         sessionStorage.setItem('tablero', JSON.stringify(tableroActual));
         actualizarInfoCastilloJugador();
         actualizarPersonajesJugador(2);
+        visualDefensas();
         let tiempo = await timer(document.getElementById("timer"));
         if (posicionJugadorActual == jugadores.length - 1) {
             posicionJugadorActual = 0;

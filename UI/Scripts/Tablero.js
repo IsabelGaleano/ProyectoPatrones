@@ -170,7 +170,7 @@ function playSound() {
 
 //CARGAR EL TABLERO DINÁMICAMENTE
 function cargarTablero(mas2Jugadores) {
-    //CREACION DE LAS CELDAS 
+    //CREACION DE LAS CELDAS
     //FILAS
     let cantidad = obtenerCantidad();
     console.log(cantidad);
@@ -371,7 +371,7 @@ function verifyNumber(mas2Jugadores, celdasEspecialesArray, randomNumberCell) {
     return casillaRepetida;
 }
 
-//DEVUELVE EL TIPO DE GEMA 
+//DEVUELVE EL TIPO DE GEMA
 function tipoGema(numero) {
     let tipo;
     switch (numero) {
