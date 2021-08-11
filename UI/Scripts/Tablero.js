@@ -86,10 +86,10 @@ const esconderGemasPower = () => {
         //celdas[i].style.backgroundImage = "none";
         celdas[i].style.backgroundImage = 'url(../Imagenes/green_texture2.png)' ;
 
-      } else if(casillas[i].tipo == "CasillaGema") {
+      } /*else if(casillas[i].tipo == "CasillaGema") {
         celdas[i].style.opacity = "0";
         //celdas[i].style.backgroundImage += ',url(../Imagenes/green_texture.png)';
-      }
+      }*/
   }
 
 }
@@ -321,7 +321,7 @@ const setCasillas = () => {
     for (let i = 0; i < celdas.length; i++) {
         for (let j = 0; j < casillas.length; j++) {
         
-            if (casillas[j].tipo == "CasillaGema") {
+            /*if (casillas[j].tipo == "CasillaGema") {
                 switch (casillas[j].data) {
                     case "GemaVerde":
                         celdas[casillas[j].id].style.backgroundImage = 'url(../Imagenes/PowerUps/greenGemGif.gif)';
@@ -337,7 +337,8 @@ const setCasillas = () => {
                     default:
                         break;
                 }
-            } else if (casillas[j].tipo == "CasillaPowerUp") {
+            } else */
+             if (casillas[j].tipo == "CasillaPowerUp") {
                 switch (casillas[j].data) {
                     case "MejoraAtaque":
                         celdas[casillas[j].id].style.backgroundImage = 'url(../Imagenes/PowerUps/PowUpGif.gif)';

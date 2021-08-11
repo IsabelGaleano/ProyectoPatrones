@@ -20,23 +20,21 @@ public class UserController {
     @Autowired//Lo inyecta
     private UserService userService;
 
-    // Create a new user
     @PostMapping
     @CrossOrigin
-    //Del body para a recibir un usuario. Va a recibir en el cuerpo de esa peticion y se va a guardar y devolverlo
-    // y un codigo de estado que es el 201. De que se ha creado.
+
     public ResponseEntity<?> create (@RequestBody User user) {
         return ResponseEntity.status(HttpStatus.CREATED).body(userService.save(user));
     }
 
-    //Read an user
+
     @CrossOrigin
     @GetMapping("/{id}")
     public ResponseEntity<?> read(@PathVariable(value = "id") Long userId) {
         Optional<User> optionalUser = userService.findById(userId);
         if (!optionalUser.isPresent()) {
             return ResponseEntity.notFound().build();
-            //Not found devuelve un codigo de estado. en caso de que no lo encuentre
+
         }
 
         return ResponseEntity.ok(optionalUser); //Si ha encontrado el usuario. el codigo de estado y el usuario
@@ -49,10 +47,7 @@ public class UserController {
         if (!user.isPresent()) {
             return ResponseEntity.notFound().build();
         }
-        /*
-         BeanUtils.copyProperties(userDatails, user.get());
-         Copia el objeto en userdetails en el objeto que tenemos en la base de datos
-        * */
+
 
         user.get().setName(userDatails.getName());
         user.get().setSurname(userDatails.getSurname());
@@ -62,7 +57,6 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.CREATED).body(userService.save(user.get()));
     }
 
-    //Delete and User
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable(value = "id") Long userId) {
         if (!userService.findById(userId).isPresent()){
@@ -72,7 +66,7 @@ public class UserController {
         return ResponseEntity.ok().build();
     }
 
-    //Read all Users
+
     @GetMapping
     public List<User> readAll() {
         List<User> users = StreamSupport
