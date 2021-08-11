@@ -1,6 +1,6 @@
-$(document).ready(function() {
+/*$(document).ready(function() {
     removerPowers();
-});
+});*/
 
 
 const crearPersonajeTemp = async(opcion) => {
@@ -54,11 +54,6 @@ const removerPowers = async() => {
     let personajes = [];
     let tipoPower;
     let jugadores = [];
-    /*for (let i = 1; i <= 3; i++) {
-        personaje = await crearPersonajeTemp(i);
-        personajes.push(personaje[0]);
-    }*/
-
     personajes = await crearPersonajeTemp(1);
 
     casillas = obtenerPower();

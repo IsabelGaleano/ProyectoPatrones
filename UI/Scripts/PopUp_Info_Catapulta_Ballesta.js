@@ -226,23 +226,23 @@ function cerrarOverlayCompraMago() {
 var overlayMensaje = document.getElementById('idOverlayMensaje'),
     popupMensaje = document.getElementById('idpopupMensaje');
 
-function abrirModalMensaje() {
-    popAudio.volume = 1;
-    popAudio.play();
-    overlayMensaje.classList.add('active');
-    popupMensaje.classList.add('active');
-}
 
-function cerrarOverlayMensaje() {
-    popAudio.volume = 1;
-    popAudio.play();
-    overlayMensaje.classList.remove('active');
-    popupMensaje.classList.remove('active');
-}
+   window.abrirModalMensaje =function abrirModalMensaje(){
+        popAudio.volume= 1;
+         popAudio.play();
+        overlayMensaje.classList.add('active');
+        popupMensaje.classList.add('active');
+    }
+    function cerrarOverlayMensaje(){
+        popAudio.volume= 1;
+        popAudio.play();
+        overlayMensaje.classList.remove('active');
+        popupMensaje.classList.remove('active');
+    }
 
-/*----------------------- modales gemas ------------------------*/
+    /*----------------------- modales gemas ------------------------*/
 
-var idOverlayGemaAzul = document.getElementById('idOverlayGemaAzul'),
+    var idOverlayGemaAzul = document.getElementById('idOverlayGemaAzul'),
     popupGemaAzul = document.getElementById('idpopupGemaAzul');
 
 
@@ -333,7 +333,7 @@ function abrirModalDefenseUp() {
     }
     function cerrarOverlayDefenseUp(){
         popAudio.volume= 1;
-        popAudio.play(); 
+        popAudio.play();
         idOverlayDefenseUp.classList.remove('active');
         popupMensaje.classList.remove('active');
     }
@@ -341,16 +341,16 @@ function abrirModalDefenseUp() {
     var idOverlayConfirmChange = document.getElementById('idOverlayConfirmChange'),
     popupConfirmChange = document.getElementById('idpopupConfirmChange');
 
-    function abrirModalConfirmChange(){       
+    function abrirModalConfirmChange(){
         OVAudio.volume= 1;
-        OVAudio.play(); 
+        OVAudio.play();
         idOverlayConfirmChange.classList.add('active');
-        popupConfirmChange.classList.add('active');        
+        popupConfirmChange.classList.add('active');
 
     }
     function cerrarOverlayConfirmChange(){
         popAudio.volume= 1;
-        popAudio.play(); 
+        popAudio.play();
         idOverlayConfirmChange.classList.remove('active');
         popupMensaje.classList.remove('active');
     }
