@@ -115,7 +115,7 @@ const validarOro=function(costo){
     let obj =JSON.parse(sessionStorage.getItem('tablero'));
     let castillos= obj.castillos;
   
-    let  oroJugador = castillos[idCastillo-1].oroJugador;
+    let  oroJugador = castillos[idCastillo-1].oro;
 
     if(oroJugador-costo<0){
         res = false;
