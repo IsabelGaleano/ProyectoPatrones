@@ -76,6 +76,24 @@ const obtenerCasillasGemas = () => {
 
 }
 
+const esconderGemasPower = () => {
+  let casillas = obtenerCasillas();
+  let celdas = document.getElementsByTagName('td');
+  for (let i = 0; i < casillas.length; i++) {
+      
+      if (casillas[i].tipo == "CasillaPowerUp") {
+        //celdas[i].style.display = "none";
+        //celdas[i].style.backgroundImage = "none";
+        celdas[i].style.backgroundImage = 'url(../Imagenes/green_texture2.png)' ;
+
+      } else if(casillas[i].tipo == "CasillaGema") {
+        celdas[i].style.opacity = "0";
+        //celdas[i].style.backgroundImage += ',url(../Imagenes/green_texture.png)';
+      }
+  }
+
+}
+
 
 
 const obtenerCasillas = () => {
@@ -292,6 +310,7 @@ function cargarTablero(mas2Jugadores) {
     }
 
     setCasillas();
+    esconderGemasPower();
 }
 
 const setCasillas = () => {
