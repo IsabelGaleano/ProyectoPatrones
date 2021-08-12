@@ -100,6 +100,9 @@ public class JugadorController {
         return jugadores;
 
     }
+
+
+    //PROXY
     @PostMapping("/pasarPersonajes")
     public List<JugadorObject> proxy(@RequestBody List<JugadorObject> listJugadores) {
         List<JugadorObject> response = listJugadores;
