@@ -975,7 +975,7 @@ function movimientosPosibles(celda) {
     //VALIDAR IZQUIERDA 
 
     //VALIDAR SI LA CELDA SIGUIENTE ES VALIDA
-    if (columnaCelda - 1 >= 0 && columnaCelda - 1 <= 9) {
+    if (columnaCelda - 1 > 0 && columnaCelda - 1 <= 9) {
         let idCeldaSig = "c" + (filaCelda) + (columnaCelda - 1);
         let celdaElement = document.getElementById(idCeldaSig);
         let idCelda = String(filaCelda) + String(columnaCelda - 1);
