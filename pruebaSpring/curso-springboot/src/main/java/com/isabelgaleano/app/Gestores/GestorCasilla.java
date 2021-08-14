@@ -61,7 +61,7 @@ public class GestorCasilla {
 
 
     }
-    /**Método Encargado de cambiar los datos de los objetos clonados de las listas especiales*/
+
     public void cambiarDatos(){
         int r;
         for(int i=0;i<arrGemas.size();i++){

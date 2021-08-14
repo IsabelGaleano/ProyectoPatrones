@@ -76,6 +76,24 @@ const obtenerCasillasGemas = () => {
 
 }
 
+const esconderGemasPower = () => {
+  let casillas = obtenerCasillas();
+  let celdas = document.getElementsByTagName('td');
+  for (let i = 0; i < casillas.length; i++) {
+      
+      if (casillas[i].tipo == "CasillaPowerUp") {
+        //celdas[i].style.display = "none";
+        //celdas[i].style.backgroundImage = "none";
+        celdas[i].style.backgroundImage = 'url(../Imagenes/green_texture2.png)' ;
+
+      } /*else if(casillas[i].tipo == "CasillaGema") {
+        celdas[i].style.opacity = "0";
+        //celdas[i].style.backgroundImage += ',url(../Imagenes/green_texture.png)';
+      }*/
+  }
+
+}
+
 
 
 const obtenerCasillas = () => {
@@ -170,7 +188,7 @@ function playSound() {
 
 //CARGAR EL TABLERO DINÁMICAMENTE
 function cargarTablero(mas2Jugadores) {
-    //CREACION DE LAS CELDAS 
+    //CREACION DE LAS CELDAS
     //FILAS
     let cantidad = obtenerCantidad();
     console.log(cantidad);
@@ -292,16 +310,18 @@ function cargarTablero(mas2Jugadores) {
     }
 
     setCasillas();
+    esconderGemasPower();
 }
 
 const setCasillas = () => {
     let celdas = document.getElementsByTagName('td');
     let casillas = obtenerCasillas();
+    
     //console.log(celdas);
     for (let i = 0; i < celdas.length; i++) {
         for (let j = 0; j < casillas.length; j++) {
-
-            if (casillas[j].tipo == "CasillaGema") {
+        
+            /*if (casillas[j].tipo == "CasillaGema") {
                 switch (casillas[j].data) {
                     case "GemaVerde":
                         celdas[casillas[j].id].style.backgroundImage = 'url(../Imagenes/PowerUps/greenGemGif.gif)';
@@ -317,7 +337,8 @@ const setCasillas = () => {
                     default:
                         break;
                 }
-            } else if (casillas[j].tipo == "CasillaPowerUp") {
+            } else */
+             if (casillas[j].tipo == "CasillaPowerUp") {
                 switch (casillas[j].data) {
                     case "MejoraAtaque":
                         celdas[casillas[j].id].style.backgroundImage = 'url(../Imagenes/PowerUps/PowUpGif.gif)';
@@ -370,7 +391,7 @@ function verifyNumber(mas2Jugadores, celdasEspecialesArray, randomNumberCell) {
     return casillaRepetida;
 }
 
-//DEVUELVE EL TIPO DE GEMA 
+//DEVUELVE EL TIPO DE GEMA
 function tipoGema(numero) {
     let tipo;
     switch (numero) {

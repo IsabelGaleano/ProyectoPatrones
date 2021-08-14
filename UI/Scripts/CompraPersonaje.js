@@ -95,7 +95,7 @@ const verificarCompraPersonaje = async(opcion, monedas) => {
     var elem = document.getElementById("myBar");
     let buttonCancel = document.getElementById('buttonBar');
     var width = 1;
-    var id = setInterval(frame, 150);
+    var id = setInterval(frame, 50);
 
     function frame() {
         if (width >= 100) {
@@ -211,8 +211,7 @@ const agregarPersonajeToCastillo = async(opcionPersonaje, costo) => {
     //SI LA TROPA NO HA SIDO COMPRADA, SE PROSIGUE CON EL RESTO
     if (tropaComprada == false) {
         //RESTAR ORO AL CASTILLO
-        castillos[idCastillo - 1].oro -= costo;
-
+        
         for (let i = 0; i < castillos.length; i++) {
             if (idCastillo == castillos[i].id) {
                 if (castillos[i].tropas == null) {
@@ -289,7 +288,7 @@ const compraArquero = async() => {
     //SI LA TROPA NO HA SIDO COMPRADA, SE PROSIGUE CON EL RESTO
     if (tropaComprada == false) {
         //RESTAR ORO AL CASTILLO
-        castillos[idCastillo - 1].oro -= 10;
+    
 
         for (let i = 0; i < castillos.length; i++) {
             if (idCastillo == castillos[i].id) {
@@ -356,7 +355,7 @@ const compraEspadachin = async() => {
     //SI LA TROPA NO HA SIDO COMPRADA, SE PROSIGUE CON EL RESTO
     if (tropaComprada == false) {
         //RESTAR ORO AL CASTILLO
-        castillos[idCastillo - 1].oro -= 10;
+     
 
         for (let i = 0; i < castillos.length; i++) {
             if (idCastillo == castillos[i].id) {
@@ -422,7 +421,7 @@ const compraAsesino = async() => {
     //SI LA TROPA NO HA SIDO COMPRADA, SE PROSIGUE CON EL RESTO
     if (tropaComprada == false) {
         //RESTAR ORO AL CASTILLO
-        castillos[idCastillo - 1].oro -= 10;
+        
 
         for (let i = 0; i < castillos.length; i++) {
             if (idCastillo == castillos[i].id) {
@@ -487,7 +486,7 @@ const compraBerserker = async() => {
     //SI LA TROPA NO HA SIDO COMPRADA, SE PROSIGUE CON EL RESTO
     if (tropaComprada == false) {
         //RESTAR ORO AL CASTILLO
-        castillos[idCastillo - 1].oro -= 10;
+        
 
         for (let i = 0; i < castillos.length; i++) {
             if (idCastillo == castillos[i].id) {
@@ -553,7 +552,7 @@ const compraEspia = async() => {
     //SI LA TROPA NO HA SIDO COMPRADA, SE PROSIGUE CON EL RESTO
     if (tropaComprada == false) {
         //RESTAR ORO AL CASTILLO
-        castillos[idCastillo - 1].oro -= 10;
+     
 
         for (let i = 0; i < castillos.length; i++) {
             if (idCastillo == castillos[i].id) {
@@ -619,7 +618,7 @@ const compraJinete = async() => {
     //SI LA TROPA NO HA SIDO COMPRADA, SE PROSIGUE CON EL RESTO
     if (tropaComprada == false) {
         //RESTAR ORO AL CASTILLO
-        castillos[idCastillo - 1].oro -= 10;
+       
 
         for (let i = 0; i < castillos.length; i++) {
             if (idCastillo == castillos[i].id) {
@@ -685,7 +684,7 @@ const compraMago = async() => {
     //SI LA TROPA NO HA SIDO COMPRADA, SE PROSIGUE CON EL RESTO
     if (tropaComprada == false) {
         //RESTAR ORO AL CASTILLO
-        castillos[idCastillo - 1].oro -= 10;
+    
 
         for (let i = 0; i < castillos.length; i++) {
             if (idCastillo == castillos[i].id) {

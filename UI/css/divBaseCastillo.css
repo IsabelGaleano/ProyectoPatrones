@@ -29,11 +29,12 @@
     width: 300px;
     padding: 15px;
     text-align: center;
+    
 }
 .act-toon {
     
     border-radius: 10px;
-    background-color: rgb(145, 141, 138);    
+    background-color: rgb(237, 255, 214);    
     background: rgba(0, 0, 0, .6);
     color: antiquewhite;
     display: flex;
@@ -48,6 +49,7 @@
     background-image: url('../Imagenes/ui/thinframesquare.png');
     background-size: 100% 100%;
     align-items: center;
+    box-shadow: 5px 5px #070707a1;
 }
 .castilloBase {
     
@@ -65,6 +67,7 @@
     padding-bottom: 35px;
     background-image: url('../Imagenes/ui/thinframesquare.png');
     background-size: 100% 100%;
+    box-shadow: 5px 5px;
 }
 
 .castilloBase div {
