@@ -864,6 +864,7 @@ function movimientosPosibles(celda) {
     //VALIDAR ARRIBA
 
     //VALIDAR SI LA CELDA SIGUIENTE ES VALIDA
+    //**FALTA VALIDACION POR SI ES LA PRIMERA FILA Y SOLO HAY 1 NUMERO, OSEA, COLUMNAS */
     if (filaCelda - 1 >= 1 && filaCelda - 1 <= 9) {
         let idCeldaSig = "c" + (filaCelda - 1) + (columnaCelda);
         let celdaElement = document.getElementById(idCeldaSig);
@@ -934,7 +935,9 @@ function movimientosPosibles(celda) {
     //VALIDAR ABAJO
 
     //VALIDAR SI LA CELDA SIGUIENTE ES VALIDA
+    console.log(filaCelda);
     if (filaCelda + 1 >= 1 && filaCelda + 1 <= 9) {
+        console.log("Entra abajo");
         let idCeldaSig = "c" + (filaCelda + 1) + (columnaCelda);
         let celdaElement = document.getElementById(idCeldaSig);
         let idCelda = String(filaCelda + 1) + String(columnaCelda);
@@ -942,6 +945,7 @@ function movimientosPosibles(celda) {
             //VALIDAR SI HAY UN PERSONAJE
             if (celdaElement.personajeActivo == null || celdaElement.personajeActivo == undefined) {
                 //SE INTRODUCE LA POSIBILIDAD
+                console.log("Entra abajo 2");
                 arrayMovimientos.push(idCeldaSig);
             }
 
@@ -975,7 +979,7 @@ function movimientosPosibles(celda) {
     //VALIDAR IZQUIERDA 
 
     //VALIDAR SI LA CELDA SIGUIENTE ES VALIDA
-    if (columnaCelda - 1 >= 0 && columnaCelda - 1 <= 9) {
+    if (columnaCelda - 1 > 0 && columnaCelda - 1 <= 9) {
         let idCeldaSig = "c" + (filaCelda) + (columnaCelda - 1);
         let celdaElement = document.getElementById(idCeldaSig);
         let idCelda = String(filaCelda) + String(columnaCelda - 1);
