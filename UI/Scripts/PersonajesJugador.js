@@ -14,8 +14,8 @@ function actualizarPersonajesJugador() {
     let jinetePasado = false;
     let espiaPasado = false;
 
-    if (obj.castillos[idCastillo - 1].tropas != null) {
-        obj.castillos[idCastillo - 1].tropas.forEach(function(element) {
+    if (obj.castillos[idCastillo].tropas != null) {
+        obj.castillos[idCastillo].tropas.forEach(function(element) {
             //ARQUERO
             if (element.tipo == "Arquero" && arqueroPasado == false) {
                 iconoUsarArquero();

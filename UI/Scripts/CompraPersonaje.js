@@ -175,70 +175,6 @@ const crearPersonaje = async(opcion) => {
 
 
 
-
-const agregarPersonajeToCastillo = async(opcionPersonaje, costo) => {
-    let arrayPersonaje = [];
-    arrayPersonaje = await crearPersonaje(opcionPersonaje);
-    arrayPersonaje[0].id = jugadorActual.id;
-    console.log(arrayPersonaje);
-
-    let obj = JSON.parse(sessionStorage.getItem('tablero'));
-    let jugador;
-    //PARA VALIDAR SI LA TROPA YA HABIA SIDO COMPRADA POR EL MISMO JUGADOR
-    let tropaComprada = false;
-    let [personaje] = arrayPersonaje;
-    //DETERMINAR EL JUGADOR
-    //SE PODRIA ELIMINAR PORQUE YA EXISTE LA VARIABLE JUGADORACTUAL DE TURNO.JS
-    //CONSIDERAR
-    obj.jugadores.forEach(function(element) {
-        if (element.turno) {
-            jugador = element;
-        }
-    });
-
-    let idCastillo = jugador.idCastillo;
-    let castillos = obj.castillos;
-
-    //VALIDAR SI LA TROPA YA FUE COMPRADA
-    if (castillos[idCastillo - 1].tropas != null) {
-        castillos[idCastillo - 1].tropas.forEach(function(element) {
-            if (element.tipo == arrayPersonaje[0].tipo) {
-                tropaComprada = true;
-            }
-        });
-    }
-
-    //SI LA TROPA NO HA SIDO COMPRADA, SE PROSIGUE CON EL RESTO
-    if (tropaComprada == false) {
-        //RESTAR ORO AL CASTILLO
-        
-        for (let i = 0; i < castillos.length; i++) {
-            if (idCastillo == castillos[i].id) {
-                if (castillos[i].tropas == null) {
-                    castillos[i].tropas = personaje;
-                } else {
-                    if (castillos[i].tropas.length < 3) {
-                        personaje.estado = "Activo";
-                    }
-                    castillos[i].tropas = [...castillos[i].tropas, personaje];
-                }
-                obj.castillos[i] = castillos[i];
-            }
-
-        }
-        //console.log(obj.castillos);
-        sessionStorage.setItem('tablero', JSON.stringify(obj));
-        tropaCompradaXTurno = true;
-        actualizarInfoCastilloJugador();
-        actualizarPersonajesJugador(1);
-    } else {
-        console.log("Tropa previamente comprada");
-    }
-
-
-}
-
-
 //COMPRA PERSONAJES
 //1 ARQUERO COSTO: 10
 //2 ESPADACHIN COSTO: 15
@@ -266,9 +202,9 @@ const compraArquero = async() => {
 
     console.log(obj.castillos[idCastillo - 1]);
     //VALIDAR SI LA TROPA YA FUE COMPRADA
-    if (castillos[idCastillo - 1].tropas != null) {
-        if (castillos[idCastillo - 1].tropas == Array) {
-            castillos[idCastillo - 1].tropas.forEach(function(element) {
+    if (castillos[idCastillo].tropas != null) {
+        if (castillos[idCastillo].tropas == Array) {
+            castillos[idCastillo].tropas.forEach(function(element) {
                 if (element.tipo == arrayPersonaje[0].tipo) {
                     tropaComprada = true;
                     //SE CAMBIA EL MODAL
@@ -288,7 +224,7 @@ const compraArquero = async() => {
     //SI LA TROPA NO HA SIDO COMPRADA, SE PROSIGUE CON EL RESTO
     if (tropaComprada == false) {
         //RESTAR ORO AL CASTILLO
-    
+
 
         for (let i = 0; i < castillos.length; i++) {
             if (idCastillo == castillos[i].id) {
@@ -311,7 +247,7 @@ const compraArquero = async() => {
         console.log("Click principal");
         tropaCompradaXTurno = true;
         actualizarInfoCastilloJugador();
-        actualizarPersonajesJugador(1);
+        actualizarPersonajesJugador();
         cerrarOverlayCompraArquero();
     } else {
         console.log("Tropa previamente comprada");
@@ -333,9 +269,9 @@ const compraEspadachin = async() => {
     let idCastillo = jugadorActual.idCastillo;
     let castillos = obj.castillos;
     //VALIDAR SI LA TROPA YA FUE COMPRADA
-    if (castillos[idCastillo - 1].tropas != null) {
-        if (castillos[idCastillo - 1].tropas == Array) {
-            castillos[idCastillo - 1].tropas.forEach(function(element) {
+    if (castillos[idCastillo].tropas != null) {
+        if (castillos[idCastillo].tropas == Array) {
+            castillos[idCastillo].tropas.forEach(function(element) {
                 if (element.tipo == arrayPersonaje[0].tipo) {
                     tropaComprada = true;
                     //SE CAMBIA EL MODAL
@@ -355,7 +291,7 @@ const compraEspadachin = async() => {
     //SI LA TROPA NO HA SIDO COMPRADA, SE PROSIGUE CON EL RESTO
     if (tropaComprada == false) {
         //RESTAR ORO AL CASTILLO
-     
+
 
         for (let i = 0; i < castillos.length; i++) {
             if (idCastillo == castillos[i].id) {
@@ -377,7 +313,7 @@ const compraEspadachin = async() => {
         sessionStorage.setItem('tablero', JSON.stringify(obj));
         tropaCompradaXTurno = true;
         actualizarInfoCastilloJugador();
-        actualizarPersonajesJugador(1);
+        actualizarPersonajesJugador();
         cerrarOverlayCompraSwordsman();
     } else {
         console.log("Tropa previamente comprada");
@@ -399,9 +335,9 @@ const compraAsesino = async() => {
     let idCastillo = jugadorActual.idCastillo;
     let castillos = obj.castillos;
     //VALIDAR SI LA TROPA YA FUE COMPRADA
-    if (castillos[idCastillo - 1].tropas != null) {
-        if (castillos[idCastillo - 1].tropas == Array) {
-            castillos[idCastillo - 1].tropas.forEach(function(element) {
+    if (castillos[idCastillo].tropas != null) {
+        if (castillos[idCastillo].tropas == Array) {
+            castillos[idCastillo].tropas.forEach(function(element) {
                 if (element.tipo == arrayPersonaje[0].tipo) {
                     tropaComprada = true;
                     //SE CAMBIA EL MODAL
@@ -421,7 +357,7 @@ const compraAsesino = async() => {
     //SI LA TROPA NO HA SIDO COMPRADA, SE PROSIGUE CON EL RESTO
     if (tropaComprada == false) {
         //RESTAR ORO AL CASTILLO
-        
+
 
         for (let i = 0; i < castillos.length; i++) {
             if (idCastillo == castillos[i].id) {
@@ -443,7 +379,8 @@ const compraAsesino = async() => {
         sessionStorage.setItem('tablero', JSON.stringify(obj));
         tropaCompradaXTurno = true;
         actualizarInfoCastilloJugador();
-        actualizarPersonajesJugador(1);
+        actualizarPersonajesJugador();
+        cerrarOverlayCompraAsesino();
     } else {
         console.log("Tropa previamente comprada");
     }
@@ -464,9 +401,9 @@ const compraBerserker = async() => {
     let idCastillo = jugadorActual.idCastillo;
     let castillos = obj.castillos;
     //VALIDAR SI LA TROPA YA FUE COMPRADA
-    if (castillos[idCastillo - 1].tropas != null) {
-        if (castillos[idCastillo - 1].tropas == Array) {
-            castillos[idCastillo - 1].tropas.forEach(function(element) {
+    if (castillos[idCastillo].tropas != null) {
+        if (castillos[idCastillo].tropas == Array) {
+            castillos[idCastillo].tropas.forEach(function(element) {
                 if (element.tipo == arrayPersonaje[0].tipo) {
                     tropaComprada = true;
                     //SE CAMBIA EL MODAL
@@ -486,7 +423,7 @@ const compraBerserker = async() => {
     //SI LA TROPA NO HA SIDO COMPRADA, SE PROSIGUE CON EL RESTO
     if (tropaComprada == false) {
         //RESTAR ORO AL CASTILLO
-        
+
 
         for (let i = 0; i < castillos.length; i++) {
             if (idCastillo == castillos[i].id) {
@@ -508,7 +445,7 @@ const compraBerserker = async() => {
         sessionStorage.setItem('tablero', JSON.stringify(obj));
         tropaCompradaXTurno = true;
         actualizarInfoCastilloJugador();
-        actualizarPersonajesJugador(1);
+        actualizarPersonajesJugador();
         cerrarOverlayCompraBerserker();
     } else {
         console.log("Tropa previamente comprada");
@@ -530,9 +467,9 @@ const compraEspia = async() => {
     let idCastillo = jugadorActual.idCastillo;
     let castillos = obj.castillos;
     //VALIDAR SI LA TROPA YA FUE COMPRADA
-    if (castillos[idCastillo - 1].tropas != null) {
-        if (castillos[idCastillo - 1].tropas == Array) {
-            castillos[idCastillo - 1].tropas.forEach(function(element) {
+    if (castillos[idCastillo].tropas != null) {
+        if (castillos[idCastillo].tropas == Array) {
+            castillos[idCastillo].tropas.forEach(function(element) {
                 if (element.tipo == arrayPersonaje[0].tipo) {
                     tropaComprada = true;
                     //SE CAMBIA EL MODAL
@@ -552,7 +489,7 @@ const compraEspia = async() => {
     //SI LA TROPA NO HA SIDO COMPRADA, SE PROSIGUE CON EL RESTO
     if (tropaComprada == false) {
         //RESTAR ORO AL CASTILLO
-     
+
 
         for (let i = 0; i < castillos.length; i++) {
             if (idCastillo == castillos[i].id) {
@@ -574,7 +511,7 @@ const compraEspia = async() => {
         sessionStorage.setItem('tablero', JSON.stringify(obj));
         tropaCompradaXTurno = true;
         actualizarInfoCastilloJugador();
-        actualizarPersonajesJugador(1);
+        actualizarPersonajesJugador();
         cerrarOverlayCompraEspia();
     } else {
         console.log("Tropa previamente comprada");
@@ -596,9 +533,9 @@ const compraJinete = async() => {
     let idCastillo = jugadorActual.idCastillo;
     let castillos = obj.castillos;
     //VALIDAR SI LA TROPA YA FUE COMPRADA
-    if (castillos[idCastillo - 1].tropas != null) {
-        if (castillos[idCastillo - 1].tropas == Array) {
-            castillos[idCastillo - 1].tropas.forEach(function(element) {
+    if (castillos[idCastillo].tropas != null) {
+        if (castillos[idCastillo].tropas == Array) {
+            castillos[idCastillo].tropas.forEach(function(element) {
                 if (element.tipo == arrayPersonaje[0].tipo) {
                     tropaComprada = true;
                     //SE CAMBIA EL MODAL
@@ -618,7 +555,7 @@ const compraJinete = async() => {
     //SI LA TROPA NO HA SIDO COMPRADA, SE PROSIGUE CON EL RESTO
     if (tropaComprada == false) {
         //RESTAR ORO AL CASTILLO
-       
+
 
         for (let i = 0; i < castillos.length; i++) {
             if (idCastillo == castillos[i].id) {
@@ -640,7 +577,7 @@ const compraJinete = async() => {
         sessionStorage.setItem('tablero', JSON.stringify(obj));
         tropaCompradaXTurno = true;
         actualizarInfoCastilloJugador();
-        actualizarPersonajesJugador(1);
+        actualizarPersonajesJugador();
         cerrarOverlayCompraKnight();
     } else {
         console.log("Tropa previamente comprada");
@@ -662,9 +599,9 @@ const compraMago = async() => {
     let idCastillo = jugadorActual.idCastillo;
     let castillos = obj.castillos;
     //VALIDAR SI LA TROPA YA FUE COMPRADA
-    if (castillos[idCastillo - 1].tropas != null) {
-        if (castillos[idCastillo - 1].tropas == Array) {
-            castillos[idCastillo - 1].tropas.forEach(function(element) {
+    if (castillos[idCastillo].tropas != null) {
+        if (castillos[idCastillo].tropas == Array) {
+            castillos[idCastillo].tropas.forEach(function(element) {
                 if (element.tipo == arrayPersonaje[0].tipo) {
                     tropaComprada = true;
                     //SE CAMBIA EL MODAL
@@ -684,7 +621,7 @@ const compraMago = async() => {
     //SI LA TROPA NO HA SIDO COMPRADA, SE PROSIGUE CON EL RESTO
     if (tropaComprada == false) {
         //RESTAR ORO AL CASTILLO
-    
+
 
         for (let i = 0; i < castillos.length; i++) {
             if (idCastillo == castillos[i].id) {
@@ -706,7 +643,7 @@ const compraMago = async() => {
         sessionStorage.setItem('tablero', JSON.stringify(obj));
         tropaCompradaXTurno = true;
         actualizarInfoCastilloJugador();
-        actualizarPersonajesJugador(1);
+        actualizarPersonajesJugador();
         cerrarOverlayCompraMago();
     } else {
         console.log("Tropa previamente comprada");
