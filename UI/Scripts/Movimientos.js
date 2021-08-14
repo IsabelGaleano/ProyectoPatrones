@@ -54,591 +54,599 @@ let posicionPersonajeArray;
 botonesUsarPersonaje.forEach(function(elem) {
     elem.addEventListener("click", async function() {
         let obj = JSON.parse(sessionStorage.getItem('tablero'));
-        if (movimientoXTurno == false) {
-            //ARQUERO
-            if (elem.classList.contains("arquero") && elem.textContent == "Usar") {
 
-                if (cuadroMovimientos.textContent >= 1) {
-                    let estadoPersonaje;
-                    let estadoActualPer = "NU";
-                    personajeActualMovimiento = obtenerPersonajeDeTropas(1);
-                    posicionPersonajeArray = await buscarCeldaYPersonaje();
-                    //let obj = JSON.parse(sessionStorage.getItem('tablero'));
+        //VALIDA SI TIRÓ DEL DADO
+        if (cuadroMovimientos.textContent === "undefined" || cuadroMovimientos.textContent == "") {
+            //console.log("entra en undefined");
+            setMensaje("Debe tirar del dado", "../Imagenes/ui/checkbox_01.png");
+            abrirModalMensaje();
+        } else {
+            if (movimientoXTurno == false) {
+                //ARQUERO
+                if (elem.classList.contains("arquero") && elem.textContent == "Usar") {
 
-                    //VALIDAR ESTADO DEL PERSONAJE
-                    //ESTADOS POSIBLES: NU (NO USADO) Y USADO
-
-                    let movActual = false;
-                    if (obj.jugadores[0].id == jugadorActual.id) {
-                        if (primerMovimientoArqueroJ1 == true) {
-                            movActual = true
-                        }
-                    } else if (obj.jugadores[1].id == jugadorActual.id) {
-                        if (primerMovimientoArqueroJ2 == true) {
-                            movActual = true
-                        }
-                    }
-
-
-                    //let objCombinado = buscarCeldaYPersonaje(1);
-                    let idCelda;
-                    movimientosPersonaje = personajeActualMovimiento.cantMovimientos;
-                    tipoPersonajeActual = 1;
-                    let primerMovimiento;
-                    movimientoXTurno = true;
-                    //SI NO HA SIDO INCIALIZADO EN EL TABLERO
-                    //if (posicionPersonajeArray != undefined) {
-                    if (movActual == true) {
-
-                        arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
-                        estadoPersonaje = "USADO";
-                        idCelda = arrayCeldasConPersonajes[posicionPersonajeArray].celda;
-                        primerMovimiento = true;
-                        console.log("Entra en mov usado");
-                    } else {
-                        elem.classList += " usado";
-                        primerMovimiento = false;
-                        if (obj.jugadores[0].id == jugadorActual.id) {
-                            primerMovimientoArqueroJ1 = true;
-                        } else if (obj.jugadores[1].id == jugadorActual.id) {
-                            primerMovimientoArqueroJ2 = true;
-                        }
-                        let objComb = {};
-                        objComb.personaje = personajeActualMovimiento;
-
-                        objComb.estado = "NU";
-                        if (obj.jugadores[0].id == jugadorActual.id) {
-                            idCelda = "c82";
-                            document.getElementById(idCelda).style.backgroundImage = cargarPersonaje(tipoPersonajeActual);
-                            document.getElementById(idCelda).personajeActivo = personajeActualMovimiento;
-                            //celdaAnteriorPersonaje = idCelda;
-
-                            celdaAnteriorPersonajeJ1 = idCelda;
-
-                            objComb.celda = idCelda;
-                        } else {
-                            idCelda = "c19";
-                            document.getElementById(idCelda).style.backgroundImage = cargarPersonaje(tipoPersonajeActual);
-                            document.getElementById(idCelda).personajeActivo = personajeActualMovimiento;
-                            //celdaAnteriorPersonaje = idCelda;
-
-                            celdaAnteriorPersonajeJ2 = idCelda;
-
-                            objComb.celda = idCelda;
-                        }
-                        if (posicionPersonajeArray == undefined) {
-                            posicionPersonajeArray = 0;
-                        }
-                        arrayCeldasConPersonajes.push(objComb);
-                        console.log("Se añade");
-                    }
-                    //PERMITE MOVERSE AUNQUE SEA UNA VEZ
                     if (cuadroMovimientos.textContent >= 1) {
-                        movimientoPersonaje(personajeActualMovimiento, idCelda, primerMovimiento);
+                        let estadoPersonaje;
+                        let estadoActualPer = "NU";
+                        personajeActualMovimiento = obtenerPersonajeDeTropas(1);
+                        posicionPersonajeArray = await buscarCeldaYPersonaje();
+                        //let obj = JSON.parse(sessionStorage.getItem('tablero'));
+
+                        //VALIDAR ESTADO DEL PERSONAJE
+                        //ESTADOS POSIBLES: NU (NO USADO) Y USADO
+
+                        let movActual = false;
+                        if (obj.jugadores[0].id == jugadorActual.id) {
+                            if (primerMovimientoArqueroJ1 == true) {
+                                movActual = true
+                            }
+                        } else if (obj.jugadores[1].id == jugadorActual.id) {
+                            if (primerMovimientoArqueroJ2 == true) {
+                                movActual = true
+                            }
+                        }
+
+
+                        //let objCombinado = buscarCeldaYPersonaje(1);
+                        let idCelda;
+                        movimientosPersonaje = personajeActualMovimiento.cantMovimientos;
+                        tipoPersonajeActual = 1;
+                        let primerMovimiento;
+                        movimientoXTurno = true;
+                        //SI NO HA SIDO INCIALIZADO EN EL TABLERO
+                        //if (posicionPersonajeArray != undefined) {
+                        if (movActual == true) {
+
+                            arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
+                            estadoPersonaje = "USADO";
+                            idCelda = arrayCeldasConPersonajes[posicionPersonajeArray].celda;
+                            primerMovimiento = true;
+                            console.log("Entra en mov usado");
+                        } else {
+                            elem.classList += " usado";
+                            primerMovimiento = false;
+                            if (obj.jugadores[0].id == jugadorActual.id) {
+                                primerMovimientoArqueroJ1 = true;
+                            } else if (obj.jugadores[1].id == jugadorActual.id) {
+                                primerMovimientoArqueroJ2 = true;
+                            }
+                            let objComb = {};
+                            objComb.personaje = personajeActualMovimiento;
+
+                            objComb.estado = "NU";
+                            if (obj.jugadores[0].id == jugadorActual.id) {
+                                idCelda = "c82";
+                                document.getElementById(idCelda).style.backgroundImage = cargarPersonaje(tipoPersonajeActual);
+                                document.getElementById(idCelda).personajeActivo = personajeActualMovimiento;
+                                //celdaAnteriorPersonaje = idCelda;
+
+                                celdaAnteriorPersonajeJ1 = idCelda;
+
+                                objComb.celda = idCelda;
+                            } else {
+                                idCelda = "c19";
+                                document.getElementById(idCelda).style.backgroundImage = cargarPersonaje(tipoPersonajeActual);
+                                document.getElementById(idCelda).personajeActivo = personajeActualMovimiento;
+                                //celdaAnteriorPersonaje = idCelda;
+
+                                celdaAnteriorPersonajeJ2 = idCelda;
+
+                                objComb.celda = idCelda;
+                            }
+                            if (posicionPersonajeArray == undefined) {
+                                posicionPersonajeArray = 0;
+                            }
+                            arrayCeldasConPersonajes.push(objComb);
+                            console.log("Se añade");
+                        }
+                        //PERMITE MOVERSE AUNQUE SEA UNA VEZ
+                        if (cuadroMovimientos.textContent >= 1) {
+                            movimientoPersonaje(personajeActualMovimiento, idCelda, primerMovimiento);
+                        }
                     }
                 }
-            }
-            //ESPADACHIN
-            if (elem.classList.contains("espadachin") && elem.textContent == "Usar") {
+                //ESPADACHIN
+                if (elem.classList.contains("espadachin") && elem.textContent == "Usar") {
 
-                if (cuadroMovimientos.textContent >= 1) {
-                    let estadoPersonaje;
-                    let estadoActualPer = "NU";
-                    personajeActualMovimiento = obtenerPersonajeDeTropas(2);
-                    posicionPersonajeArray = await buscarCeldaYPersonaje();
-                    //let obj = JSON.parse(sessionStorage.getItem('tablero'));
-
-                    //VALIDAR ESTADO DEL PERSONAJE
-                    //ESTADOS POSIBLES: NU (NO USADO) Y USADO
-
-                    let movActual = false;
-                    if (obj.jugadores[0].id == jugadorActual.id) {
-                        if (primerMovimientoEspadachinJ1 == true) {
-                            movActual = true
-                        }
-                    } else if (obj.jugadores[1].id == jugadorActual.id) {
-                        if (primerMovimientoEspadachinJ2 == true) {
-                            movActual = true
-                        }
-                    }
-
-
-                    //let objCombinado = buscarCeldaYPersonaje(1);
-                    let idCelda;
-                    movimientosPersonaje = personajeActualMovimiento.cantMovimientos;
-                    tipoPersonajeActual = 2;
-                    let primerMovimiento;
-                    movimientoXTurno = true;
-                    //SI NO HA SIDO INCIALIZADO EN EL TABLERO
-                    //if (posicionPersonajeArray != undefined) {
-                    if (movActual == true) {
-
-                        arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
-                        estadoPersonaje = "USADO";
-                        idCelda = arrayCeldasConPersonajes[posicionPersonajeArray].celda;
-                        primerMovimiento = true;
-                        console.log("Entra en mov usado");
-                    } else {
-                        elem.classList += " usado";
-                        primerMovimiento = false;
-                        if (obj.jugadores[0].id == jugadorActual.id) {
-                            primerMovimientoEspadachinJ1 = true;
-                        } else if (obj.jugadores[1].id == jugadorActual.id) {
-                            primerMovimientoEspadachinJ1 = true;
-                        }
-                        let objComb = {};
-                        objComb.personaje = personajeActualMovimiento;
-
-                        objComb.estado = "NU";
-                        if (obj.jugadores[0].id == jugadorActual.id) {
-                            idCelda = "c82";
-                            document.getElementById(idCelda).style.backgroundImage = cargarPersonaje(tipoPersonajeActual);
-                            document.getElementById(idCelda).personajeActivo = personajeActualMovimiento;
-                            //celdaAnteriorPersonaje = idCelda;
-
-                            celdaAnteriorPersonajeJ1 = idCelda;
-
-                            objComb.celda = idCelda;
-                        } else {
-                            idCelda = "c19";
-                            document.getElementById(idCelda).style.backgroundImage = cargarPersonaje(tipoPersonajeActual);
-                            document.getElementById(idCelda).personajeActivo = personajeActualMovimiento;
-                            //celdaAnteriorPersonaje = idCelda;
-
-                            celdaAnteriorPersonajeJ2 = idCelda;
-
-                            objComb.celda = idCelda;
-                        }
-                        if (posicionPersonajeArray == undefined) {
-                            posicionPersonajeArray = 0;
-                        }
-                        arrayCeldasConPersonajes.push(objComb);
-                        console.log("Se añade");
-                    }
-                    //PERMITE MOVERSE AUNQUE SEA UNA VEZ
                     if (cuadroMovimientos.textContent >= 1) {
-                        movimientoPersonaje(personajeActualMovimiento, idCelda, primerMovimiento);
+                        let estadoPersonaje;
+                        let estadoActualPer = "NU";
+                        personajeActualMovimiento = obtenerPersonajeDeTropas(2);
+                        posicionPersonajeArray = await buscarCeldaYPersonaje();
+                        //let obj = JSON.parse(sessionStorage.getItem('tablero'));
+
+                        //VALIDAR ESTADO DEL PERSONAJE
+                        //ESTADOS POSIBLES: NU (NO USADO) Y USADO
+
+                        let movActual = false;
+                        if (obj.jugadores[0].id == jugadorActual.id) {
+                            if (primerMovimientoEspadachinJ1 == true) {
+                                movActual = true
+                            }
+                        } else if (obj.jugadores[1].id == jugadorActual.id) {
+                            if (primerMovimientoEspadachinJ2 == true) {
+                                movActual = true
+                            }
+                        }
+
+
+                        //let objCombinado = buscarCeldaYPersonaje(1);
+                        let idCelda;
+                        movimientosPersonaje = personajeActualMovimiento.cantMovimientos;
+                        tipoPersonajeActual = 2;
+                        let primerMovimiento;
+                        movimientoXTurno = true;
+                        //SI NO HA SIDO INCIALIZADO EN EL TABLERO
+                        //if (posicionPersonajeArray != undefined) {
+                        if (movActual == true) {
+
+                            arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
+                            estadoPersonaje = "USADO";
+                            idCelda = arrayCeldasConPersonajes[posicionPersonajeArray].celda;
+                            primerMovimiento = true;
+                            console.log("Entra en mov usado");
+                        } else {
+                            elem.classList += " usado";
+                            primerMovimiento = false;
+                            if (obj.jugadores[0].id == jugadorActual.id) {
+                                primerMovimientoEspadachinJ1 = true;
+                            } else if (obj.jugadores[1].id == jugadorActual.id) {
+                                primerMovimientoEspadachinJ1 = true;
+                            }
+                            let objComb = {};
+                            objComb.personaje = personajeActualMovimiento;
+
+                            objComb.estado = "NU";
+                            if (obj.jugadores[0].id == jugadorActual.id) {
+                                idCelda = "c82";
+                                document.getElementById(idCelda).style.backgroundImage = cargarPersonaje(tipoPersonajeActual);
+                                document.getElementById(idCelda).personajeActivo = personajeActualMovimiento;
+                                //celdaAnteriorPersonaje = idCelda;
+
+                                celdaAnteriorPersonajeJ1 = idCelda;
+
+                                objComb.celda = idCelda;
+                            } else {
+                                idCelda = "c19";
+                                document.getElementById(idCelda).style.backgroundImage = cargarPersonaje(tipoPersonajeActual);
+                                document.getElementById(idCelda).personajeActivo = personajeActualMovimiento;
+                                //celdaAnteriorPersonaje = idCelda;
+
+                                celdaAnteriorPersonajeJ2 = idCelda;
+
+                                objComb.celda = idCelda;
+                            }
+                            if (posicionPersonajeArray == undefined) {
+                                posicionPersonajeArray = 0;
+                            }
+                            arrayCeldasConPersonajes.push(objComb);
+                            console.log("Se añade");
+                        }
+                        //PERMITE MOVERSE AUNQUE SEA UNA VEZ
+                        if (cuadroMovimientos.textContent >= 1) {
+                            movimientoPersonaje(personajeActualMovimiento, idCelda, primerMovimiento);
+                        }
                     }
                 }
-            }
-            //ASESINO
-            if (elem.classList.contains("asesino") && elem.textContent == "Usar") {
+                //ASESINO
+                if (elem.classList.contains("asesino") && elem.textContent == "Usar") {
 
-                if (cuadroMovimientos.textContent >= 1) {
-                    let estadoPersonaje;
-                    let estadoActualPer = "NU";
-                    personajeActualMovimiento = obtenerPersonajeDeTropas(3);
-                    posicionPersonajeArray = await buscarCeldaYPersonaje();
-                    //let obj = JSON.parse(sessionStorage.getItem('tablero'));
-
-                    //VALIDAR ESTADO DEL PERSONAJE
-                    //ESTADOS POSIBLES: NU (NO USADO) Y USADO
-
-                    let movActual = false;
-                    if (obj.jugadores[0].id == jugadorActual.id) {
-                        if (primerMovimientoAsesinoJ1 == true) {
-                            movActual = true
-                        }
-                    } else if (obj.jugadores[1].id == jugadorActual.id) {
-                        if (primerMovimientoAsesinoJ2 == true) {
-                            movActual = true
-                        }
-                    }
-
-
-                    //let objCombinado = buscarCeldaYPersonaje(1);
-                    let idCelda;
-                    movimientosPersonaje = personajeActualMovimiento.cantMovimientos;
-                    tipoPersonajeActual = 3;
-                    let primerMovimiento;
-                    movimientoXTurno = true;
-                    //SI NO HA SIDO INCIALIZADO EN EL TABLERO
-                    //if (posicionPersonajeArray != undefined) {
-                    if (movActual == true) {
-
-                        arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
-                        estadoPersonaje = "USADO";
-                        idCelda = arrayCeldasConPersonajes[posicionPersonajeArray].celda;
-                        primerMovimiento = true;
-                        console.log("Entra en mov usado");
-                    } else {
-                        elem.classList += " usado";
-                        primerMovimiento = false;
-                        if (obj.jugadores[0].id == jugadorActual.id) {
-                            primerMovimientoAsesinoJ1 = true;
-                        } else if (obj.jugadores[1].id == jugadorActual.id) {
-                            primerMovimientoAsesinoJ2 = true;
-                        }
-                        let objComb = {};
-                        objComb.personaje = personajeActualMovimiento;
-
-                        objComb.estado = "NU";
-                        if (obj.jugadores[0].id == jugadorActual.id) {
-                            idCelda = "c82";
-                            document.getElementById(idCelda).style.backgroundImage = cargarPersonaje(tipoPersonajeActual);
-                            document.getElementById(idCelda).personajeActivo = personajeActualMovimiento;
-                            //celdaAnteriorPersonaje = idCelda;
-
-                            celdaAnteriorPersonajeJ1 = idCelda;
-
-                            objComb.celda = idCelda;
-                        } else {
-                            idCelda = "c19";
-                            document.getElementById(idCelda).style.backgroundImage = cargarPersonaje(tipoPersonajeActual);
-                            document.getElementById(idCelda).personajeActivo = personajeActualMovimiento;
-                            //celdaAnteriorPersonaje = idCelda;
-
-                            celdaAnteriorPersonajeJ2 = idCelda;
-
-                            objComb.celda = idCelda;
-                        }
-                        if (posicionPersonajeArray == undefined) {
-                            posicionPersonajeArray = 0;
-                        }
-                        arrayCeldasConPersonajes.push(objComb);
-                        console.log("Se añade");
-                    }
-                    //PERMITE MOVERSE AUNQUE SEA UNA VEZ
                     if (cuadroMovimientos.textContent >= 1) {
-                        movimientoPersonaje(personajeActualMovimiento, idCelda, primerMovimiento);
+                        let estadoPersonaje;
+                        let estadoActualPer = "NU";
+                        personajeActualMovimiento = obtenerPersonajeDeTropas(3);
+                        posicionPersonajeArray = await buscarCeldaYPersonaje();
+                        //let obj = JSON.parse(sessionStorage.getItem('tablero'));
+
+                        //VALIDAR ESTADO DEL PERSONAJE
+                        //ESTADOS POSIBLES: NU (NO USADO) Y USADO
+
+                        let movActual = false;
+                        if (obj.jugadores[0].id == jugadorActual.id) {
+                            if (primerMovimientoAsesinoJ1 == true) {
+                                movActual = true
+                            }
+                        } else if (obj.jugadores[1].id == jugadorActual.id) {
+                            if (primerMovimientoAsesinoJ2 == true) {
+                                movActual = true
+                            }
+                        }
+
+
+                        //let objCombinado = buscarCeldaYPersonaje(1);
+                        let idCelda;
+                        movimientosPersonaje = personajeActualMovimiento.cantMovimientos;
+                        tipoPersonajeActual = 3;
+                        let primerMovimiento;
+                        movimientoXTurno = true;
+                        //SI NO HA SIDO INCIALIZADO EN EL TABLERO
+                        //if (posicionPersonajeArray != undefined) {
+                        if (movActual == true) {
+
+                            arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
+                            estadoPersonaje = "USADO";
+                            idCelda = arrayCeldasConPersonajes[posicionPersonajeArray].celda;
+                            primerMovimiento = true;
+                            console.log("Entra en mov usado");
+                        } else {
+                            elem.classList += " usado";
+                            primerMovimiento = false;
+                            if (obj.jugadores[0].id == jugadorActual.id) {
+                                primerMovimientoAsesinoJ1 = true;
+                            } else if (obj.jugadores[1].id == jugadorActual.id) {
+                                primerMovimientoAsesinoJ2 = true;
+                            }
+                            let objComb = {};
+                            objComb.personaje = personajeActualMovimiento;
+
+                            objComb.estado = "NU";
+                            if (obj.jugadores[0].id == jugadorActual.id) {
+                                idCelda = "c82";
+                                document.getElementById(idCelda).style.backgroundImage = cargarPersonaje(tipoPersonajeActual);
+                                document.getElementById(idCelda).personajeActivo = personajeActualMovimiento;
+                                //celdaAnteriorPersonaje = idCelda;
+
+                                celdaAnteriorPersonajeJ1 = idCelda;
+
+                                objComb.celda = idCelda;
+                            } else {
+                                idCelda = "c19";
+                                document.getElementById(idCelda).style.backgroundImage = cargarPersonaje(tipoPersonajeActual);
+                                document.getElementById(idCelda).personajeActivo = personajeActualMovimiento;
+                                //celdaAnteriorPersonaje = idCelda;
+
+                                celdaAnteriorPersonajeJ2 = idCelda;
+
+                                objComb.celda = idCelda;
+                            }
+                            if (posicionPersonajeArray == undefined) {
+                                posicionPersonajeArray = 0;
+                            }
+                            arrayCeldasConPersonajes.push(objComb);
+                            console.log("Se añade");
+                        }
+                        //PERMITE MOVERSE AUNQUE SEA UNA VEZ
+                        if (cuadroMovimientos.textContent >= 1) {
+                            movimientoPersonaje(personajeActualMovimiento, idCelda, primerMovimiento);
+                        }
                     }
                 }
-            }
-            //BERSEQUER
-            if (elem.classList.contains("bersequer") && elem.textContent == "Usar") {
+                //BERSEQUER
+                if (elem.classList.contains("bersequer") && elem.textContent == "Usar") {
 
-                if (cuadroMovimientos.textContent >= 1) {
-                    let estadoPersonaje;
-                    let estadoActualPer = "NU";
-                    personajeActualMovimiento = obtenerPersonajeDeTropas(4);
-                    posicionPersonajeArray = await buscarCeldaYPersonaje();
-                    //let obj = JSON.parse(sessionStorage.getItem('tablero'));
-
-                    //VALIDAR ESTADO DEL PERSONAJE
-                    //ESTADOS POSIBLES: NU (NO USADO) Y USADO
-
-                    let movActual = false;
-                    if (obj.jugadores[0].id == jugadorActual.id) {
-                        if (primerMovimientoBersequerJ1 == true) {
-                            movActual = true
-                        }
-                    } else if (obj.jugadores[1].id == jugadorActual.id) {
-                        if (primerMovimientoBersequerJ2 == true) {
-                            movActual = true
-                        }
-                    }
-
-
-                    //let objCombinado = buscarCeldaYPersonaje(1);
-                    let idCelda;
-
-                    movimientosPersonaje = personajeActualMovimiento.cantMovimientos;
-                    console.log(movimientosPersonaje);
-                    tipoPersonajeActual = 4;
-                    let primerMovimiento;
-                    movimientoXTurno = true;
-                    //SI NO HA SIDO INCIALIZADO EN EL TABLERO
-                    //if (posicionPersonajeArray != undefined) {
-                    if (movActual == true) {
-
-                        arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
-                        estadoPersonaje = "USADO";
-                        idCelda = arrayCeldasConPersonajes[posicionPersonajeArray].celda;
-                        primerMovimiento = true;
-                        console.log("Entra en mov usado");
-                    } else {
-                        elem.classList += " usado";
-                        primerMovimiento = false;
-                        if (obj.jugadores[0].id == jugadorActual.id) {
-                            primerMovimientoBersequerJ1 = true;
-                        } else if (obj.jugadores[1].id == jugadorActual.id) {
-                            primerMovimientoBersequerJ2 = true;
-                        }
-                        let objComb = {};
-                        objComb.personaje = personajeActualMovimiento;
-
-                        objComb.estado = "NU";
-                        if (obj.jugadores[0].id == jugadorActual.id) {
-                            idCelda = "c82";
-                            document.getElementById(idCelda).style.backgroundImage = cargarPersonaje(tipoPersonajeActual);
-                            document.getElementById(idCelda).personajeActivo = personajeActualMovimiento;
-                            //celdaAnteriorPersonaje = idCelda;
-
-                            celdaAnteriorPersonajeJ1 = idCelda;
-
-                            objComb.celda = idCelda;
-                        } else {
-                            idCelda = "c19";
-                            document.getElementById(idCelda).style.backgroundImage = cargarPersonaje(tipoPersonajeActual);
-                            document.getElementById(idCelda).personajeActivo = personajeActualMovimiento;
-                            //celdaAnteriorPersonaje = idCelda;
-
-                            celdaAnteriorPersonajeJ2 = idCelda;
-
-                            objComb.celda = idCelda;
-                        }
-                        if (posicionPersonajeArray == undefined) {
-                            posicionPersonajeArray = 0;
-                        }
-                        arrayCeldasConPersonajes.push(objComb);
-                        console.log("Se añade");
-                    }
-                    //PERMITE MOVERSE AUNQUE SEA UNA VEZ
                     if (cuadroMovimientos.textContent >= 1) {
-                        movimientoPersonaje(personajeActualMovimiento, idCelda, primerMovimiento);
+                        let estadoPersonaje;
+                        let estadoActualPer = "NU";
+                        personajeActualMovimiento = obtenerPersonajeDeTropas(4);
+                        posicionPersonajeArray = await buscarCeldaYPersonaje();
+                        //let obj = JSON.parse(sessionStorage.getItem('tablero'));
+
+                        //VALIDAR ESTADO DEL PERSONAJE
+                        //ESTADOS POSIBLES: NU (NO USADO) Y USADO
+
+                        let movActual = false;
+                        if (obj.jugadores[0].id == jugadorActual.id) {
+                            if (primerMovimientoBersequerJ1 == true) {
+                                movActual = true
+                            }
+                        } else if (obj.jugadores[1].id == jugadorActual.id) {
+                            if (primerMovimientoBersequerJ2 == true) {
+                                movActual = true
+                            }
+                        }
+
+
+                        //let objCombinado = buscarCeldaYPersonaje(1);
+                        let idCelda;
+
+                        movimientosPersonaje = personajeActualMovimiento.cantMovimientos;
+                        console.log(movimientosPersonaje);
+                        tipoPersonajeActual = 4;
+                        let primerMovimiento;
+                        movimientoXTurno = true;
+                        //SI NO HA SIDO INCIALIZADO EN EL TABLERO
+                        //if (posicionPersonajeArray != undefined) {
+                        if (movActual == true) {
+
+                            arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
+                            estadoPersonaje = "USADO";
+                            idCelda = arrayCeldasConPersonajes[posicionPersonajeArray].celda;
+                            primerMovimiento = true;
+                            console.log("Entra en mov usado");
+                        } else {
+                            elem.classList += " usado";
+                            primerMovimiento = false;
+                            if (obj.jugadores[0].id == jugadorActual.id) {
+                                primerMovimientoBersequerJ1 = true;
+                            } else if (obj.jugadores[1].id == jugadorActual.id) {
+                                primerMovimientoBersequerJ2 = true;
+                            }
+                            let objComb = {};
+                            objComb.personaje = personajeActualMovimiento;
+
+                            objComb.estado = "NU";
+                            if (obj.jugadores[0].id == jugadorActual.id) {
+                                idCelda = "c82";
+                                document.getElementById(idCelda).style.backgroundImage = cargarPersonaje(tipoPersonajeActual);
+                                document.getElementById(idCelda).personajeActivo = personajeActualMovimiento;
+                                //celdaAnteriorPersonaje = idCelda;
+
+                                celdaAnteriorPersonajeJ1 = idCelda;
+
+                                objComb.celda = idCelda;
+                            } else {
+                                idCelda = "c19";
+                                document.getElementById(idCelda).style.backgroundImage = cargarPersonaje(tipoPersonajeActual);
+                                document.getElementById(idCelda).personajeActivo = personajeActualMovimiento;
+                                //celdaAnteriorPersonaje = idCelda;
+
+                                celdaAnteriorPersonajeJ2 = idCelda;
+
+                                objComb.celda = idCelda;
+                            }
+                            if (posicionPersonajeArray == undefined) {
+                                posicionPersonajeArray = 0;
+                            }
+                            arrayCeldasConPersonajes.push(objComb);
+                            console.log("Se añade");
+                        }
+                        //PERMITE MOVERSE AUNQUE SEA UNA VEZ
+                        if (cuadroMovimientos.textContent >= 1) {
+                            movimientoPersonaje(personajeActualMovimiento, idCelda, primerMovimiento);
+                        }
                     }
                 }
-            }
-            //ESPIA
-            if (elem.classList.contains("espia") && elem.textContent == "Usar") {
+                //ESPIA
+                if (elem.classList.contains("espia") && elem.textContent == "Usar") {
 
-                if (cuadroMovimientos.textContent >= 1) {
-                    let estadoPersonaje;
-                    let estadoActualPer = "NU";
-                    personajeActualMovimiento = obtenerPersonajeDeTropas(5);
-                    posicionPersonajeArray = await buscarCeldaYPersonaje();
-                    //let obj = JSON.parse(sessionStorage.getItem('tablero'));
-
-                    //VALIDAR ESTADO DEL PERSONAJE
-                    //ESTADOS POSIBLES: NU (NO USADO) Y USADO
-
-                    let movActual = false;
-                    if (obj.jugadores[0].id == jugadorActual.id) {
-                        if (primerMovimientoEspiaJ1 == true) {
-                            movActual = true
-                        }
-                    } else if (obj.jugadores[1].id == jugadorActual.id) {
-                        if (primerMovimientoEspiaJ2 == true) {
-                            movActual = true
-                        }
-                    }
-
-
-                    //let objCombinado = buscarCeldaYPersonaje(1);
-                    let idCelda;
-                    movimientosPersonaje = personajeActualMovimiento.cantMovimientos;
-                    tipoPersonajeActual = 5;
-                    let primerMovimiento;
-                    movimientoXTurno = true;
-                    //SI NO HA SIDO INCIALIZADO EN EL TABLERO
-                    //if (posicionPersonajeArray != undefined) {
-                    if (movActual == true) {
-
-                        arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
-                        estadoPersonaje = "USADO";
-                        idCelda = arrayCeldasConPersonajes[posicionPersonajeArray].celda;
-                        primerMovimiento = true;
-                        console.log("Entra en mov usado");
-                    } else {
-                        elem.classList += " usado";
-                        primerMovimiento = false;
-                        if (obj.jugadores[0].id == jugadorActual.id) {
-                            primerMovimientoEspiaJ1 = true;
-                        } else if (obj.jugadores[1].id == jugadorActual.id) {
-                            primerMovimientoEspiaJ2 = true;
-                        }
-                        let objComb = {};
-                        objComb.personaje = personajeActualMovimiento;
-
-                        objComb.estado = "NU";
-                        if (obj.jugadores[0].id == jugadorActual.id) {
-                            idCelda = "c82";
-                            document.getElementById(idCelda).style.backgroundImage = cargarPersonaje(tipoPersonajeActual);
-                            document.getElementById(idCelda).personajeActivo = personajeActualMovimiento;
-                            //celdaAnteriorPersonaje = idCelda;
-
-                            celdaAnteriorPersonajeJ1 = idCelda;
-
-                            objComb.celda = idCelda;
-                        } else {
-                            idCelda = "c19";
-                            document.getElementById(idCelda).style.backgroundImage = cargarPersonaje(tipoPersonajeActual);
-                            document.getElementById(idCelda).personajeActivo = personajeActualMovimiento;
-                            //celdaAnteriorPersonaje = idCelda;
-
-                            celdaAnteriorPersonajeJ2 = idCelda;
-
-                            objComb.celda = idCelda;
-                        }
-                        if (posicionPersonajeArray == undefined) {
-                            posicionPersonajeArray = 0;
-                        }
-                        arrayCeldasConPersonajes.push(objComb);
-                        console.log("Se añade");
-                    }
-                    //PERMITE MOVERSE AUNQUE SEA UNA VEZ
                     if (cuadroMovimientos.textContent >= 1) {
-                        movimientoPersonaje(personajeActualMovimiento, idCelda, primerMovimiento);
+                        let estadoPersonaje;
+                        let estadoActualPer = "NU";
+                        personajeActualMovimiento = obtenerPersonajeDeTropas(5);
+                        posicionPersonajeArray = await buscarCeldaYPersonaje();
+                        //let obj = JSON.parse(sessionStorage.getItem('tablero'));
+
+                        //VALIDAR ESTADO DEL PERSONAJE
+                        //ESTADOS POSIBLES: NU (NO USADO) Y USADO
+
+                        let movActual = false;
+                        if (obj.jugadores[0].id == jugadorActual.id) {
+                            if (primerMovimientoEspiaJ1 == true) {
+                                movActual = true
+                            }
+                        } else if (obj.jugadores[1].id == jugadorActual.id) {
+                            if (primerMovimientoEspiaJ2 == true) {
+                                movActual = true
+                            }
+                        }
+
+
+                        //let objCombinado = buscarCeldaYPersonaje(1);
+                        let idCelda;
+                        movimientosPersonaje = personajeActualMovimiento.cantMovimientos;
+                        tipoPersonajeActual = 5;
+                        let primerMovimiento;
+                        movimientoXTurno = true;
+                        //SI NO HA SIDO INCIALIZADO EN EL TABLERO
+                        //if (posicionPersonajeArray != undefined) {
+                        if (movActual == true) {
+
+                            arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
+                            estadoPersonaje = "USADO";
+                            idCelda = arrayCeldasConPersonajes[posicionPersonajeArray].celda;
+                            primerMovimiento = true;
+                            console.log("Entra en mov usado");
+                        } else {
+                            elem.classList += " usado";
+                            primerMovimiento = false;
+                            if (obj.jugadores[0].id == jugadorActual.id) {
+                                primerMovimientoEspiaJ1 = true;
+                            } else if (obj.jugadores[1].id == jugadorActual.id) {
+                                primerMovimientoEspiaJ2 = true;
+                            }
+                            let objComb = {};
+                            objComb.personaje = personajeActualMovimiento;
+
+                            objComb.estado = "NU";
+                            if (obj.jugadores[0].id == jugadorActual.id) {
+                                idCelda = "c82";
+                                document.getElementById(idCelda).style.backgroundImage = cargarPersonaje(tipoPersonajeActual);
+                                document.getElementById(idCelda).personajeActivo = personajeActualMovimiento;
+                                //celdaAnteriorPersonaje = idCelda;
+
+                                celdaAnteriorPersonajeJ1 = idCelda;
+
+                                objComb.celda = idCelda;
+                            } else {
+                                idCelda = "c19";
+                                document.getElementById(idCelda).style.backgroundImage = cargarPersonaje(tipoPersonajeActual);
+                                document.getElementById(idCelda).personajeActivo = personajeActualMovimiento;
+                                //celdaAnteriorPersonaje = idCelda;
+
+                                celdaAnteriorPersonajeJ2 = idCelda;
+
+                                objComb.celda = idCelda;
+                            }
+                            if (posicionPersonajeArray == undefined) {
+                                posicionPersonajeArray = 0;
+                            }
+                            arrayCeldasConPersonajes.push(objComb);
+                            console.log("Se añade");
+                        }
+                        //PERMITE MOVERSE AUNQUE SEA UNA VEZ
+                        if (cuadroMovimientos.textContent >= 1) {
+                            movimientoPersonaje(personajeActualMovimiento, idCelda, primerMovimiento);
+                        }
                     }
                 }
-            }
-            //JINETE
-            if (elem.classList.contains("jinete") && elem.textContent == "Usar") {
+                //JINETE
+                if (elem.classList.contains("jinete") && elem.textContent == "Usar") {
 
-                if (cuadroMovimientos.textContent >= 1) {
-                    let estadoPersonaje;
-                    let estadoActualPer = "NU";
-                    personajeActualMovimiento = obtenerPersonajeDeTropas(6);
-                    posicionPersonajeArray = await buscarCeldaYPersonaje();
-                    //let obj = JSON.parse(sessionStorage.getItem('tablero'));
-
-                    //VALIDAR ESTADO DEL PERSONAJE
-                    //ESTADOS POSIBLES: NU (NO USADO) Y USADO
-
-                    let movActual = false;
-                    if (obj.jugadores[0].id == jugadorActual.id) {
-                        if (primerMovimientoJineteJ1 == true) {
-                            movActual = true
-                        }
-                    } else if (obj.jugadores[1].id == jugadorActual.id) {
-                        if (primerMovimientoJineteJ2 == true) {
-                            movActual = true
-                        }
-                    }
-
-
-                    //let objCombinado = buscarCeldaYPersonaje(1);
-                    let idCelda;
-                    console.log(personajeActualMovimiento);
-                    movimientosPersonaje = personajeActualMovimiento.cantMovimientos;
-                    tipoPersonajeActual = 6;
-                    let primerMovimiento;
-                    movimientoXTurno = true;
-                    //SI NO HA SIDO INCIALIZADO EN EL TABLERO
-                    //if (posicionPersonajeArray != undefined) {
-                    if (movActual == true) {
-
-                        arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
-                        estadoPersonaje = "USADO";
-                        idCelda = arrayCeldasConPersonajes[posicionPersonajeArray].celda;
-                        primerMovimiento = true;
-                        console.log("Entra en mov usado");
-                    } else {
-                        elem.classList += " usado";
-                        primerMovimiento = false;
-                        if (obj.jugadores[0].id == jugadorActual.id) {
-                            primerMovimientoJineteJ1 = true;
-                        } else if (obj.jugadores[1].id == jugadorActual.id) {
-                            primerMovimientoJineteJ2 = true;
-                        }
-                        let objComb = {};
-                        objComb.personaje = personajeActualMovimiento;
-
-                        objComb.estado = "NU";
-                        if (obj.jugadores[0].id == jugadorActual.id) {
-                            idCelda = "c82";
-                            document.getElementById(idCelda).style.backgroundImage = cargarPersonaje(tipoPersonajeActual);
-                            document.getElementById(idCelda).personajeActivo = personajeActualMovimiento;
-                            //celdaAnteriorPersonaje = idCelda;
-
-                            celdaAnteriorPersonajeJ1 = idCelda;
-
-                            objComb.celda = idCelda;
-                        } else {
-                            idCelda = "c19";
-                            document.getElementById(idCelda).style.backgroundImage = cargarPersonaje(tipoPersonajeActual);
-                            document.getElementById(idCelda).personajeActivo = personajeActualMovimiento;
-                            //celdaAnteriorPersonaje = idCelda;
-
-                            celdaAnteriorPersonajeJ2 = idCelda;
-
-                            objComb.celda = idCelda;
-                        }
-                        if (posicionPersonajeArray == undefined) {
-                            posicionPersonajeArray = 0;
-                        }
-                        arrayCeldasConPersonajes.push(objComb);
-                        console.log("Se añade");
-                    }
-                    //PERMITE MOVERSE AUNQUE SEA UNA VEZ
                     if (cuadroMovimientos.textContent >= 1) {
-                        movimientoPersonaje(personajeActualMovimiento, idCelda, primerMovimiento);
+                        let estadoPersonaje;
+                        let estadoActualPer = "NU";
+                        personajeActualMovimiento = obtenerPersonajeDeTropas(6);
+                        posicionPersonajeArray = await buscarCeldaYPersonaje();
+                        //let obj = JSON.parse(sessionStorage.getItem('tablero'));
+
+                        //VALIDAR ESTADO DEL PERSONAJE
+                        //ESTADOS POSIBLES: NU (NO USADO) Y USADO
+
+                        let movActual = false;
+                        if (obj.jugadores[0].id == jugadorActual.id) {
+                            if (primerMovimientoJineteJ1 == true) {
+                                movActual = true
+                            }
+                        } else if (obj.jugadores[1].id == jugadorActual.id) {
+                            if (primerMovimientoJineteJ2 == true) {
+                                movActual = true
+                            }
+                        }
+
+
+                        //let objCombinado = buscarCeldaYPersonaje(1);
+                        let idCelda;
+                        console.log(personajeActualMovimiento);
+                        movimientosPersonaje = personajeActualMovimiento.cantMovimientos;
+                        tipoPersonajeActual = 6;
+                        let primerMovimiento;
+                        movimientoXTurno = true;
+                        //SI NO HA SIDO INCIALIZADO EN EL TABLERO
+                        //if (posicionPersonajeArray != undefined) {
+                        if (movActual == true) {
+
+                            arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
+                            estadoPersonaje = "USADO";
+                            idCelda = arrayCeldasConPersonajes[posicionPersonajeArray].celda;
+                            primerMovimiento = true;
+                            console.log("Entra en mov usado");
+                        } else {
+                            elem.classList += " usado";
+                            primerMovimiento = false;
+                            if (obj.jugadores[0].id == jugadorActual.id) {
+                                primerMovimientoJineteJ1 = true;
+                            } else if (obj.jugadores[1].id == jugadorActual.id) {
+                                primerMovimientoJineteJ2 = true;
+                            }
+                            let objComb = {};
+                            objComb.personaje = personajeActualMovimiento;
+
+                            objComb.estado = "NU";
+                            if (obj.jugadores[0].id == jugadorActual.id) {
+                                idCelda = "c82";
+                                document.getElementById(idCelda).style.backgroundImage = cargarPersonaje(tipoPersonajeActual);
+                                document.getElementById(idCelda).personajeActivo = personajeActualMovimiento;
+                                //celdaAnteriorPersonaje = idCelda;
+
+                                celdaAnteriorPersonajeJ1 = idCelda;
+
+                                objComb.celda = idCelda;
+                            } else {
+                                idCelda = "c19";
+                                document.getElementById(idCelda).style.backgroundImage = cargarPersonaje(tipoPersonajeActual);
+                                document.getElementById(idCelda).personajeActivo = personajeActualMovimiento;
+                                //celdaAnteriorPersonaje = idCelda;
+
+                                celdaAnteriorPersonajeJ2 = idCelda;
+
+                                objComb.celda = idCelda;
+                            }
+                            if (posicionPersonajeArray == undefined) {
+                                posicionPersonajeArray = 0;
+                            }
+                            arrayCeldasConPersonajes.push(objComb);
+                            console.log("Se añade");
+                        }
+                        //PERMITE MOVERSE AUNQUE SEA UNA VEZ
+                        if (cuadroMovimientos.textContent >= 1) {
+                            movimientoPersonaje(personajeActualMovimiento, idCelda, primerMovimiento);
+                        }
                     }
                 }
-            }
-            //MAGO
-            if (elem.classList.contains("mago") && elem.textContent == "Usar") {
+                //MAGO
+                if (elem.classList.contains("mago") && elem.textContent == "Usar") {
 
-                if (cuadroMovimientos.textContent >= 1) {
-                    let estadoPersonaje;
-                    let estadoActualPer = "NU";
-                    personajeActualMovimiento = obtenerPersonajeDeTropas(7);
-                    posicionPersonajeArray = await buscarCeldaYPersonaje();
-                    //let obj = JSON.parse(sessionStorage.getItem('tablero'));
-
-                    //VALIDAR ESTADO DEL PERSONAJE
-                    //ESTADOS POSIBLES: NU (NO USADO) Y USADO
-
-                    let movActual = false;
-                    if (obj.jugadores[0].id == jugadorActual.id) {
-                        if (primerMovimientoMagoJ1 == true) {
-                            movActual = true
-                        }
-                    } else if (obj.jugadores[1].id == jugadorActual.id) {
-                        if (primerMovimientoMagoJ2 == true) {
-                            movActual = true
-                        }
-                    }
-
-
-                    //let objCombinado = buscarCeldaYPersonaje(1);
-                    let idCelda;
-                    movimientosPersonaje = personajeActualMovimiento.cantMovimientos;
-                    console.log(movimientosPersonaje);
-                    tipoPersonajeActual = 7;
-                    let primerMovimiento;
-                    console.log(arrayCeldasConPersonajes);
-
-                    movimientoXTurno = true;
-                    //SI NO HA SIDO INCIALIZADO EN EL TABLERO
-                    //if (posicionPersonajeArray != undefined) {
-                    if (movActual == true) {
-
-                        arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
-                        estadoPersonaje = "USADO";
-                        idCelda = arrayCeldasConPersonajes[posicionPersonajeArray].celda;
-                        primerMovimiento = true;
-                        console.log("Entra en mov usado");
-                    } else {
-                        elem.classList += " usado";
-                        primerMovimiento = false;
-                        if (obj.jugadores[0].id == jugadorActual.id) {
-                            primerMovimientoMagoJ1 = true;
-                        } else if (obj.jugadores[1].id == jugadorActual.id) {
-                            primerMovimientoMagoJ2 = true;
-                        }
-                        let objComb = {};
-                        objComb.personaje = personajeActualMovimiento;
-
-                        objComb.estado = "NU";
-                        if (obj.jugadores[0].id == jugadorActual.id) {
-                            idCelda = "c82";
-                            document.getElementById(idCelda).style.backgroundImage = cargarPersonaje(tipoPersonajeActual);
-                            document.getElementById(idCelda).personajeActivo = personajeActualMovimiento;
-                            //celdaAnteriorPersonaje = idCelda;
-
-                            celdaAnteriorPersonajeJ1 = idCelda;
-
-                            objComb.celda = idCelda;
-                        } else {
-                            idCelda = "c19";
-                            document.getElementById(idCelda).style.backgroundImage = cargarPersonaje(tipoPersonajeActual);
-                            document.getElementById(idCelda).personajeActivo = personajeActualMovimiento;
-                            //celdaAnteriorPersonaje = idCelda;
-
-                            celdaAnteriorPersonajeJ2 = idCelda;
-
-                            objComb.celda = idCelda;
-                        }
-                        if (posicionPersonajeArray == undefined) {
-                            posicionPersonajeArray = 0;
-                        }
-                        arrayCeldasConPersonajes.push(objComb);
-                        console.log("Se añade");
-                    }
-                    //PERMITE MOVERSE AUNQUE SEA UNA VEZ
                     if (cuadroMovimientos.textContent >= 1) {
-                        movimientoPersonaje(personajeActualMovimiento, idCelda, primerMovimiento);
+                        let estadoPersonaje;
+                        let estadoActualPer = "NU";
+                        personajeActualMovimiento = obtenerPersonajeDeTropas(7);
+                        posicionPersonajeArray = await buscarCeldaYPersonaje();
+                        //let obj = JSON.parse(sessionStorage.getItem('tablero'));
+
+                        //VALIDAR ESTADO DEL PERSONAJE
+                        //ESTADOS POSIBLES: NU (NO USADO) Y USADO
+
+                        let movActual = false;
+                        if (obj.jugadores[0].id == jugadorActual.id) {
+                            if (primerMovimientoMagoJ1 == true) {
+                                movActual = true
+                            }
+                        } else if (obj.jugadores[1].id == jugadorActual.id) {
+                            if (primerMovimientoMagoJ2 == true) {
+                                movActual = true
+                            }
+                        }
+
+
+                        //let objCombinado = buscarCeldaYPersonaje(1);
+                        let idCelda;
+                        movimientosPersonaje = personajeActualMovimiento.cantMovimientos;
+                        console.log(movimientosPersonaje);
+                        tipoPersonajeActual = 7;
+                        let primerMovimiento;
+                        console.log(arrayCeldasConPersonajes);
+
+                        movimientoXTurno = true;
+                        //SI NO HA SIDO INCIALIZADO EN EL TABLERO
+                        //if (posicionPersonajeArray != undefined) {
+                        if (movActual == true) {
+
+                            arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
+                            estadoPersonaje = "USADO";
+                            idCelda = arrayCeldasConPersonajes[posicionPersonajeArray].celda;
+                            primerMovimiento = true;
+                            console.log("Entra en mov usado");
+                        } else {
+                            elem.classList += " usado";
+                            primerMovimiento = false;
+                            if (obj.jugadores[0].id == jugadorActual.id) {
+                                primerMovimientoMagoJ1 = true;
+                            } else if (obj.jugadores[1].id == jugadorActual.id) {
+                                primerMovimientoMagoJ2 = true;
+                            }
+                            let objComb = {};
+                            objComb.personaje = personajeActualMovimiento;
+
+                            objComb.estado = "NU";
+                            if (obj.jugadores[0].id == jugadorActual.id) {
+                                idCelda = "c82";
+                                document.getElementById(idCelda).style.backgroundImage = cargarPersonaje(tipoPersonajeActual);
+                                document.getElementById(idCelda).personajeActivo = personajeActualMovimiento;
+                                //celdaAnteriorPersonaje = idCelda;
+
+                                celdaAnteriorPersonajeJ1 = idCelda;
+
+                                objComb.celda = idCelda;
+                            } else {
+                                idCelda = "c19";
+                                document.getElementById(idCelda).style.backgroundImage = cargarPersonaje(tipoPersonajeActual);
+                                document.getElementById(idCelda).personajeActivo = personajeActualMovimiento;
+                                //celdaAnteriorPersonaje = idCelda;
+
+                                celdaAnteriorPersonajeJ2 = idCelda;
+
+                                objComb.celda = idCelda;
+                            }
+                            if (posicionPersonajeArray == undefined) {
+                                posicionPersonajeArray = 0;
+                            }
+                            arrayCeldasConPersonajes.push(objComb);
+                            console.log("Se añade");
+                        }
+                        //PERMITE MOVERSE AUNQUE SEA UNA VEZ
+                        if (cuadroMovimientos.textContent >= 1) {
+                            movimientoPersonaje(personajeActualMovimiento, idCelda, primerMovimiento);
+                        }
                     }
                 }
             }
