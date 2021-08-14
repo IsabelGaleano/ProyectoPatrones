@@ -4,7 +4,7 @@ function actualizarPersonajesJugador() {
     //JUGADOR ACTUAL ES DE TURNOS.JS
     let idCastillo = jugadorActual.idCastillo;
     let obj = JSON.parse(sessionStorage.getItem('tablero'));
-    console.log(obj);
+    console.log(obj.castillos[posicionCastilloActual]);
     //console.log(obj.castillos[idCastillo - 1].tropas);
     let arqueroPasado = false;
     let espadachinPasado = false;
@@ -14,8 +14,8 @@ function actualizarPersonajesJugador() {
     let jinetePasado = false;
     let espiaPasado = false;
 
-    if (obj.castillos[idCastillo].tropas != null) {
-        obj.castillos[idCastillo].tropas.forEach(function(element) {
+    if (obj.castillos[posicionCastilloActual].tropas != null) {
+        obj.castillos[posicionCastilloActual].tropas.forEach(function(element) {
             //ARQUERO
             if (element.tipo == "Arquero" && arqueroPasado == false) {
                 iconoUsarArquero();
