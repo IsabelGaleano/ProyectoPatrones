@@ -36,6 +36,10 @@ const obtenerDatos = async() => {
     let arrayAlias = [];
     let arrayJugadores = [];
     let tablero;
+
+    //ABRIR PANTALLA DE CARGA
+    abrirModalCargaJugadores();
+
     //await enviarCantidadCastillos(aliasJugadores.length);
     castillos = await crearCastillos(aliasJugadores.length);
     for (let i = 0; i < aliasJugadores.length; i++) {
@@ -51,13 +55,16 @@ const obtenerDatos = async() => {
         }
     }
 
+
+
     arrayJugadores = await obtenerJugadores(arrayAlias);
-    tablero =  await crearTablero(arrayJugadores.join());
+    tablero = await crearTablero(arrayJugadores.join());
 
     await sesionLocal(tablero);
 
     let obj = JSON.parse(sessionStorage.getItem('tablero'));
- 
+
+    cerrarOverlayCargaJugadores();
     changeHTML();
 
 }
