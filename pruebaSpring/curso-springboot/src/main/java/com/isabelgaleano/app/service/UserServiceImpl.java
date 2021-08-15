@@ -9,15 +9,15 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
-//Rest es una arquitectura de software. Usan HTTP.
+
 @Service
 public class UserServiceImpl implements UserService{
-    //Inyeccion de dependencias se puede usar el repositorio
+
     @Autowired
     private UserRepository userRepository;
 
     @Override
-    @Transactional(readOnly = true)//No va a guardar nada en la DB
+    @Transactional(readOnly = true)
     public Iterable<User> findAll() {
 
         return userRepository.findAll();

@@ -22,7 +22,9 @@
         /* bring your own prefixes */
         /*transform: translate(-50%, -50%);*/
         background-image: url('../Imagenes/gray_texture.png');
-        background-size: 100%;
+        background-size: 100%;               
+        border-radius: 10px;
+        box-shadow: 7px 7px #070707a1;
     }
     /*--SECCION DEL DADO--*/
     
@@ -31,7 +33,7 @@
         height: 200px;
         padding: 20px;
         background-color: rgba(0, 0, 0, 0.75);
-        border-radius: 5%;                
+        border-radius: 5px;                
         font-size: 13px;        
         flex-direction: column;
         justify-content: center;
@@ -41,6 +43,7 @@
         background-size: 100% 100%;        
         display: flex;        
         margin-right: 5px;
+        box-shadow: 5px 5px;
     }
     
     #imagen-dado {
@@ -111,6 +114,7 @@
         background-position: center;
         background-size: contain;
         border-radius: 10px;
+        
     }
     
     #shopInfo {
@@ -160,6 +164,7 @@
         align-items: center;
         margin-bottom: 20px;
         margin-left: 5px;
+        box-shadow: 5px 5px;
     }
     
     .cnt-timer h1 {
@@ -176,7 +181,7 @@
         background-color: rgba(0, 0, 0, 0.75);
         background-image: url('../Imagenes/ui/thinframesquare.png');
         background-size: 100% 100%;
-        border-radius: 5%;
+        border-radius: 5px;
         width: 80%;
         height: 100%;
         display: flex;
@@ -185,6 +190,7 @@
         margin-bottom: 20px;
         padding-top: 20px;
         padding-bottom: 20px;
+        box-shadow: 5px 5px;
     }
     
     .tienda {
@@ -277,6 +283,7 @@
         align-items: center;
         margin: 10px;
         font-family: 'Press Start 2P', cursive;
+        
     }
     
     #btn_music {
