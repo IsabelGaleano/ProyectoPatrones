@@ -100,6 +100,7 @@
 #idpopupCompraB,
 #idpopupCompraC,
 #idpopupCambioTurno,
+#idpopupCargaJugadores,
 #idpopupCompraArquero,
 #idpopupCompraAsesino,
 #idpopupCompraBerserker,
@@ -176,6 +177,17 @@
     animation: spin 2s linear infinite;
 }
 
+.loader-carga-jugadores {
+    border: 16px solid red;
+    /* Light grey */
+    border-top: 16px solid white;
+    /* Blue */
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    animation: spin 2s linear infinite;
+}
+
 @keyframes spin {
     0% {
         transform: rotate(0deg);
@@ -185,8 +197,11 @@
     }
 }
 
-#btn-Almacenar{
+#titulo-carga-jugadores {
+    margin-top: 30px;
+}
 
+#btn-Almacenar {
     width: max-content;
     background-size: 100% 100%;
 }

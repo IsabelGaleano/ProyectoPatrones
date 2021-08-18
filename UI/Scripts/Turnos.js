@@ -7,6 +7,8 @@ let castilloActual;
 let dadoTirado = false;
 let tropaCompradaXTurno = false;
 let numeroDadoSacado;
+let posicionCastilloActual;
+let turnoCancelado = false;
 
 let movimientosRestantesPersonaje;
 const diceSound = new Audio('../Sounds/diceRoll.wav');
@@ -25,6 +27,11 @@ botonDado.addEventListener('click', function() {
         dadoTirado = true;
     }
 
+});
+
+//BOTON DE TERMINAR TURNO
+document.getElementById("endTurn").addEventListener('click', function() {
+    turnoCancelado = true;
 });
 
 function sleep(ms) {
@@ -127,10 +134,17 @@ let partida = async() => {
         let tableroActual = JSON.parse(sessionStorage.getItem('tablero'));
         tableroActual.jugadores = jugadores;
 
+        //ESTABLECER LA POSICION DEL CASTILLO DEL JUGADOR ACTUAL
+        for (let i = 0; i < tableroActual.castillos.length; i++) {
+            if (tableroActual.castillos[i].id == jugadorActual.idCastillo) {
+                posicionCastilloActual = i;
+            }
+
+        }
 
         sessionStorage.setItem('tablero', JSON.stringify(tableroActual));
         actualizarInfoCastilloJugador();
-        actualizarPersonajesJugador(2);
+        actualizarPersonajesJugador();
         visualDefensas();
         let tiempo = await timer(document.getElementById("timer"));
         if (posicionJugadorActual == jugadores.length - 1) {
@@ -148,6 +162,7 @@ let partida = async() => {
         cuadroMovimientos.textContent = '';
         partidaIniciada = true;
         movimientoXTurno = false;
+        turnoCancelado = false;
 
     }
 }
@@ -194,13 +209,18 @@ async function timer(display) {
         }
 
         if (i == 40) {
-           await removerPowersTurnos();
+            await removerPowersTurnos();
+        }
+
+        //VERIFICA QUE LE DIO CLICK AL BOTON DE TERMINAR TURNO
+        if (turnoCancelado == true) {
+            break;
         }
 
         await waitFor(1000);
     }
 
-    
+
 };
 
 
@@ -229,18 +249,18 @@ const removerPowersTurnos = async() => {
     let personajesConPower = [];
     let personajesNuevos = [];
     for (let i = 0; i < castillosTablero.length; i++) {
-        
-        if(jugadorActual.idCastillo == castillosTablero[i].id) {
+
+        if (jugadorActual.idCastillo == castillosTablero[i].id) {
             personajesTablero = castillosTablero[i].tropas;
         }
     }
 
     for (let i = 0; i < personajesTablero; i++) {
-        
+
         if (personajesTablero[i].powerUp != null) {
             personajesConPower.push(personajesTablero[i]);
         }
-        
+
     }
 
     let objVisitantePersonajes = personajesConPower.map(function(element) {
