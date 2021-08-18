@@ -1,8 +1,8 @@
 let casilla;
 
 let validarAtaqueCastillo= function(personaje,idCasilla){
-    celdas[i].id.split("")[1];
-    let pos =idCasilla.split("")[1];
+  
+    let pos =idCasilla.split("c")[1];
     let posX = pos.split("")[0];
     let posY = pos.split("")[1];
 
@@ -20,7 +20,7 @@ let validarAtaqueCastillo= function(personaje,idCasilla){
     }
     let cas=[10][10];
 
-    let atacarCastillo;
+    let atacarCastillo = false;
 
     let resB=Math.abs(10-posX)+Math.abs(1-posY);
     let resA=Math.abs(1-posX)+Math.abs(10-posY);
@@ -28,16 +28,16 @@ let validarAtaqueCastillo= function(personaje,idCasilla){
    
 
     if(castilloAtacado == 1){
-      if(resA <= alcance){
+      if(resB <= alcance){
         atacarCastillo = true;
     }
 } else if(castilloAtacado == 2){
-    if(resB<=alcance){
+    if(resA<=alcance){
         atacarCastillo= true;
     }
 }
 
-    return true;
+    return atacarCastillo;
 }
 
 
