@@ -9,7 +9,7 @@ btnAct.forEach(function (elem) {
 
 
 var btns = document.querySelectorAll(".pw");
-
+var bt;
 btns.forEach(function (elem) {
     elem.addEventListener("click", async function () {
         validarDatosModal(elem.value);
@@ -20,7 +20,7 @@ const obtenerTropa = (btn) => {
 
     let obj = JSON.parse(sessionStorage.getItem('tablero'));
     let jugador;
-    
+
 
     obj.jugadores.forEach(function (element) {
         if (element.turno) {
@@ -45,71 +45,102 @@ const obtenerTropa = (btn) => {
         }
     }
 
-    var tropaMovimiento; 
+    let casilla;
+
+    var tropaMovimiento;
     for (let i = 0; i < arrayCeldasConPersonajes.length; i++) {
         switch (btn) {
             case "1":
-                tropaMovimiento = tropasActivas.find(element => element.id == arrayCeldasConPersonajes[i].personaje.id);
+                if (arrayCeldasConPersonajes[i].personaje.tipo.toLowerCase() == "arquero") {
+                    if (arrayCeldasConPersonajes[i].personaje.id == jugador.id) {
+                        casilla = arrayCeldasConPersonajes[i].celda.id;
+                        tropaMovimiento = tropasActivas.find(element => element.tipo == arrayCeldasConPersonajes[i].personaje.tipo);
+                        tropaMovimiento.idCasilla = parseInt(casilla.slice(-2));
+                        return tropaMovimiento;
+                    }
+                }
                 break;
 
             case "2":
                 if (arrayCeldasConPersonajes[i].personaje.tipo.toLowerCase() == "espadachin") {
-                    if(arrayCeldasConPersonajes[i].personaje.id == tropasActivas[i].id){
-                        tropaMovimiento = arrayCeldasConPersonajes[i].personaje;
+                    if (arrayCeldasConPersonajes[i].personaje.id == jugador.id) {
+                        casilla = arrayCeldasConPersonajes[i].celda.id;
+                        tropaMovimiento = tropasActivas.find(element => element.tipo == arrayCeldasConPersonajes[i].personaje.tipo);
+                        tropaMovimiento.idCasilla = parseInt(casilla.slice(-2));
+                        return tropaMovimiento;
                     }
                 }
                 break;
 
             case "3":
-                tropaMovimiento = tropasActivas.find(element => element.id == arrayCeldasConPersonajes[i].personaje.id);
+                if (arrayCeldasConPersonajes[i].personaje.tipo.toLowerCase() == "berserquer") {
+                    if (arrayCeldasConPersonajes[i].personaje.id == jugador.id) {
+                        casilla = arrayCeldasConPersonajes[i].celda.id;
+                        tropaMovimiento = tropasActivas.find(element => element.tipo == arrayCeldasConPersonajes[i].personaje.tipo);
+                        tropaMovimiento.idCasilla = parseInt(casilla.slice(-2));
+                        return tropaMovimiento;
+                    }
+                }
                 break;
 
             case "4":
                 if (arrayCeldasConPersonajes[i].personaje.tipo.toLowerCase() == "mago") {
-                    if(arrayCeldasConPersonajes[i].personaje.id == tropasActivas[i].id){
-                        tropaMovimiento = arrayCeldasConPersonajes[i].personaje;
+                    if (arrayCeldasConPersonajes[i].personaje.id == jugador.id) {
+                        casilla = arrayCeldasConPersonajes[i].celda.id;
+                        tropaMovimiento = tropasActivas.find(element => element.tipo == arrayCeldasConPersonajes[i].personaje.tipo);
+                        tropaMovimiento.idCasilla = parseInt(casilla.slice(-2));
+                        return tropaMovimiento;
                     }
                 }
                 break;
 
             case "5":
                 if (arrayCeldasConPersonajes[i].personaje.tipo.toLowerCase() == "asesino") {
-                    if(arrayCeldasConPersonajes[i].personaje.id == tropasActivas[i].id){
-                        tropaMovimiento = arrayCeldasConPersonajes[i].personaje;
+                    if (arrayCeldasConPersonajes[i].personaje.id == jugador.id) {
+                        casilla = arrayCeldasConPersonajes[i].celda.id;
+                        tropaMovimiento = tropasActivas.find(element => element.tipo == arrayCeldasConPersonajes[i].personaje.tipo);
+                        tropaMovimiento.idCasilla = parseInt(casilla.slice(-2));
+                        return tropaMovimiento;
                     }
                 }
                 break;
 
             case "6":
                 if (arrayCeldasConPersonajes[i].personaje.tipo.toLowerCase() == "jinete") {
-                    if(arrayCeldasConPersonajes[i].personaje.id == tropasActivas[i].id){
-                        if(arrayCeldasConPersonajes[i].personaje.id == tropasActivas[i].id){
-                            tropaMovimiento = arrayCeldasConPersonajes[i].personaje;
-                        }
+                    if (arrayCeldasConPersonajes[i].personaje.id == jugador.id) {
+                        casilla = arrayCeldasConPersonajes[i].celda.id;
+                        tropaMovimiento = tropasActivas.find(element => element.tipo == arrayCeldasConPersonajes[i].personaje.tipo);
+                        tropaMovimiento.idCasilla = parseInt(casilla.slice(-2));
+                        return tropaMovimiento;
                     }
                 }
                 break;
 
             case "7":
                 if (arrayCeldasConPersonajes[i].personaje.tipo.toLowerCase() == "espia") {
-                    if(arrayCeldasConPersonajes[i].personaje.id == tropasActivas[i].id){
-                        tropaMovimiento = arrayCeldasConPersonajes[i].personaje;
+                    if (arrayCeldasConPersonajes[i].personaje.id == jugador.id) {
+                        casilla = arrayCeldasConPersonajes[i].celda.id;
+                        tropaMovimiento = tropasActivas.find(element => element.tipo == arrayCeldasConPersonajes[i].personaje.tipo);
+                        tropaMovimiento.idCasilla = parseInt(casilla.slice(-2));
+                        return tropaMovimiento;
                     }
                 }
                 break;
+
+        }
+        if (tropaMovimiento != null) {
+            return tropaMovimiento;
         }
     }
-    return tropaMovimiento;
 }
 
-const validarCasilla = async (action) => {
+const validarCasilla = async () => {
     let obj = JSON.parse(sessionStorage.getItem('tablero'));
     let jugador;
 
-    
-    let tropaMov = obtenerTropa(btnTropaActual)
-    
-    console.log(tropaMov);
+
+    let tropaMov = obtenerTropa(btnTropaActual);
+
 
     obj.jugadores.forEach(function (element) {
         if (element.turno) {
@@ -118,27 +149,30 @@ const validarCasilla = async (action) => {
     });
 
     let casillas = obj.casillas;
-    let casillaActual = casillas[lastDigits.slice(-2)];
-    let tropa = obtenerTropa(action);
-    
-    if((casillaActual.data == "MejoraAtaque" || casillaActual.data == "MejoraDefensa") && tropa.powerUp != null) {
+
+    let casillaActual = casillas[tropaMov.idCasilla];
+
+    if ((casillaActual.data == "MejoraAtaque" || casillaActual.data == "MejoraDefensa") && tropaMov.powerUp != null) {
         abrirModalConfirmChange();
-    }else if(casillaActual.data == "MejoraAtaque" && tropa.powerUp == null){
+    } else if (casillaActual.data == "MejoraAtaque" && tropaMov.powerUp == null) {
         abrirModalPowerUp();
-    }else if(casillaActual.data == "MejoraDefensa" && tropa.powerUp == null){
+    } else if (casillaActual.data == "MejoraDefensa" && tropaMov.powerUp == null) {
         abrirModalDefenseUp();
+    } else if(casillaActual.data == "GemaVerde" || casillaActual.data == "GemaBlanca" || casillaActual.data == "GemaAzul"){
+        let change = false;
+        await obtenerDatosTropaCasilla(change);
     }
-        
+
 }
 
 const validarDatosModal = async (action) => {
-    
+
 
     let obj = JSON.parse(sessionStorage.getItem('tablero'));
     let jugador;
 
-    let lastDigits = arrayCeldasConPersonajes[0].celda.id;
 
+    let tropa = obtenerTropa(btnTropaActual);
 
     obj.jugadores.forEach(function (element) {
         if (element.turno) {
@@ -147,31 +181,30 @@ const validarDatosModal = async (action) => {
     });
 
     let casillas = obj.casillas;
-    let casillaActual = casillas[lastDigits.slice(-2)];
-    let tropa;
-    
+    let casillaActual = casillas[tropa.idCasilla];
+
     let change;
     let activar = 0;
     if ((casillaActual.data == "MejoraAtaque" || casillaActual.data == "MejoraDefensa") && tropa.powerUp != null) {
-    
+
         if (action == "3") {
             change = true;
             await obtenerDatosTropaCasilla(change);
         }
         cerrarOverlayConfirmChange();
     } else if (casillaActual.data == "MejoraAtaque" && tropa.powerUp == null) {
-    
+
         switch (action) {
             case "1":
                 activar = 1;
                 activacionPW_A_D(activar);
                 break;
-    
+
             case "3":
                 change = true;
                 await obtenerDatosTropaCasilla(change);
                 break;
-    
+
         }
         cerrarOverlayPowerUp();
     } else if (casillaActual.data == "MejoraDefensa" && tropa.powerUp == null) {
@@ -179,16 +212,15 @@ const validarDatosModal = async (action) => {
             case "2":
                 activar = 2;
                 activacionPW_A_D(activar);
-                console.log(tropa);
                 break;
-    
+
             case "3":
                 change = true;
                 await obtenerDatosTropaCasilla(change);
                 break;
         }
         cerrarOverlayDefenseUp();
-    
+
     }
     else if (casillaActual.data == "TrampaAtaque") {
         document.getElementById("mensajeTexto").innerHTML = "Caíste en una trampa. -2 de Ataque.";
@@ -196,14 +228,14 @@ const validarDatosModal = async (action) => {
         change = false;
         obtenerDatosTropaCasilla(change);
         abrirModalMensaje();
-    
+
     } else if (casillaActual.data == "TrampaDefensa") {
         document.getElementById("mensajeTexto").innerHTML = "Caíste en una trampa. -2 de Defensa.";
         document.getElementById("imganeMensaje").src = "../Imagenes/PowerUps/DefDwnGif.gif";
         change = false;
         obtenerDatosTropaCasilla(change);
         abrirModalMensaje();
-    }
+    } 
 }
 
 
@@ -215,17 +247,24 @@ async function obtenerDatosTropaCasilla(change) {
     let obj = JSON.parse(sessionStorage.getItem('tablero'));
     let jugador;
 
-    let lastDigits = arrayCeldasConPersonajes[0].celda.id;
-
     obj.jugadores.forEach(function (element) {
         if (element.turno) {
             jugador = element;
         }
     });
 
+    let idCastillo = jugadorActual.idCastillo;
+    let castillos = obj.castillos;
+    let castilloActual;
     let casillas = obj.casillas;
-    let tropa = arrayCeldasConPersonajes[0].personaje;
-    let casillaActual = casillas[lastDigits.slice(-2)];
+    let tropa = obtenerTropa(btnTropaActual);
+    let casillaActual = casillas[tropa.idCasilla];
+
+    for (let i = 0; i < castillos.length; i++){
+        if(idCastillo == castillos[i].id){
+            castilloActual = castillos[i];
+        }
+    }
 
     let cambioCasilla = { data: "CasillaNormal", id: casillaActual.id, tipo: "CasillaNormal" };
     let dataObject = {
@@ -248,7 +287,18 @@ async function obtenerDatosTropaCasilla(change) {
     }
 
     if (casillaActual.data == "GemaVerde" || casillaActual.data == "GemaBlanca" || casillaActual.data == "GemaAzul") {
-        tropa.cantOro = data.oro;
+        if(casillaActual.data == "GemaAzul"){
+            abrirModalGemaAzul();
+
+        }else if(casillaActual.data == "GemaBlanca") {
+            abrirModalGemaBlanca();
+
+        }else if (casillaActual.data == "GemaVerde") {
+            abrirModalGemaVerde();
+        }
+        casillaActual = cambioCasilla;
+        casillas[tropa.idCasilla] = casillaActual;
+        castilloActual.oro += data.oro;
     }
 
     if (casillaActual.data == "TrampaAtaque") {
@@ -262,10 +312,11 @@ async function obtenerDatosTropaCasilla(change) {
 
     if (tropa.powerUp != null || tropa.estadoDecorado == true || change == true) {
         casillaActual = cambioCasilla;
-        casillas[6] = casillaActual;
+        casillas[tropa.idCasilla] = casillaActual;
     }
     obj.casillas = casillas;
-    obj.castillos.tropas = tropas;
+    obj.castillos = castilloActual;
+    obj.castillos.tropas = tropa;
 
 
     sessionStorage.setItem('tablero', JSON.stringify(obj));
@@ -276,8 +327,6 @@ async function activacionPW_A_D(activar) {
     let obj = JSON.parse(sessionStorage.getItem('tablero'));
     let jugador;
 
-    let lastDigits = arrayCeldasConPersonajes[0].celda.id;
-
     obj.jugadores.forEach(function (element) {
         if (element.turno) {
             jugador = element;
@@ -285,8 +334,8 @@ async function activacionPW_A_D(activar) {
     });
 
     let casillas = obj.casillas;
-    let tropa = arrayCeldasConPersonajes[0].personaje;
-    let casillaActual = casillas[lastDigits.slice(-2)];
+    let tropa = obtenerTropa(btnTropaActual);
+    let casillaActual = casillas[tropa.idCasilla];
 
 
 
@@ -317,10 +366,10 @@ async function activacionPW_A_D(activar) {
         tropa.estadoDecorado = data.estadoDecorado;
     }
     casillaActual = cambioCasilla;
-    casillas[6] = casillaActual;
+    casillas[tropa.idCasilla] = casillaActual;
 
     obj.casillas = casillas;
-    obj.castillos.tropas = tropas;
+    obj.castillos.tropas = tropa;
 
     sessionStorage.setItem('tablero', JSON.stringify(obj));
 }
