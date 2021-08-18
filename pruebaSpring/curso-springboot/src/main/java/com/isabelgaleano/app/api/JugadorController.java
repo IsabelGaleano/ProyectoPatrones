@@ -28,15 +28,13 @@ public class JugadorController {
     private JugadorService jugadorService;
 
 
-
     @PostMapping
     @CrossOrigin
-    //Create a new JUGADOR
+
     public ResponseEntity<?> create (@RequestBody JugadorObject jugadorObject) {
         return ResponseEntity.status(HttpStatus.CREATED).body(jugadorService.save(jugadorObject));
     }
 
-    //Leer un jugador
     @CrossOrigin
     @GetMapping("/{alias}")
     public ResponseEntity<?> read(@PathVariable(value = "alias") String alias) {
@@ -48,7 +46,6 @@ public class JugadorController {
         return ResponseEntity.ok(optionalJugador);
     }
 
-    //Actualizar un jugador
     @PutMapping("/{alias}")
     public ResponseEntity<?> update(@RequestBody JugadorObject jugadorDetails, @PathVariable(value = "alias")String alias) {
         Optional<JugadorObject> jugador = jugadorService.findByAlias(alias);
@@ -71,30 +68,20 @@ public class JugadorController {
                                               @PathVariable(value = "idCastillo") int idCastillo) {
         Optional<JugadorObject> jugador = jugadorService.findByAlias(alias);
         jugadorDetails.setIdCastillo(idCastillo);
-       // jugadorDetails.setId((long) idCastillo);
+        jugadorDetails.setId((long) idCastillo);
+
         if (!jugador.isPresent()) {
             return ResponseEntity.notFound().build();
         }
 
         jugador.get().setIdCastillo(jugadorDetails.getIdCastillo());
-        //jugador.get().setId(jugadorDetails.getId());
+        jugador.get().setId(jugadorDetails.getId());
+
 
         return  ResponseEntity.status(HttpStatus.CREATED).body(jugadorService.save(jugador.get()));
     }
 
-    /*
-    //@RequestMapping("/jugador")
-    @RequestMapping(path = "/jugador/{turno}/{nombreUsuario}", method = RequestMethod.GET)
-    //public JugadorObject jugador(@RequestParam(value = "turno", defaultValue = "Talvez") int turno) {
-    public JugadorObject jugador(@PathVariable int turno, @PathVariable String nombreUsuario) {
-        JugadorProxy jP = new JugadorProxy();
-        JugadorObject jO = new JugadorObject();
-        jO.setTurno(jP.turnoJugador(turno));
-        return jO;
-    }*/
 
-
-    //Eliminar un jugador
     @DeleteMapping("/{alias}")
     public ResponseEntity<?> delete(@PathVariable(value = "alias")String alias) {
         if (!jugadorService.findByAlias(alias).isPresent()) {
@@ -105,7 +92,6 @@ public class JugadorController {
         return ResponseEntity.ok().build();
     }
 
-    //Leer todos los jugadores
     @CrossOrigin(origins = "*")
     @GetMapping
     public List<JugadorObject> readAll() {
@@ -116,6 +102,9 @@ public class JugadorController {
         return jugadores;
 
     }
+
+
+    //PROXY
     @PostMapping("/pasarPersonajes")
     public List<JugadorObject> proxy(@RequestBody List<JugadorObject> listJugadores) {
         List<JugadorObject> response = listJugadores;
@@ -127,18 +116,5 @@ public class JugadorController {
         return response;
     }
 
-
-    //@RequestMapping(value = "/x", method=RequestMethod.POST,headers = "Accept=*/*",produces = "application/json", consumes="application/json")
-    //Prueba api con objetos
-    /*public User get2Product(@RequestBody User user) {
-        User usuario = user;
-        user.setName("Prueba");
-        return user;
-    }*/
-
-    @RequestMapping("/hello")
-    public String helloWorld() {
-        return "hello world";
-    }
 
 }

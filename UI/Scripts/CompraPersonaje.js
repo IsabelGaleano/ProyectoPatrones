@@ -1,5 +1,4 @@
 let elementsArray = document.querySelectorAll("#btn-compra-personaje");
-
 //const delay = ms => new Promise(res => setTimeout(res, ms));
 
 //COMPRA DE LOS PERSONAJES DE LA TIENDA
@@ -13,76 +12,50 @@ let elementsArray = document.querySelectorAll("#btn-compra-personaje");
 });*/
 
 
-function validarCinco(){
-    let res= true;
-    let idCastillo = jugadorAct().idCastillo;
-    let obj =JSON.parse(sessionStorage.getItem('tablero'));
-    let castillos= obj.castillos;
-  
-    let  oroJugador = castillos[idCastillo-1].oro;
-
-    if(oroJugador<=5){
-        res = false;
-    }
-    return res;
-}
 document.querySelector('#btn-comprar-Arquero-OK').addEventListener('click', async(e) => {
-
-    if(validarCinco()){
-    agregarBarra(1);}
+    agregarBarra(1);
     console.log("Click extra");
     await verificarCompraPersonaje(1, 10);
     cerrarOverlayCompraArquero();
-   
 });
 
 document.querySelector('#btn-comprar-Asesino-OK').addEventListener('click', async(e) => {
-    if(validarCinco()){
-    agregarBarra(3);}
+    agregarBarra(3);
     await verificarCompraPersonaje(3, 5);
     cerrarOverlayCompraAsesino();
-    
 });
 
 document.querySelector('#btn-comprar-Berserker-OK').addEventListener('click', async(e) => {
-   if(validarCinco){ agregarBarra(4);}
+    agregarBarra(4);
     await verificarCompraPersonaje(4, 25);
     cerrarOverlayCompraBerserker();
-    
 });
 
 document.querySelector('#btn-comprar-Knight-OK').addEventListener('click', async(e) => {
-   if(validarCinco()) {agregarBarra(6);}
+    agregarBarra(6);
     await verificarCompraPersonaje(6, 15);
     cerrarOverlayCompraKnight();
-    
 });
 
 document.querySelector('#btn-comprar-Espia-OK').addEventListener('click', async(e) => {
-   if(validarCinco()) {agregarBarra(5);}
+    agregarBarra(5);
     await verificarCompraPersonaje(5, 5);
     cerrarOverlayCompraEspia();
-   
 });
 
 document.querySelector('#btn-comprar-Swordsman-OK').addEventListener('click', async(e) => {
-    
-    if(validarCinco()){agregarBarra(2);}
+    agregarBarra(2);
     await verificarCompraPersonaje(2, 15);
     cerrarOverlayCompraSwordsman();
-   
 });
 
 document.querySelector('#btn-comprar-Mago-OK').addEventListener('click', async(e) => {
     agregarBarra(7);
-    if(validarCinco()){agregarBarra(7);}
     await verificarCompraPersonaje(7, 10);
     cerrarOverlayCompraMago();
-  
 });
 
 const agregarBarra = (value) => {
-    
     let id = "espacio" + value;
     let divBar = `<div class="wrapper-bar" id="wrapperBar">
     <div id="myProgress">
@@ -96,7 +69,6 @@ const agregarBarra = (value) => {
 
     document.getElementById(id).insertAdjacentHTML("beforeend", divBar);
 
-    
 }
 
 const rebajarMonedas = (cantidadOro) => {
@@ -120,13 +92,11 @@ const rebajarMonedas = (cantidadOro) => {
 }
 
 const verificarCompraPersonaje = async(opcion, monedas) => {
-    if(validarOro(monedas)==true){
     var elem = document.getElementById("myBar");
     let buttonCancel = document.getElementById('buttonBar');
     var width = 1;
     var id = setInterval(frame, 50);
 
- 
     function frame() {
         if (width >= 100) {
             rebajarMonedas(monedas);
@@ -147,6 +117,10 @@ const verificarCompraPersonaje = async(opcion, monedas) => {
                     compraMago();
                 }
 
+            } else {
+                //MENSAJE DE QUE YA TIENE EL PERSONAJE
+                setMensaje("¡Ya tienes este personaje!", "../Imagenes/ui/checkbox_01.png");
+                abrirModalMensaje();
             }
 
             clearInterval(id);
@@ -164,15 +138,6 @@ const verificarCompraPersonaje = async(opcion, monedas) => {
 
         }
     }
-
- 
-}
- else{
-     setMensaje("¡Oro insuficiente!","../Imagenes/ui/checkbox_01.png");
-     abrirModalMensaje();
-     
- }
- actualizarInfoCastilloJugador();
 
 
 }
@@ -214,71 +179,6 @@ const crearPersonaje = async(opcion) => {
 
 
 
-
-const agregarPersonajeToCastillo = async(opcionPersonaje, costo) => {
-    let arrayPersonaje = [];
-    arrayPersonaje = await crearPersonaje(opcionPersonaje);
-    arrayPersonaje[0].id = jugadorActual.id;
-    console.log(arrayPersonaje);
-
-    let obj = JSON.parse(sessionStorage.getItem('tablero'));
-    let jugador;
-    //PARA VALIDAR SI LA TROPA YA HABIA SIDO COMPRADA POR EL MISMO JUGADOR
-    let tropaComprada = false;
-    let [personaje] = arrayPersonaje;
-    //DETERMINAR EL JUGADOR
-    //SE PODRIA ELIMINAR PORQUE YA EXISTE LA VARIABLE JUGADORACTUAL DE TURNO.JS
-    //CONSIDERAR
-    obj.jugadores.forEach(function(element) {
-        if (element.turno) {
-            jugador = element;
-        }
-    });
-
-    let idCastillo = jugador.idCastillo;
-    let castillos = obj.castillos;
-
-    //VALIDAR SI LA TROPA YA FUE COMPRADA
-    if (castillos[idCastillo - 1].tropas != null) {
-        castillos[idCastillo - 1].tropas.forEach(function(element) {
-            if (element.tipo == arrayPersonaje[0].tipo) {
-                tropaComprada = true;
-            }
-        });
-    }
-
-    //SI LA TROPA NO HA SIDO COMPRADA, SE PROSIGUE CON EL RESTO
-    if (tropaComprada == false) {
-        //RESTAR ORO AL CASTILLO
-
-        for (let i = 0; i < castillos.length; i++) {
-            if (idCastillo == castillos[i].id) {
-                if (castillos[i].tropas == null) {
-                    castillos[i].tropas = personaje;
-                } else {
-                    if (castillos[i].tropas.length < 3) {
-                        personaje.estado = "Activo";
-                    }
-                    castillos[i].tropas = [...castillos[i].tropas, personaje];
-                }
-                obj.castillos[i] = castillos[i];
-            }
-
-        }
-        //console.log(obj.castillos);
-        sessionStorage.setItem('tablero', JSON.stringify(obj));
-        tropaCompradaXTurno = true;
-      
-        actualizarPersonajesJugador(1);
-    } else {
-        console.log("Tropa previamente comprada");
-    }
-    actualizarInfoCastilloJugador();
-
-
-}
-
-
 //COMPRA PERSONAJES
 //1 ARQUERO COSTO: 10
 //2 ESPADACHIN COSTO: 15
@@ -296,6 +196,7 @@ const compraArquero = async() => {
     arrayPersonaje[0].id = jugadorActual.id;
     //console.log(arrayPersonaje);
     let obj = JSON.parse(sessionStorage.getItem('tablero'));
+    console.log(obj);
 
     //PARA VALIDAR SI LA TROPA YA HABIA SIDO COMPRADA POR EL MISMO JUGADOR
     let tropaComprada = false;
@@ -304,11 +205,13 @@ const compraArquero = async() => {
     let idCastillo = jugadorActual.idCastillo;
     let castillos = obj.castillos;
 
-    console.log(obj.castillos[idCastillo - 1]);
+    //console.log(obj.castillos[idCastillo]);
     //VALIDAR SI LA TROPA YA FUE COMPRADA
-    if (castillos[idCastillo - 1].tropas != null) {
-        if (castillos[idCastillo - 1].tropas == Array) {
-            castillos[idCastillo - 1].tropas.forEach(function(element) {
+    if (castillos[posicionCastilloActual].tropas != null) {
+
+        if (Array.isArray(castillos[posicionCastilloActual].tropas)) {
+            //console.log("entra en array");
+            castillos[posicionCastilloActual].tropas.forEach(function(element) {
                 if (element.tipo == arrayPersonaje[0].tipo) {
                     tropaComprada = true;
                     //SE CAMBIA EL MODAL
@@ -317,7 +220,9 @@ const compraArquero = async() => {
                 }
             });
         } else {
-            if (castillos[idCastillo - 1].tropas.tipo == arrayPersonaje[0].tipo) {
+
+            if (castillos[posicionCastilloActual].tropas.tipo == arrayPersonaje[0].tipo) {
+                console.log("entra en no array");
                 tropaComprada = true;
                 //SE CAMBIA EL MODAL
                 document.getElementById("infoModalArquero").style.display = "block";
@@ -325,10 +230,12 @@ const compraArquero = async() => {
             }
         }
     }
+    console.log(tropaComprada);
     //SI LA TROPA NO HA SIDO COMPRADA, SE PROSIGUE CON EL RESTO
     if (tropaComprada == false) {
         //RESTAR ORO AL CASTILLO
 
+        document.getElementById("infoModalArquero").style.display = "none";
         for (let i = 0; i < castillos.length; i++) {
             if (idCastillo == castillos[i].id) {
                 if (castillos[i].tropas == null) {
@@ -350,10 +257,12 @@ const compraArquero = async() => {
         console.log("Click principal");
         tropaCompradaXTurno = true;
         actualizarInfoCastilloJugador();
-        actualizarPersonajesJugador(1);
+        actualizarPersonajesJugador();
         cerrarOverlayCompraArquero();
     } else {
-        console.log("Tropa previamente comprada");
+        //MENSAJE DE QUE YA TIENE EL PERSONAJE
+        setMensaje("¡Ya tienes este personaje!", "../Imagenes/ui/checkbox_01.png");
+        abrirModalMensaje();
     }
 }
 
@@ -365,6 +274,7 @@ const compraEspadachin = async() => {
     arrayPersonaje[0].id = jugadorActual.id;
     console.log(arrayPersonaje);
     let obj = JSON.parse(sessionStorage.getItem('tablero'));
+
     //PARA VALIDAR SI LA TROPA YA HABIA SIDO COMPRADA POR EL MISMO JUGADOR
     let tropaComprada = false;
     let [personaje] = arrayPersonaje;
@@ -372,9 +282,9 @@ const compraEspadachin = async() => {
     let idCastillo = jugadorActual.idCastillo;
     let castillos = obj.castillos;
     //VALIDAR SI LA TROPA YA FUE COMPRADA
-    if (castillos[idCastillo - 1].tropas != null) {
-        if (castillos[idCastillo - 1].tropas == Array) {
-            castillos[idCastillo - 1].tropas.forEach(function(element) {
+    if (castillos[posicionCastilloActual].tropas != null) {
+        if (Array.isArray(castillos[posicionCastilloActual].tropas)) {
+            castillos[posicionCastilloActual].tropas.forEach(function(element) {
                 if (element.tipo == arrayPersonaje[0].tipo) {
                     tropaComprada = true;
                     //SE CAMBIA EL MODAL
@@ -383,7 +293,7 @@ const compraEspadachin = async() => {
                 }
             });
         } else {
-            if (castillos[idCastillo - 1].tropas.tipo == arrayPersonaje[0].tipo) {
+            if (castillos[posicionCastilloActual].tropas.tipo == arrayPersonaje[0].tipo) {
                 tropaComprada = true;
                 //SE CAMBIA EL MODAL
                 document.getElementById("infoModalEspadachin").style.display = "block";
@@ -395,6 +305,7 @@ const compraEspadachin = async() => {
     if (tropaComprada == false) {
         //RESTAR ORO AL CASTILLO
 
+        document.getElementById("infoModalEspadachin").style.display = "none";
         for (let i = 0; i < castillos.length; i++) {
             if (idCastillo == castillos[i].id) {
                 if (castillos[i].tropas == null) {
@@ -415,10 +326,12 @@ const compraEspadachin = async() => {
         sessionStorage.setItem('tablero', JSON.stringify(obj));
         tropaCompradaXTurno = true;
         actualizarInfoCastilloJugador();
-        actualizarPersonajesJugador(1);
+        actualizarPersonajesJugador();
         cerrarOverlayCompraSwordsman();
     } else {
-        console.log("Tropa previamente comprada");
+        //MENSAJE DE QUE YA TIENE EL PERSONAJE
+        setMensaje("¡Ya tienes este personaje!", "../Imagenes/ui/checkbox_01.png");
+        abrirModalMensaje();
     }
 }
 
@@ -437,9 +350,9 @@ const compraAsesino = async() => {
     let idCastillo = jugadorActual.idCastillo;
     let castillos = obj.castillos;
     //VALIDAR SI LA TROPA YA FUE COMPRADA
-    if (castillos[idCastillo - 1].tropas != null) {
-        if (castillos[idCastillo - 1].tropas == Array) {
-            castillos[idCastillo - 1].tropas.forEach(function(element) {
+    if (castillos[posicionCastilloActual].tropas != null) {
+        if (Array.isArray(castillos[posicionCastilloActual].tropas)) {
+            castillos[posicionCastilloActual].tropas.forEach(function(element) {
                 if (element.tipo == arrayPersonaje[0].tipo) {
                     tropaComprada = true;
                     //SE CAMBIA EL MODAL
@@ -448,7 +361,7 @@ const compraAsesino = async() => {
                 }
             });
         } else {
-            if (castillos[idCastillo - 1].tropas.tipo == arrayPersonaje[0].tipo) {
+            if (castillos[posicionCastilloActual].tropas.tipo == arrayPersonaje[0].tipo) {
                 tropaComprada = true;
                 //SE CAMBIA EL MODAL
                 document.getElementById("infoModalAsesino").style.display = "block";
@@ -459,6 +372,7 @@ const compraAsesino = async() => {
     //SI LA TROPA NO HA SIDO COMPRADA, SE PROSIGUE CON EL RESTO
     if (tropaComprada == false) {
         //RESTAR ORO AL CASTILLO
+        document.getElementById("infoModalAsesino").style.display = "none";
 
         for (let i = 0; i < castillos.length; i++) {
             if (idCastillo == castillos[i].id) {
@@ -480,9 +394,12 @@ const compraAsesino = async() => {
         sessionStorage.setItem('tablero', JSON.stringify(obj));
         tropaCompradaXTurno = true;
         actualizarInfoCastilloJugador();
-        actualizarPersonajesJugador(1);
+        actualizarPersonajesJugador();
+        cerrarOverlayCompraAsesino();
     } else {
-        console.log("Tropa previamente comprada");
+        //MENSAJE DE QUE YA TIENE EL PERSONAJE
+        setMensaje("¡Ya tienes este personaje!", "../Imagenes/ui/checkbox_01.png");
+        abrirModalMensaje();
     }
 }
 
@@ -501,9 +418,9 @@ const compraBerserker = async() => {
     let idCastillo = jugadorActual.idCastillo;
     let castillos = obj.castillos;
     //VALIDAR SI LA TROPA YA FUE COMPRADA
-    if (castillos[idCastillo - 1].tropas != null) {
-        if (castillos[idCastillo - 1].tropas == Array) {
-            castillos[idCastillo - 1].tropas.forEach(function(element) {
+    if (castillos[posicionCastilloActual].tropas != null) {
+        if (Array.isArray(castillos[posicionCastilloActual].tropas)) {
+            castillos[posicionCastilloActual].tropas.forEach(function(element) {
                 if (element.tipo == arrayPersonaje[0].tipo) {
                     tropaComprada = true;
                     //SE CAMBIA EL MODAL
@@ -512,7 +429,7 @@ const compraBerserker = async() => {
                 }
             });
         } else {
-            if (castillos[idCastillo - 1].tropas.tipo == arrayPersonaje[0].tipo) {
+            if (castillos[posicionCastilloActual].tropas.tipo == arrayPersonaje[0].tipo) {
                 tropaComprada = true;
                 //SE CAMBIA EL MODAL
                 document.getElementById("infoModalBerserker").style.display = "block";
@@ -524,6 +441,7 @@ const compraBerserker = async() => {
     if (tropaComprada == false) {
         //RESTAR ORO AL CASTILLO
 
+        document.getElementById("infoModalBerserker").style.display = "none";
         for (let i = 0; i < castillos.length; i++) {
             if (idCastillo == castillos[i].id) {
                 if (castillos[i].tropas == null) {
@@ -544,10 +462,12 @@ const compraBerserker = async() => {
         sessionStorage.setItem('tablero', JSON.stringify(obj));
         tropaCompradaXTurno = true;
         actualizarInfoCastilloJugador();
-        actualizarPersonajesJugador(1);
+        actualizarPersonajesJugador();
         cerrarOverlayCompraBerserker();
     } else {
-        console.log("Tropa previamente comprada");
+        //MENSAJE DE QUE YA TIENE EL PERSONAJE
+        setMensaje("¡Ya tienes este personaje!", "../Imagenes/ui/checkbox_01.png");
+        abrirModalMensaje();
     }
 }
 
@@ -566,9 +486,9 @@ const compraEspia = async() => {
     let idCastillo = jugadorActual.idCastillo;
     let castillos = obj.castillos;
     //VALIDAR SI LA TROPA YA FUE COMPRADA
-    if (castillos[idCastillo - 1].tropas != null) {
-        if (castillos[idCastillo - 1].tropas == Array) {
-            castillos[idCastillo - 1].tropas.forEach(function(element) {
+    if (castillos[posicionCastilloActual].tropas != null) {
+        if (Array.isArray(castillos[posicionCastilloActual].tropas)) {
+            castillos[posicionCastilloActual].tropas.forEach(function(element) {
                 if (element.tipo == arrayPersonaje[0].tipo) {
                     tropaComprada = true;
                     //SE CAMBIA EL MODAL
@@ -577,7 +497,7 @@ const compraEspia = async() => {
                 }
             });
         } else {
-            if (castillos[idCastillo - 1].tropas.tipo == arrayPersonaje[0].tipo) {
+            if (castillos[posicionCastilloActual].tropas.tipo == arrayPersonaje[0].tipo) {
                 tropaComprada = true;
                 //SE CAMBIA EL MODAL
                 document.getElementById("infoModalEspia").style.display = "block";
@@ -589,6 +509,7 @@ const compraEspia = async() => {
     if (tropaComprada == false) {
         //RESTAR ORO AL CASTILLO
 
+        document.getElementById("infoModalEspia").style.display = "none";
         for (let i = 0; i < castillos.length; i++) {
             if (idCastillo == castillos[i].id) {
                 if (castillos[i].tropas == null) {
@@ -609,10 +530,12 @@ const compraEspia = async() => {
         sessionStorage.setItem('tablero', JSON.stringify(obj));
         tropaCompradaXTurno = true;
         actualizarInfoCastilloJugador();
-        actualizarPersonajesJugador(1);
+        actualizarPersonajesJugador();
         cerrarOverlayCompraEspia();
     } else {
-        console.log("Tropa previamente comprada");
+        //MENSAJE DE QUE YA TIENE EL PERSONAJE
+        setMensaje("¡Ya tienes este personaje!", "../Imagenes/ui/checkbox_01.png");
+        abrirModalMensaje();
     }
 }
 
@@ -631,9 +554,9 @@ const compraJinete = async() => {
     let idCastillo = jugadorActual.idCastillo;
     let castillos = obj.castillos;
     //VALIDAR SI LA TROPA YA FUE COMPRADA
-    if (castillos[idCastillo - 1].tropas != null) {
-        if (castillos[idCastillo - 1].tropas == Array) {
-            castillos[idCastillo - 1].tropas.forEach(function(element) {
+    if (castillos[posicionCastilloActual].tropas != null) {
+        if (Array.isArray(castillos[posicionCastilloActual].tropas)) {
+            castillos[posicionCastilloActual].tropas.forEach(function(element) {
                 if (element.tipo == arrayPersonaje[0].tipo) {
                     tropaComprada = true;
                     //SE CAMBIA EL MODAL
@@ -642,7 +565,7 @@ const compraJinete = async() => {
                 }
             });
         } else {
-            if (castillos[idCastillo - 1].tropas.tipo == arrayPersonaje[0].tipo) {
+            if (castillos[posicionCastilloActual].tropas.tipo == arrayPersonaje[0].tipo) {
                 tropaComprada = true;
                 //SE CAMBIA EL MODAL
                 document.getElementById("infoModalJinete").style.display = "block";
@@ -653,6 +576,7 @@ const compraJinete = async() => {
     //SI LA TROPA NO HA SIDO COMPRADA, SE PROSIGUE CON EL RESTO
     if (tropaComprada == false) {
         //RESTAR ORO AL CASTILLO
+        document.getElementById("infoModalJinete").style.display = "none";
 
         for (let i = 0; i < castillos.length; i++) {
             if (idCastillo == castillos[i].id) {
@@ -674,10 +598,12 @@ const compraJinete = async() => {
         sessionStorage.setItem('tablero', JSON.stringify(obj));
         tropaCompradaXTurno = true;
         actualizarInfoCastilloJugador();
-        actualizarPersonajesJugador(1);
+        actualizarPersonajesJugador();
         cerrarOverlayCompraKnight();
     } else {
-        console.log("Tropa previamente comprada");
+        //MENSAJE DE QUE YA TIENE EL PERSONAJE
+        setMensaje("¡Ya tienes este personaje!", "../Imagenes/ui/checkbox_01.png");
+        abrirModalMensaje();
     }
 }
 
@@ -696,9 +622,9 @@ const compraMago = async() => {
     let idCastillo = jugadorActual.idCastillo;
     let castillos = obj.castillos;
     //VALIDAR SI LA TROPA YA FUE COMPRADA
-    if (castillos[idCastillo - 1].tropas != null) {
-        if (castillos[idCastillo - 1].tropas == Array) {
-            castillos[idCastillo - 1].tropas.forEach(function(element) {
+    if (castillos[posicionCastilloActual].tropas != null) {
+        if (Array.isArray(castillos[posicionCastilloActual].tropas)) {
+            castillos[posicionCastilloActual].tropas.forEach(function(element) {
                 if (element.tipo == arrayPersonaje[0].tipo) {
                     tropaComprada = true;
                     //SE CAMBIA EL MODAL
@@ -707,7 +633,7 @@ const compraMago = async() => {
                 }
             });
         } else {
-            if (castillos[idCastillo - 1].tropas.tipo == arrayPersonaje[0].tipo) {
+            if (castillos[posicionCastilloActual].tropas.tipo == arrayPersonaje[0].tipo) {
                 tropaComprada = true;
                 //SE CAMBIA EL MODAL
                 document.getElementById("infoModalMago").style.display = "block";
@@ -719,6 +645,7 @@ const compraMago = async() => {
     if (tropaComprada == false) {
         //RESTAR ORO AL CASTILLO
 
+        document.getElementById("infoModalMago").style.display = "none";
         for (let i = 0; i < castillos.length; i++) {
             if (idCastillo == castillos[i].id) {
                 if (castillos[i].tropas == null) {
@@ -739,9 +666,11 @@ const compraMago = async() => {
         sessionStorage.setItem('tablero', JSON.stringify(obj));
         tropaCompradaXTurno = true;
         actualizarInfoCastilloJugador();
-        actualizarPersonajesJugador(1);
+        actualizarPersonajesJugador();
         cerrarOverlayCompraMago();
     } else {
-        console.log("Tropa previamente comprada");
+        //MENSAJE DE QUE YA TIENE EL PERSONAJE
+        setMensaje("¡Ya tienes este personaje!", "../Imagenes/ui/checkbox_01.png");
+        abrirModalMensaje();
     }
 }

@@ -2,7 +2,7 @@
 .cnt-Activos {
     background-color: rgba(0, 0, 0, 0.75);
     /*border: 2px aquamarine solid;*/
-    width: 93%;
+    width: 100%;
     height: 375px;
     margin-left: 15px;
     color: white;
@@ -15,6 +15,7 @@
     flex: 1;
     background-image: url('../Imagenes/ui/thinframerectan.png');
     background-size: 100% 100%;
+    box-shadow: 5px 5px #070707a1;
   }
   
   .cnt-Jugador {
@@ -36,8 +37,8 @@
   }
   
   .cnt-Personaje .iconP {
-    width: 100%;
-    background-image: url("../Imagenes/Characters/SkellieIdle.gif");
+    width: 80%;
+    /*background-image: url("../Imagenes/Characters/");*/
     /* The image used */
     
     /* Used if the image is unavailable */
@@ -50,6 +51,17 @@
     background-size: contain;
   }
   
+
+
+  .usedGuy{
+    width: 70px;
+    height: 70px;
+  }
+
+  .usedGuy2{
+    width: 60px;
+    height: 60px;
+  }
   .act-Personaje {    
     width: 90%;
     margin: 5px;
@@ -89,7 +101,7 @@
     color: yellow;
   }
   .stats {
-    padding: 5px;
+    padding: 1px;
   }
   
   .stats button {

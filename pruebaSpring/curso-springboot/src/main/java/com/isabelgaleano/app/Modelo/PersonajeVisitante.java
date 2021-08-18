@@ -67,6 +67,8 @@ public class PersonajeVisitante implements Serializable {
         this.estadoDecorado = estadoDecorado;
     }
 
+
+
     public void aceptar(IVisitor iVisitor) {
         this.estadoDecorado = false;
         if (this.tipoPowerUp.equals("MejoraAtaque")) {
