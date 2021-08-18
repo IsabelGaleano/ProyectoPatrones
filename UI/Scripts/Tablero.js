@@ -279,6 +279,13 @@ function cargarTablero(mas2Jugadores) {
 
                     }
 
+                }else{
+                    if(validarAtaqueCastillo(personajeActualMovimiento,celda.id)==true){
+                        atacarCastillo(personajeActualMovimiento);
+
+                    }
+
+                     
                 }
 
             });
