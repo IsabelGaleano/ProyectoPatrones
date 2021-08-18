@@ -168,7 +168,13 @@ botonesUsarPersonaje.forEach(function(elem) {
 
                             arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
                             estadoPersonaje = "USADO";
-                            idCelda = arrayCeldasConPersonajes[posicionPersonajeArray].celda;
+                            for (let i = 0; i < arrayCeldasConPersonajes.length; i++) {
+                                if (arrayCeldasConPersonajes[i].personaje.tipo == personajeActualMovimiento.tipo && arrayCeldasConPersonajes[i].personaje.id == personajeActualMovimiento.id) {
+                                    idCelda = arrayCeldasConPersonajes[i].celda;
+
+                                    break;
+                                }
+                            }
                             primerMovimiento = true;
                             console.log("Entra en mov usado");
                         } else {
@@ -255,7 +261,13 @@ botonesUsarPersonaje.forEach(function(elem) {
 
                             arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
                             estadoPersonaje = "USADO";
-                            idCelda = arrayCeldasConPersonajes[posicionPersonajeArray].celda;
+                            for (let i = 0; i < arrayCeldasConPersonajes.length; i++) {
+                                if (arrayCeldasConPersonajes[i].personaje.tipo == personajeActualMovimiento.tipo && arrayCeldasConPersonajes[i].personaje.id == personajeActualMovimiento.id) {
+                                    idCelda = arrayCeldasConPersonajes[i].celda;
+
+                                    break;
+                                }
+                            }
                             primerMovimiento = true;
                             console.log("Entra en mov usado");
                         } else {
@@ -342,7 +354,13 @@ botonesUsarPersonaje.forEach(function(elem) {
 
                             arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
                             estadoPersonaje = "USADO";
-                            idCelda = arrayCeldasConPersonajes[posicionPersonajeArray].celda;
+                            for (let i = 0; i < arrayCeldasConPersonajes.length; i++) {
+                                if (arrayCeldasConPersonajes[i].personaje.tipo == personajeActualMovimiento.tipo && arrayCeldasConPersonajes[i].personaje.id == personajeActualMovimiento.id) {
+                                    idCelda = arrayCeldasConPersonajes[i].celda;
+
+                                    break;
+                                }
+                            }
                             primerMovimiento = true;
                             console.log("Entra en mov usado");
                         } else {
@@ -431,7 +449,13 @@ botonesUsarPersonaje.forEach(function(elem) {
 
                             arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
                             estadoPersonaje = "USADO";
-                            idCelda = arrayCeldasConPersonajes[posicionPersonajeArray].celda;
+                            for (let i = 0; i < arrayCeldasConPersonajes.length; i++) {
+                                if (arrayCeldasConPersonajes[i].personaje.tipo == personajeActualMovimiento.tipo && arrayCeldasConPersonajes[i].personaje.id == personajeActualMovimiento.id) {
+                                    idCelda = arrayCeldasConPersonajes[i].celda;
+
+                                    break;
+                                }
+                            }
                             primerMovimiento = true;
                             console.log("Entra en mov usado");
                         } else {
@@ -518,7 +542,13 @@ botonesUsarPersonaje.forEach(function(elem) {
 
                             arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
                             estadoPersonaje = "USADO";
-                            idCelda = arrayCeldasConPersonajes[posicionPersonajeArray].celda;
+                            for (let i = 0; i < arrayCeldasConPersonajes.length; i++) {
+                                if (arrayCeldasConPersonajes[i].personaje.tipo == personajeActualMovimiento.tipo && arrayCeldasConPersonajes[i].personaje.id == personajeActualMovimiento.id) {
+                                    idCelda = arrayCeldasConPersonajes[i].celda;
+
+                                    break;
+                                }
+                            }
                             primerMovimiento = true;
                             console.log("Entra en mov usado");
                         } else {
@@ -606,7 +636,13 @@ botonesUsarPersonaje.forEach(function(elem) {
 
                             arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
                             estadoPersonaje = "USADO";
-                            idCelda = arrayCeldasConPersonajes[posicionPersonajeArray].celda;
+                            for (let i = 0; i < arrayCeldasConPersonajes.length; i++) {
+                                if (arrayCeldasConPersonajes[i].personaje.tipo == personajeActualMovimiento.tipo && arrayCeldasConPersonajes[i].personaje.id == personajeActualMovimiento.id) {
+                                    idCelda = arrayCeldasConPersonajes[i].celda;
+
+                                    break;
+                                }
+                            }
                             primerMovimiento = true;
                             console.log("Entra en mov usado");
                         } else {
