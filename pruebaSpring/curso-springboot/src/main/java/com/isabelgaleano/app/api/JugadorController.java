@@ -6,7 +6,6 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.isabelgaleano.app.Modelo.PersonajeVisitante;
 import com.isabelgaleano.app.PatronPrototipo.iPrototipo.Casilla;
 import com.isabelgaleano.app.PatronPrototipo.prototipo.CasillaGema;
-import com.isabelgaleano.app.entity.User;
 import com.isabelgaleano.app.proxy.implementacion.JugadorProxy;
 import com.isabelgaleano.app.service.JugadorService;
 import org.springframework.beans.factory.annotation.Autowired;
