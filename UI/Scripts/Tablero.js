@@ -189,6 +189,7 @@ function playSound() {
 
 //CARGAR EL TABLERO DINÁMICAMENTE
 function cargarTablero(mas2Jugadores) {
+    
     //CREACION DE LAS CELDAS
     //FILAS
     let cantidad = obtenerCantidad();
@@ -319,9 +320,38 @@ function cargarTablero(mas2Jugadores) {
 
                     }
 
-                }
+                }/*else{
+                    celda= arrayCeldasConPersonajes[posicionPersonajeArray].celda;
+                    if(validarAtaqueCastillo(personajeActualMovimiento,celda.id)==true){
+                        atacarCastillo(personajeActualMovimiento);
+
+                    }
+
+                     
+                }*/
+                document.querySelector("#c10").addEventListener('click', function(){
+                    celda= arrayCeldasConPersonajes[posicionPersonajeArray].celda;
+                    if(validarAtaqueCastillo(personajeActualMovimiento,celda.id)==true){
+                        atacarCastillo(personajeActualMovimiento);
+            
+                    }
+                    
+            
+                });
+                document.querySelector("#c91").addEventListener('click', function(){
+                    celda= arrayCeldasConPersonajes[posicionPersonajeArray].celda;
+                    if(validarAtaqueCastillo(personajeActualMovimiento,celda.id)==true){
+                        atacarCastillo(personajeActualMovimiento);
+            
+                    }
+                    
+            
+                });
+              
+                
 
             });
+            
 
             //celda.className = "celda";
             //$(celda).css('background-image', 'url(Imagenes/gray_texture.png)');
@@ -330,6 +360,7 @@ function cargarTablero(mas2Jugadores) {
         }
         tablero.appendChild(fila);
     }
+   
 
     setCasillas();
     esconderGemasPower();
