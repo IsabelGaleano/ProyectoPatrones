@@ -329,6 +329,7 @@ function cargarTablero(mas2Jugadores) {
 
                      
                 }*/
+          
                 document.querySelector("#c10").addEventListener('click', function(){
                     celda= arrayCeldasConPersonajes[posicionPersonajeArray].celda;
                     if(validarAtaqueCastillo(personajeActualMovimiento,celda.id)==true){
