@@ -484,39 +484,9 @@ function tipoPowerUp(numero) {
 
 
 function fondo() {
-    let randomNumber = Math.floor(Math.random() * 9) + 1;
-    let urlBody;
-    switch (randomNumber) {
-        case 1:
-            urlBody = 'url(../Imagenes/Backgrounds/bg_01.png)';
-            break;
-        case 2:
-            urlBody = 'url(../Imagenes/Backgrounds/bg_02.png)';
-            break;
-        case 3:
-            urlBody = 'url(../Imagenes/Backgrounds/bg_03.png)';
-            break;
-        case 4:
-            urlBody = 'url(../Imagenes/Backgrounds/bg_04.png)';
-            break;
-        case 5:
-            urlBody = 'url(../Imagenes/Backgrounds/bg_05.png)';
-            break;
-        case 6:
-            urlBody = 'url(../Imagenes/Backgrounds/bg_06.png)';
-            break;
-        case 7:
-            urlBody = 'url(../Imagenes/Backgrounds/bg_07.png)';
-            break;
-        case 8:
-            urlBody = 'url(../Imagenes/Backgrounds/bg_08.png)';
-            break;
-        case 9:
-            urlBody = 'url(../Imagenes/Backgrounds/bg_09.png)';
-            break;
-
-    }
-    imgBody.style.backgroundImage = urlBody;
+    
+    imgBody.style.backgroundImage = sessionStorage.getItem('fondoPantalla');
+    
 }
 
 fondo();
