@@ -256,7 +256,7 @@ function cargarTablero(mas2Jugadores) {
                         document.getElementById(celdaActual).style.backgroundImage = '';
                     }
 
-                    if (celda.style.backgroundColor == 'rgb(237, 255, 214)') {
+                    if (celda.style.backgroundColor == 'rgba(0, 144, 234, 0.74)') {
                         let obj = JSON.parse(sessionStorage.getItem('tablero'));
                         /*
                         if (obj.jugadores[0].id == jugadorActual.id) {
@@ -329,6 +329,7 @@ function cargarTablero(mas2Jugadores) {
 
                      
                 }*/
+          
                 document.querySelector("#c10").addEventListener('click', function(){
                     celda= arrayCeldasConPersonajes[posicionPersonajeArray].celda;
                     if(validarAtaqueCastillo(personajeActualMovimiento,celda.id)==true){
