@@ -320,6 +320,12 @@ function cargarTablero(mas2Jugadores) {
 
                     }
 
+                }else{
+                    if(validarAtaqueCastillo(personajeActualMovimiento,arrayCeldasConPersonajes[posicionPersonajeArray].celda)==true){
+                        atacarCastillo(personajeActualMovimiento);
+                
+                    }
+
                 }
               
                 
@@ -341,22 +347,7 @@ function cargarTablero(mas2Jugadores) {
     esconderGemasPower();
 }
 
-document.querySelector('#c10').addEventListener('click', e => {
-    if(validarAtaqueCastillo(personajeActualMovimiento,arrayCeldasConPersonajes[posicionPersonajeArray].celda)==true){
-        atacarCastillo(personajeActualMovimiento);
 
-    }
-    
-
-});
-document.querySelector('#c91').addEventListener('click', e => {
-    if(validarAtaqueCastillo(personajeActualMovimiento,arrayCeldasConPersonajes[posicionPersonajeArray].celda)==true){
-        atacarCastillo(personajeActualMovimiento);
-
-    }
-    
-
-});
 
 const setCasillas = () => {
     let celdas = document.getElementsByTagName('td');
