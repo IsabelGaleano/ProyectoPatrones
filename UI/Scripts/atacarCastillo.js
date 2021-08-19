@@ -18,22 +18,24 @@ let validarAtaqueCastillo= function(personaje,idCasilla){
     }else{
         castilloAtacado=1;
     }
-    let cas=[10][10];
 
     let atacarCastillo = false;
 
-    let resB=Math.abs(10-posX)+Math.abs(1-posY);
-    let resA=Math.abs(1-posX)+Math.abs(10-posY);
+    let resB=Math.abs(9-posX)+Math.abs(1-posY);
+    let resA=Math.abs(0-posX)+Math.abs(10-posY);
    
    
 
     if(castilloAtacado == 1){
       if(resB <= alcance){
         atacarCastillo = true;
-    }
-} else if(castilloAtacado == 2){
+        cambiarColor("c10");
+        }
+    }      
+    else if(castilloAtacado == 2){
     if(resA<=alcance){
         atacarCastillo= true;
+         cambiarColor("c91");
     }
 }
 
@@ -41,7 +43,11 @@ let validarAtaqueCastillo= function(personaje,idCasilla){
 }
 
 
-
+const cambiarColor=function(idCasilla){
+   document.getElementById(idCasilla).style.backgroundColor='rgba(217, 30, 24, 1)';
+ 
+    
+}
 
 const atacarCastillo= async(personaje)=>{
 
