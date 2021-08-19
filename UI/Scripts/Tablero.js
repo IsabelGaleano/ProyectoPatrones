@@ -320,37 +320,12 @@ function cargarTablero(mas2Jugadores) {
 
                     }
 
-                }/*else{
-                    celda= arrayCeldasConPersonajes[posicionPersonajeArray].celda;
-                    if(validarAtaqueCastillo(personajeActualMovimiento,celda.id)==true){
-                        atacarCastillo(personajeActualMovimiento);
-
-                    }
-
-                     
-                }*/
-                document.querySelector("#c10").addEventListener('click', function(){
-                    celda= arrayCeldasConPersonajes[posicionPersonajeArray].celda;
-                    if(validarAtaqueCastillo(personajeActualMovimiento,celda.id)==true){
-                        atacarCastillo(personajeActualMovimiento);
-            
-                    }
-                    
-            
-                });
-                document.querySelector("#c91").addEventListener('click', function(){
-                    celda= arrayCeldasConPersonajes[posicionPersonajeArray].celda;
-                    if(validarAtaqueCastillo(personajeActualMovimiento,celda.id)==true){
-                        atacarCastillo(personajeActualMovimiento);
-            
-                    }
-                    
-            
-                });
+                }
               
                 
 
             });
+             
             
 
             //celda.className = "celda";
@@ -365,6 +340,23 @@ function cargarTablero(mas2Jugadores) {
     setCasillas();
     esconderGemasPower();
 }
+
+document.querySelector('#c10').addEventListener('click', e => {
+    if(validarAtaqueCastillo(personajeActualMovimiento,arrayCeldasConPersonajes[posicionPersonajeArray].celda)==true){
+        atacarCastillo(personajeActualMovimiento);
+
+    }
+    
+
+});
+document.querySelector('#c91').addEventListener('click', e => {
+    if(validarAtaqueCastillo(personajeActualMovimiento,arrayCeldasConPersonajes[posicionPersonajeArray].celda)==true){
+        atacarCastillo(personajeActualMovimiento);
+
+    }
+    
+
+});
 
 const setCasillas = () => {
     let celdas = document.getElementsByTagName('td');
@@ -420,6 +412,7 @@ const setCasillas = () => {
 
     }
 }
+
 
 
 
