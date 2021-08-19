@@ -77,20 +77,21 @@ const obtenerCasillasGemas = () => {
 }
 
 const esconderGemasPower = () => {
-  let casillas = obtenerCasillas();
-  let celdas = document.getElementsByTagName('td');
-  for (let i = 0; i < casillas.length; i++) {
-      
-      if (casillas[i].tipo == "CasillaPowerUp") {
-        //celdas[i].style.display = "none";
-        //celdas[i].style.backgroundImage = "none";
-        celdas[i].style.backgroundImage = 'url(../Imagenes/green_texture2.png)' ;
+    let casillas = obtenerCasillas();
+    let celdas = document.getElementsByTagName('td');
+    for (let i = 0; i < casillas.length; i++) {
 
-      } /*else if(casillas[i].tipo == "CasillaGema") {
-        celdas[i].style.opacity = "0";
-        //celdas[i].style.backgroundImage += ',url(../Imagenes/green_texture.png)';
-      }*/
-  }
+        if (casillas[i].tipo == "CasillaPowerUp") {
+            //celdas[i].style.display = "none";
+            //celdas[i].style.backgroundImage = "none";
+            celdas[i].style.backgroundImage = 'url(../Imagenes/green_texture2.png)';
+
+        }
+        /*else if(casillas[i].tipo == "CasillaGema") {
+               celdas[i].style.opacity = "0";
+               //celdas[i].style.backgroundImage += ',url(../Imagenes/green_texture.png)';
+             }*/
+    }
 
 }
 
@@ -188,6 +189,7 @@ function playSound() {
 
 //CARGAR EL TABLERO DINÁMICAMENTE
 function cargarTablero(mas2Jugadores) {
+    
     //CREACION DE LAS CELDAS
     //FILAS
     let cantidad = obtenerCantidad();
@@ -256,8 +258,9 @@ function cargarTablero(mas2Jugadores) {
 
                     if (celda.style.backgroundColor == 'rgb(237, 255, 214)') {
                         let obj = JSON.parse(sessionStorage.getItem('tablero'));
+                        /*
                         if (obj.jugadores[0].id == jugadorActual.id) {
-                            console.log(celdaAnteriorPersonajeJ1);
+                            //console.log(celdaAnteriorPersonajeJ1);
                             //celdaJ1 = celda;
                             document.getElementById(celdaAnteriorPersonajeJ1).style.backgroundImage = '';
                             document.getElementById(celdaAnteriorPersonajeJ1).personajeActivo = '';
@@ -265,6 +268,15 @@ function cargarTablero(mas2Jugadores) {
                             //celdaJ2 = celda;
                             document.getElementById(celdaAnteriorPersonajeJ2).style.backgroundImage = '';
                             document.getElementById(celdaAnteriorPersonajeJ2).personajeActivo = '';
+                        }*/
+
+                        //QUITAR CELDA DEL PERSONAJE ESCOGIDO
+                        for (let i = 0; i < arrayCeldasConPersonajes.length; i++) {
+                            if (arrayCeldasConPersonajes[i].personaje.tipo == personajeActualMovimiento.tipo && arrayCeldasConPersonajes[i].personaje.id == personajeActualMovimiento.id) {
+                                document.getElementById(arrayCeldasConPersonajes[i].celda).style.backgroundImage = '';
+                                document.getElementById(arrayCeldasConPersonajes[i].celda).personajeActivo = '';
+                                break;
+                            }
                         }
 
                         celda.style.backgroundImage = cargarPersonaje(tipoPersonajeActual);
@@ -280,8 +292,13 @@ function cargarTablero(mas2Jugadores) {
                             celdaAnteriorPersonajeJ2 = celda.id;
                         }
 
-                        arrayCeldasConPersonajes[posicionPersonajeArray].celda = celda;
-
+                        //ACTUALIZAR CELDA EN EL ARRAY DE CELDAS CON PERSONAJES
+                        for (let i = 0; i < arrayCeldasConPersonajes.length; i++) {
+                            if (arrayCeldasConPersonajes[i].personaje.tipo == personajeActualMovimiento.tipo && arrayCeldasConPersonajes[i].personaje.id == personajeActualMovimiento.id) {
+                                arrayCeldasConPersonajes[i].celda = celda.id;
+                                break;
+                            }
+                        }
 
                         primerMovimiento = true;
                         movimientosPersonaje--;
@@ -289,17 +306,52 @@ function cargarTablero(mas2Jugadores) {
                         numeroDadoSacado--;
                         cuadroMovimientos.textContent = numeroDadoSacado;
                         celda.personajeActivo = personajeActualMovimiento;
-                        if (movimientosPersonaje == 0) {
-                            eliminarFondoCasillasMovimientos();
+
+                        //VERIFICAR QUE QUEDEN MOVIMIENTOS DEL DADO
+                        if (document.getElementById("Movimientos").textContent >= 1) {
+                            if (movimientosPersonaje == 0) {
+                                eliminarFondoCasillasMovimientos();
+                            } else {
+                                movimientoPersonaje(personajeActualMovimiento, celda.id, true);
+                            }
                         } else {
-                            movimientoPersonaje(personajeActualMovimiento, celda.id, true);
+                            eliminarFondoCasillasMovimientos();
                         }
 
                     }
 
-                }
+                }/*else{
+                    celda= arrayCeldasConPersonajes[posicionPersonajeArray].celda;
+                    if(validarAtaqueCastillo(personajeActualMovimiento,celda.id)==true){
+                        atacarCastillo(personajeActualMovimiento);
+
+                    }
+
+                     
+                }*/
+                document.querySelector("#c10").addEventListener('click', function(){
+                    celda= arrayCeldasConPersonajes[posicionPersonajeArray].celda;
+                    if(validarAtaqueCastillo(personajeActualMovimiento,celda.id)==true){
+                        atacarCastillo(personajeActualMovimiento);
+            
+                    }
+                    
+            
+                });
+                document.querySelector("#c91").addEventListener('click', function(){
+                    celda= arrayCeldasConPersonajes[posicionPersonajeArray].celda;
+                    if(validarAtaqueCastillo(personajeActualMovimiento,celda.id)==true){
+                        atacarCastillo(personajeActualMovimiento);
+            
+                    }
+                    
+            
+                });
+              
+                
 
             });
+            
 
             //celda.className = "celda";
             //$(celda).css('background-image', 'url(Imagenes/gray_texture.png)');
@@ -308,6 +360,7 @@ function cargarTablero(mas2Jugadores) {
         }
         tablero.appendChild(fila);
     }
+   
 
     setCasillas();
     esconderGemasPower();
@@ -316,11 +369,11 @@ function cargarTablero(mas2Jugadores) {
 const setCasillas = () => {
     let celdas = document.getElementsByTagName('td');
     let casillas = obtenerCasillas();
-    
+
     //console.log(celdas);
     for (let i = 0; i < celdas.length; i++) {
         for (let j = 0; j < casillas.length; j++) {
-        
+
             /*if (casillas[j].tipo == "CasillaGema") {
                 switch (casillas[j].data) {
                     case "GemaVerde":
@@ -338,7 +391,7 @@ const setCasillas = () => {
                         break;
                 }
             } else */
-             if (casillas[j].tipo == "CasillaPowerUp") {
+            if (casillas[j].tipo == "CasillaPowerUp") {
                 switch (casillas[j].data) {
                     case "MejoraAtaque":
                         celdas[casillas[j].id].style.backgroundImage = 'url(../Imagenes/PowerUps/PowUpGif.gif)';

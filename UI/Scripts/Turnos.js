@@ -16,7 +16,7 @@ const diceSound = new Audio('../Sounds/diceRoll.wav');
 $(document).ready(function() {
 
     turnos();
-    console.log(tableroJSON);
+    //console.log(tableroJSON);
     partida();
     //juego();
 });
@@ -102,7 +102,7 @@ let partida = async() => {
 
     //SI NO HAY NINGÚN JUGADOR, SE CONTINUA EL CICLO
     while (estadoPartida == false) {
-        console.log("Turno diferente" + posicionJugadorActual);
+        //console.log("Turno diferente" + posicionJugadorActual);
 
         if (posicionJugadorActual == jugadores.length + 1) {
             posicionJugadorActual = 0;
@@ -275,7 +275,7 @@ const removerPowersTurnos = async() => {
 
 
     personajesNuevos = await visitarPersonajes(objVisitantePersonajes);
-    console.log(personajesNuevos);
+    //console.log(personajesNuevos);
 }
 
 

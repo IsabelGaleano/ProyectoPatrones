@@ -100,28 +100,23 @@ const verificarCompraPersonaje = async(opcion, monedas) => {
     function frame() {
         if (width >= 100) {
             rebajarMonedas(monedas);
-            if (tropaCompradaXTurno == false) {
-                if (opcion == 1) {
-                    compraArquero();
-                } else if (opcion == 3) {
-                    compraAsesino();
-                } else if (opcion == 4) {
-                    compraBerserker();
-                } else if (opcion == 6) {
-                    compraJinete();
-                } else if (opcion == 5) {
-                    compraEspia();
-                } else if (opcion == 2) {
-                    compraEspadachin();
-                } else if (opcion == 7) {
-                    compraMago();
-                }
 
-            } else {
-                //MENSAJE DE QUE YA TIENE EL PERSONAJE
-                setMensaje("¡Ya tienes este personaje!", "../Imagenes/ui/checkbox_01.png");
-                abrirModalMensaje();
+            if (opcion == 1) {
+                compraArquero();
+            } else if (opcion == 3) {
+                compraAsesino();
+            } else if (opcion == 4) {
+                compraBerserker();
+            } else if (opcion == 6) {
+                compraJinete();
+            } else if (opcion == 5) {
+                compraEspia();
+            } else if (opcion == 2) {
+                compraEspadachin();
+            } else if (opcion == 7) {
+                compraMago();
             }
+
 
             clearInterval(id);
 

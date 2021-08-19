@@ -12,6 +12,6 @@ function actualizarInfoCastilloJugador() {
     let idCastillo = jugador.idCastillo;
     //console.log(obj.jugadores);
     //console.log(obj.castillos[idCastillo - 1]);
-    document.getElementById("castilloVida").textContent = obj.castillos[idCastillo - 1].vida;
-    document.getElementById("castilloCoins").textContent = obj.castillos[idCastillo - 1].oro;
+    document.getElementById("castilloVida").textContent = obj.castillos[posicionCastilloActual].vida;
+    document.getElementById("castilloCoins").textContent = obj.castillos[posicionCastilloActual].oro;
 }
