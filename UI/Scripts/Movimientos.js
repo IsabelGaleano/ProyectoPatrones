@@ -809,7 +809,7 @@ function movimientoPersonaje(personaje, idCelda, primerMovimiento) {
             let movimientos = movimientosPosibles(idCelda);
             for (let i = 0; i < movimientos.length; i++) {
                 //console.log(movimientos[i]);
-                document.getElementById(movimientos[i]).style.backgroundColor = 'rgb(237, 255, 214)';
+                document.getElementById(movimientos[i]).style.backgroundColor = 'rgba(0, 144, 234, 0.74)';
             }
             celdasAnteriores = movimientos;
             //movimientoPersonaje(personajeActualMovimiento, idCelda);
@@ -833,7 +833,7 @@ function movimientoPersonaje(personaje, idCelda, primerMovimiento) {
 
                 for (let i = 0; i < movimientos.length; i++) {
                     //console.log(movimientos[i]);
-                    document.getElementById(movimientos[i]).style.backgroundColor = 'rgb(237, 255, 214)';
+                    document.getElementById(movimientos[i]).style.backgroundColor = 'rgba(0, 144, 234, 0.74)';
                 }
                 celdasAnteriores = movimientos;
                 //movimientoPersonaje(personajeActualMovimiento, celdaClickeada.id);

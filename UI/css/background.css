@@ -1,0 +1,105 @@
+* {
+    box-sizing: border-box;
+  }
+  
+.cont-cards{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+  
+  /* Float four columns side by side */
+  .column {
+    float: left;
+    width: 33%;
+    height: 175px;
+    padding: 0 10px;
+    margin-bottom: 25px;
+    
+  }
+  
+  /* Remove extra left and right margins, due to padding */
+  .row {
+    margin: 0 -5px;
+    width: 50%;
+    height: 200px;
+    display: flex;
+    }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive columns */
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+  
+  /* Style the counter cards */
+  .card {
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.9);
+    padding: 16px;
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    color: aliceblue;
+    height: 150px;
+    background-size: 100% 100%;
+    opacity: 75%;
+    transition: transform .3s ease-out;
+  }
+
+.card:hover{
+    
+    transform: translate(0,-10px);    
+    opacity: 100%;
+    border: 4px solid cyan;
+    background-size: 110% 110%;
+    transform: scale3d(110%);
+}
+
+  #card1{
+      
+      background-image: url(../Imagenes/Backgrounds/bg_01.png);
+  }
+
+  #card2{
+    
+    background-image: url(../Imagenes/Backgrounds/bg_02.png);
+}
+#card3{
+    
+    background-image: url(../Imagenes/Backgrounds/bg_03.png);
+}
+#card4{
+    
+    background-image: url(../Imagenes/Backgrounds/bg_04.png);
+}
+#card5{
+    
+    background-image: url(../Imagenes/Backgrounds/bg_05.png);
+}
+#card6{
+    
+    background-image: url(../Imagenes/Backgrounds/bg_06.png);
+}
+#card7{
+    
+    background-image: url(../Imagenes/Backgrounds/bg_07.png);
+}
+#card8{
+    
+    background-image: url(../Imagenes/Backgrounds/bg_08.png);
+}
+#card9{
+    
+    background-image: url(../Imagenes/Backgrounds/bg_09.png);
+}
