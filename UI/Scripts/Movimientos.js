@@ -47,6 +47,77 @@ let primerMovimientoMagoJ2 = false;
 //--ARRAYS PARA ESTADOS DE LOS JUGADORES DEL TABLERO--
 let posicionPersonajeArray;
 
+//ESTA FUNCION VALIDA SI YA EL JUGADOR ACTUAL TIENE 3 PERSONAJES EN EL TABLERO
+//RETORNA TRUE SI HAY MAS O IGUAL A 3. RETORNA FALSE SI HAY MENOS DE 3
+async function cantidadPersonajesTablero() {
+    let contadorPersonajes = 0;
+    let arrayPersonajes = [];
+    for (let i = 1; i <= 10; i++) {
+        let sumatoriaCeldas = 1;
+        if (i > 1) {
+            sumatoriaCeldas = (10 * (i - 1)) + 1;
+        }
+        //CELDAS DE CADA FILA
+        for (let c = sumatoriaCeldas; c <= 10 * i; c++) {
+            let celda = "c" + c;
+            let celdaElement = document.getElementById(celda);
+            if (celdaElement.personajeActivo != null) {
+                if (celdaElement.personajeActivo.id == jugadorActual.id) {
+                    arrayPersonajes.push(celdaElement.personajeActivo);
+                }
+            }
+        }
+    }
+    return arrayPersonajes;
+
+    //EVALUA SI HAY MAS DE 3 Y RETORNA
+    /*
+    if (contadorPersonajes >= 3) {
+        return true;
+    } else {
+        return false;
+    }*/
+
+}
+
+//RETORNA TRUE SI EL PERSONAJE SI ESTÁ EN EL TABLERO
+async function verificarPersonajeActivoTablero(array, tipo) {
+    let variable = true;
+    let contador = 0;
+    //console.log(array);
+    if (array.length != 0) {
+
+        for (let i = 0; i < array.length; i++) {
+            if (array[i].id == jugadorActual.id) {
+                contador++;
+            }
+        }
+        console.log(contador);
+        if (contador >= 3) {
+            for (let i = 0; i < array.length; i++) {
+                if (array[i].tipo == tipo) {
+
+                    console.log("True");
+                    //return true;
+                    variable = true;
+                    break;
+                } else {
+                    variable = false;
+                }
+
+            }
+
+        } else {
+            console.log("else");
+            variable = true;
+        }
+    } else {
+        variable = true;
+    }
+
+
+    return variable;
+}
 
 
 //EL JUGADOR 1 TIENE EL CASTILLO INFERIOR IZQUIERDO
@@ -56,24 +127,22 @@ botonesUsarPersonaje.forEach(function(elem) {
         let obj = JSON.parse(sessionStorage.getItem('tablero'));
 
         //VALIDA SI TIRÓ DEL DADO
-        if (cuadroMovimientos.textContent === "undefined" || cuadroMovimientos.textContent == "") {
+        if (document.getElementById("Movimientos").textContent === "undefined" || document.getElementById("Movimientos").textContent == "") {
             //console.log("entra en undefined");
             setMensaje("Debe tirar del dado", "../Imagenes/ui/checkbox_01.png");
             abrirModalMensaje();
         } else {
-            if (movimientoXTurno == false) {
-                //ARQUERO
-                if (elem.classList.contains("arquero") && elem.textContent == "Usar") {
 
-                    if (cuadroMovimientos.textContent >= 1) {
+            //ARQUERO
+            if (elem.classList.contains("arquero") && elem.textContent == "Usar") {
+                console.log(await cantidadPersonajesTablero());
+                if (await verificarPersonajeActivoTablero(await cantidadPersonajesTablero(), "Arquero") == true) {
+                    if (document.getElementById("Movimientos").textContent >= 1) {
                         let estadoPersonaje;
                         let estadoActualPer = "NU";
                         personajeActualMovimiento = obtenerPersonajeDeTropas(1);
                         posicionPersonajeArray = await buscarCeldaYPersonaje();
-                        //let obj = JSON.parse(sessionStorage.getItem('tablero'));
 
-                        //VALIDAR ESTADO DEL PERSONAJE
-                        //ESTADOS POSIBLES: NU (NO USADO) Y USADO
 
                         let movActual = false;
                         if (obj.jugadores[0].id == jugadorActual.id) {
@@ -99,7 +168,13 @@ botonesUsarPersonaje.forEach(function(elem) {
 
                             arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
                             estadoPersonaje = "USADO";
-                            idCelda = arrayCeldasConPersonajes[posicionPersonajeArray].celda;
+                            for (let i = 0; i < arrayCeldasConPersonajes.length; i++) {
+                                if (arrayCeldasConPersonajes[i].personaje.tipo == personajeActualMovimiento.tipo && arrayCeldasConPersonajes[i].personaje.id == personajeActualMovimiento.id) {
+                                    idCelda = arrayCeldasConPersonajes[i].celda;
+
+                                    break;
+                                }
+                            }
                             primerMovimiento = true;
                             console.log("Entra en mov usado");
                         } else {
@@ -122,7 +197,7 @@ botonesUsarPersonaje.forEach(function(elem) {
 
                                 celdaAnteriorPersonajeJ1 = idCelda;
 
-                                objComb.celda = idCelda;
+                                objComb.celda = "c82";
                             } else {
                                 idCelda = "c19";
                                 document.getElementById(idCelda).style.backgroundImage = cargarPersonaje(tipoPersonajeActual);
@@ -131,29 +206,33 @@ botonesUsarPersonaje.forEach(function(elem) {
 
                                 celdaAnteriorPersonajeJ2 = idCelda;
 
-                                objComb.celda = idCelda;
+                                objComb.celda = "c19";
                             }
                             if (posicionPersonajeArray == undefined) {
                                 posicionPersonajeArray = 0;
                             }
+                            //console.log(objComb);
                             arrayCeldasConPersonajes.push(objComb);
                             console.log("Se añade");
                         }
                         //PERMITE MOVERSE AUNQUE SEA UNA VEZ
-                        if (cuadroMovimientos.textContent >= 1) {
+                        if (document.getElementById("Movimientos").textContent >= 1) {
                             movimientoPersonaje(personajeActualMovimiento, idCelda, primerMovimiento);
                         }
                     }
+                } else {
+                    setMensaje("Solo pueden haber 3 personajes en el tablero a la vez!", "../Imagenes/ui/checkbox_01.png");
+                    abrirModalMensaje();
                 }
-                //ESPADACHIN
-                if (elem.classList.contains("espadachin") && elem.textContent == "Usar") {
-
-                    if (cuadroMovimientos.textContent >= 1) {
+            }
+            //ESPADACHIN
+            if (elem.classList.contains("espadachin") && elem.textContent == "Usar") {
+                if (await verificarPersonajeActivoTablero(await cantidadPersonajesTablero(), "Espadachin") == true) {
+                    if (document.getElementById("Movimientos").textContent >= 1) {
                         let estadoPersonaje;
                         let estadoActualPer = "NU";
                         personajeActualMovimiento = obtenerPersonajeDeTropas(2);
                         posicionPersonajeArray = await buscarCeldaYPersonaje();
-                        //let obj = JSON.parse(sessionStorage.getItem('tablero'));
 
                         //VALIDAR ESTADO DEL PERSONAJE
                         //ESTADOS POSIBLES: NU (NO USADO) Y USADO
@@ -182,7 +261,13 @@ botonesUsarPersonaje.forEach(function(elem) {
 
                             arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
                             estadoPersonaje = "USADO";
-                            idCelda = arrayCeldasConPersonajes[posicionPersonajeArray].celda;
+                            for (let i = 0; i < arrayCeldasConPersonajes.length; i++) {
+                                if (arrayCeldasConPersonajes[i].personaje.tipo == personajeActualMovimiento.tipo && arrayCeldasConPersonajes[i].personaje.id == personajeActualMovimiento.id) {
+                                    idCelda = arrayCeldasConPersonajes[i].celda;
+
+                                    break;
+                                }
+                            }
                             primerMovimiento = true;
                             console.log("Entra en mov usado");
                         } else {
@@ -191,7 +276,7 @@ botonesUsarPersonaje.forEach(function(elem) {
                             if (obj.jugadores[0].id == jugadorActual.id) {
                                 primerMovimientoEspadachinJ1 = true;
                             } else if (obj.jugadores[1].id == jugadorActual.id) {
-                                primerMovimientoEspadachinJ1 = true;
+                                primerMovimientoEspadachinJ2 = true;
                             }
                             let objComb = {};
                             objComb.personaje = personajeActualMovimiento;
@@ -223,15 +308,19 @@ botonesUsarPersonaje.forEach(function(elem) {
                             console.log("Se añade");
                         }
                         //PERMITE MOVERSE AUNQUE SEA UNA VEZ
-                        if (cuadroMovimientos.textContent >= 1) {
+                        if (document.getElementById("Movimientos").textContent >= 1) {
                             movimientoPersonaje(personajeActualMovimiento, idCelda, primerMovimiento);
                         }
                     }
+                } else {
+                    setMensaje("Solo pueden haber 3 personajes en el tablero a la vez!", "../Imagenes/ui/checkbox_01.png");
+                    abrirModalMensaje();
                 }
-                //ASESINO
-                if (elem.classList.contains("asesino") && elem.textContent == "Usar") {
-
-                    if (cuadroMovimientos.textContent >= 1) {
+            }
+            //ASESINO
+            if (elem.classList.contains("asesino") && elem.textContent == "Usar") {
+                if (await verificarPersonajeActivoTablero(await cantidadPersonajesTablero(), "Asesino") == true) {
+                    if (document.getElementById("Movimientos").textContent >= 1) {
                         let estadoPersonaje;
                         let estadoActualPer = "NU";
                         personajeActualMovimiento = obtenerPersonajeDeTropas(3);
@@ -265,7 +354,13 @@ botonesUsarPersonaje.forEach(function(elem) {
 
                             arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
                             estadoPersonaje = "USADO";
-                            idCelda = arrayCeldasConPersonajes[posicionPersonajeArray].celda;
+                            for (let i = 0; i < arrayCeldasConPersonajes.length; i++) {
+                                if (arrayCeldasConPersonajes[i].personaje.tipo == personajeActualMovimiento.tipo && arrayCeldasConPersonajes[i].personaje.id == personajeActualMovimiento.id) {
+                                    idCelda = arrayCeldasConPersonajes[i].celda;
+
+                                    break;
+                                }
+                            }
                             primerMovimiento = true;
                             console.log("Entra en mov usado");
                         } else {
@@ -306,15 +401,19 @@ botonesUsarPersonaje.forEach(function(elem) {
                             console.log("Se añade");
                         }
                         //PERMITE MOVERSE AUNQUE SEA UNA VEZ
-                        if (cuadroMovimientos.textContent >= 1) {
+                        if (document.getElementById("Movimientos").textContent >= 1) {
                             movimientoPersonaje(personajeActualMovimiento, idCelda, primerMovimiento);
                         }
                     }
+                } else {
+                    setMensaje("Solo pueden haber 3 personajes en el tablero a la vez!", "../Imagenes/ui/checkbox_01.png");
+                    abrirModalMensaje();
                 }
-                //BERSEQUER
-                if (elem.classList.contains("bersequer") && elem.textContent == "Usar") {
-
-                    if (cuadroMovimientos.textContent >= 1) {
+            }
+            //BERSEQUER
+            if (elem.classList.contains("bersequer") && elem.textContent == "Usar") {
+                if (await verificarPersonajeActivoTablero(await cantidadPersonajesTablero(), "Berserquer") == true) {
+                    if (document.getElementById("Movimientos").textContent >= 1) {
                         let estadoPersonaje;
                         let estadoActualPer = "NU";
                         personajeActualMovimiento = obtenerPersonajeDeTropas(4);
@@ -350,7 +449,13 @@ botonesUsarPersonaje.forEach(function(elem) {
 
                             arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
                             estadoPersonaje = "USADO";
-                            idCelda = arrayCeldasConPersonajes[posicionPersonajeArray].celda;
+                            for (let i = 0; i < arrayCeldasConPersonajes.length; i++) {
+                                if (arrayCeldasConPersonajes[i].personaje.tipo == personajeActualMovimiento.tipo && arrayCeldasConPersonajes[i].personaje.id == personajeActualMovimiento.id) {
+                                    idCelda = arrayCeldasConPersonajes[i].celda;
+
+                                    break;
+                                }
+                            }
                             primerMovimiento = true;
                             console.log("Entra en mov usado");
                         } else {
@@ -391,15 +496,19 @@ botonesUsarPersonaje.forEach(function(elem) {
                             console.log("Se añade");
                         }
                         //PERMITE MOVERSE AUNQUE SEA UNA VEZ
-                        if (cuadroMovimientos.textContent >= 1) {
+                        if (document.getElementById("Movimientos").textContent >= 1) {
                             movimientoPersonaje(personajeActualMovimiento, idCelda, primerMovimiento);
                         }
                     }
+                } else {
+                    setMensaje("Solo pueden haber 3 personajes en el tablero a la vez!", "../Imagenes/ui/checkbox_01.png");
+                    abrirModalMensaje();
                 }
-                //ESPIA
-                if (elem.classList.contains("espia") && elem.textContent == "Usar") {
-
-                    if (cuadroMovimientos.textContent >= 1) {
+            }
+            //ESPIA
+            if (elem.classList.contains("espia") && elem.textContent == "Usar") {
+                if (await verificarPersonajeActivoTablero(await cantidadPersonajesTablero(), "Espia") == true) {
+                    if (document.getElementById("Movimientos").textContent >= 1) {
                         let estadoPersonaje;
                         let estadoActualPer = "NU";
                         personajeActualMovimiento = obtenerPersonajeDeTropas(5);
@@ -433,7 +542,13 @@ botonesUsarPersonaje.forEach(function(elem) {
 
                             arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
                             estadoPersonaje = "USADO";
-                            idCelda = arrayCeldasConPersonajes[posicionPersonajeArray].celda;
+                            for (let i = 0; i < arrayCeldasConPersonajes.length; i++) {
+                                if (arrayCeldasConPersonajes[i].personaje.tipo == personajeActualMovimiento.tipo && arrayCeldasConPersonajes[i].personaje.id == personajeActualMovimiento.id) {
+                                    idCelda = arrayCeldasConPersonajes[i].celda;
+
+                                    break;
+                                }
+                            }
                             primerMovimiento = true;
                             console.log("Entra en mov usado");
                         } else {
@@ -474,15 +589,19 @@ botonesUsarPersonaje.forEach(function(elem) {
                             console.log("Se añade");
                         }
                         //PERMITE MOVERSE AUNQUE SEA UNA VEZ
-                        if (cuadroMovimientos.textContent >= 1) {
+                        if (document.getElementById("Movimientos").textContent >= 1) {
                             movimientoPersonaje(personajeActualMovimiento, idCelda, primerMovimiento);
                         }
                     }
+                } else {
+                    setMensaje("Solo pueden haber 3 personajes en el tablero a la vez!", "../Imagenes/ui/checkbox_01.png");
+                    abrirModalMensaje();
                 }
-                //JINETE
-                if (elem.classList.contains("jinete") && elem.textContent == "Usar") {
-
-                    if (cuadroMovimientos.textContent >= 1) {
+            }
+            //JINETE
+            if (elem.classList.contains("jinete") && elem.textContent == "Usar") {
+                if (await verificarPersonajeActivoTablero(await cantidadPersonajesTablero(), "Jinete") == true) {
+                    if (document.getElementById("Movimientos").textContent >= 1) {
                         let estadoPersonaje;
                         let estadoActualPer = "NU";
                         personajeActualMovimiento = obtenerPersonajeDeTropas(6);
@@ -517,7 +636,13 @@ botonesUsarPersonaje.forEach(function(elem) {
 
                             arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
                             estadoPersonaje = "USADO";
-                            idCelda = arrayCeldasConPersonajes[posicionPersonajeArray].celda;
+                            for (let i = 0; i < arrayCeldasConPersonajes.length; i++) {
+                                if (arrayCeldasConPersonajes[i].personaje.tipo == personajeActualMovimiento.tipo && arrayCeldasConPersonajes[i].personaje.id == personajeActualMovimiento.id) {
+                                    idCelda = arrayCeldasConPersonajes[i].celda;
+
+                                    break;
+                                }
+                            }
                             primerMovimiento = true;
                             console.log("Entra en mov usado");
                         } else {
@@ -558,23 +683,23 @@ botonesUsarPersonaje.forEach(function(elem) {
                             console.log("Se añade");
                         }
                         //PERMITE MOVERSE AUNQUE SEA UNA VEZ
-                        if (cuadroMovimientos.textContent >= 1) {
+                        if (document.getElementById("Movimientos").textContent >= 1) {
                             movimientoPersonaje(personajeActualMovimiento, idCelda, primerMovimiento);
                         }
                     }
+                } else {
+                    setMensaje("Solo pueden haber 3 personajes en el tablero a la vez!", "../Imagenes/ui/checkbox_01.png");
+                    abrirModalMensaje();
                 }
-                //MAGO
-                if (elem.classList.contains("mago") && elem.textContent == "Usar") {
-
-                    if (cuadroMovimientos.textContent >= 1) {
+            }
+            //MAGO
+            if (elem.classList.contains("mago") && elem.textContent == "Usar") {
+                if (await verificarPersonajeActivoTablero(await cantidadPersonajesTablero(), "Mago") == true) {
+                    if (document.getElementById("Movimientos").textContent >= 1) {
                         let estadoPersonaje;
                         let estadoActualPer = "NU";
                         personajeActualMovimiento = obtenerPersonajeDeTropas(7);
                         posicionPersonajeArray = await buscarCeldaYPersonaje();
-                        //let obj = JSON.parse(sessionStorage.getItem('tablero'));
-
-                        //VALIDAR ESTADO DEL PERSONAJE
-                        //ESTADOS POSIBLES: NU (NO USADO) Y USADO
 
                         let movActual = false;
                         if (obj.jugadores[0].id == jugadorActual.id) {
@@ -603,9 +728,19 @@ botonesUsarPersonaje.forEach(function(elem) {
 
                             arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
                             estadoPersonaje = "USADO";
-                            idCelda = arrayCeldasConPersonajes[posicionPersonajeArray].celda;
+
+
+                            for (let i = 0; i < arrayCeldasConPersonajes.length; i++) {
+                                if (arrayCeldasConPersonajes[i].personaje.tipo == personajeActualMovimiento.tipo && arrayCeldasConPersonajes[i].personaje.id == personajeActualMovimiento.id) {
+                                    idCelda = arrayCeldasConPersonajes[i].celda;
+
+                                    break;
+                                }
+                            }
+                            console.log(idCelda);
+                            //idCelda = arrayCeldasConPersonajes[posicionPersonajeArray].celda;
                             primerMovimiento = true;
-                            console.log("Entra en mov usado");
+                            //console.log("Entra en mov usado");
                         } else {
                             elem.classList += " usado";
                             primerMovimiento = false;
@@ -644,12 +779,18 @@ botonesUsarPersonaje.forEach(function(elem) {
                             console.log("Se añade");
                         }
                         //PERMITE MOVERSE AUNQUE SEA UNA VEZ
-                        if (cuadroMovimientos.textContent >= 1) {
+                        if (document.getElementById("Movimientos").textContent >= 1) {
+                            console.log(idCelda);
                             movimientoPersonaje(personajeActualMovimiento, idCelda, primerMovimiento);
                         }
                     }
+                } else {
+                    setMensaje("Solo pueden haber 3 personajes en el tablero a la vez!", "../Imagenes/ui/checkbox_01.png");
+                    abrirModalMensaje();
                 }
+
             }
+
         }
 
     });
@@ -659,7 +800,7 @@ function movimientoPersonaje(personaje, idCelda, primerMovimiento) {
     //console.log("entra");
     //let clickMovActual = clickMovimiento;
 
-
+    //console.log(idCelda);
     let celda = document.getElementById(idCelda);
     if (movimientosPersonaje != 0) {
         if (primerMovimiento == false) {
@@ -675,11 +816,12 @@ function movimientoPersonaje(personaje, idCelda, primerMovimiento) {
 
         } else {
             let obj = JSON.parse(sessionStorage.getItem('tablero'));
+            /*
             if (obj.jugadores[0].id == jugadorActual.id) {
                 idCelda = celdaJ1.id;
             } else if (obj.jugadores[1].id == jugadorActual.id) {
                 idCelda = celdaJ2.id;
-            }
+            }*/
 
             if (movimientosPersonaje != 0) {
                 console.log("Movimiento normal");
@@ -688,16 +830,14 @@ function movimientoPersonaje(personaje, idCelda, primerMovimiento) {
                 eliminarFondoCasillasMovimientos();
 
                 let movimientos = movimientosPosibles(idCelda);
-                console.log(idCelda);
+
                 for (let i = 0; i < movimientos.length; i++) {
-                    console.log(movimientos[i]);
+                    //console.log(movimientos[i]);
                     document.getElementById(movimientos[i]).style.backgroundColor = 'rgb(237, 255, 214)';
                 }
                 celdasAnteriores = movimientos;
                 //movimientoPersonaje(personajeActualMovimiento, celdaClickeada.id);
             } else {
-                //console.log("ELSE MOVIMIENTO");
-
                 eliminarFondoCasillasMovimientos();
 
             }
@@ -723,8 +863,8 @@ function obtenerPersonajeDeTropas(tipo) {
     let idCastillo = jugadorActual.idCastillo;
     let obj = JSON.parse(sessionStorage.getItem('tablero'));
     let personaje;
-    if (obj.castillos[idCastillo - 1].tropas != null) {
-        let tropas = obj.castillos[idCastillo - 1].tropas;
+    if (obj.castillos[posicionCastilloActual].tropas != null) {
+        let tropas = obj.castillos[posicionCastilloActual].tropas;
         for (let i = 0; i < tropas.length; i++) {
 
             if (tropas[i].tipo == "Arquero" && tipo == 1) {
@@ -788,9 +928,15 @@ async function buscarCeldaYPersonaje() {
                     //COMPARAR OBJETOS CON STRINGIFY Y 3 IGUALES ***
                     if (JSON.stringify(arrayCeldasConPersonajes[i].personaje) === JSON.stringify(celdaPersonaje.personajeActivo)) {
                         if (arrayCeldasConPersonajes[i].personaje.id == jugadorActual.id) {
-                            console.log("Entra en id");
-                            idArray = i;
-                            break;
+                            //console.log(personajeActualMovimiento);
+                            //console.log(arrayCeldasConPersonajes[i]);
+                            //VERIFICAR ESTO
+                            if (personajeActualMovimiento.tipo == arrayCeldasConPersonajes[i].personaje.tipo) {
+                                console.log("Entra en id");
+                                idArray = i;
+                                break;
+                            }
+
 
                         }
                     }
@@ -840,34 +986,18 @@ function buscarCasillaConPersonaje() {
     }
 }
 
+
+//INDICACIONES DE POSIBLES CASILLAS A LAS QUE SE PUEDA MOVER UN PERSONAJE
 function movimientosPosibles(celda) {
     let arrayMovimientos = [];
-
+    console.log(celda);
     let conversionCeldaC = String(celda).charAt(2);
     let columnaCelda = Number(conversionCeldaC);
     let conversionCeldaF = String(celda).charAt(1);
     let filaCelda = Number(conversionCeldaF);
 
-
-    //VALIDAR DIAGONAL SUP IZQUIERDA
-
-    //VALIDAR SI LA CELDA SIGUIENTE ES VALIDA
-    /*
-    if (columnaCelda - 1 >= 0 && columnaCelda - 1 <= 9 && filaCelda - 1 >= 1 && filaCelda - 1 <= 9) {
-        let idCeldaSig = "c" + (filaCelda - 1) + (columnaCelda - 1);
-        let celdaElement = document.getElementById(idCeldaSig);
-
-        let idCelda = String(filaCelda - 1) + String(columnaCelda - 1);
-        if (idCelda != 91 && idCelda != 10) {
-            //VALIDAR SI HAY UN PERSONAJE
-            if (celdaElement.personajeActivo == null || celdaElement.personajeActivo == undefined) {
-                //SE INTRODUCE LA POSIBILIDAD
-                arrayMovimientos.push(idCeldaSig);
-            }
-
-        }
-    }*/
-
+    //**FALTA VALIDACION POR SI ES LA PRIMERA FILA Y SOLO HAY 1 NUMERO, OSEA, COLUMNAS */
+    //REVISAR*********Daniel
 
     //VALIDAR ARRIBA
 
@@ -887,23 +1017,7 @@ function movimientosPosibles(celda) {
         }
     }
 
-    //VALIDAR DIAGONAL SUP DERECHA
 
-    //VALIDAR SI LA CELDA SIGUIENTE ES VALIDA
-    /*
-    if (columnaCelda + 1 >= 0 && columnaCelda + 1 <= 9 && filaCelda - 1 >= 1 && filaCelda - 1 <= 9) {
-        let idCeldaSig = "c" + (filaCelda - 1) + (columnaCelda + 1);
-        let celdaElement = document.getElementById(idCeldaSig);
-        let idCelda = String(filaCelda - 1) + String(columnaCelda + 1);
-        if (idCelda != 91 && idCelda != 10) {
-            //VALIDAR SI HAY UN PERSONAJE
-            if (celdaElement.personajeActivo == null || celdaElement.personajeActivo == undefined) {
-                //SE INTRODUCE LA POSIBILIDAD
-                arrayMovimientos.push(idCeldaSig);
-            }
-
-        }
-    }*/
 
     //VALIDAR DERECHA 
 
@@ -922,23 +1036,7 @@ function movimientosPosibles(celda) {
         }
     }
 
-    //VALIDAR DIAGONAL INF DERECHA
 
-    //VALIDAR SI LA CELDA SIGUIENTE ES VALIDA
-    /*
-    if (columnaCelda + 1 >= 0 && columnaCelda + 1 <= 9 && filaCelda + 1 >= 1 && filaCelda + 1 <= 9) {
-        let idCeldaSig = "c" + (filaCelda + 1) + (columnaCelda + 1);
-        let celdaElement = document.getElementById(idCeldaSig);
-        let idCelda = String(filaCelda + 1) + String(columnaCelda + 1);
-        if (idCelda != 91 && idCelda != 10) {
-            //VALIDAR SI HAY UN PERSONAJE
-            if (celdaElement.personajeActivo == null || celdaElement.personajeActivo == undefined) {
-                //SE INTRODUCE LA POSIBILIDAD
-                arrayMovimientos.push(idCeldaSig);
-            }
-
-        }
-    }*/
 
     //VALIDAR ABAJO
 
@@ -960,28 +1058,6 @@ function movimientosPosibles(celda) {
         }
     }
 
-    //VALIDAR DIAGONAL INF IZQUIERDA
-
-    //VALIDAR SI LA CELDA SIGUIENTE ES VALIDA
-    /*
-    if (columnaCelda - 1 >= 0 && columnaCelda - 1 <= 9 && filaCelda + 1 >= 1 && filaCelda + 1 <= 9) {
-
-        let idCeldaSig = "c" + (filaCelda + 1) + (columnaCelda - 1);
-        let celdaElement = document.getElementById(idCeldaSig);
-        //HTML
-        let celdaElementSig = document.getElementById(idCeldaSig);
-        let idCelda = String(filaCelda + 1) + String(columnaCelda - 1);
-        if (idCelda != 91 && idCelda != 10) {
-            //VALIDAR SI HAY UN PERSONAJE
-            if (celdaElement.personajeActivo == null || celdaElement.personajeActivo == undefined) {
-                console.log("Diagonal inf izq");
-                console.log(celda);
-                //SE INTRODUCE LA POSIBILIDAD
-                arrayMovimientos.push(idCeldaSig);
-            }
-        }
-
-    }*/
 
 
     //VALIDAR IZQUIERDA 

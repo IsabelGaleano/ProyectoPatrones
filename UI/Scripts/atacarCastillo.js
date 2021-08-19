@@ -1,66 +1,97 @@
 let casilla;
 
-let validarAtaqueCastillo= function(posX, posY, alcance){
-    let cas=[10][10];
+let validarAtaqueCastillo= function(personaje,idCasilla){
+  
+    let pos =idCasilla.split("c")[1];
+    let posX = pos.split("")[0];
+    let posY = pos.split("")[1];
 
-    let atacarCastilloA= false;
-    let atacarCastilloB= false;
-    let atacarCastilloC= false;
-    let atacarCastilloD= false;
 
-   // cas[0][0]=0;
+    let castilloAtacado;
+    let alcance = personaje.ataque.alcance;
+
     
-    let resA=Math.abs(0-posX)+Math.abs(0-posY);
-    let resB=Math.abs(9-posX)+Math.abs(0-posY);
-    let resC=Math.abs(0-posX)+Math.abs(9-posY);
-    let resD=Math.abs(9-posX)+Math.abs(9-posY);
+    if(personaje.id==1){
+        castilloAtacado=2;
+     
+        
+    }else{
+        castilloAtacado=1;
+    }
 
+    let atacarCastillo = false;
 
+    let resB=Math.abs(9-posX)+Math.abs(1-posY);
+    let resA=Math.abs(0-posX)+Math.abs(10-posY);
+   
+   
+
+    if(castilloAtacado == 1){
+      if(resB <= alcance){
+        atacarCastillo = true;
+        cambiarColor("c10");
+        }
+    }      
+    else if(castilloAtacado == 2){
     if(resA<=alcance){
-        atacarCastilloA= true;
+        atacarCastillo= true;
+         cambiarColor("c91");
     }
-    if(resB<=alcance){
-        atacarCastilloB= true;
-    }
-    if(resC<=alcance){
-        atacarCastilloC= true;
-    }
-    if(resD<=alcance){
-        atacarCastilloD= true;
-    }
-    
+}
 
-    
-    
+    return atacarCastillo;
 }
 
 
-window.atacarCastillo= atacarCastillo= async(idCastillo,dmg)=>{
+const cambiarColor=function(idCasilla){
+   document.getElementById(idCasilla).style.backgroundColor='rgba(217, 30, 24, 1)';
+ 
+    
+}
+
+const atacarCastillo= async(personaje)=>{
+
+    let castilloAtacado;
+    
+    if(personaje.id==1){
+        castilloAtacado=2;
+     
+        
+    }else{
+        castilloAtacado=1;
+    }
+    
     let obj= JSON.parse(sessionStorage.getItem('tablero'))
     let castillos= obj.castillos;
 
-    for(let i=0;i<castillos.length;i++){
-        if(castillos[i].id==idCastillo){
+    if(castillos[castilloAtacado-1].vida != 0){
+        castillos[castilloAtacado-1].vida = castillos[castilloAtacado-1].vida - personaje.ataque.puntos;
+
+    }
+
+    /*for(let i=0;i<castillos.length;i++){
+        if(castillos[i].id==castilloAtacado){
             castillos[i].vida=castillos[i].vida-dmg;
         }
         obj.castillos= castillos;
   
-     }
-     
+     }*/
+
      sessionStorage.setItem('tablero',JSON.stringify(obj));
 
 
     }
-window.eventAtacarCastillo=  eventAtacarCastillo= async(e)=>{
-        await atacarCastillo(2,10);
 
-        }
-           
+    const eventAtacarCastillo= async(e)=>{
+        await atacarCastillo(personajeActualMovimiento,idCelda);
 
-
+    }
 
 
-document.querySelector('#Nickname').addEventListener('click', eventAtacarCastillo);
+
+
+
+
 
 
 
