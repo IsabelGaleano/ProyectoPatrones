@@ -45,6 +45,7 @@ let validarAtaqueCastillo= function(personaje,idCasilla){
 
 const cambiarColor=function(idCasilla){
     document.getElementById(idCasilla).style.backgroundColor = 'rbga(0, 144, 234, 0.74)';
+    document.getElementById(idCasilla).style.backgroundSize= '100px';
  
     
 }
