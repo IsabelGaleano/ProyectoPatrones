@@ -350,12 +350,6 @@ function cargarTablero(mas2Jugadores) {
     esconderGemasPower();
 }
 
-celda10.addEventListener('click', function() {
-    if(validarAtaqueCastillo(personajeActualMovimiento,arrayCeldasConPersonajes[posicionPersonajeArray].celda)==true){
-        atacarCastillo(personajeActualMovimiento);
-
-    }
-});
 
 /*document.querySelector("#c10").addEventListener('click', function(){
     celda= arrayCeldasConPersonajes[posicionPersonajeArray].celda;
