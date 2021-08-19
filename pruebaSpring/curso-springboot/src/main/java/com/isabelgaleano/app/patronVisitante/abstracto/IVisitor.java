@@ -11,4 +11,5 @@ public interface IVisitor {
 
     public void visit(List<PersonajeVisitante> elementList);
 
+
 }
