@@ -1,5 +1,6 @@
 package com.isabelgaleano.app.patronVisitante.concreto;
 
+
 import com.isabelgaleano.app.Modelo.PersonajeVisitante;
 import com.isabelgaleano.app.patronFabrica.productoAbstracto.Personaje;
 import com.isabelgaleano.app.patronVisitante.abstracto.IVisitor;

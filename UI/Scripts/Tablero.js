@@ -4,7 +4,7 @@
 let tablero = document.getElementById("tablero");
 let mas2Jugadores = false;
 let imagenDado = document.getElementById("imagen-dado");
-
+let celda10 = document.getElementById('c10');
 let imgBody = document.getElementById("idBody");
 let btn_ver_personajes = document.getElementById("btn-ver-personajes")
 let tiendaAbierta = false;
@@ -250,8 +250,10 @@ function cargarTablero(mas2Jugadores) {
 
 
 
-            celda.addEventListener('click', function() {
-                if (celda.id != "c10" && celda.id != "c91") {
+            celda.addEventListener('click', function() 
+            {
+                if (celda.id != "c10" && celda.id != "c91") 
+                {
                     if (document.getElementById(celdaActual) !== null) {
                         document.getElementById(celdaActual).style.backgroundImage = '';
                     }
