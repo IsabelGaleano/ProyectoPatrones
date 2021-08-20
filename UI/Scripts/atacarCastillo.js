@@ -43,14 +43,23 @@ const atacarPersonaje= async(personajeP , personajeA)=>{
     
     
 
-let validarAtaqueCastillo= function(personaje,idCasilla){
+let validarAtaqueCastillo= function(personaje, idCasilla ){
+    
+    let posF;
+    let posC;
   
     let pos =idCasilla.split("c")[1];
-    let posF = pos.split("")[0];
-    let posC = pos.split("")[1];
+    if(idCasilla.length<2){
+        posF= 0;
+        posC= parseInt(pos.split("")[0]);
+
+    }else{
+        posF = parseInt(pos.split("")[0]);
+         posC = parseInt(pos.split("")[1]);
+        }
 
 
-    let castilloAtacado;
+    let castilloAtacado = false;
     let alcance = personaje.ataque.alcance;
 
     
@@ -62,7 +71,7 @@ let validarAtaqueCastillo= function(personaje,idCasilla){
         castilloAtacado=1;
     }
 
-    let atacarCastillo = false;
+   let atacarCastillo= false;
 
 
     
@@ -70,16 +79,17 @@ let validarAtaqueCastillo= function(personaje,idCasilla){
     let resA= Math.abs(9-posF) +  Math.abs(1-posC); 
    
 
-    if(castilloAtacado == 1){
+    if(castilloAtacado == 2){
       if(resB <= alcance){
+          
         atacarCastillo = true;
-        cambiarColor("c10");
+       
         }
     }      
-    else if(castilloAtacado == 2){
-    if(resA<=alcance){
-        atacarCastillo= true;
-         cambiarColor("c91");
+    else if(castilloAtacado == 1){
+        if(resA<=alcance){
+         atacarCastillo=true;
+        
     }
 }
 
@@ -87,13 +97,6 @@ let validarAtaqueCastillo= function(personaje,idCasilla){
 }
 
 
-const cambiarColor=function(idCasilla){
-    document.getElementById(idCasilla).style.backgroundColor = 'rbga(0, 144, 234, 0.74)';
-    document.getElementById(idCasilla).style.backgroundSize= '100px 100px';
-    
- 
-    
-}
 
 const atacarCastillo= async(personaje)=>{
 
