@@ -15,6 +15,7 @@ const voldown = document.querySelector("#btn_voldwn");
 const clickAudio = new Audio('../Sounds/buttonClickSound.wav');
 const MOAudio = new Audio('../Sounds/buttonHoverSound.wav');
 const BGM = new Audio('../Sounds/music_funkyWhistle.wav');
+const boomAudio = new Audio('../Sounds/explosion.wav');
 // const icon = document.querySelector("#btn_music > i");
 const btn_music = document.querySelector("#btn_music");
 BGM.volume = 0.1;
@@ -389,24 +390,21 @@ async function cargarTablero(mas2Jugadores) {
                 }else{
                     let tipoNow = personajeActualMovimiento.tipo;
                     let idNow = personajeActualMovimiento.id;
-                    let celNow = arrayCeldasConPersonajes[posicionPersonajeArray].celda;
-                    
-                    console.log(tipoNow);
-                    console.log(idNow);
-                    console.log(celNow);
-                    
+                    let celNow = arrayCeldasConPersonajes[posicionPersonajeArray].celda;                    
+
                     if(validarAtaqueCastillo(personajeActualMovimiento, arrayCeldasConPersonajes[posicionPersonajeArray].celda)==true){
                         atacarCastillo(personajeActualMovimiento);
-                        
-                        
+                                                
                         if(personajeActualMovimiento.id==1){
                             document.getElementById('c10').style.backgroundImage = 'url(../Imagenes/BigBangGif.gif), ' + 'url(../Imagenes/Castillos/Castillo1-0.png),' + 'url(../Imagenes/UI/frame_red.png)';
                         }else{
                             document.getElementById('c91').style.backgroundImage = 'url(../Imagenes/BigBangGif.gif),' + 'url(../Imagenes/Castillos/Castillo2-0.png),' + 'url(../Imagenes/UI/frame_red.png)';
                         }
-                        
-                        setAtkAnim(idNow,tipoNow,celNow);
-                        
+                        boomAudio.volume = 1;
+                        boomAudio.play();
+                        boomAudio.loop = false;
+
+                        setAtkAnim(idNow,tipoNow,celNow);                        
                         setIdleAnim(idNow,tipoNow,celNow);
 
                     }
