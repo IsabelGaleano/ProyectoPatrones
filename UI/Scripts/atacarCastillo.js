@@ -49,9 +49,11 @@ let validarAtaqueCastillo= function(personaje, idCasilla ){
     let posC;
   
     let pos =idCasilla.split("c")[1];
-    if(idCasilla.length<2){
+    if(pos.length<2){
         posF= 0;
         posC= parseInt(pos.split("")[0]);
+        
+
 
     }else{
         posF = parseInt(pos.split("")[0]);
