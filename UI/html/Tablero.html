@@ -146,7 +146,7 @@
                                 <p><i class="fas fa-coins" style="color:gold;"></i> <span id="carga-P">5</span></p>
                                 <div id="act-pup-image"></div>
                                 <!-- <p> <button id="pU-P2" onclick="btnActivarPowers()">Activar</button></p> -->
-                                <p> <button id="pU-P2" onclick="abrirModalAtaqueOverlay('../Imagenes/Characters/ArcherAttackRight.gif','../Imagenes/Characters/AssasinHurtLeft.gif')">Activar</button></p>
+                                <p> <button id="pU-P2" onclick="abrirModalGame('La Intensa ')">Activar</button></p>
                                 
                             </div>
                         </div>
@@ -803,6 +803,53 @@
 
                     <div>
                         <button type="button" value="1" id="btn-Ataque-OK" class="btn-tienda" onclick="cerrarOverlayAtaquePersonaje()">Ok</button>
+                        
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="overlay" id="idOverlayMuerte">
+            <div class="imgFondo">
+                <div class="popupCatapulta" id="idpopupMuerte">
+
+                    <h3> Personaje derrotado! </h3>                                      
+
+                    <div style="display: flex;" id="deadCunt">
+                        <img id="muerteImg" src="" alt="" class="img-Catapulta"> &nbsp
+                    </div>
+
+                    <div>
+                        <button type="button" value="1" id="btn-muerte-OK" class="btn-tienda" onclick="cerrarOverlayMuerte()">R.I.P</button>
+                        
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="overlay" id="idOverlayGAME">
+            <div class="imgFondo2">
+                <div class="popupCatapulta" id="idpopupGAME">
+
+                    <h3 style="display: flex;">                    
+                        <img id="game" src="../Imagenes/Game.png" alt="" class="img-Catapulta">
+                    </h3>   
+                    <h4 style="display: flex;">
+                        
+                        <div id="winImg" >&nbsp;</div>
+                        <p id="nombreWin" style="line-height: 90px; font-size: 50px;">   </p>
+                        <br>&nbsp
+                        <p style="line-height: 90px; font-size: 50px;"> ganó! </p>
+                        &nbsp;
+                    </h4>                                
+                    <h4 style="display: flex;">
+                        <img id="over" src="../Imagenes/Over.png" alt="" class="img-Catapulta">
+                    </h4>                    
+
+                    <div>
+                        <button type="button" value="1" id="btn-GAME-OK" class="btn-tienda" onclick="cerrarOverlayGAME()">Felicidades!</button>
                         
                     </div>
 
