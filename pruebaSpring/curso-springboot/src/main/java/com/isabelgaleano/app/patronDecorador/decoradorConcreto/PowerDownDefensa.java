@@ -7,7 +7,11 @@ public class PowerDownDefensa extends ObjetoDecorado {
 
     @Override
     public void actualizar() {
-        this.personaje.setDefensa(this.personaje.getDefensa() - this.personaje.getPowerUp().getStatMod());
+        if ((this.personaje.getDefensa() - 2) < 0){
+            this.personaje.setDefensa(0);
+        } else {
+            this.personaje.setDefensa(this.personaje.getDefensa() - 2);
+        }
         this.personaje.setEstadoDecorado(true);
     }
 }

@@ -7,7 +7,11 @@ public class PowerDownAtaque extends ObjetoDecorado {
 
     @Override
     public void actualizar() {
-        this.personaje.getAtaque().setPuntos(this.personaje.getAtaque().getPuntos() - this.personaje.getPowerUp().getStatMod());
+        if ((this.personaje.getAtaque().getPuntos() - 2) < 0){
+            this.personaje.getAtaque().setPuntos(0);
+        } else {
+            this.personaje.getAtaque().setPuntos(this.personaje.getAtaque().getPuntos() - 2);
+        }
         this.personaje.setEstadoDecorado(true);
     }
 }
