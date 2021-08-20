@@ -159,7 +159,18 @@ botonesUsarPersonaje.forEach(function(elem) {
                         //let objCombinado = buscarCeldaYPersonaje(1);
                         let idCelda;
                         movimientosPersonaje = personajeActualMovimiento.cantMovimientos;
-                        tipoPersonajeActual = 1;
+
+                        console.log("jugadoractual: " + jugadorActual.id);
+                        
+                        if(jugadorActual.id == 1){
+                            tipoPersonajeActual = 1;
+                        }else{
+                            tipoPersonajeActual = 8;
+                        }
+
+                        
+
+
                         let primerMovimiento;
                         movimientoXTurno = true;
                         //SI NO HA SIDO INCIALIZADO EN EL TABLERO
@@ -252,7 +263,13 @@ botonesUsarPersonaje.forEach(function(elem) {
                         //let objCombinado = buscarCeldaYPersonaje(1);
                         let idCelda;
                         movimientosPersonaje = personajeActualMovimiento.cantMovimientos;
-                        tipoPersonajeActual = 2;
+                        
+                        if(jugadorActual.id == 1){
+                            tipoPersonajeActual = 2;
+                        }else{
+                            tipoPersonajeActual = 9;
+                        }
+                        
                         let primerMovimiento;
                         movimientoXTurno = true;
                         //SI NO HA SIDO INCIALIZADO EN EL TABLERO
@@ -345,7 +362,12 @@ botonesUsarPersonaje.forEach(function(elem) {
                         //let objCombinado = buscarCeldaYPersonaje(1);
                         let idCelda;
                         movimientosPersonaje = personajeActualMovimiento.cantMovimientos;
-                        tipoPersonajeActual = 3;
+                        if(jugadorActual.id == 1){
+                            tipoPersonajeActual = 3;
+                        }else{
+                            tipoPersonajeActual = 10;
+                        }
+                        
                         let primerMovimiento;
                         movimientoXTurno = true;
                         //SI NO HA SIDO INCIALIZADO EN EL TABLERO
@@ -440,7 +462,12 @@ botonesUsarPersonaje.forEach(function(elem) {
 
                         movimientosPersonaje = personajeActualMovimiento.cantMovimientos;
                         console.log(movimientosPersonaje);
-                        tipoPersonajeActual = 4;
+                        if(jugadorActual.id == 1){
+                            tipoPersonajeActual = 4;
+                        }else{
+                            tipoPersonajeActual = 11;
+                        }
+                        
                         let primerMovimiento;
                         movimientoXTurno = true;
                         //SI NO HA SIDO INCIALIZADO EN EL TABLERO
@@ -533,7 +560,12 @@ botonesUsarPersonaje.forEach(function(elem) {
                         //let objCombinado = buscarCeldaYPersonaje(1);
                         let idCelda;
                         movimientosPersonaje = personajeActualMovimiento.cantMovimientos;
-                        tipoPersonajeActual = 5;
+                        if(jugadorActual.id == 1){
+                            tipoPersonajeActual = 5;
+                        }else{
+                            tipoPersonajeActual = 12;
+                        }
+                        
                         let primerMovimiento;
                         movimientoXTurno = true;
                         //SI NO HA SIDO INCIALIZADO EN EL TABLERO
@@ -627,7 +659,12 @@ botonesUsarPersonaje.forEach(function(elem) {
                         let idCelda;
                         console.log(personajeActualMovimiento);
                         movimientosPersonaje = personajeActualMovimiento.cantMovimientos;
-                        tipoPersonajeActual = 6;
+                        if(jugadorActual.id == 1){
+                            tipoPersonajeActual = 6;
+                        }else{
+                            tipoPersonajeActual = 13;
+                        }
+                        
                         let primerMovimiento;
                         movimientoXTurno = true;
                         //SI NO HA SIDO INCIALIZADO EN EL TABLERO
@@ -717,7 +754,12 @@ botonesUsarPersonaje.forEach(function(elem) {
                         let idCelda;
                         movimientosPersonaje = personajeActualMovimiento.cantMovimientos;
                         console.log(movimientosPersonaje);
-                        tipoPersonajeActual = 7;
+                        if(jugadorActual.id == 1){
+                            tipoPersonajeActual = 7;
+                        }else{
+                            tipoPersonajeActual = 14;
+                        }
+                        
                         let primerMovimiento;
                         console.log(arrayCeldasConPersonajes);
 
@@ -807,9 +849,18 @@ function movimientoPersonaje(personaje, idCelda, primerMovimiento) {
             console.log("Primer mov");
 
             let movimientos = movimientosPosibles(idCelda);
+
             for (let i = 0; i < movimientos.length; i++) {
-                //console.log(movimientos[i]);
-                document.getElementById(movimientos[i]).style.backgroundColor = 'rgba(0, 144, 234, 0.74)';
+                console.log(movimientos[i]);
+                console.log(document.getElementById(movimientos[i]).style.backgroundImage);
+                if(document.getElementById(movimientos[i]).style.backgroundImage == 'url("../Imagenes/green_texture2.png")'){
+                    document.getElementById(movimientos[i]).style.backgroundImage = 'url(../Imagenes/blue_tex.png)';   
+                    document.getElementById(movimientos[i]).style.backgroundColor = 'rgba(0, 144, 234, 0.74)';                 
+                }else{
+                    document.getElementById(movimientos[i]).style.backgroundColor = 'rgba(0, 144, 234, 0.74)';
+                }
+                
+                
             }
             celdasAnteriores = movimientos;
             //movimientoPersonaje(personajeActualMovimiento, idCelda);
@@ -832,8 +883,14 @@ function movimientoPersonaje(personaje, idCelda, primerMovimiento) {
                 let movimientos = movimientosPosibles(idCelda);
 
                 for (let i = 0; i < movimientos.length; i++) {
-                    //console.log(movimientos[i]);
-                    document.getElementById(movimientos[i]).style.backgroundColor = 'rgba(0, 144, 234, 0.74)';
+                    console.log(movimientos[i]);
+                    console.log(document.getElementById(movimientos[i]).style.backgroundImage);
+                    if(document.getElementById(movimientos[i]).style.backgroundImage == 'url("../Imagenes/green_texture2.png")'){                        
+                        document.getElementById(movimientos[i]).style.backgroundImage = 'url(../Imagenes/blue_tex.png)';
+                        document.getElementById(movimientos[i]).style.backgroundColor = 'rgba(0, 144, 234, 0.74)';
+                    }else{
+                        document.getElementById(movimientos[i]).style.backgroundColor = 'rgba(0, 144, 234, 0.74)';
+                    }
                 }
                 celdasAnteriores = movimientos;
                 //movimientoPersonaje(personajeActualMovimiento, celdaClickeada.id);
@@ -867,37 +924,37 @@ function obtenerPersonajeDeTropas(tipo) {
         let tropas = obj.castillos[posicionCastilloActual].tropas;
         for (let i = 0; i < tropas.length; i++) {
 
-            if (tropas[i].tipo == "Arquero" && tipo == 1) {
+            if (tropas[i].tipo == "Arquero" && (tipo == 1 || tipo == 8)) {
                 personaje = tropas[i];
                 break;
             }
             //ESPADACHIN 
-            if (tropas[i].tipo == "Espadachin" && tipo == 2) {
+            if (tropas[i].tipo == "Espadachin" && (tipo == 2 || tipo == 9)) {
                 personaje = tropas[i];
                 break;
             }
             //BERSEQUER 
-            if (tropas[i].tipo == "Berserquer" && tipo == 4) {
+            if (tropas[i].tipo == "Berserquer" && (tipo == 4|| tipo == 11)) {
                 personaje = tropas[i];
                 break;
             }
             //MAGO 
-            if (tropas[i].tipo == "Mago" && tipo == 7) {
+            if (tropas[i].tipo == "Mago" && (tipo == 7|| tipo == 14)) {
                 personaje = tropas[i];
                 break;
             }
             //ASESINO 
-            if (tropas[i].tipo == "Asesino" && tipo == 3) {
+            if (tropas[i].tipo == "Asesino" && (tipo == 3|| tipo == 10)) {
                 personaje = tropas[i];
                 break;
             }
             //JINETE 
-            if (tropas[i].tipo == "Jinete" && tipo == 6) {
+            if (tropas[i].tipo == "Jinete" && (tipo == 6|| tipo == 13)) {
                 personaje = tropas[i];
                 break;
             }
             //ESPIA 
-            if (tropas[i].tipo == "Espia" && tipo == 5) {
+            if (tropas[i].tipo == "Espia" && (tipo == 5|| tipo == 12)) {
                 personaje = tropas[i];
                 break;
             }
@@ -960,7 +1017,14 @@ function eliminarFondoCasillasMovimientos() {
         //CELDAS DE CADA FILA
         for (let c = sumatoriaCeldas; c <= 10 * i; c++) {
             let celda = "c" + c;
-            document.getElementById(celda).style.backgroundColor = '';
+            
+            if(document.getElementById(celda).style.backgroundImage == 'url("../Imagenes/blue_tex.png")'){
+                document.getElementById(celda).style.backgroundImage = 'url(../Imagenes/green_texture2.png)';
+                document.getElementById(celda).style.backgroundColor = '';
+            }else{
+                document.getElementById(celda).style.backgroundColor = '';
+            }
+
         }
     }
 }
