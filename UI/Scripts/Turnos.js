@@ -164,6 +164,8 @@ let partida = async() => {
         movimientoXTurno = false;
         turnoCancelado = false;
 
+        //PERSONAJES USADOS
+
     }
 }
 

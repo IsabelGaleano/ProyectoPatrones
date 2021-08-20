@@ -42,7 +42,14 @@ let primerMovimientoJineteJ2 = false;
 let primerMovimientoMagoJ1 = false;
 let primerMovimientoMagoJ2 = false;
 
-
+//PARA EVITAR REPETIR UN PERSONAJE POR TURNO
+let arqueroUsado = false;
+let espadachinUsado = false;
+let asesinoUsado = false;
+let bersequerUsado = false;
+let espiaUsado = false;
+let jineteUsado = false;
+let magoUsado = false;
 
 //--ARRAYS PARA ESTADOS DE LOS JUGADORES DEL TABLERO--
 let posicionPersonajeArray;
