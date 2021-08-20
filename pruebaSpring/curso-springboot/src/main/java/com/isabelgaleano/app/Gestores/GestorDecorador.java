@@ -2,6 +2,8 @@ package com.isabelgaleano.app.Gestores;
 
 
 import com.isabelgaleano.app.Modelo.PersonajeChain;
+import com.isabelgaleano.app.PatronPrototipo.Contenido.PowerUps.MejoraAtaque;
+import com.isabelgaleano.app.PatronPrototipo.Contenido.PowerUps.MejoraDefensa;
 import com.isabelgaleano.app.patronDecorador.decorador.ObjetoDecorado;
 import com.isabelgaleano.app.patronDecorador.decoradorConcreto.PowerDownAtaque;
 import com.isabelgaleano.app.patronDecorador.decoradorConcreto.PowerUpAtaque;
@@ -16,6 +18,9 @@ public class GestorDecorador {
         switch (personajeChain.getActivar()){
             case 1:
                 powerUp = new PowerUpAtaque();
+                if (personajeChain.getPowerUp() == null) {
+                    personajeChain.setPowerUp(new MejoraAtaque());
+                }
                 powerUp.setPersonaje(personajeChain);
                 powerUp.actualizar();
                 personajeChain = powerUp.getPersonaje();
@@ -23,6 +28,9 @@ public class GestorDecorador {
                 break;
             case 2:
                 powerUp = new PowerUpDefensa();
+                if (personajeChain.getPowerUp() == null) {
+                    personajeChain.setPowerUp(new MejoraDefensa());
+                }
                 powerUp.setPersonaje(personajeChain);
                 powerUp.actualizar();
                 personajeChain = powerUp.getPersonaje();
