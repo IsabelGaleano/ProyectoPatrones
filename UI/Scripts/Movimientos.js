@@ -891,8 +891,7 @@ function movimientoPersonaje(personaje, idCelda, primerMovimiento) {
                 let movimientos = movimientosPosibles(idCelda);
 
                 for (let i = 0; i < movimientos.length; i++) {
-                    console.log(movimientos[i]);
-                    console.log(document.getElementById(movimientos[i]).style.backgroundImage);
+
                     if(document.getElementById(movimientos[i]).style.backgroundImage == 'url("../Imagenes/green_texture2.png")'){                        
                         document.getElementById(movimientos[i]).style.backgroundImage = 'url(../Imagenes/blue_tex.png)';
                         document.getElementById(movimientos[i]).style.backgroundColor = 'rgba(0, 144, 234, 0.74)';
