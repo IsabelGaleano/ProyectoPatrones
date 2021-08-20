@@ -378,7 +378,7 @@ function cargarTablero(mas2Jugadores) {
 
                         for(let i=0;i<arrayCeldasConPersonajes.length; i++){
                             
-                            if( arrayCeldasConPersonajes[posicionPersonajeArray].personaje.id != arrayCeldasConPersonajes[i].personaje.id){
+                            if( personajeActualMovimiento.id != arrayCeldasConPersonajes[i].personaje.id){
                                 if(validarAtaquePersonaje( personajeActualMovimiento, celdaDealer, arrayCeldasConPersonajes[i].celda)==true){    
                                     console.log( celda.personajeActivo.tipo+ " tiene " + arrayCeldasConPersonajes[i].personaje.tipo +" en rango");
                                     atacarPersonaje(celda.personajeActivo,arrayCeldasConPersonajes[i].personaje);
