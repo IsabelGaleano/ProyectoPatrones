@@ -1,4 +1,25 @@
-let casilla;
+let validarAtaquePersonaje= function(personaje, idCasillaP, idCasillaA){// recibe el personaje actual, la casilla actual y la posición del personaje a validar
+    let posP =idCasillaP.split("c")[1];
+    //coordenadas del personaje actual
+    let posX_P = posP.split("")[0];
+    let posY_P = posP.split("")[1];
+
+    //coordenadas del personaje a validar (posiblemente atacado)
+
+
+    let posA =idCasillaA.split("c")[1];
+    let posX_A = posA.split("")[0];
+    let posY_A = posA.split("")[1];
+
+    let enRango =false; 
+    let alcance= personaje.ataque.alcance;
+
+    let resultado = Math.abs(posX_A - posX_P) + Math.abs(posY_A - posY_P);
+    if(resultado <= alcance){
+        enRango= true;
+    }
+    return enRango;
+}
 
 let validarAtaqueCastillo= function(personaje,idCasilla){
   
@@ -45,7 +66,8 @@ let validarAtaqueCastillo= function(personaje,idCasilla){
 
 const cambiarColor=function(idCasilla){
     document.getElementById(idCasilla).style.backgroundColor = 'rbga(0, 144, 234, 0.74)';
-    document.getElementById(idCasilla).style.backgroundSize= '100px';
+    document.getElementById(idCasilla).style.backgroundSize= '100px 100px';
+    
  
     
 }
