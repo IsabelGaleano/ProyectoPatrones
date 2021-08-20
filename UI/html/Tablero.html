@@ -145,7 +145,9 @@
                                 <p><i class="fas fa-shield-alt" style="color:rgb(176,196,222);"></i> <span id="defensa-P">5</span></p>
                                 <p><i class="fas fa-coins" style="color:gold;"></i> <span id="carga-P">5</span></p>
                                 <div id="act-pup-image"></div>
-                                <p> <button id="pU-P2" onclick="btnActivarPowers()">Activar</button></p>
+                                <!-- <p> <button id="pU-P2" onclick="btnActivarPowers()">Activar</button></p> -->
+                                <p> <button id="pU-P2" onclick="abrirModalAtaqueOverlay('../Imagenes/Characters/ArcherAttackRight.gif','../Imagenes/Characters/AssasinHurtLeft.gif')">Activar</button></p>
+                                
                             </div>
                         </div>
                     </div>
@@ -781,6 +783,27 @@
                         <button value="4" type="button" id="btn-Almacenar" class="btn-tienda pw" onclick="cerrarOverlayConfirmChange()">Conservar</button>
                         <button value="3" type="button" id="btn-Cambiar" class="btn-tienda pw" onclick="cerrarOverlayConfirmChange()">Cambiar</button>
 
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="overlay" id="idOverlayAtaquePersonaje">
+            <div class="imgFondo">
+                <div class="popupCatapulta" id="idpopupAtaquePersonaje">
+
+                    <h3> Ataque </h3>                                      
+
+                    <h4 style="display: flex;">
+                        <img id="peratk1" src="" alt="" class="img-Catapulta"> &nbsp
+                        <p style="line-height: 60px;"> <img src="../Imagenes/Pop-upBallesta_Catapulta/swords.png" alt="" class="img-Catapulta"> </p> &nbsp                        
+                        <img id="peratk2" src="" alt="" class="img-Catapulta">
+                    </h4>
+
+                    <div>
+                        <button type="button" value="1" id="btn-Ataque-OK" class="btn-tienda" onclick="cerrarOverlayAtaquePersonaje()">Ok</button>
+                        
                     </div>
 
                 </div>
