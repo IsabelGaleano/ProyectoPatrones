@@ -165,7 +165,13 @@ let partida = async() => {
         turnoCancelado = false;
 
         //PERSONAJES USADOS
-
+        arqueroUsado = false;
+        espadachinUsado = false;
+        asesinoUsado = false;
+        bersequerUsado = false;
+        espiaUsado = false;
+        jineteUsado = false;
+        magoUsado = false;
     }
 }
 
