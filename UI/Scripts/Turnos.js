@@ -145,24 +145,47 @@ let partida = async() => {
 
         if(jugadorActual.id == 1){
             let ant = document.getElementById('c91').style.backgroundImage;
-            ant = ant.split(',')[0];
-            console.log(ant);
+                       
+            if(ant.split(',')[0] == 'url("../Imagenes/BigBangGif.gif")') {
+                ant = ant.split(',')[1];  
+            }else {
+                ant = ant.split(',')[0]; 
+            }
+            
+                       
             document.getElementById('c91').style.backgroundImage = ant + ',url(../Imagenes/ui/frame_blue.png)';
 
             let ant2 = document.getElementById('c10').style.backgroundImage;
-            ant2 = ant2.split(',')[0];
-            console.log(ant2);
+           
+            if(ant2.split(',')[0] == 'url("../Imagenes/BigBangGif.gif")') {
+                ant2 = ant2.split(',')[1];  
+            }else {
+                ant2 = ant2.split(',')[0]; 
+            }
+            
+            
             document.getElementById('c10').style.backgroundImage = ant2 +', url(../Imagenes/ui/frame_red.png) ' ;
         }else{
             if (jugadorActual.id == 2){
                 let ant2 = document.getElementById('c10').style.backgroundImage;
-                ant2 = ant2.split(',')[0];
-                console.log(ant2);
+                               
+                if(ant2.split(',')[0] == 'url("../Imagenes/BigBangGif.gif")') {
+                    ant2 = ant2.split(',')[1];  
+                }else {
+                    ant2 = ant2.split(',')[0]; 
+                }
+
+                
                 document.getElementById('c10').style.backgroundImage = ant2 + ', url(../Imagenes/ui/frame_blue.png) ';
 
                 let ant = document.getElementById('c91').style.backgroundImage;
-                ant = ant.split(',')[0];
-                console.log(ant);
+                
+                if(ant.split(',')[0] == 'url("../Imagenes/BigBangGif.gif")') {
+                    ant = ant.split(',')[1];  
+                }else {
+                    ant = ant.split(',')[0]; 
+                }
+                
                 document.getElementById('c91').style.backgroundImage = ant + ',url(../Imagenes/ui/frame_red.png) ';
             }
         }
