@@ -383,6 +383,7 @@ function cargarTablero(mas2Jugadores) {
                 }else{
                     if(validarAtaqueCastillo(personajeActualMovimiento, arrayCeldasConPersonajes[posicionPersonajeArray].celda)==true){
                         atacarCastillo(personajeActualMovimiento);
+                        
                         if(personajeActualMovimiento.id==1){
                             document.getElementById('c10').style.backgroundImage = 'url(../Imagenes/BigBangGif.gif), ' + 'url(../Imagenes/Castillos/Castillo1-0.png),' + 'url(../Imagenes/UI/frame_red.png)';
                         }else{
