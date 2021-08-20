@@ -60,21 +60,26 @@ body {
     transition: 1s;
     box-shadow: 6px 6px 0 black;
     transform: skewX(-15deg);
+    text-shadow: 0.3em 0.3em 0.07em rgba(27, 26, 26, 0.575);
 }
 
 .button1 {
-    background: #5AA990;
+    background: #5aa9909f;
 }
 
 .button2 {
-    background: #5c8dc5;
+    background: #5c8dc5b4;
 }
 
 .button3 {
-    background: #d3c265;
+    background: #d3c265b2;
 }
 .button4 {
-    background: rgb(65, 3, 145);
+    background: rgba(65, 3, 145, 0.623);
+    
+}
+.button5 {
+    background: rgba(201, 111, 9, 0.596);
     
 }
 .flecha1, .flecha3 {
@@ -168,6 +173,10 @@ path.two {
     right: 50px;
 }
 
+.cnt-music{
+    transition: transform .3s ease-out;
+}
+
 .fa-volume-up{    
     background-image: url('../Imagenes/ui/ui/musicGif.gif');
     background-size:contain;     
@@ -185,4 +194,50 @@ path.two {
 .fade{
     opacity: 0.6;
     transition: 0.3s;
+}
+
+#btn_volup{     
+    height: 30px;
+    width: 30px;    
+    border: transparent;
+    position: absolute;
+    
+    top: 60px;
+    right: 20px;
+}
+
+.fa-volumeP{    
+    background-image: url('../Imagenes/ui/ui/volmax.png');
+    background-size:contain;     
+    background-repeat: no-repeat;
+    background-color: transparent;     
+    opacity: 60%;
+}
+
+.fa-volumeP:hover{        
+    opacity: 100%;    
+    transform: scale(120%);
+}
+
+#btn_voldwn{     
+    height: 30px;
+    width: 30px;    
+    border: transparent;
+    position: absolute;
+    
+    top: 100px;
+    right: 20px;
+}
+
+.fa-volumeM{    
+    background-image: url('../Imagenes/ui/ui/volmin.png');
+    background-size:contain;     
+    background-repeat: no-repeat;
+    background-color: transparent;     
+    opacity: 60%;
+}
+
+.fa-volumeM:hover{    
+    opacity: 100%;    
+    transform: scale(120%);
 }

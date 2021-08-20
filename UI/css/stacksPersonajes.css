@@ -15,7 +15,7 @@
     flex: 1;
     background-image: url('../Imagenes/ui/thinframerectan.png');
     background-size: 100% 100%;
-    box-shadow: 5px 5px #070707a1;
+    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.719);
   }
   
   .cnt-Jugador {
@@ -69,7 +69,7 @@
   .iconP button:hover {
    
     color: yellow;    
-
+    transform: scale(110%);
   }
   .iconP .btn-atk2 {
     display: inline-block;
@@ -132,6 +132,7 @@
   
   .btn-tienda:hover{
     color: yellow;
+    transform: scale(110%);
   }
   .stats {
     padding: 1px;
@@ -155,7 +156,7 @@
   .stats button:hover {
    
     color: yellow;    
-
+    transform: scale(110%);
   }
 
   
@@ -175,7 +176,7 @@
   .stats #pU-P2:hover {
    
     color: yellow;    
-
+    transform: scale(110%);
   }
 
   .stats p {

@@ -10,14 +10,16 @@ let btn_ver_personajes = document.getElementById("btn-ver-personajes")
 let tiendaAbierta = false;
 let celdaActual;
 let jugadorActivo = document.getElementById("Nickname");
-
+const volup = document.querySelector("#btn_volup");
+const voldown = document.querySelector("#btn_voldwn");
 const clickAudio = new Audio('../Sounds/buttonClickSound.wav');
 const MOAudio = new Audio('../Sounds/buttonHoverSound.wav');
 const BGM = new Audio('../Sounds/music_funkyWhistle.wav');
-const icon = document.querySelector("#btn_music > i");
+// const icon = document.querySelector("#btn_music > i");
 const btn_music = document.querySelector("#btn_music");
 BGM.volume = 0.1;
 BGM.loop = true;
+BGM.play();
 
 
 $("button").click(function() {
@@ -57,6 +59,20 @@ btn_music.addEventListener("click", () => {
     }
 
 });
+
+volup.addEventListener("click", () => {
+    clickAudio.play();
+    if (BGM.volume <= 1 ) {
+        BGM.volume += 0.2;        
+    } 
+  });
+  
+  voldown.addEventListener("click", () => {
+    clickAudio.play();
+    if (BGM.volume >= 0.2 ) {
+        BGM.volume -= 0.2;    
+    } 
+  });
 
 const obtenerCasillasGemas = () => {
     let tablero = JSON.parse(sessionStorage.getItem('tablero'));
