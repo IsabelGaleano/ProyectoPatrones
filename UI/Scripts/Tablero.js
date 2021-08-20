@@ -4,20 +4,22 @@
 let tablero = document.getElementById("tablero");
 let mas2Jugadores = false;
 let imagenDado = document.getElementById("imagen-dado");
-
+let celda10 = document.getElementById('c10');
 let imgBody = document.getElementById("idBody");
 let btn_ver_personajes = document.getElementById("btn-ver-personajes")
 let tiendaAbierta = false;
 let celdaActual;
 let jugadorActivo = document.getElementById("Nickname");
-
+const volup = document.querySelector("#btn_volup");
+const voldown = document.querySelector("#btn_voldwn");
 const clickAudio = new Audio('../Sounds/buttonClickSound.wav');
 const MOAudio = new Audio('../Sounds/buttonHoverSound.wav');
 const BGM = new Audio('../Sounds/music_funkyWhistle.wav');
-const icon = document.querySelector("#btn_music > i");
+// const icon = document.querySelector("#btn_music > i");
 const btn_music = document.querySelector("#btn_music");
 BGM.volume = 0.1;
 BGM.loop = true;
+BGM.play();
 
 
 $("button").click(function() {
@@ -57,6 +59,20 @@ btn_music.addEventListener("click", () => {
     }
 
 });
+
+volup.addEventListener("click", () => {
+    clickAudio.play();
+    if (BGM.volume <= 1 ) {
+        BGM.volume += 0.2;        
+    } 
+  });
+  
+  voldown.addEventListener("click", () => {
+    clickAudio.play();
+    if (BGM.volume >= 0.2 ) {
+        BGM.volume -= 0.2;    
+    } 
+  });
 
 const obtenerCasillasGemas = () => {
     let tablero = JSON.parse(sessionStorage.getItem('tablero'));
@@ -250,8 +266,10 @@ function cargarTablero(mas2Jugadores) {
 
 
 
-            celda.addEventListener('click', function() {
-                if (celda.id != "c10" && celda.id != "c91") {
+            celda.addEventListener('click', function() 
+            {
+                if (celda.id != "c10" && celda.id != "c91") 
+                {
                     if (document.getElementById(celdaActual) !== null) {
                         document.getElementById(celdaActual).style.backgroundImage = '';
                     }
@@ -280,6 +298,7 @@ function cargarTablero(mas2Jugadores) {
                         }
 
                         celda.style.backgroundImage = cargarPersonaje(tipoPersonajeActual);
+                        //agregar validacion
                         clickMovimiento += 1;
                         celdaClickeada = celda;
 
@@ -329,26 +348,7 @@ function cargarTablero(mas2Jugadores) {
 
                      
                 }*/
-          
-                document.querySelector("#c10").addEventListener('click', function(){
-                    celda= arrayCeldasConPersonajes[posicionPersonajeArray].celda;
-                    if(validarAtaqueCastillo(personajeActualMovimiento,celda.id)==true){
-                        atacarCastillo(personajeActualMovimiento);
-            
-                    }
-                    
-            
-                });
-                document.querySelector("#c91").addEventListener('click', function(){
-                    celda= arrayCeldasConPersonajes[posicionPersonajeArray].celda;
-                    if(validarAtaqueCastillo(personajeActualMovimiento,celda.id)==true){
-                        atacarCastillo(personajeActualMovimiento);
-            
-                    }
-                    
-            
-                });
-              
+        
                 
 
             });
@@ -366,6 +366,28 @@ function cargarTablero(mas2Jugadores) {
     setCasillas();
     esconderGemasPower();
 }
+
+
+/*document.querySelector("#c10").addEventListener('click', function(){
+    celda= arrayCeldasConPersonajes[posicionPersonajeArray].celda;
+    if(validarAtaqueCastillo(personajeActualMovimiento,celda.id)==true){
+        atacarCastillo(personajeActualMovimiento);
+
+    }
+    
+
+});
+document.querySelector("#c91").addEventListener('click', function(){
+    celda= arrayCeldasConPersonajes[posicionPersonajeArray].celda;
+    if(validarAtaqueCastillo(personajeActualMovimiento,celda.id)==true){
+        atacarCastillo(personajeActualMovimiento);
+
+    }
+    
+
+});*/
+
+
 
 const setCasillas = () => {
     let celdas = document.getElementsByTagName('td');
@@ -421,6 +443,8 @@ const setCasillas = () => {
 
     }
 }
+
+
 
 
 
@@ -485,39 +509,9 @@ function tipoPowerUp(numero) {
 
 
 function fondo() {
-    let randomNumber = Math.floor(Math.random() * 9) + 1;
-    let urlBody;
-    switch (randomNumber) {
-        case 1:
-            urlBody = 'url(../Imagenes/Backgrounds/bg_01.png)';
-            break;
-        case 2:
-            urlBody = 'url(../Imagenes/Backgrounds/bg_02.png)';
-            break;
-        case 3:
-            urlBody = 'url(../Imagenes/Backgrounds/bg_03.png)';
-            break;
-        case 4:
-            urlBody = 'url(../Imagenes/Backgrounds/bg_04.png)';
-            break;
-        case 5:
-            urlBody = 'url(../Imagenes/Backgrounds/bg_05.png)';
-            break;
-        case 6:
-            urlBody = 'url(../Imagenes/Backgrounds/bg_06.png)';
-            break;
-        case 7:
-            urlBody = 'url(../Imagenes/Backgrounds/bg_07.png)';
-            break;
-        case 8:
-            urlBody = 'url(../Imagenes/Backgrounds/bg_08.png)';
-            break;
-        case 9:
-            urlBody = 'url(../Imagenes/Backgrounds/bg_09.png)';
-            break;
-
-    }
-    imgBody.style.backgroundImage = urlBody;
+    
+    imgBody.style.backgroundImage = sessionStorage.getItem('fondoPantalla');
+    
 }
 
 fondo();

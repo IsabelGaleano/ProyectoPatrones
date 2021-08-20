@@ -145,7 +145,7 @@
                                 <p><i class="fas fa-shield-alt" style="color:rgb(176,196,222);"></i> <span id="defensa-P">5</span></p>
                                 <p><i class="fas fa-coins" style="color:gold;"></i> <span id="carga-P">5</span></p>
                                 <div id="act-pup-image"></div>
-                                <p> <button id="pU-P2" onclick="">Activar</button></p>
+                                <p> <button id="pU-P2" onclick="validarCasilla()">Activar</button></p>
                             </div>
                         </div>
                     </div>
@@ -169,8 +169,7 @@
                             <p><i class="fas fa-shield-alt" style="color:rgb(176,196,222);"></i> <span id="defensa-P">3</span></p>
                             <p><i class="fas fa-arrow-right"></i> <span id="carga-P">3</span></p>
                             <p>
-                                <i id="icon-usabilidad-arquero" class="fas fa-times" style="color:rgb(204, 4, 4);font-size:18px;"></i>
-                                <button class="usar-personaje arquero" id="pU-P">N/D</button>
+                                <i id="icon-usabilidad-arquero" class="fas fa-times" style="color:rgb(204, 4, 4);font-size:18px;"></i> <button value="1" class="usar-personaje arquero btnAct" id="pU-P">N/D</button>
                             </p>
 
 
@@ -188,10 +187,7 @@
                             <p><i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i> <span id="vida-P">9</span></p>
                             <p><i class="fas fa-shield-alt" style="color:rgb(176,196,222);"></i> <span id="defensa-P">8</span></p>
                             <p><i class="fas fa-arrow-right"></i> <span id="carga-P">2</span></p>
-                            <p><i id="icon-usabilidad-espadachin" class="fas fa-times" style="color:rgb(204, 4, 4);font-size:18px;"></i>
-                                <button class="usar-personaje espadachin" id="pU-P">N/D</button>
-                            </p>
-
+                            <p><i id="icon-usabilidad-espadachin" class="fas fa-times" style="color:rgb(204, 4, 4);font-size:18px;"></i> <button value="2" class="usar-personaje espadachin btnAct" id="pU-P">N/D</button></p>
                         </div>
                     </div>
                     <div class="cnt-Personaje" id="Bersequer">
@@ -203,8 +199,7 @@
                             <p><i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i> <span id="vida-P">9</span></p>
                             <p><i class="fas fa-arrow-right"></i> <span id="defensa-P">1</span></p>
                             <p><i class="fas fa-arrow-right"></i> <span id="carga-P">1</span></p>
-                            <p> <i id="icon-usabilidad-bersequer" class="fas fa-times" style="color:rgb(204, 4, 4);font-size:18px;"></i> <button class="usar-personaje bersequer" id="pU-P">N/D</button></p>
-
+                            <p> <i id="icon-usabilidad-bersequer" class="fas fa-times" style="color:rgb(204, 4, 4);font-size:18px;"></i> <button value="3" class="usar-personaje bersequer btnAct" id="pU-P">N/D</button></p>
                         </div>
                     </div>
 
@@ -220,8 +215,7 @@
                             <p><i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i> <span id="vida-P">8</span></p>
                             <p><i class="fas fa-shield-alt" style="color:rgb(176,196,222);"></i> <span id="defensa-P">9</span></p>
                             <p><i class="fas fa-arrow-right"></i>> <span id="carga-P">2</span></p>
-                            <p> <i id="icon-usabilidad-mago" class="fas fa-times" style="color:rgb(204, 4, 4);font-size:18px;"></i> <button class="usar-personaje mago" id="pU-P">N/D</button></p>
-
+                            <p> <i id="icon-usabilidad-mago" class="fas fa-times" style="color:rgb(204, 4, 4);font-size:18px;"></i> <button value="4" class="usar-personaje mago btnAct" id="pU-P">N/D</button></p>
 
                         </div>
 
@@ -235,8 +229,7 @@
                             <p><i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i> <span id="vida-P">4</span></p>
                             <p><i class="fas fa-shield-alt" style="color:rgb(176,196,222);"></i> <span id="defensa-P">5</span></p>
                             <p><i class="fas fa-arrow-right"></i> <span id="carga-P">4</span></p>
-                            <p> <i id="icon-usabilidad-asesino" class="fas fa-times" style="color:rgb(204, 4, 4);font-size:18px;"></i> <button class="usar-personaje asesino" id="pU-P">N/D</button></p>
-
+                            <p> <i id="icon-usabilidad-asesino" class="fas fa-times" style="color:rgb(204, 4, 4);font-size:18px;"></i> <button value="5" class="usar-personaje asesino btnAct" id="pU-P">N/D</button></p>
 
                         </div>
 
@@ -250,7 +243,8 @@
                             <p><i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i> <span id="vida-P">3</span></p>
                             <p><i class="fas fa-shield-alt" style="color:rgb(176,196,222);"></i> <span id="defensa-P">7</span></p>
                             <p><i class="fas fa-arrow-right"></i> <span id="carga-P">6</span></p>
-                            <p> <i id="icon-usabilidad-jinete" class="fas fa-times" style="color:rgb(204, 4, 4);font-size:18px;"></i> <button class="usar-personaje jinete" id="pU-P">N/D</button></p>
+                            <p> <i id="icon-usabilidad-jinete" class="fas fa-times" style="color:rgb(204, 4, 4);font-size:18px;"></i> <button value="6" class="usar-personaje jinete btnAct" id="pU-P">N/D</button></p>
+
 
                         </div>
 
@@ -264,7 +258,8 @@
                             <p><i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i> <span id="vida-P">3</span></p>
                             <p><i class="fas fa-shield-alt" style="color:rgb(176,196,222);"></i> <span id="defensa-P">7</span></p>
                             <p><i class="fas fa-arrow-right"></i> <span id="carga-P">5</span></p>
-                            <p> <i id="icon-usabilidad-espia" class="fas fa-times" style="color:rgb(204, 4, 4);font-size:18px;"></i> <button class="usar-personaje espia" id="pU-P">N/D</button></p>
+                            <p> <i id="icon-usabilidad-espia" class="fas fa-times" style="color:rgb(204, 4, 4);font-size:18px;"></i> <button value="7" class="usar-personaje espia btnAct" id="pU-P">N/D</button></p>
+
 
                         </div>
 
@@ -669,8 +664,8 @@
                     </h4>
 
                     <div>
-                        <button type="button" id="btn-GemaAzul-OK" class="btn-tienda" onclick="cerrarOverlayGemaAzul()">Si</button>
-                        <button type="button" id="btn-GemaAzul-NO" class="btn-tienda" onclick="cerrarOverlayGemaAzul()">NO</button>
+                        <button type="button" id="btn-GemaAzul-OK" class="btn-tienda pw" onclick="cerrarOverlayGemaAzul()">OK</button>
+                        <!--<button type="button" id="btn-GemaAzul-NO" class="btn-tienda" onclick="cerrarOverlayGemaAzul()">NO</button>-->
                     </div>
 
                 </div>
@@ -692,8 +687,8 @@
                     </h4>
 
                     <div>
-                        <button type="button" id="btn-GemaBlanca-OK" class="btn-tienda" onclick="cerrarOverlayGemaBlanca()">Si</button>
-                        <button type="button" id="btn-GemaBlanca-NO" class="btn-tienda" onclick="cerrarOverlayGemaBlanca()">NO</button>
+                        <button type="button" id="btn-GemaBlanca-OK" class="btn-tienda pw" onclick="cerrarOverlayGemaBlanca()">OK</button>
+                        <!--<button type="button" id="btn-GemaBlanca-NO" class="btn-tienda" onclick="cerrarOverlayGemaBlanca()">NO</button>-->
                     </div>
 
                 </div>
@@ -715,8 +710,8 @@
                     </h4>
 
                     <div>
-                        <button type="button" id="btn-GemaVerde-OK" class="btn-tienda" onclick="cerrarOverlayGemaVerde()">Si</button>
-                        <button type="button" id="btn-GemaVerde-NO" class="btn-tienda" onclick="cerrarOverlayGemaVerde()">NO</button>
+                        <button type="button" id="btn-GemaVerde-OK" class="btn-tienda pw" onclick="cerrarOverlayGemaVerde()">Si</button>
+                        <!--<button type="button" id="btn-GemaVerde-NO" class="btn-tienda" onclick="cerrarOverlayGemaVerde()">NO</button>-->
                     </div>
 
                 </div>
@@ -794,13 +789,14 @@
 
 
         <!--  -->
-        <div>
-            <button class="fa-volume-up" id="btn_music" type="button">
-
-        </button>
+        <div class="cnt-music">
+            <button class="fa-volume-up" id="btn_music" type="button"></button>
+            <button class="fa-volumeP" id="btn_volup" type="button"></button>
+            <button class="fa-volumeM" id="btn_voldwn" type="button"></button>
         </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script type="text/javascript" src="../Scripts/selectFondo.js"></script>
 <script type="text/javascript" src="../Scripts/Tablero.js"></script>
 <script type="text/javascript" src="../Scripts/Turnos.js"></script>
 
@@ -819,6 +815,7 @@
 <script type="text/javascript" src="../Scripts/PopUp_Info_Catapulta_Ballesta.js"></script>
 <script type="text/javascript" src="../Scripts/removerPower.js"></script>
 <script type="text/javascript" src="../js/CasosDeUsoOrlando/PowerUps.js"></script>
+
 <script>
     incializarDatosPopUp();
 </script>
