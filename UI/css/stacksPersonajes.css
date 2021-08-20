@@ -37,7 +37,7 @@
   }
   
   .cnt-Personaje .iconP {
-    width: 80%;
+    width: 100%;
     /*background-image: url("../Imagenes/Characters/");*/
     /* The image used */
     
@@ -51,7 +51,40 @@
     background-size: contain;
   }
   
+  .iconP button {
+    display: inline-block;
+    width: 60px;    
+    height: 22px;
+    padding: 3px;
+    background-color: transparent;    
+    color: beige;
+    background-image: url("../Imagenes/ui/ATK-Btn.png");
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+    border: transparent;
+    margin-top: 8px;
+    
+  }
+  
+  .iconP button:hover {
+   
+    color: yellow;    
 
+  }
+  .iconP .btn-atk2 {
+    display: inline-block;
+    width: 60px;    
+    height: 22px;
+    padding: 3px;
+    background-color: transparent;    
+    color: beige;
+    background-image: url("../Imagenes/ui/ATK-Btn.png");
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+    border: transparent;
+    margin-top: 18px;
+    
+  }
 
   .usedGuy{
     width: 70px;
@@ -113,8 +146,9 @@
     color: beige;
     background-image: url("../Imagenes/ui/button12.png");
     background-repeat: no-repeat;
-    background-size:cover;
+    background-size:100% 100%;
     border: transparent;
+    margin: 2px;
     
   }
   
@@ -123,6 +157,8 @@
     color: yellow;    
 
   }
+
+  
   .stats #pU-P2{
     display: inline-block;
     width: 140px;    

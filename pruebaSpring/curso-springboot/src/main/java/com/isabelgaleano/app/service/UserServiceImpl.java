@@ -1,8 +1,8 @@
 package com.isabelgaleano.app.service;
 
 import com.isabelgaleano.app.entity.User;
-import com.isabelgaleano.app.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import com.isabelgaleano.app.repository.UserRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;

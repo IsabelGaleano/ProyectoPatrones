@@ -160,7 +160,8 @@
                 <div class="cnt-Jugador">
                     <div class="cnt-Personaje" id="Arquero">
                         <div class="iconP">
-                            <img class="usedGuy" src="../Imagenes/Characters/ArcherIdleRight.gif" alt="">
+                            <img class="usedGuy" src="../Imagenes/Characters/ArcherIdleRight.gif" alt="">                            
+                            <button class="btn-atk" id="btn-atk-arquero">ATK</button>
                         </div>
                         <div class=stats>
                             <p><i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i> <span id="vida-P">10</span>
@@ -170,9 +171,9 @@
                             <p>
                                 <i id="icon-usabilidad-arquero" class="fas fa-times" style="color:rgb(204, 4, 4);font-size:18px;"></i> <button value = "1" class="usar-personaje arquero btnAct" id="pU-P">N/D</button>
                             </p>
-                            <!--
-                            <p> <p>Disponible</p> <button id="pU-P">Usar</button></p>
-                            -->
+                            
+                            
+                            
                         </div>
 
 
@@ -180,6 +181,7 @@
                     <div class="cnt-Personaje" id="Espadachin">
                         <div class="iconP">
                             <img class="usedGuy" src="../Imagenes/Characters/SwordsmanIdleRight.gif" alt="">
+                            <button class="btn-atk" id="btn-atk-sword">  ATK</button>
                         </div>
                         <div class=stats>
                             <p><i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i> <span id="vida-P">9</span></p>
@@ -191,6 +193,7 @@
                     <div class="cnt-Personaje" id="Bersequer">
                         <div class="iconP">
                             <img class="usedGuy" src="../Imagenes/Characters/BerserkIdleRight.gif" alt="">
+                            <button class="btn-atk" id="btn-atk-berserk">ATK</button>
                         </div>
                         <div class=stats>
                             <p><i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i> <span id="vida-P">9</span></p>
@@ -206,6 +209,7 @@
                     <div class="cnt-Personaje" id="Mago">
                         <div class="iconP">
                             <img class="usedGuy2" src="../Imagenes/Characters/MageIdleRight.gif" alt="">
+                            <button class="btn-atk2" id="btn-atk-mago">ATK</button>
                         </div>
                         <div class=stats>
                             <p><i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i> <span id="vida-P">8</span></p>
@@ -219,6 +223,7 @@
                     <div class="cnt-Personaje" id="Asesino">
                         <div class="iconP">
                             <img class="usedGuy2" src="../Imagenes/Characters/AssasinIdleRight.gif" alt="">
+                            <button class="btn-atk2" id="btn-atk-asesino">ATK</button>
                         </div>
                         <div class=stats>
                             <p><i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i> <span id="vida-P">4</span></p>
@@ -232,6 +237,7 @@
                     <div class="cnt-Personaje" id="Jinete">
                         <div class="iconP">
                             <img class="usedGuy2" src="../Imagenes/Characters/KnightIdleRight.gif" alt="">
+                            <button class="btn-atk2" id="btn-atk-jinete">ATK</button>
                         </div>
                         <div class=stats>
                             <p><i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i> <span id="vida-P">3</span></p>
@@ -246,6 +252,7 @@
                     <div class="cnt-Personaje" id="Espia">
                         <div class="iconP">
                             <img class="usedGuy2" src="../Imagenes/Characters/SpyIdleRight.gif" alt="">
+                            <button class="btn-atk2" id="btn-atk-espia">ATK</button>
                         </div>
                         <div class=stats>
                             <p><i class="fas fa-heart" style="color:rgb(204, 4, 4);"></i> <span id="vida-P">3</span></p>
@@ -329,19 +336,19 @@
                         <div class="tienda">
                             <div class="col-personajes 1">
                                 <div class="espacio-personaje" id="espacio1">
-                                    <img src="../Imagenes/Characters/ArcherIdleRight.gif" alt="Arquero" id="img-arquero" class="img-character">
+                                    <img src="../Imagenes/Characters/ArcherIdleLeft.gif" alt="Arquero" id="img-arquero" class="img-character">
                                     <button value="1" class="btn-compra-personaje" id="compra-arquero" onclick="abrirModalCompraArquero()">10</button>
                                 </div>
                                 <div class="espacio-personaje" id="espacio3">
-                                    <img src="../Imagenes/Characters/AssasinIdleRight.gif" alt="Asesino" id="img-asesino" class="img-character">
+                                    <img src="../Imagenes/Characters/AssasinIdleLeft.gif" alt="Asesino" id="img-asesino" class="img-character">
                                     <button value="3" class="btn-compra-personaje" id="compra-asesino" onclick="abrirModalCompraAsesino()">5</button>
                                 </div>
                                 <div class="espacio-personaje" id="espacio4">
-                                    <img src="../Imagenes/Characters/BerserkIdleRight.gif" alt="Bersequer" id="img-bersequer" class="img-character">
+                                    <img src="../Imagenes/Characters/BerserkIdleLeft.gif" alt="Bersequer" id="img-bersequer" class="img-character">
                                     <button value="4" class="btn-compra-personaje" id="compra-bersequer" onclick="abrirModalCompraBerserker()">25</button>
                                 </div>
                                 <div class="espacio-personaje" id="espacio6">
-                                    <img src="../Imagenes/Characters/KnightIdleRight.gif" alt="Jinete" id="img-jinete" class="img-character">
+                                    <img src="../Imagenes/Characters/KnightIdleLeft.gif" alt="Jinete" id="img-jinete" class="img-character">
                                     <button value="6" class="btn-compra-personaje" id="compra-jinete" onclick="abrirModalCompraKnight()">15</button>
                                 </div>
                             </div>
@@ -354,16 +361,16 @@
                         <div class="tienda">
                             <div class="col-personajes 2">
                                 <div class="espacio-personaje" id="espacio5">
-                                    <img src="../Imagenes/Characters/SpyIdleRight.gif" alt="Espia" id="img-espia" class="img-character">
+                                    <img src="../Imagenes/Characters/SpyIdleLeft.gif" alt="Espia" id="img-espia" class="img-character">
                                     <button value="5" class="btn-compra-personaje" id="compra-espia" onclick="abrirModalCompraEspia()">5</button>
                                 </div>
                                 <div class="espacio-personaje" id="espacio2">
-                                    <img src="../Imagenes/Characters/SwordsmanIdleRight.gif" alt="Espadachin" id="img-espadachin" class="img-character">
+                                    <img src="../Imagenes/Characters/SwordsmanIdleLeft.gif" alt="Espadachin" id="img-espadachin" class="img-character">
                                     <button value="2" class="btn-compra-personaje" id="compra-espadachin" onclick="abrirModalCompraSwordsman()">15</button>
                                 </div>
 
                                 <div class="espacio-personaje" id="espacio7">
-                                    <img src="../Imagenes/Characters/MageIdleRight.gif" alt="Mago" id="img-mago" class="img-character">
+                                    <img src="../Imagenes/Characters/MageIdleLeft.gif" alt="Mago" id="img-mago" class="img-character">
                                     <button value="7" class="btn-compra-personaje" id="compra-mago" onclick="abrirModalCompraMago()">10</button>
                                 </div>
 
