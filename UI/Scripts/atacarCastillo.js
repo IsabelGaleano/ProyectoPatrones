@@ -77,9 +77,9 @@ let validarAtaqueCastillo= function(personaje,idCasilla){
         }
     }      
     else if(castilloAtacado == 2){
-    if(resA<=alcance){
-        atacarCastillo= true;
-         cambiarColor("c91");
+        if(resA<=alcance){
+            atacarCastillo= true;
+            cambiarColor("c91");
     }
 }
 
@@ -89,7 +89,7 @@ let validarAtaqueCastillo= function(personaje,idCasilla){
 
 const cambiarColor=function(idCasilla){
     document.getElementById(idCasilla).style.backgroundColor = 'rbga(0, 144, 234, 0.74)';
-    document.getElementById(idCasilla).style.backgroundSize= '100px 100px';
+    document.getElementById(idCasilla).style.backgroundSize= '70px 70px';
     
  
     
