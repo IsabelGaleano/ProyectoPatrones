@@ -26,7 +26,7 @@ body {
     padding-top: 100px;
     text-align: center;
     color: #1c3b2d;
-    font-size: 30px;
+    font-size: 60px;
     font-family: 'Press Start 2P', cursive;
     text-shadow: 0.1em 0.1em 0.05em rgb(120, 224, 135);
     background: rgb(2,0,36);
@@ -86,6 +86,9 @@ background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(0,0,0,0.5) 63%, rgba
     padding-top: 30px;
     width: 30%;
     margin: 0 auto;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
 }
 
 .form__group {
@@ -228,8 +231,13 @@ path.two {
     width: 100px;    
     border: transparent;
     position: absolute;
+    
     top: 50px;
     right: 50px;
+}
+
+.cnt-music{
+    transition: transform .3s ease-out;
 }
 
 .fa-volume-up{    
@@ -249,4 +257,50 @@ path.two {
 .fade{
     opacity: 0.6;
     transition: 0.3s;
+}
+
+#btn_volup{     
+    height: 30px;
+    width: 30px;    
+    border: transparent;
+    position: absolute;
+    
+    top: 60px;
+    right: 20px;
+}
+
+.fa-volumeP{    
+    background-image: url('../Imagenes/ui/ui/volmax.png');
+    background-size:contain;     
+    background-repeat: no-repeat;
+    background-color: transparent;     
+    opacity: 60%;
+}
+
+.fa-volumeP:hover{        
+    opacity: 100%;    
+    transform: scale(120%);
+}
+
+#btn_voldwn{     
+    height: 30px;
+    width: 30px;    
+    border: transparent;
+    position: absolute;
+    
+    top: 100px;
+    right: 20px;
+}
+
+.fa-volumeM{    
+    background-image: url('../Imagenes/ui/ui/volmin.png');
+    background-size:contain;     
+    background-repeat: no-repeat;
+    background-color: transparent;     
+    opacity: 60%;
+}
+
+.fa-volumeM:hover{    
+    opacity: 100%;    
+    transform: scale(120%);
 }

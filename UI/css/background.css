@@ -7,13 +7,14 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-top: 100px;
 }
   
   /* Float four columns side by side */
   .column {
     float: left;
     width: 33%;
-    height: 175px;
+    height: 220px;
     padding: 0 10px;
     margin-bottom: 25px;
     
@@ -22,8 +23,8 @@
   /* Remove extra left and right margins, due to padding */
   .row {
     margin: 0 -5px;
-    width: 50%;
-    height: 200px;
+    width: 70%;
+    height: 240px;
     display: flex;
     }
   
@@ -45,15 +46,15 @@
   
   /* Style the counter cards */
   .card {
-    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.9);
+    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.719);
     padding: 16px;
     text-align: center;
     background-color: white;
     border-radius: 10px;
     color: aliceblue;
-    height: 150px;
+    height: 200px;
     background-size: 100% 100%;
-    opacity: 75%;
+    opacity: 85%;
     transition: transform .3s ease-out;
   }
 
@@ -103,3 +104,88 @@
     
     background-image: url(../Imagenes/Backgrounds/bg_09.png);
 }
+
+#ctn-tbl{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 100px;
+    width:60%;   
+    margin: auto;
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 0.1em 0.1em 0.05em rgb(5, 5, 5);
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, 
+    rgba(0,0,0,0.5) 63%, rgba(0,0,0,0.25) 80%, 
+    rgba(255,255,255,0) 100%);
+    
+}
+
+.table{
+  width: 100%;
+  border-radius: 10px;
+}
+
+.tr{
+  width: 80%; 
+text-align: center;
+  
+}
+
+.tr th{
+  width: 50px;
+  color: #13dee6;
+  border-bottom: #95b424 1px solid;
+  height: 60px;
+}
+
+.tr td{
+  width: 50px;
+  height: 40px;
+  color: #d5ddb6;
+  border-bottom: #95b424 1px solid;
+  margin-bottom: 20px;
+  text-shadow: 0.2em 0.2em 0.05em rgb(0, 0, 0);    
+}
+
+.tr td img{
+  height: 70px;
+  padding: 5px;
+}
+
+#ctn-perg{
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  margin-top: 80px;
+  width:55%;   
+  height: 650px;
+  margin: auto;
+  font-family: 'Press Start 2P', cursive;
+  text-shadow: 0.1em 0.1em 0.05em rgba(175, 155, 155, 0.658);
+  /* background: linear-gradient(180deg, rgba(2,0,36,1) 0%, 
+  rgba(0,0,0,0.5) 63%, rgba(0,0,0,0.25) 80%, 
+  rgba(255,255,255,0) 100%); */
+  background-image: url(../Imagenes/ui/book.png);
+  background-size: 100% 100%;
+  text-justify:inter-word;
+}
+
+.reglas{
+  flex: 1;
+  color: rgb(20, 20, 20);
+  padding: 50px;
+  padding-bottom: 40px;
+  font-size:small;
+  font-weight:bold;
+  
+}
+
+#winner{
+  position: relative;
+  background-image: url(/UI/Imagenes/ui/ui/crownGif.gif);
+  background-size: 20% ;
+  background-repeat:no-repeat ;
+  
+}
+

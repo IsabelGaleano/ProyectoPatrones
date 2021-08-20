@@ -10,14 +10,16 @@ let btn_ver_personajes = document.getElementById("btn-ver-personajes")
 let tiendaAbierta = false;
 let celdaActual;
 let jugadorActivo = document.getElementById("Nickname");
-
+const volup = document.querySelector("#btn_volup");
+const voldown = document.querySelector("#btn_voldwn");
 const clickAudio = new Audio('../Sounds/buttonClickSound.wav');
 const MOAudio = new Audio('../Sounds/buttonHoverSound.wav');
 const BGM = new Audio('../Sounds/music_funkyWhistle.wav');
-const icon = document.querySelector("#btn_music > i");
+// const icon = document.querySelector("#btn_music > i");
 const btn_music = document.querySelector("#btn_music");
 BGM.volume = 0.1;
 BGM.loop = true;
+BGM.play();
 
 
 $("button").click(function() {
@@ -57,6 +59,20 @@ btn_music.addEventListener("click", () => {
     }
 
 });
+
+volup.addEventListener("click", () => {
+    clickAudio.play();
+    if (BGM.volume <= 1 ) {
+        BGM.volume += 0.2;        
+    } 
+  });
+  
+  voldown.addEventListener("click", () => {
+    clickAudio.play();
+    if (BGM.volume >= 0.2 ) {
+        BGM.volume -= 0.2;    
+    } 
+  });
 
 const obtenerCasillasGemas = () => {
     let tablero = JSON.parse(sessionStorage.getItem('tablero'));
@@ -153,6 +169,37 @@ function cargarPersonaje(tipo) {
         case 7:
             //Mago
             urlImagenPersonaje = 'url(../Imagenes/Characters/MageIdleRight.gif)';
+            break;
+        
+        case 8:
+            //Arquero
+            urlImagenPersonaje = 'url(../Imagenes/Characters/ArcherIdleLeft.gif)';
+            break;
+        case 9:
+            //Espadachín
+            urlImagenPersonaje = 'url(../Imagenes/Characters/SwordsmanIdleLeft.gif)';
+            break;
+        case 10:
+            //Asesino
+            urlImagenPersonaje = 'url(../Imagenes/Characters/AssasinIdleLeft.gif)';
+            break;
+
+        case 11:
+            //Bersequer
+            urlImagenPersonaje = 'url(../Imagenes/Characters/BerserkIdleLeft.gif)';
+            break;
+        case 12:
+            //Espía
+            urlImagenPersonaje = 'url(../Imagenes/Characters/SpyIdleLeft.gif)';
+            break;
+
+        case 13:
+            //Jinete
+            urlImagenPersonaje = 'url(../Imagenes/Characters/KnightIdleLeft.gif)';
+            break;
+        case 14:
+            //Mago
+            urlImagenPersonaje = 'url(../Imagenes/Characters/MageIdleLeft.gif)';
             break;
 
     }
@@ -320,22 +367,38 @@ function cargarTablero(mas2Jugadores) {
                         } else {
                             eliminarFondoCasillasMovimientos();
                         }
+                        for(let i=0;i<arrayCeldasConPersonajes.length; i++){
+                            if(validarAtaquePersonaje(celda.personajeActivo, arrayCeldasConPersonajes[posicionPersonajeArray].celda, arrayCeldasConPersonajes[i].celda)==true){
+                                if(  arrayCeldasConPersonajes[posicionPersonajeArray].personaje.id != arrayCeldasConPersonajes[i].personaje.id){
+                                    console.log( celda.personajeActivo.tipo+ " tiene " + arrayCeldasConPersonajes[i].personaje.tipo +" en rango");
+                             }
+                            }
+                             
+                             
+                         }
 
                     }
+                    
 
-                }/*else{
-                    celda= arrayCeldasConPersonajes[posicionPersonajeArray].celda;
-                    if(validarAtaqueCastillo(personajeActualMovimiento,celda.id)==true){
+                }else{
+                    if(validarAtaqueCastillo(personajeActualMovimiento, arrayCeldasConPersonajes[posicionPersonajeArray].celda)==true){
                         atacarCastillo(personajeActualMovimiento);
+                        if(personajeActualMovimiento.id==1){
+                        document.getElementById("c10").style.backgroundImage='url(..\Imagenes\BigBangGif.gif),' + 'url(..\Imagenes\Castillos\Castillo1-0.png),' + 'url(..\Imagenes\UI\frame_red.png)';
+                        }else{
+                        document.getElementById("c91").style.backgroundImage='url(..\Imagenes\BigBangGif.gif),' + 'url(..\Imagenes\Castillos\Castillo1-0.png),' + 'url(..\Imagenes\UI\frame_red.png)';
+                        }
+                        
+
 
                     }
 
-                     
-                }*/
-        
+                }
+              
                 
 
             });
+             
             
 
             //celda.className = "celda";
@@ -350,26 +413,6 @@ function cargarTablero(mas2Jugadores) {
     setCasillas();
     esconderGemasPower();
 }
-
-
-/*document.querySelector("#c10").addEventListener('click', function(){
-    celda= arrayCeldasConPersonajes[posicionPersonajeArray].celda;
-    if(validarAtaqueCastillo(personajeActualMovimiento,celda.id)==true){
-        atacarCastillo(personajeActualMovimiento);
-
-    }
-    
-
-});
-document.querySelector("#c91").addEventListener('click', function(){
-    celda= arrayCeldasConPersonajes[posicionPersonajeArray].celda;
-    if(validarAtaqueCastillo(personajeActualMovimiento,celda.id)==true){
-        atacarCastillo(personajeActualMovimiento);
-
-    }
-    
-
-});*/
 
 
 
@@ -418,7 +461,7 @@ const setCasillas = () => {
                         break;
                 }
             } else if (casillas[j].tipo == "CasillaNormal") {
-                celdas[j].style.backgroundImage += ',url(../Imagenes/green_texture.png)';
+                //celdas[j].style.backgroundImage += ',url(../Imagenes/green_texture.png)';
 
             }
         }
@@ -427,7 +470,6 @@ const setCasillas = () => {
 
     }
 }
-
 
 
 
@@ -493,39 +535,9 @@ function tipoPowerUp(numero) {
 
 
 function fondo() {
-    let randomNumber = Math.floor(Math.random() * 9) + 1;
-    let urlBody;
-    switch (randomNumber) {
-        case 1:
-            urlBody = 'url(../Imagenes/Backgrounds/bg_01.png)';
-            break;
-        case 2:
-            urlBody = 'url(../Imagenes/Backgrounds/bg_02.png)';
-            break;
-        case 3:
-            urlBody = 'url(../Imagenes/Backgrounds/bg_03.png)';
-            break;
-        case 4:
-            urlBody = 'url(../Imagenes/Backgrounds/bg_04.png)';
-            break;
-        case 5:
-            urlBody = 'url(../Imagenes/Backgrounds/bg_05.png)';
-            break;
-        case 6:
-            urlBody = 'url(../Imagenes/Backgrounds/bg_06.png)';
-            break;
-        case 7:
-            urlBody = 'url(../Imagenes/Backgrounds/bg_07.png)';
-            break;
-        case 8:
-            urlBody = 'url(../Imagenes/Backgrounds/bg_08.png)';
-            break;
-        case 9:
-            urlBody = 'url(../Imagenes/Backgrounds/bg_09.png)';
-            break;
-
-    }
-    imgBody.style.backgroundImage = urlBody;
+    
+    imgBody.style.backgroundImage = sessionStorage.getItem('fondoPantalla');
+    
 }
 
 fondo();
