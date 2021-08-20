@@ -23,7 +23,9 @@ let validarAtaquePersonaje= function(personaje, idCasillaP, idCasillaA){// recib
 
 const atacarPersonaje= async(personajeP , personajeA)=>{
     let obj= JSON.parse(sessionStorage.getItem('tablero'));
-    let tropas= obj.personajes;
+    let castillos= obj.castillos;
+
+    let tropas= castillos[personajeA.id-1].tropas;
 
     let idAtacado= personajeA.id;
 

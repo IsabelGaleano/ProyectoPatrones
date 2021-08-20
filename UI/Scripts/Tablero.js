@@ -15,6 +15,8 @@ const voldown = document.querySelector("#btn_voldwn");
 const clickAudio = new Audio('../Sounds/buttonClickSound.wav');
 const MOAudio = new Audio('../Sounds/buttonHoverSound.wav');
 const BGM = new Audio('../Sounds/music_funkyWhistle.wav');
+let celdaDealer;
+let celdaReceiver;
 // const icon = document.querySelector("#btn_music > i");
 const btn_music = document.querySelector("#btn_music");
 BGM.volume = 0.1;
@@ -367,20 +369,34 @@ function cargarTablero(mas2Jugadores) {
                         } else {
                             eliminarFondoCasillasMovimientos();
                         }
+                        for (let i = 0; i < arrayCeldasConPersonajes.length; i++) {
+                            if (arrayCeldasConPersonajes[i].personaje.tipo == personajeActualMovimiento.tipo && arrayCeldasConPersonajes[i].personaje.id == personajeActualMovimiento.id) {
+                                celdaDealer=arrayCeldasConPersonajes[i].celda;
+                                break;
+                            }
+                        }
+
                         for(let i=0;i<arrayCeldasConPersonajes.length; i++){
-                            if(validarAtaquePersonaje(celda.personajeActivo, arrayCeldasConPersonajes[posicionPersonajeArray].celda, arrayCeldasConPersonajes[i].celda)==true){
-                                if(  arrayCeldasConPersonajes[posicionPersonajeArray].personaje.id != arrayCeldasConPersonajes[i].personaje.id){
+                            
+                            if( arrayCeldasConPersonajes[posicionPersonajeArray].personaje.id != arrayCeldasConPersonajes[i].personaje.id){
+                                if(validarAtaquePersonaje( personajeActualMovimiento, celdaDealer, arrayCeldasConPersonajes[i].celda)==true){    
                                     console.log( celda.personajeActivo.tipo+ " tiene " + arrayCeldasConPersonajes[i].personaje.tipo +" en rango");
-                             }
+                                    atacarPersonaje(celda.personajeActivo,arrayCeldasConPersonajes[i].personaje);
+                                    document.getElementById(arrayCeldasConPersonajes[i].celda).style.backgroundImage =  'rgba(207, 0, 15, 0.74)';
+                                }
+                           
                             }
                              
                              
                          }
+                        
 
                     }
+                   
                     
 
-                }else{
+                }
+                else{
                     if(validarAtaqueCastillo(personajeActualMovimiento, arrayCeldasConPersonajes[posicionPersonajeArray].celda)==true){
                         atacarCastillo(personajeActualMovimiento);
                         
