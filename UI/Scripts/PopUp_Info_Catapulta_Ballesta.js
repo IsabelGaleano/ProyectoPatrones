@@ -280,7 +280,7 @@ function cerrarOverlayGemaAzul() {
     popAudio.volume = 1;
     popAudio.play();
     idOverlayGemaAzul.classList.remove('active');
-    popupMensaje.classList.remove('active');
+    popupGemaAzul.classList.remove('active');
 }
 
 var idOverlayGemaBlanca = document.getElementById('idOverlayGemaBlanca'),
@@ -299,7 +299,7 @@ function cerrarOverlayGemaBlanca() {
     popAudio.volume = 1;
     popAudio.play();
     idOverlayGemaBlanca.classList.remove('active');
-    popupMensaje.classList.remove('active');
+    popupGemaBlanca.classList.remove('active');
 }
 
 var idOverlayGemaVerde = document.getElementById('idOverlayGemaVerde'),
@@ -318,7 +318,7 @@ function cerrarOverlayGemaVerde() {
     popAudio.volume = 1;
     popAudio.play();
     idOverlayGemaVerde.classList.remove('active');
-    popupMensaje.classList.remove('active');
+    popupGemaVerde.classList.remove('active');
 }
 
 /*----------------------- modales powerups -------------*/
@@ -339,7 +339,7 @@ function cerrarOverlayPowerUp() {
     popAudio.volume = 1;
     popAudio.play();
     idOverlayPowerUp.classList.remove('active');
-    popupMensaje.classList.remove('active');
+    popupPowerUp.classList.remove('active');
 }
 
 var idOverlayDefenseUp = document.getElementById('idOverlayDefenseUp'),
@@ -358,7 +358,7 @@ function cerrarOverlayDefenseUp() {
     popAudio.volume = 1;
     popAudio.play();
     idOverlayDefenseUp.classList.remove('active');
-    popupMensaje.classList.remove('active');
+    popupDefenseUp.classList.remove('active');
 }
 
 var idOverlayConfirmChange = document.getElementById('idOverlayConfirmChange'),
@@ -376,5 +376,31 @@ function cerrarOverlayConfirmChange() {
     popAudio.volume = 1;
     popAudio.play();
     idOverlayConfirmChange.classList.remove('active');
-    popupMensaje.classList.remove('active');
+    popupConfirmChange.classList.remove('active');
+}
+/*----------- modales ataque --------------------*/
+
+var idOverlayAtaquePersonaje = document.getElementById('idOverlayAtaquePersonaje'),
+idpopupAtaquePersonaje = document.getElementById('idpopupAtaquePersonaje');
+
+var imagen1 = document.getElementById('peratk1');
+var imagen2 = document.getElementById('peratk2');
+
+function abrirModalAtaqueOverlay(img1, img2) {
+    OVAudio.volume = 1;
+    OVAudio.play();
+
+    imagen1.src = img1;
+    imagen2.src = img2;
+
+    idOverlayAtaquePersonaje.classList.add('active');
+    idpopupAtaquePersonaje.classList.add('active');
+
+}
+
+function cerrarOverlayAtaquePersonaje() {
+    popAudio.volume = 1;
+    popAudio.play();
+    idOverlayAtaquePersonaje.classList.remove('active');
+    idpopupAtaquePersonaje.classList.remove('active');
 }

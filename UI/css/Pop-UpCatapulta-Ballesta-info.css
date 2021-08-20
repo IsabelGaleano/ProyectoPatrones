@@ -107,7 +107,8 @@
 #idpopupCompraKnight,
 #idpopupCompraEspia,
 #idpopupCompraSwordsman,
-#idpopupCompraMago {
+#idpopupCompraMago,
+#idpopupAtaquePersonaje {
     display: flex;
     flex-direction: column;
     min-width: 300px;
