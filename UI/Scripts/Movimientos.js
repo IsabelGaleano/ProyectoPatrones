@@ -42,7 +42,14 @@ let primerMovimientoJineteJ2 = false;
 let primerMovimientoMagoJ1 = false;
 let primerMovimientoMagoJ2 = false;
 
-
+//PARA EVITAR REPETIR UN PERSONAJE POR TURNO
+let arqueroUsado = false;
+let espadachinUsado = false;
+let asesinoUsado = false;
+let bersequerUsado = false;
+let espiaUsado = false;
+let jineteUsado = false;
+let magoUsado = false;
 
 //--ARRAYS PARA ESTADOS DE LOS JUGADORES DEL TABLERO--
 let posicionPersonajeArray;
@@ -92,12 +99,12 @@ async function verificarPersonajeActivoTablero(array, tipo) {
                 contador++;
             }
         }
-        console.log(contador);
+        //console.log(contador);
         if (contador >= 3) {
             for (let i = 0; i < array.length; i++) {
                 if (array[i].tipo == tipo) {
 
-                    console.log("True");
+                    //console.log("True");
                     //return true;
                     variable = true;
                     break;
@@ -108,7 +115,7 @@ async function verificarPersonajeActivoTablero(array, tipo) {
             }
 
         } else {
-            console.log("else");
+            //console.log("else");
             variable = true;
         }
     } else {
@@ -137,7 +144,7 @@ botonesUsarPersonaje.forEach(function(elem) {
             if (elem.classList.contains("arquero") && elem.textContent == "Usar") {
                 console.log(await cantidadPersonajesTablero());
                 if (await verificarPersonajeActivoTablero(await cantidadPersonajesTablero(), "Arquero") == true) {
-                    if (document.getElementById("Movimientos").textContent >= 1) {
+                    if (document.getElementById("Movimientos").textContent >= 1 && arqueroUsado == false) {
                         let estadoPersonaje;
                         let estadoActualPer = "NU";
                         personajeActualMovimiento = obtenerPersonajeDeTropas(1);
@@ -154,12 +161,23 @@ botonesUsarPersonaje.forEach(function(elem) {
                                 movActual = true
                             }
                         }
-
+                        arqueroUsado = true;
 
                         //let objCombinado = buscarCeldaYPersonaje(1);
                         let idCelda;
                         movimientosPersonaje = personajeActualMovimiento.cantMovimientos;
-                        tipoPersonajeActual = 1;
+
+                        console.log("jugadoractual: " + jugadorActual.id);
+                        
+                        if(jugadorActual.id == 1){
+                            tipoPersonajeActual = 1;
+                        }else{
+                            tipoPersonajeActual = 8;
+                        }
+
+                        
+
+
                         let primerMovimiento;
                         movimientoXTurno = true;
                         //SI NO HA SIDO INCIALIZADO EN EL TABLERO
@@ -228,7 +246,7 @@ botonesUsarPersonaje.forEach(function(elem) {
             //ESPADACHIN
             if (elem.classList.contains("espadachin") && elem.textContent == "Usar") {
                 if (await verificarPersonajeActivoTablero(await cantidadPersonajesTablero(), "Espadachin") == true) {
-                    if (document.getElementById("Movimientos").textContent >= 1) {
+                    if (document.getElementById("Movimientos").textContent >= 1 && espadachinUsado == false) {
                         let estadoPersonaje;
                         let estadoActualPer = "NU";
                         personajeActualMovimiento = obtenerPersonajeDeTropas(2);
@@ -247,12 +265,19 @@ botonesUsarPersonaje.forEach(function(elem) {
                                 movActual = true
                             }
                         }
+                        espadachinUsado = true;
 
 
                         //let objCombinado = buscarCeldaYPersonaje(1);
                         let idCelda;
                         movimientosPersonaje = personajeActualMovimiento.cantMovimientos;
-                        tipoPersonajeActual = 2;
+                        
+                        if(jugadorActual.id == 1){
+                            tipoPersonajeActual = 2;
+                        }else{
+                            tipoPersonajeActual = 9;
+                        }
+                        
                         let primerMovimiento;
                         movimientoXTurno = true;
                         //SI NO HA SIDO INCIALIZADO EN EL TABLERO
@@ -320,7 +345,7 @@ botonesUsarPersonaje.forEach(function(elem) {
             //ASESINO
             if (elem.classList.contains("asesino") && elem.textContent == "Usar") {
                 if (await verificarPersonajeActivoTablero(await cantidadPersonajesTablero(), "Asesino") == true) {
-                    if (document.getElementById("Movimientos").textContent >= 1) {
+                    if (document.getElementById("Movimientos").textContent >= 1 && asesinoUsado == false) {
                         let estadoPersonaje;
                         let estadoActualPer = "NU";
                         personajeActualMovimiento = obtenerPersonajeDeTropas(3);
@@ -340,12 +365,17 @@ botonesUsarPersonaje.forEach(function(elem) {
                                 movActual = true
                             }
                         }
-
+                        asesinoUsado = true;
 
                         //let objCombinado = buscarCeldaYPersonaje(1);
                         let idCelda;
                         movimientosPersonaje = personajeActualMovimiento.cantMovimientos;
-                        tipoPersonajeActual = 3;
+                        if(jugadorActual.id == 1){
+                            tipoPersonajeActual = 3;
+                        }else{
+                            tipoPersonajeActual = 10;
+                        }
+                        
                         let primerMovimiento;
                         movimientoXTurno = true;
                         //SI NO HA SIDO INCIALIZADO EN EL TABLERO
@@ -413,7 +443,7 @@ botonesUsarPersonaje.forEach(function(elem) {
             //BERSEQUER
             if (elem.classList.contains("bersequer") && elem.textContent == "Usar") {
                 if (await verificarPersonajeActivoTablero(await cantidadPersonajesTablero(), "Berserquer") == true) {
-                    if (document.getElementById("Movimientos").textContent >= 1) {
+                    if (document.getElementById("Movimientos").textContent >= 1 && bersequerUsado == false) {
                         let estadoPersonaje;
                         let estadoActualPer = "NU";
                         personajeActualMovimiento = obtenerPersonajeDeTropas(4);
@@ -433,14 +463,19 @@ botonesUsarPersonaje.forEach(function(elem) {
                                 movActual = true
                             }
                         }
-
+                        bersequerUsado = true;
 
                         //let objCombinado = buscarCeldaYPersonaje(1);
                         let idCelda;
 
                         movimientosPersonaje = personajeActualMovimiento.cantMovimientos;
                         console.log(movimientosPersonaje);
-                        tipoPersonajeActual = 4;
+                        if(jugadorActual.id == 1){
+                            tipoPersonajeActual = 4;
+                        }else{
+                            tipoPersonajeActual = 11;
+                        }
+                        
                         let primerMovimiento;
                         movimientoXTurno = true;
                         //SI NO HA SIDO INCIALIZADO EN EL TABLERO
@@ -508,7 +543,7 @@ botonesUsarPersonaje.forEach(function(elem) {
             //ESPIA
             if (elem.classList.contains("espia") && elem.textContent == "Usar") {
                 if (await verificarPersonajeActivoTablero(await cantidadPersonajesTablero(), "Espia") == true) {
-                    if (document.getElementById("Movimientos").textContent >= 1) {
+                    if (document.getElementById("Movimientos").textContent >= 1 && espiaUsado == false) {
                         let estadoPersonaje;
                         let estadoActualPer = "NU";
                         personajeActualMovimiento = obtenerPersonajeDeTropas(5);
@@ -528,12 +563,17 @@ botonesUsarPersonaje.forEach(function(elem) {
                                 movActual = true
                             }
                         }
-
+                        espiaUsado = true;
 
                         //let objCombinado = buscarCeldaYPersonaje(1);
                         let idCelda;
                         movimientosPersonaje = personajeActualMovimiento.cantMovimientos;
-                        tipoPersonajeActual = 5;
+                        if(jugadorActual.id == 1){
+                            tipoPersonajeActual = 5;
+                        }else{
+                            tipoPersonajeActual = 12;
+                        }
+                        
                         let primerMovimiento;
                         movimientoXTurno = true;
                         //SI NO HA SIDO INCIALIZADO EN EL TABLERO
@@ -601,7 +641,7 @@ botonesUsarPersonaje.forEach(function(elem) {
             //JINETE
             if (elem.classList.contains("jinete") && elem.textContent == "Usar") {
                 if (await verificarPersonajeActivoTablero(await cantidadPersonajesTablero(), "Jinete") == true) {
-                    if (document.getElementById("Movimientos").textContent >= 1) {
+                    if (document.getElementById("Movimientos").textContent >= 1 && jineteUsado == false) {
                         let estadoPersonaje;
                         let estadoActualPer = "NU";
                         personajeActualMovimiento = obtenerPersonajeDeTropas(6);
@@ -621,13 +661,18 @@ botonesUsarPersonaje.forEach(function(elem) {
                                 movActual = true
                             }
                         }
-
+                        jineteUsado = true;
 
                         //let objCombinado = buscarCeldaYPersonaje(1);
                         let idCelda;
                         console.log(personajeActualMovimiento);
                         movimientosPersonaje = personajeActualMovimiento.cantMovimientos;
-                        tipoPersonajeActual = 6;
+                        if(jugadorActual.id == 1){
+                            tipoPersonajeActual = 6;
+                        }else{
+                            tipoPersonajeActual = 13;
+                        }
+                        
                         let primerMovimiento;
                         movimientoXTurno = true;
                         //SI NO HA SIDO INCIALIZADO EN EL TABLERO
@@ -695,7 +740,7 @@ botonesUsarPersonaje.forEach(function(elem) {
             //MAGO
             if (elem.classList.contains("mago") && elem.textContent == "Usar") {
                 if (await verificarPersonajeActivoTablero(await cantidadPersonajesTablero(), "Mago") == true) {
-                    if (document.getElementById("Movimientos").textContent >= 1) {
+                    if (document.getElementById("Movimientos").textContent >= 1 && magoUsado == false) {
                         let estadoPersonaje;
                         let estadoActualPer = "NU";
                         personajeActualMovimiento = obtenerPersonajeDeTropas(7);
@@ -711,13 +756,18 @@ botonesUsarPersonaje.forEach(function(elem) {
                                 movActual = true
                             }
                         }
-
+                        magoUsado = true;
 
                         //let objCombinado = buscarCeldaYPersonaje(1);
                         let idCelda;
                         movimientosPersonaje = personajeActualMovimiento.cantMovimientos;
                         console.log(movimientosPersonaje);
-                        tipoPersonajeActual = 7;
+                        if(jugadorActual.id == 1){
+                            tipoPersonajeActual = 7;
+                        }else{
+                            tipoPersonajeActual = 14;
+                        }
+                        
                         let primerMovimiento;
                         console.log(arrayCeldasConPersonajes);
 
@@ -807,9 +857,18 @@ function movimientoPersonaje(personaje, idCelda, primerMovimiento) {
             console.log("Primer mov");
 
             let movimientos = movimientosPosibles(idCelda);
+
             for (let i = 0; i < movimientos.length; i++) {
-                //console.log(movimientos[i]);
-                document.getElementById(movimientos[i]).style.backgroundColor = 'rgba(0, 144, 234, 0.74)';
+                console.log(movimientos[i]);
+                console.log(document.getElementById(movimientos[i]).style.backgroundImage);
+                if(document.getElementById(movimientos[i]).style.backgroundImage == 'url("../Imagenes/green_texture2.png")'){
+                    document.getElementById(movimientos[i]).style.backgroundImage = 'url(../Imagenes/blue_tex.png)';   
+                    document.getElementById(movimientos[i]).style.backgroundColor = 'rgba(0, 144, 234, 0.74)';                 
+                }else{
+                    document.getElementById(movimientos[i]).style.backgroundColor = 'rgba(0, 144, 234, 0.74)';
+                }
+                
+                
             }
             celdasAnteriores = movimientos;
             //movimientoPersonaje(personajeActualMovimiento, idCelda);
@@ -832,8 +891,14 @@ function movimientoPersonaje(personaje, idCelda, primerMovimiento) {
                 let movimientos = movimientosPosibles(idCelda);
 
                 for (let i = 0; i < movimientos.length; i++) {
-                    //console.log(movimientos[i]);
-                    document.getElementById(movimientos[i]).style.backgroundColor = 'rgba(0, 144, 234, 0.74)';
+                    console.log(movimientos[i]);
+                    console.log(document.getElementById(movimientos[i]).style.backgroundImage);
+                    if(document.getElementById(movimientos[i]).style.backgroundImage == 'url("../Imagenes/green_texture2.png")'){                        
+                        document.getElementById(movimientos[i]).style.backgroundImage = 'url(../Imagenes/blue_tex.png)';
+                        document.getElementById(movimientos[i]).style.backgroundColor = 'rgba(0, 144, 234, 0.74)';
+                    }else{
+                        document.getElementById(movimientos[i]).style.backgroundColor = 'rgba(0, 144, 234, 0.74)';
+                    }
                 }
                 celdasAnteriores = movimientos;
                 //movimientoPersonaje(personajeActualMovimiento, celdaClickeada.id);
@@ -867,37 +932,37 @@ function obtenerPersonajeDeTropas(tipo) {
         let tropas = obj.castillos[posicionCastilloActual].tropas;
         for (let i = 0; i < tropas.length; i++) {
 
-            if (tropas[i].tipo == "Arquero" && tipo == 1) {
+            if (tropas[i].tipo == "Arquero" && (tipo == 1 || tipo == 8)) {
                 personaje = tropas[i];
                 break;
             }
             //ESPADACHIN 
-            if (tropas[i].tipo == "Espadachin" && tipo == 2) {
+            if (tropas[i].tipo == "Espadachin" && (tipo == 2 || tipo == 9)) {
                 personaje = tropas[i];
                 break;
             }
             //BERSEQUER 
-            if (tropas[i].tipo == "Berserquer" && tipo == 4) {
+            if (tropas[i].tipo == "Berserquer" && (tipo == 4|| tipo == 11)) {
                 personaje = tropas[i];
                 break;
             }
             //MAGO 
-            if (tropas[i].tipo == "Mago" && tipo == 7) {
+            if (tropas[i].tipo == "Mago" && (tipo == 7|| tipo == 14)) {
                 personaje = tropas[i];
                 break;
             }
             //ASESINO 
-            if (tropas[i].tipo == "Asesino" && tipo == 3) {
+            if (tropas[i].tipo == "Asesino" && (tipo == 3|| tipo == 10)) {
                 personaje = tropas[i];
                 break;
             }
             //JINETE 
-            if (tropas[i].tipo == "Jinete" && tipo == 6) {
+            if (tropas[i].tipo == "Jinete" && (tipo == 6|| tipo == 13)) {
                 personaje = tropas[i];
                 break;
             }
             //ESPIA 
-            if (tropas[i].tipo == "Espia" && tipo == 5) {
+            if (tropas[i].tipo == "Espia" && (tipo == 5|| tipo == 12)) {
                 personaje = tropas[i];
                 break;
             }
@@ -932,7 +997,7 @@ async function buscarCeldaYPersonaje() {
                             //console.log(arrayCeldasConPersonajes[i]);
                             //VERIFICAR ESTO
                             if (personajeActualMovimiento.tipo == arrayCeldasConPersonajes[i].personaje.tipo) {
-                                console.log("Entra en id");
+                                //console.log("Entra en id");
                                 idArray = i;
                                 break;
                             }
@@ -960,7 +1025,14 @@ function eliminarFondoCasillasMovimientos() {
         //CELDAS DE CADA FILA
         for (let c = sumatoriaCeldas; c <= 10 * i; c++) {
             let celda = "c" + c;
-            document.getElementById(celda).style.backgroundColor = '';
+            
+            if(document.getElementById(celda).style.backgroundImage == 'url("../Imagenes/blue_tex.png")'){
+                document.getElementById(celda).style.backgroundImage = 'url(../Imagenes/green_texture2.png)';
+                document.getElementById(celda).style.backgroundColor = '';
+            }else{
+                document.getElementById(celda).style.backgroundColor = '';
+            }
+
         }
     }
 }
@@ -991,91 +1063,280 @@ function buscarCasillaConPersonaje() {
 function movimientosPosibles(celda) {
     let arrayMovimientos = [];
     console.log(celda);
+
+    //console.log(String(celda).charAt(3));
+    //console.log(String(celda).charAt(1));
     let conversionCeldaC = String(celda).charAt(2);
     let columnaCelda = Number(conversionCeldaC);
     let conversionCeldaF = String(celda).charAt(1);
     let filaCelda = Number(conversionCeldaF);
 
-    //**FALTA VALIDACION POR SI ES LA PRIMERA FILA Y SOLO HAY 1 NUMERO, OSEA, COLUMNAS */
-    //REVISAR*********Daniel
+    let stringNumeroCelda = conversionCeldaF + conversionCeldaC;
+    let numeroCelda = Number(stringNumeroCelda);
 
-    //VALIDAR ARRIBA
+    console.log("general columna: " + columnaCelda);
+    //****VALIDACIONES SI ES LA PRIMERA FILA****
 
-    //VALIDAR SI LA CELDA SIGUIENTE ES VALIDA
-    //**FALTA VALIDACION POR SI ES LA PRIMERA FILA Y SOLO HAY 1 NUMERO, OSEA, COLUMNAS */
-    if (filaCelda - 1 >= 1 && filaCelda - 1 <= 9) {
-        let idCeldaSig = "c" + (filaCelda - 1) + (columnaCelda);
-        let celdaElement = document.getElementById(idCeldaSig);
-        let idCelda = String(filaCelda - 1) + String(columnaCelda);
-        if (idCelda != 91 && idCelda != 10) {
-            //VALIDAR SI HAY UN PERSONAJE
-            if (celdaElement.personajeActivo == null || celdaElement.personajeActivo == undefined) {
-                //SE INTRODUCE LA POSIBILIDAD
-                arrayMovimientos.push(idCeldaSig);
+    if (celda.substring(1) < 10) {
+        console.log("No definido");
+        //PRIMERA FILA ABAJO
+        if (celda.substring(1) < 10) {
+            let idCeldaSig = "c" + (1) + filaCelda;
+
+            let celdaElement = document.getElementById(idCeldaSig);
+            let idCelda = String(1) + String(filaCelda);
+            if (idCelda != 91 && idCelda != 10) {
+                //VALIDAR SI HAY UN PERSONAJE
+                if (celdaElement.personajeActivo === null || celdaElement.personajeActivo === undefined || celdaElement.personajeActivo === '') {
+                    //SE INTRODUCE LA POSIBILIDAD
+                    arrayMovimientos.push(idCeldaSig);
+                }
+
+            }
+        }
+
+        //PRIMERA FILA IZQUIERDA
+        if (filaCelda - 1 > 0 && filaCelda - 1 <= 9) {
+            let idCeldaSig = "c" + (filaCelda - 1);
+
+            let celdaElement = document.getElementById(idCeldaSig);
+            let idCelda = String(filaCelda - 1);
+            if (idCelda != 91 && idCelda != 10) {
+                //VALIDAR SI HAY UN PERSONAJE
+                if (celdaElement.personajeActivo === null || celdaElement.personajeActivo === undefined || celdaElement.personajeActivo === '') {
+                    //SE INTRODUCE LA POSIBILIDAD
+                    arrayMovimientos.push(idCeldaSig);
+                }
+
+            }
+        }
+
+        //PRIMERA FILA DERECHA
+        if (filaCelda + 1 > 0 && filaCelda + 1 <= 9) {
+            let idCeldaSig = "c" + (filaCelda + 1);
+
+            let celdaElement = document.getElementById(idCeldaSig);
+            let idCelda = String(filaCelda + 1);
+            if (idCelda != 91 && idCelda != 10) {
+                //VALIDAR SI HAY UN PERSONAJE
+                if (celdaElement.personajeActivo === null || celdaElement.personajeActivo === undefined || celdaElement.personajeActivo === '') {
+                    //SE INTRODUCE LA POSIBILIDAD
+                    arrayMovimientos.push(idCeldaSig);
+                }
+
+            }
+        }
+
+
+        //****FIN VALIDACIONES SI ES LA PRIMERA FILA****
+    } else {
+        if (columnaCelda == 0) {
+            //--VALIDACIONES SI ES LA ULTIMA COLUMNA--
+            //ARRIBA ULTIMA COLUMNA
+            if (columnaCelda == 0) {
+                let idCeldaSig = "c" + (filaCelda - 1) + 0;
+                let celdaElement = document.getElementById(idCeldaSig);
+                let idCelda = String(filaCelda - 1) + String(0);
+                //console.log("Arriba: " + idCelda);
+                if (idCelda != 91 && idCelda != 10) {
+                    //VALIDAR SI HAY UN PERSONAJE
+                    if (celdaElement.personajeActivo === null || celdaElement.personajeActivo === undefined || celdaElement.personajeActivo === '') {
+                        //SE INTRODUCE LA POSIBILIDAD
+                        arrayMovimientos.push(idCeldaSig);
+                    }
+
+                }
+            }
+            //ABAJO ULTIMA COLUMNA
+            if (columnaCelda == 0) {
+                let idCeldaSig = "c" + (filaCelda + 1) + 0;
+                let celdaElement = document.getElementById(idCeldaSig);
+                let idCelda = String(filaCelda + 1) + String(0);
+                if (idCelda != 91 && idCelda != 10) {
+                    //VALIDAR SI HAY UN PERSONAJE
+                    if (celdaElement.personajeActivo === null || celdaElement.personajeActivo === undefined || celdaElement.personajeActivo === '') {
+                        //SE INTRODUCE LA POSIBILIDAD
+                        arrayMovimientos.push(idCeldaSig);
+                    }
+
+                }
+            }
+            //IZQUIERDA ULTIMA COLUMNA
+            if (columnaCelda == 0) {
+                let celdaNueva = numeroCelda - 1;
+                //console.log("Nueva celda: " + celdaNueva);
+                let conversionColumna = String(celdaNueva).charAt(1);
+                let columnaCelda = Number(conversionColumna);
+                let conversionFila = String(celdaNueva).charAt(0);
+                let filaCelda = Number(conversionFila);
+
+                let idCeldaSig = "c" + (filaCelda) + (columnaCelda);
+
+                let celdaElement = document.getElementById(idCeldaSig);
+                let idCelda = String(filaCelda) + String(columnaCelda);
+
+                if (idCelda != 91 && idCelda != 10) {
+                    //VALIDAR SI HAY UN PERSONAJE
+                    if (celdaElement.personajeActivo === null || celdaElement.personajeActivo === undefined || celdaElement.personajeActivo === '') {
+                        //SE INTRODUCE LA POSIBILIDAD
+                        arrayMovimientos.push(idCeldaSig);
+                    }
+
+                }
+            } else {
+                //VALIDAR DERECHA 
+                if (columnaCelda + 1 > 0 && columnaCelda + 1 <= 9) {
+
+                    //DERECHA ULTIMA COLUMNA
+                    if (columnaCelda == 9) {
+                        let idCeldaSig = "c" + (filaCelda + 1) + 0;
+                        let celdaElement = document.getElementById(idCeldaSig);
+                        let idCelda = String(filaCelda + 1) + String(0);
+                        if (idCelda != 91 && idCelda != 10) {
+                            //VALIDAR SI HAY UN PERSONAJE
+                            if (celdaElement.personajeActivo === null || celdaElement.personajeActivo === undefined || celdaElement.personajeActivo === '') {
+                                //SE INTRODUCE LA POSIBILIDAD
+                                arrayMovimientos.push(idCeldaSig);
+                            }
+
+                        }
+                    }
+                    let idCeldaSig = "c" + (filaCelda) + (columnaCelda + 1);
+                    let celdaElement = document.getElementById(idCeldaSig);
+                    let idCelda = String(filaCelda) + String(columnaCelda + 1);
+                    if (idCelda != 91 && idCelda != 10) {
+                        //VALIDAR SI HAY UN PERSONAJE
+                        if (celdaElement.personajeActivo === null || celdaElement.personajeActivo === undefined || celdaElement.personajeActivo === '') {
+                            //SE INTRODUCE LA POSIBILIDAD
+                            arrayMovimientos.push(idCeldaSig);
+                        }
+
+                    }
+                }
             }
 
+            //--FIN VALIDACIONES ULTIMA COLUMNA--
+
         }
+
+        //VALIDACIONES SI ES LA SEGUNDA FILA (11-20)
+        if (numeroCelda >= 10 && numeroCelda <= 20) {
+            console.log("entra segunda fila");
+
+            //VALIDAR ARRIBA
+            if (columnaCelda >= 1 && columnaCelda <= 9) {
+                let idCeldaSig = "c" + (columnaCelda);
+                let celdaElement = document.getElementById(idCeldaSig);
+                let idCelda = String(columnaCelda);
+                if (idCelda != 91 && idCelda != 10) {
+                    //VALIDAR SI HAY UN PERSONAJE
+                    if (celdaElement.personajeActivo === null || celdaElement.personajeActivo === undefined || celdaElement.personajeActivo === '') {
+                        //SE INTRODUCE LA POSIBILIDAD
+                        arrayMovimientos.push(idCeldaSig);
+                    }
+
+                }
+            }
+
+
+        }
+
+        //DERECHA ULTIMA COLUMNA
+        if (columnaCelda == 9) {
+            let idCeldaSig = "c" + (filaCelda + 1) + 0;
+            let celdaElement = document.getElementById(idCeldaSig);
+            let idCelda = String(filaCelda + 1) + String(0);
+            if (idCelda != 91 && idCelda != 10) {
+                //VALIDAR SI HAY UN PERSONAJE
+                if (celdaElement.personajeActivo === null || celdaElement.personajeActivo === undefined || celdaElement.personajeActivo === '') {
+                    //SE INTRODUCE LA POSIBILIDAD
+                    arrayMovimientos.push(idCeldaSig);
+                }
+
+            }
+        }
+
+
+        //---VALIDACIONES NORMALES---
+
+        //VALIDAR DERECHA 
+
+        if (columnaCelda != 0) {
+            if (columnaCelda + 1 > 0 && columnaCelda + 1 <= 9) {
+
+                //NORMAL
+                let idCeldaSig = "c" + (filaCelda) + (columnaCelda + 1);
+                let celdaElement = document.getElementById(idCeldaSig);
+                let idCelda = String(filaCelda) + String(columnaCelda + 1);
+                if (idCelda != 91 && idCelda != 10) {
+                    //VALIDAR SI HAY UN PERSONAJE
+                    if (celdaElement.personajeActivo === null || celdaElement.personajeActivo === undefined || celdaElement.personajeActivo === '') {
+                        //SE INTRODUCE LA POSIBILIDAD
+                        arrayMovimientos.push(idCeldaSig);
+                    }
+
+                }
+            }
+        }
+
+        //VALIDAR ARRIBA
+        if (filaCelda - 1 >= 1 && filaCelda - 1 <= 9) {
+            console.log("arriba normal");
+            let idCeldaSig = "c" + (filaCelda - 1) + (columnaCelda);
+            let celdaElement = document.getElementById(idCeldaSig);
+            let idCelda = String(filaCelda - 1) + String(columnaCelda);
+            if (idCelda != 91 && idCelda != 10) {
+                //VALIDAR SI HAY UN PERSONAJE
+                if (celdaElement.personajeActivo === null || celdaElement.personajeActivo === undefined || celdaElement.personajeActivo === '') {
+                    //SE INTRODUCE LA POSIBILIDAD
+                    arrayMovimientos.push(idCeldaSig);
+                }
+
+            }
+        }
+
+
+        //VALIDAR IZQUIERDA 
+        if (columnaCelda - 1 > 0 && columnaCelda - 1 <= 9) {
+            console.log("izq normal");
+            let idCeldaSig = "c" + (filaCelda) + (columnaCelda - 1);
+            let celdaElement = document.getElementById(idCeldaSig);
+            let idCelda = String(filaCelda) + String(columnaCelda - 1);
+            if (idCelda != 91 && idCelda != 10) {
+                //VALIDAR SI HAY UN PERSONAJE
+                if (celdaElement.personajeActivo === null || celdaElement.personajeActivo === undefined || celdaElement.personajeActivo === '') {
+                    //SE INTRODUCE LA POSIBILIDAD
+                    arrayMovimientos.push(idCeldaSig);
+                }
+
+            }
+        }
+
+
+
+
+
+        //VALIDAR ABAJO
+        if (filaCelda + 1 >= 1 && filaCelda + 1 <= 9) {
+            console.log("Entra abajo");
+            let idCeldaSig = "c" + (filaCelda + 1) + (columnaCelda);
+            let celdaElement = document.getElementById(idCeldaSig);
+            let idCelda = String(filaCelda + 1) + String(columnaCelda);
+            if (idCelda != 91 && idCelda != 10) {
+                //VALIDAR SI HAY UN PERSONAJE
+                if (celdaElement.personajeActivo === null || celdaElement.personajeActivo === undefined || celdaElement.personajeActivo === '') {
+                    //SE INTRODUCE LA POSIBILIDAD
+                    console.log("Entra abajo 2");
+                    arrayMovimientos.push(idCeldaSig);
+                }
+
+            }
+        }
+
+
     }
 
 
-
-    //VALIDAR DERECHA 
-
-    //VALIDAR SI LA CELDA SIGUIENTE ES VALIDA
-    if (columnaCelda + 1 >= 0 && columnaCelda + 1 <= 9) {
-        let idCeldaSig = "c" + (filaCelda) + (columnaCelda + 1);
-        let celdaElement = document.getElementById(idCeldaSig);
-        let idCelda = String(filaCelda) + String(columnaCelda + 1);
-        if (idCelda != 91 && idCelda != 10) {
-            //VALIDAR SI HAY UN PERSONAJE
-            if (celdaElement.personajeActivo == null || celdaElement.personajeActivo == undefined) {
-                //SE INTRODUCE LA POSIBILIDAD
-                arrayMovimientos.push(idCeldaSig);
-            }
-
-        }
-    }
-
-
-
-    //VALIDAR ABAJO
-
-    //VALIDAR SI LA CELDA SIGUIENTE ES VALIDA
-    console.log(filaCelda);
-    if (filaCelda + 1 >= 1 && filaCelda + 1 <= 9) {
-        console.log("Entra abajo");
-        let idCeldaSig = "c" + (filaCelda + 1) + (columnaCelda);
-        let celdaElement = document.getElementById(idCeldaSig);
-        let idCelda = String(filaCelda + 1) + String(columnaCelda);
-        if (idCelda != 91 && idCelda != 10) {
-            //VALIDAR SI HAY UN PERSONAJE
-            if (celdaElement.personajeActivo == null || celdaElement.personajeActivo == undefined) {
-                //SE INTRODUCE LA POSIBILIDAD
-                console.log("Entra abajo 2");
-                arrayMovimientos.push(idCeldaSig);
-            }
-
-        }
-    }
-
-
-
-    //VALIDAR IZQUIERDA 
-
-    //VALIDAR SI LA CELDA SIGUIENTE ES VALIDA
-    if (columnaCelda - 1 > 0 && columnaCelda - 1 <= 9) {
-        let idCeldaSig = "c" + (filaCelda) + (columnaCelda - 1);
-        let celdaElement = document.getElementById(idCeldaSig);
-        let idCelda = String(filaCelda) + String(columnaCelda - 1);
-        if (idCelda != 91 && idCelda != 10) {
-            //VALIDAR SI HAY UN PERSONAJE
-            if (celdaElement.personajeActivo == null || celdaElement.personajeActivo == undefined) {
-                //SE INTRODUCE LA POSIBILIDAD
-                arrayMovimientos.push(idCeldaSig);
-            }
-
-        }
-    }
 
     return arrayMovimientos;
 }

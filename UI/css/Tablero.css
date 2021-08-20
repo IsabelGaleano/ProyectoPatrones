@@ -130,7 +130,7 @@
         border: 1px solid transparent;
         background-repeat: no-repeat;
         background-position: center;
-        background-size: contain;
+        background-size: 70px 70px;
         border-radius: 10px;
         
     }

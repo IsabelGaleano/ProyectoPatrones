@@ -137,10 +137,36 @@ let partida = async() => {
         //ESTABLECER LA POSICION DEL CASTILLO DEL JUGADOR ACTUAL
         for (let i = 0; i < tableroActual.castillos.length; i++) {
             if (tableroActual.castillos[i].id == jugadorActual.idCastillo) {
-                posicionCastilloActual = i;
+                posicionCastilloActual = i;                
+                
             }
 
         }
+
+        if(jugadorActual.id == 1){
+            let ant = document.getElementById('c91').style.backgroundImage;
+            ant = ant.split(',')[0];
+            console.log(ant);
+            document.getElementById('c91').style.backgroundImage = ant + ',url(../Imagenes/ui/frame_blue.png)';
+
+            let ant2 = document.getElementById('c10').style.backgroundImage;
+            ant2 = ant2.split(',')[0];
+            console.log(ant2);
+            document.getElementById('c10').style.backgroundImage = ant2 +', url(../Imagenes/ui/frame_red.png) ' ;
+        }else{
+            if (jugadorActual.id == 2){
+                let ant2 = document.getElementById('c10').style.backgroundImage;
+                ant2 = ant2.split(',')[0];
+                console.log(ant2);
+                document.getElementById('c10').style.backgroundImage = ant2 + ', url(../Imagenes/ui/frame_blue.png) ';
+
+                let ant = document.getElementById('c91').style.backgroundImage;
+                ant = ant.split(',')[0];
+                console.log(ant);
+                document.getElementById('c91').style.backgroundImage = ant + ',url(../Imagenes/ui/frame_red.png) ';
+            }
+        }
+
 
         sessionStorage.setItem('tablero', JSON.stringify(tableroActual));
         actualizarInfoCastilloJugador();
@@ -164,6 +190,14 @@ let partida = async() => {
         movimientoXTurno = false;
         turnoCancelado = false;
 
+        //PERSONAJES USADOS
+        arqueroUsado = false;
+        espadachinUsado = false;
+        asesinoUsado = false;
+        bersequerUsado = false;
+        espiaUsado = false;
+        jineteUsado = false;
+        magoUsado = false;
     }
 }
 

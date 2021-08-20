@@ -373,7 +373,7 @@ async function activacionPW_A_D(activar) {
         ataque: tropa.ataque,
         defensa: tropa.defensa,
         estadoDecorado: tropa.estadoDecorado,
-        powerUp: casillaActual.pU,
+        powerUp: tropa.powerUp,
         oro: tropa.cantOro,
         maxOro: tropa.maxOro,
         tipoCasilla: casillaActual.data,

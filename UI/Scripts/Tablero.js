@@ -170,6 +170,37 @@ function cargarPersonaje(tipo) {
             //Mago
             urlImagenPersonaje = 'url(../Imagenes/Characters/MageIdleRight.gif)';
             break;
+        
+        case 8:
+            //Arquero
+            urlImagenPersonaje = 'url(../Imagenes/Characters/ArcherIdleLeft.gif)';
+            break;
+        case 9:
+            //Espadachín
+            urlImagenPersonaje = 'url(../Imagenes/Characters/SwordsmanIdleLeft.gif)';
+            break;
+        case 10:
+            //Asesino
+            urlImagenPersonaje = 'url(../Imagenes/Characters/AssasinIdleLeft.gif)';
+            break;
+
+        case 11:
+            //Bersequer
+            urlImagenPersonaje = 'url(../Imagenes/Characters/BerserkIdleLeft.gif)';
+            break;
+        case 12:
+            //Espía
+            urlImagenPersonaje = 'url(../Imagenes/Characters/SpyIdleLeft.gif)';
+            break;
+
+        case 13:
+            //Jinete
+            urlImagenPersonaje = 'url(../Imagenes/Characters/KnightIdleLeft.gif)';
+            break;
+        case 14:
+            //Mago
+            urlImagenPersonaje = 'url(../Imagenes/Characters/MageIdleLeft.gif)';
+            break;
 
     }
     urlImagenPersonaje = urlImagenPersonaje;
@@ -336,22 +367,39 @@ function cargarTablero(mas2Jugadores) {
                         } else {
                             eliminarFondoCasillasMovimientos();
                         }
+                        for(let i=0;i<arrayCeldasConPersonajes.length; i++){
+                            if(validarAtaquePersonaje(celda.personajeActivo, arrayCeldasConPersonajes[posicionPersonajeArray].celda, arrayCeldasConPersonajes[i].celda)==true){
+                                if(  arrayCeldasConPersonajes[posicionPersonajeArray].personaje.id != arrayCeldasConPersonajes[i].personaje.id){
+                                    console.log( celda.personajeActivo.tipo+ " tiene " + arrayCeldasConPersonajes[i].personaje.tipo +" en rango");
+                             }
+                            }
+                             
+                             
+                         }
 
                     }
+                    
 
-                }/*else{
-                    celda= arrayCeldasConPersonajes[posicionPersonajeArray].celda;
-                    if(validarAtaqueCastillo(personajeActualMovimiento,celda.id)==true){
+                }else{
+                    if(validarAtaqueCastillo(personajeActualMovimiento, arrayCeldasConPersonajes[posicionPersonajeArray].celda)==true){
                         atacarCastillo(personajeActualMovimiento);
+                        
+                        if(personajeActualMovimiento.id==1){
+                            document.getElementById('c10').style.backgroundImage = 'url(../Imagenes/BigBangGif.gif), ' + 'url(../Imagenes/Castillos/Castillo1-0.png),' + 'url(../Imagenes/UI/frame_red.png)';
+                        }else{
+                            document.getElementById('c91').style.backgroundImage = 'url(../Imagenes/BigBangGif.gif),' + 'url(../Imagenes/Castillos/Castillo2-0.png),' + 'url(../Imagenes/UI/frame_red.png)';
+                        }
+                        
+
 
                     }
 
-                     
-                }*/
-        
+                }
+              
                 
 
             });
+             
             
 
             //celda.className = "celda";
@@ -366,26 +414,6 @@ function cargarTablero(mas2Jugadores) {
     setCasillas();
     esconderGemasPower();
 }
-
-
-/*document.querySelector("#c10").addEventListener('click', function(){
-    celda= arrayCeldasConPersonajes[posicionPersonajeArray].celda;
-    if(validarAtaqueCastillo(personajeActualMovimiento,celda.id)==true){
-        atacarCastillo(personajeActualMovimiento);
-
-    }
-    
-
-});
-document.querySelector("#c91").addEventListener('click', function(){
-    celda= arrayCeldasConPersonajes[posicionPersonajeArray].celda;
-    if(validarAtaqueCastillo(personajeActualMovimiento,celda.id)==true){
-        atacarCastillo(personajeActualMovimiento);
-
-    }
-    
-
-});*/
 
 
 
@@ -434,7 +462,7 @@ const setCasillas = () => {
                         break;
                 }
             } else if (casillas[j].tipo == "CasillaNormal") {
-                celdas[j].style.backgroundImage += ',url(../Imagenes/green_texture.png)';
+                //celdas[j].style.backgroundImage += ',url(../Imagenes/green_texture.png)';
 
             }
         }
@@ -443,7 +471,6 @@ const setCasillas = () => {
 
     }
 }
-
 
 
 
