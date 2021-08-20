@@ -170,6 +170,37 @@ function cargarPersonaje(tipo) {
             //Mago
             urlImagenPersonaje = 'url(../Imagenes/Characters/MageIdleRight.gif)';
             break;
+        
+        case 8:
+            //Arquero
+            urlImagenPersonaje = 'url(../Imagenes/Characters/ArcherIdleLeft.gif)';
+            break;
+        case 9:
+            //Espadachín
+            urlImagenPersonaje = 'url(../Imagenes/Characters/SwordsmanIdleLeft.gif)';
+            break;
+        case 10:
+            //Asesino
+            urlImagenPersonaje = 'url(../Imagenes/Characters/AssasinIdleLeft.gif)';
+            break;
+
+        case 11:
+            //Bersequer
+            urlImagenPersonaje = 'url(../Imagenes/Characters/BerserkIdleLeft.gif)';
+            break;
+        case 12:
+            //Espía
+            urlImagenPersonaje = 'url(../Imagenes/Characters/SpyIdleLeft.gif)';
+            break;
+
+        case 13:
+            //Jinete
+            urlImagenPersonaje = 'url(../Imagenes/Characters/KnightIdleLeft.gif)';
+            break;
+        case 14:
+            //Mago
+            urlImagenPersonaje = 'url(../Imagenes/Characters/MageIdleLeft.gif)';
+            break;
 
     }
     urlImagenPersonaje = urlImagenPersonaje;
@@ -434,7 +465,7 @@ const setCasillas = () => {
                         break;
                 }
             } else if (casillas[j].tipo == "CasillaNormal") {
-                celdas[j].style.backgroundImage += ',url(../Imagenes/green_texture.png)';
+                //celdas[j].style.backgroundImage += ',url(../Imagenes/green_texture.png)';
 
             }
         }
