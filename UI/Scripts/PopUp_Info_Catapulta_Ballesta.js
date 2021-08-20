@@ -2,6 +2,8 @@ const popAudio = new Audio('../Sounds/PopUpSound.wav');
 const OVAudio = new Audio('../Sounds/OverlaySound.wav');
 const winAudio = new Audio('../Sounds/BRPG_Victory_Stinger.wav');
 const winBGM = new Audio('../Sounds/BRPG_Victory_Music_Loop.wav');
+const atkAudio = new Audio('../Sounds/attacksound.wav');
+const dropAudio = new Audio('../Sounds/dropSound.wav');
 
 
 var overlayBallesta = document.getElementById('idOverlayBallesta'),
@@ -390,11 +392,77 @@ var imagen1 = document.getElementById('peratk1');
 var imagen2 = document.getElementById('peratk2');
 
 function abrirModalAtaqueOverlay(img1, img2) {
-    OVAudio.volume = 1;
-    OVAudio.play();
+    atkAudio.volume = 1;
+    atkAudio.play();
+    atkAudio.loop = true;    
+    let urlImagenPersonaje;
+    switch (img1) {
+        case 'Arquero':
+            //Arquero
+            urlImagenPersonaje = '../Imagenes/Characters/ArcherAttackRight.gif';
+            break;
+        case 'Espadachin':
+            //Espadachín
+            urlImagenPersonaje = '../Imagenes/Characters/SwordsmanAttackRight.gif';
+            break;
+        case 'Asesino':
+            //Asesino
+            urlImagenPersonaje = '../Imagenes/Characters/AssasinAttackRight.gif';
+            break;
 
-    imagen1.src = img1;
-    imagen2.src = img2;
+        case 'Berserquer':
+            //Bersequer
+            urlImagenPersonaje = '../Imagenes/Characters/BerserkAttackRight.gif';
+            break;
+        case 'Espia':
+            //Espía
+            urlImagenPersonaje = '../Imagenes/Characters/SpyAttackRight.gif';
+            break;
+
+        case 'Jinete':
+            //Jinete
+            urlImagenPersonaje = '../Imagenes/Characters/KnightAttackRight.gif';
+            break;
+        case 'Mago':
+            //Mago
+            urlImagenPersonaje = '../Imagenes/Characters/MageAttackRight.gif';
+            break;
+    }
+    imagen1.src = urlImagenPersonaje;
+
+    switch (img2) {
+        case 'Arquero':
+            //Arquero
+            urlImagenPersonaje = '../Imagenes/Characters/ArcherHurtLeft.gif';
+            break;
+        case 'Espadachin':
+            //Espadachín
+            urlImagenPersonaje = '../Imagenes/Characters/SwordsmanHurtLeft.gif';
+            break;
+        case 'Asesino':
+            //Asesino
+            urlImagenPersonaje = '../Imagenes/Characters/AssasinHurtLeft.gif';
+            break;
+
+        case 'Berserquer':
+            //Bersequer
+            urlImagenPersonaje = '../Imagenes/Characters/BerserkHurtLeft.gif';
+            break;
+        case 'Espia':
+            //Espía
+            urlImagenPersonaje = '../Imagenes/Characters/SpyHurtLeft.gif';
+            break;
+
+        case 'Jinete':
+            //Jinete
+            urlImagenPersonaje = '../Imagenes/Characters/KnightHurtLeft.gif';
+            break;
+        case 'Mago':
+            //Mago
+            urlImagenPersonaje = '../Imagenes/Characters/MageHurtLeft.gif';
+            break;
+    }
+    imagen2.src = urlImagenPersonaje;
 
     idOverlayAtaquePersonaje.classList.add('active');
     idpopupAtaquePersonaje.classList.add('active');
@@ -404,6 +472,7 @@ function abrirModalAtaqueOverlay(img1, img2) {
 function cerrarOverlayAtaquePersonaje() {
     popAudio.volume = 1;
     popAudio.play();
+    atkAudio.pause();
     idOverlayAtaquePersonaje.classList.remove('active');
     idpopupAtaquePersonaje.classList.remove('active');
 }
@@ -416,15 +485,48 @@ var imagenMu = document.getElementById('muerteImg');
 
 
 function abrirModalMuerte(img1) {
-    OVAudio.volume = 1;
-    OVAudio.play();
     
-    imagenMu.src = img1;
+    
+    let urlImagenPersonaje;
+    switch (img1) {
+        case 'Arquero':
+            //Arquero
+            urlImagenPersonaje = '../Imagenes/Characters/Muertes/ArqueroDeath.gif';
+            break;
+        case 'Espadachin':
+            //Espadachín
+            urlImagenPersonaje = '../Imagenes/Characters/Muertes/EspadaDeath.gif';
+            break;
+        case 'Asesino':
+            //Asesino
+            urlImagenPersonaje = '../Imagenes/Characters/Muertes/AssasinDeath.gif';
+            break;
+
+        case 'Berserquer':
+            //Bersequer
+            urlImagenPersonaje = '../Imagenes/Characters/Muertes/BerserkDeath.gif';
+            break;
+        case 'Espia':
+            //Espía
+            urlImagenPersonaje = '../Imagenes/Characters/Muertes/EspiaDeath.gif';
+            break;
+
+        case 'Jinete':
+            //Jinete
+            urlImagenPersonaje = '../Imagenes/Characters/Muertes/JineteDeath.gif';
+            break;
+        case 'Mago':
+            //Mago
+            urlImagenPersonaje = '../Imagenes/Characters/Muertes/MagoDeath.gif';
+            break;
+    }
+    imagenMu.src = urlImagenPersonaje;    
     imagenMu.style.backgroundImage = 'url(../Imagenes/blood.gif)';
     imagenMu.style.backgroundRepeat = 'no-repeat';
     imagenMu.style.backgroundSize = '90%';
 
-    
+    dropAudio.volume = 1;
+    dropAudio.play();
     idOverlayMuerte.classList.add('active');
     idpopupMuerte.classList.add('active');
 
