@@ -101,6 +101,27 @@ function cerrarOverlayCambioTurno() {
 }
 /* ---------------------- FIN MODAL DE CAMBIO DE TURNO ----------------------------------*/
 
+
+/* ---------------------- MODAL DE CARGA DE JUGADORES --------------------------------------*/
+var overlayCargaJugadores = document.getElementById('idOverlayCargaJugadores'),
+    popupCargaJugadores = document.getElementById('idpopupCargaJugadores');
+
+function abrirModalCargaJugadores() {
+    popAudio.volume = 1;
+    popAudio.play();
+    overlayCargaJugadores.classList.add('active');
+    popupCargaJugadores.classList.add('active');
+}
+
+function cerrarOverlayCargaJugadores() {
+    popAudio.volume = 1;
+    popAudio.play();
+    overlayCargaJugadores.classList.remove('active');
+    popupCargaJugadores.classList.remove('active');
+}
+/* ---------------------- FIN MODAL DE CARGA DE JUAGORES ----------------------------------*/
+
+
 /* ----------------------  Modales compra personajes ------------------------------------*/
 
 var overlayCompraArquero = document.getElementById('idOverlayCompraArquero'),
@@ -226,7 +247,8 @@ function cerrarOverlayCompraMago() {
 var overlayMensaje = document.getElementById('idOverlayMensaje'),
     popupMensaje = document.getElementById('idpopupMensaje');
 
-function abrirModalMensaje() {
+
+window.abrirModalMensaje = function abrirModalMensaje() {
     popAudio.volume = 1;
     popAudio.play();
     overlayMensaje.classList.add('active');
@@ -330,27 +352,29 @@ function abrirModalDefenseUp() {
     idOverlayDefenseUp.classList.add('active');
     popupDefenseUp.classList.add('active');
 
-    }
-    function cerrarOverlayDefenseUp(){
-        popAudio.volume= 1;
-        popAudio.play(); 
-        idOverlayDefenseUp.classList.remove('active');
-        popupMensaje.classList.remove('active');
-    }
+}
 
-    var idOverlayConfirmChange = document.getElementById('idOverlayConfirmChange'),
+function cerrarOverlayDefenseUp() {
+    popAudio.volume = 1;
+    popAudio.play();
+    idOverlayDefenseUp.classList.remove('active');
+    popupMensaje.classList.remove('active');
+}
+
+var idOverlayConfirmChange = document.getElementById('idOverlayConfirmChange'),
     popupConfirmChange = document.getElementById('idpopupConfirmChange');
 
-    function abrirModalConfirmChange(){       
-        OVAudio.volume= 1;
-        OVAudio.play(); 
-        idOverlayConfirmChange.classList.add('active');
-        popupConfirmChange.classList.add('active');        
+function abrirModalConfirmChange() {
+    OVAudio.volume = 1;
+    OVAudio.play();
+    idOverlayConfirmChange.classList.add('active');
+    popupConfirmChange.classList.add('active');
 
-    }
-    function cerrarOverlayConfirmChange(){
-        popAudio.volume= 1;
-        popAudio.play(); 
-        idOverlayConfirmChange.classList.remove('active');
-        popupMensaje.classList.remove('active');
-    }
+}
+
+function cerrarOverlayConfirmChange() {
+    popAudio.volume = 1;
+    popAudio.play();
+    idOverlayConfirmChange.classList.remove('active');
+    popupMensaje.classList.remove('active');
+}

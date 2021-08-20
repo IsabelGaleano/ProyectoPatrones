@@ -31,26 +31,4 @@ public class Espia extends Personaje {
         this.visibilidad = visibilidad;}
 
 
-    /*@Override
-    public void aceptar(IVisitor iVisitor) {
-        if (this.powerUp != null) {
-            if (powerUp.getClass().equals(MejoraAtaque.class)) {
-                if (iVisitor.getClass().equals(RemoverPowerUpAtaque.class)) {
-                    iVisitor.visit(this);
-                }
-            } else if (powerUp.getClass().equals(MejoraDefensa.class)) {
-                if (iVisitor.getClass().equals(RemoverPowerUpDefensa.class)) {
-                    iVisitor.visit(this);
-                }
-            } else if (powerUp.getClass().equals(TrampaAtaque.class)) {
-                if (iVisitor.getClass().equals(RemoverPowerDownAtaque.class)) {
-                    iVisitor.visit(this);
-                }
-            } else if (powerUp.getClass().equals(TrampaDefensa.class)) {
-                if (iVisitor.getClass().equals(RemoverPowerDownDefensa.class)) {
-                    iVisitor.visit(this);
-                }
-            }
-        }
-    }*/
 }

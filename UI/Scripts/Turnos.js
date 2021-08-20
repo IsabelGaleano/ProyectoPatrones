@@ -7,6 +7,8 @@ let castilloActual;
 let dadoTirado = false;
 let tropaCompradaXTurno = false;
 let numeroDadoSacado;
+let posicionCastilloActual;
+let turnoCancelado = false;
 
 let movimientosRestantesPersonaje;
 const diceSound = new Audio('../Sounds/diceRoll.wav');
@@ -14,7 +16,7 @@ const diceSound = new Audio('../Sounds/diceRoll.wav');
 $(document).ready(function() {
 
     turnos();
-    console.log(tableroJSON);
+    //console.log(tableroJSON);
     partida();
     //juego();
 });
@@ -25,6 +27,11 @@ botonDado.addEventListener('click', function() {
         dadoTirado = true;
     }
 
+});
+
+//BOTON DE TERMINAR TURNO
+document.getElementById("endTurn").addEventListener('click', function() {
+    turnoCancelado = true;
 });
 
 function sleep(ms) {
@@ -95,7 +102,7 @@ let partida = async() => {
 
     //SI NO HAY NINGÚN JUGADOR, SE CONTINUA EL CICLO
     while (estadoPartida == false) {
-        console.log("Turno diferente" + posicionJugadorActual);
+        //console.log("Turno diferente" + posicionJugadorActual);
 
         if (posicionJugadorActual == jugadores.length + 1) {
             posicionJugadorActual = 0;
@@ -127,10 +134,44 @@ let partida = async() => {
         let tableroActual = JSON.parse(sessionStorage.getItem('tablero'));
         tableroActual.jugadores = jugadores;
 
+        //ESTABLECER LA POSICION DEL CASTILLO DEL JUGADOR ACTUAL
+        for (let i = 0; i < tableroActual.castillos.length; i++) {
+            if (tableroActual.castillos[i].id == jugadorActual.idCastillo) {
+                posicionCastilloActual = i;                
+                
+            }
+
+        }
+
+        if(jugadorActual.id == 1){
+            let ant = document.getElementById('c91').style.backgroundImage;
+            ant = ant.split(',')[0];
+            console.log(ant);
+            document.getElementById('c91').style.backgroundImage = ant + ',url(../Imagenes/ui/frame_blue.png)';
+
+            let ant2 = document.getElementById('c10').style.backgroundImage;
+            ant2 = ant2.split(',')[0];
+            console.log(ant2);
+            document.getElementById('c10').style.backgroundImage = ant2 +', url(../Imagenes/ui/frame_red.png) ' ;
+        }else{
+            if (jugadorActual.id == 2){
+                let ant2 = document.getElementById('c10').style.backgroundImage;
+                ant2 = ant2.split(',')[0];
+                console.log(ant2);
+                document.getElementById('c10').style.backgroundImage = ant2 + ', url(../Imagenes/ui/frame_blue.png) ';
+
+                let ant = document.getElementById('c91').style.backgroundImage;
+                ant = ant.split(',')[0];
+                console.log(ant);
+                document.getElementById('c91').style.backgroundImage = ant + ',url(../Imagenes/ui/frame_red.png) ';
+            }
+        }
+
 
         sessionStorage.setItem('tablero', JSON.stringify(tableroActual));
         actualizarInfoCastilloJugador();
-        actualizarPersonajesJugador(2);
+        actualizarPersonajesJugador();
+        visualDefensas();
         let tiempo = await timer(document.getElementById("timer"));
         if (posicionJugadorActual == jugadores.length - 1) {
             posicionJugadorActual = 0;
@@ -147,7 +188,16 @@ let partida = async() => {
         cuadroMovimientos.textContent = '';
         partidaIniciada = true;
         movimientoXTurno = false;
+        turnoCancelado = false;
 
+        //PERSONAJES USADOS
+        arqueroUsado = false;
+        espadachinUsado = false;
+        asesinoUsado = false;
+        bersequerUsado = false;
+        espiaUsado = false;
+        jineteUsado = false;
+        magoUsado = false;
     }
 }
 
@@ -192,8 +242,19 @@ async function timer(display) {
             display.textContent = "00" + ":" + i;
         }
 
+        if (i == 40) {
+            await removerPowersTurnos();
+        }
+
+        //VERIFICA QUE LE DIO CLICK AL BOTON DE TERMINAR TURNO
+        if (turnoCancelado == true) {
+            break;
+        }
+
         await waitFor(1000);
     }
+
+
 };
 
 
@@ -215,6 +276,41 @@ async function cambioTurno(turnoPersona, partidaComenzada) {
 }
 
 
+const removerPowersTurnos = async() => {
+    let castillosTablero = [];
+    castillosTablero = tableroJSON.castillos;
+    let personajesTablero = [];
+    let personajesConPower = [];
+    let personajesNuevos = [];
+    for (let i = 0; i < castillosTablero.length; i++) {
+
+        if (jugadorActual.idCastillo == castillosTablero[i].id) {
+            personajesTablero = castillosTablero[i].tropas;
+        }
+    }
+
+    for (let i = 0; i < personajesTablero; i++) {
+
+        if (personajesTablero[i].powerUp != null) {
+            personajesConPower.push(personajesTablero[i]);
+        }
+
+    }
+
+    let objVisitantePersonajes = personajesConPower.map(function(element) {
+        return {
+            id: element.id,
+            defensa: element.defensa,
+            ataque: element.ataque.puntos,
+            tipoPowerUp: element.powerUp.tipo,
+            estadoDecorado: element.estadoDecorado
+        }
+    });
+
+
+    personajesNuevos = await visitarPersonajes(objVisitantePersonajes);
+    //console.log(personajesNuevos);
+}
 
 
 /*
