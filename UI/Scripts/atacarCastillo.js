@@ -21,11 +21,33 @@ let validarAtaquePersonaje= function(personaje, idCasillaP, idCasillaA){// recib
     return enRango;
 }
 
+const atacarPersonaje= async(personajeP , personajeA)=>{
+    let obj= JSON.parse(sessionStorage.getItem('tablero'));
+    let tropas= obj.personajes;
+
+    let idAtacado= personajeA.id;
+
+    for(let i=0; i < tropas.length; i++){
+        if(tropas[i].tipo==personajeA.tipo){
+            if(tropas[i].id== idAtacado){
+                tropas[i].vida = tropas[i].vida - personajeP.ataque.puntos;
+            }
+        }
+    }
+    
+    sessionStorage.setItem('tablero',JSON.stringify(obj));
+  
+
+}
+    
+    
+    
+
 let validarAtaqueCastillo= function(personaje,idCasilla){
   
     let pos =idCasilla.split("c")[1];
-    let posX = pos.split("")[0];
-    let posY = pos.split("")[1];
+    let posF = pos.split("")[0];
+    let posC = pos.split("")[1];
 
 
     let castilloAtacado;
@@ -42,9 +64,10 @@ let validarAtaqueCastillo= function(personaje,idCasilla){
 
     let atacarCastillo = false;
 
-    let resB=Math.abs(9-posX)+Math.abs(1-posY);
-    let resA=Math.abs(0-posX)+Math.abs(10-posY);
-   
+
+    
+    let resB= Math.abs(0-posF) +  Math.abs(10-posC); 
+    let resA= Math.abs(9-posF) +  Math.abs(1-posC); 
    
 
     if(castilloAtacado == 1){
