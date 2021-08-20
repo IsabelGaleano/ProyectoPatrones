@@ -387,9 +387,11 @@ async function activacionPW_A_D(activar) {
     if (activar == 1) {
         tropa.ataque.puntos = data.ataque.puntos;
         tropa.estadoDecorado = data.estadoDecorado;
+        //Funcion que genera la imagen
     } else {
         tropa.defensa = data.defensa;
         tropa.estadoDecorado = data.estadoDecorado;
+        //Funcion que genera la imagen
     }
     casillaActual = cambioCasilla;
     casillas[tropa.idCasilla] = casillaActual;
