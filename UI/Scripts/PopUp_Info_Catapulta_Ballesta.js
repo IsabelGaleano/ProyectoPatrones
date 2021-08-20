@@ -1,5 +1,8 @@
 const popAudio = new Audio('../Sounds/PopUpSound.wav');
 const OVAudio = new Audio('../Sounds/OverlaySound.wav');
+const winAudio = new Audio('../Sounds/BRPG_Victory_Stinger.wav');
+const winBGM = new Audio('../Sounds/BRPG_Victory_Music_Loop.wav');
+
 
 var overlayBallesta = document.getElementById('idOverlayBallesta'),
     popupBallesta = document.getElementById('idPopupBallesta'),
@@ -403,4 +406,64 @@ function cerrarOverlayAtaquePersonaje() {
     popAudio.play();
     idOverlayAtaquePersonaje.classList.remove('active');
     idpopupAtaquePersonaje.classList.remove('active');
+}
+
+
+var idOverlayMuerte = document.getElementById('idOverlayMuerte'),
+idpopupMuerte = document.getElementById('idpopupMuerte');
+
+var imagenMu = document.getElementById('muerteImg');
+
+
+function abrirModalMuerte(img1) {
+    OVAudio.volume = 1;
+    OVAudio.play();
+    
+    imagenMu.src = img1;
+    imagenMu.style.backgroundImage = 'url(../Imagenes/blood.gif)';
+    imagenMu.style.backgroundRepeat = 'no-repeat';
+    imagenMu.style.backgroundSize = '90%';
+
+    
+    idOverlayMuerte.classList.add('active');
+    idpopupMuerte.classList.add('active');
+
+}
+
+function cerrarOverlayMuerte() {
+    popAudio.volume = 1;
+    popAudio.play();
+    idOverlayMuerte.classList.remove('active');
+    idpopupMuerte.classList.remove('active');
+}
+
+
+var idOverlayGAME = document.getElementById('idOverlayGAME'),
+idpopupGAME = document.getElementById('idpopupGAME');
+
+var nombreWin = document.getElementById('nombreWin');
+
+
+function abrirModalGame(nombre) {
+    BGM.pause();
+    winAudio.volume = 1;
+    winAudio.play();
+    winBGM.volume = 1;
+    winBGM.loop = true;
+    winBGM.play();    
+    
+    nombreWin.innerHTML = nombre;
+
+    idOverlayGAME.classList.add('active');
+    idpopupGAME.classList.add('active');
+
+}
+
+function cerrarOverlayGAME() {
+    popAudio.volume = 1;
+    popAudio.play();
+    BGM.play();    
+    winBGM.pause(); 
+    idOverlayGAME.classList.remove('active');
+    idpopupGAME.classList.remove('active');
 }
