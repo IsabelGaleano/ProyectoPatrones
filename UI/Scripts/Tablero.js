@@ -282,6 +282,7 @@ function cargarTablero(mas2Jugadores) {
                         }
 
                         celda.style.backgroundImage = cargarPersonaje(tipoPersonajeActual);
+                        //agregar validacion
                         clickMovimiento += 1;
                         celdaClickeada = celda;
 
