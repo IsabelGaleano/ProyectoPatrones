@@ -399,7 +399,8 @@ async function cargarTablero(mas2Jugadores) {
                              if(isDead(arrayCeldasConPersonajes[i].personaje)==true){
                                 document.getElementById(arrayCeldasConPersonajes[i].celda).style.backgroundImage= ''; 
                                  arrayCeldasConPersonajes.splice(i,1);
-                               
+                                 celda.personajeActivo = '';
+
                              }
                          }
                         

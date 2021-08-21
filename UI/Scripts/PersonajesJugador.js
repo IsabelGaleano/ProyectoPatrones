@@ -13,8 +13,10 @@ function actualizarPersonajesJugador() {
     let asesinoPasado = false;
     let jinetePasado = false;
     let espiaPasado = false;
-
-    if (obj.castillos[posicionCastilloActual].tropas != null) {
+    if(obj.castillos[posicionCastilloActual].tropas === null){
+        obj.castillos[posicionCastilloActual].tropas = "null";
+    }
+    if (obj.castillos[posicionCastilloActual].tropas != "null") {
         obj.castillos[posicionCastilloActual].tropas.forEach(function(element) {
             //ARQUERO
             if (element.tipo == "Arquero" && arqueroPasado == false) {
