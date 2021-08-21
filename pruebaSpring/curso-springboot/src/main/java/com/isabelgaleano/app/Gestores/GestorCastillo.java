@@ -11,7 +11,7 @@ public class GestorCastillo {
         ArrayList<Castillo> castillos = new ArrayList<Castillo>();
 
         for (int i = 1; i <= cantidadCastillos; i++) {
-            Castillo castillo = new Castillo(i, 30, 20,null, null);
+            Castillo castillo = new Castillo(i, 3, 60,null, null);
             castillos.add(castillo);
         }
 
