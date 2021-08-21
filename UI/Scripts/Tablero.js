@@ -333,7 +333,7 @@ async function cargarTablero(mas2Jugadores) {
                                 break;
                             }
                         }
-
+                        
                         celda.style.backgroundImage = cargarPersonaje(tipoPersonajeActual);
                         
                         //agregar validacion
@@ -356,7 +356,7 @@ async function cargarTablero(mas2Jugadores) {
                                 break;
                             }
                         }
-
+                        validarCasilla();
                         primerMovimiento = true;
                         movimientosPersonaje--;
                         console.log(movimientosPersonaje);
