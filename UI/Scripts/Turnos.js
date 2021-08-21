@@ -9,6 +9,7 @@ let tropaCompradaXTurno = false;
 let numeroDadoSacado;
 let posicionCastilloActual;
 let turnoCancelado = false;
+let okAtaque= document.getElementById("btn-Ataque-OK");
 
 let movimientosRestantesPersonaje;
 const diceSound = new Audio('../Sounds/diceRoll.wav');
@@ -21,6 +22,7 @@ $(document).ready(function() {
     //juego();
 });
 
+
 botonDado.addEventListener('click', function() {
     if (dadoTirado == false) {
         dado();
@@ -28,6 +30,11 @@ botonDado.addEventListener('click', function() {
     }
 
 });
+//Terminar turno después de ataque
+document.getElementById("btn-Ataque-OK").addEventListener('click', function() {
+    turnoCancelado = true;
+});
+
 
 //BOTON DE TERMINAR TURNO
 document.getElementById("endTurn").addEventListener('click', function() {
@@ -145,24 +152,47 @@ let partida = async() => {
 
         if(jugadorActual.id == 1){
             let ant = document.getElementById('c91').style.backgroundImage;
-            ant = ant.split(',')[0];
-            console.log(ant);
+                       
+            if(ant.split(',')[0] == 'url("../Imagenes/BigBangGif.gif")') {
+                ant = ant.split(',')[1];  
+            }else {
+                ant = ant.split(',')[0]; 
+            }
+            
+                       
             document.getElementById('c91').style.backgroundImage = ant + ',url(../Imagenes/ui/frame_blue.png)';
 
             let ant2 = document.getElementById('c10').style.backgroundImage;
-            ant2 = ant2.split(',')[0];
-            console.log(ant2);
+           
+            if(ant2.split(',')[0] == 'url("../Imagenes/BigBangGif.gif")') {
+                ant2 = ant2.split(',')[1];  
+            }else {
+                ant2 = ant2.split(',')[0]; 
+            }
+            
+            
             document.getElementById('c10').style.backgroundImage = ant2 +', url(../Imagenes/ui/frame_red.png) ' ;
         }else{
             if (jugadorActual.id == 2){
                 let ant2 = document.getElementById('c10').style.backgroundImage;
-                ant2 = ant2.split(',')[0];
-                console.log(ant2);
+                               
+                if(ant2.split(',')[0] == 'url("../Imagenes/BigBangGif.gif")') {
+                    ant2 = ant2.split(',')[1];  
+                }else {
+                    ant2 = ant2.split(',')[0]; 
+                }
+
+                
                 document.getElementById('c10').style.backgroundImage = ant2 + ', url(../Imagenes/ui/frame_blue.png) ';
 
                 let ant = document.getElementById('c91').style.backgroundImage;
-                ant = ant.split(',')[0];
-                console.log(ant);
+                
+                if(ant.split(',')[0] == 'url("../Imagenes/BigBangGif.gif")') {
+                    ant = ant.split(',')[1];  
+                }else {
+                    ant = ant.split(',')[0]; 
+                }
+                
                 document.getElementById('c91').style.backgroundImage = ant + ',url(../Imagenes/ui/frame_red.png) ';
             }
         }
@@ -272,7 +302,9 @@ async function cambioTurno(turnoPersona, partidaComenzada) {
     for (let i = 3; i >= 0; i--) {
         await waitFor(1000);
     }
+    cerrarOverlayAtaquePersonaje();
     cerrarOverlayCambioTurno();
+   
 }
 
 

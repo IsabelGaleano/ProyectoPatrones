@@ -1,5 +1,10 @@
 const popAudio = new Audio('../Sounds/PopUpSound.wav');
 const OVAudio = new Audio('../Sounds/OverlaySound.wav');
+const winAudio = new Audio('../Sounds/BRPG_Victory_Stinger.wav');
+const winBGM = new Audio('../Sounds/BRPG_Victory_Music_Loop.wav');
+const atkAudio = new Audio('../Sounds/attacksound.wav');
+const dropAudio = new Audio('../Sounds/dropSound.wav');
+
 
 var overlayBallesta = document.getElementById('idOverlayBallesta'),
     popupBallesta = document.getElementById('idPopupBallesta'),
@@ -280,7 +285,7 @@ function cerrarOverlayGemaAzul() {
     popAudio.volume = 1;
     popAudio.play();
     idOverlayGemaAzul.classList.remove('active');
-    popupMensaje.classList.remove('active');
+    popupGemaAzul.classList.remove('active');
 }
 
 var idOverlayGemaBlanca = document.getElementById('idOverlayGemaBlanca'),
@@ -299,7 +304,7 @@ function cerrarOverlayGemaBlanca() {
     popAudio.volume = 1;
     popAudio.play();
     idOverlayGemaBlanca.classList.remove('active');
-    popupMensaje.classList.remove('active');
+    popupGemaBlanca.classList.remove('active');
 }
 
 var idOverlayGemaVerde = document.getElementById('idOverlayGemaVerde'),
@@ -318,7 +323,7 @@ function cerrarOverlayGemaVerde() {
     popAudio.volume = 1;
     popAudio.play();
     idOverlayGemaVerde.classList.remove('active');
-    popupMensaje.classList.remove('active');
+    popupGemaVerde.classList.remove('active');
 }
 
 /*----------------------- modales powerups -------------*/
@@ -339,7 +344,7 @@ function cerrarOverlayPowerUp() {
     popAudio.volume = 1;
     popAudio.play();
     idOverlayPowerUp.classList.remove('active');
-    popupMensaje.classList.remove('active');
+    popupPowerUp.classList.remove('active');
 }
 
 var idOverlayDefenseUp = document.getElementById('idOverlayDefenseUp'),
@@ -358,7 +363,7 @@ function cerrarOverlayDefenseUp() {
     popAudio.volume = 1;
     popAudio.play();
     idOverlayDefenseUp.classList.remove('active');
-    popupMensaje.classList.remove('active');
+    popupDefenseUp.classList.remove('active');
 }
 
 var idOverlayConfirmChange = document.getElementById('idOverlayConfirmChange'),
@@ -376,5 +381,191 @@ function cerrarOverlayConfirmChange() {
     popAudio.volume = 1;
     popAudio.play();
     idOverlayConfirmChange.classList.remove('active');
-    popupMensaje.classList.remove('active');
+    popupConfirmChange.classList.remove('active');
+}
+/*----------- modales ataque --------------------*/
+
+var idOverlayAtaquePersonaje = document.getElementById('idOverlayAtaquePersonaje'),
+idpopupAtaquePersonaje = document.getElementById('idpopupAtaquePersonaje');
+
+var imagen1 = document.getElementById('peratk1');
+var imagen2 = document.getElementById('peratk2');
+
+function abrirModalAtaqueOverlay(img1, img2) {
+    atkAudio.volume = 1;
+    atkAudio.play();
+    atkAudio.loop = true;    
+    let urlImagenPersonaje;
+    switch (img1) {
+        case 'Arquero':
+            //Arquero
+            urlImagenPersonaje = '../Imagenes/Characters/ArcherAttackRight.gif';
+            break;
+        case 'Espadachin':
+            //Espadachín
+            urlImagenPersonaje = '../Imagenes/Characters/SwordsmanAttackRight.gif';
+            break;
+        case 'Asesino':
+            //Asesino
+            urlImagenPersonaje = '../Imagenes/Characters/AssasinAttackRight.gif';
+            break;
+
+        case 'Berserquer':
+            //Bersequer
+            urlImagenPersonaje = '../Imagenes/Characters/BerserkAttackRight.gif';
+            break;
+        case 'Espia':
+            //Espía
+            urlImagenPersonaje = '../Imagenes/Characters/SpyAttackRight.gif';
+            break;
+
+        case 'Jinete':
+            //Jinete
+            urlImagenPersonaje = '../Imagenes/Characters/KnightAttackRight.gif';
+            break;
+        case 'Mago':
+            //Mago
+            urlImagenPersonaje = '../Imagenes/Characters/MageAttackRight.gif';
+            break;
+    }
+    imagen1.src = urlImagenPersonaje;
+
+    switch (img2) {
+        case 'Arquero':
+            //Arquero
+            urlImagenPersonaje = '../Imagenes/Characters/ArcherHurtLeft.gif';
+            break;
+        case 'Espadachin':
+            //Espadachín
+            urlImagenPersonaje = '../Imagenes/Characters/SwordsmanHurtLeft.gif';
+            break;
+        case 'Asesino':
+            //Asesino
+            urlImagenPersonaje = '../Imagenes/Characters/AssasinHurtLeft.gif';
+            break;
+
+        case 'Berserquer':
+            //Bersequer
+            urlImagenPersonaje = '../Imagenes/Characters/BerserkHurtLeft.gif';
+            break;
+        case 'Espia':
+            //Espía
+            urlImagenPersonaje = '../Imagenes/Characters/SpyHurtLeft.gif';
+            break;
+
+        case 'Jinete':
+            //Jinete
+            urlImagenPersonaje = '../Imagenes/Characters/KnightHurtLeft.gif';
+            break;
+        case 'Mago':
+            //Mago
+            urlImagenPersonaje = '../Imagenes/Characters/MageHurtLeft.gif';
+            break;
+    }
+    imagen2.src = urlImagenPersonaje;
+
+    idOverlayAtaquePersonaje.classList.add('active');
+    idpopupAtaquePersonaje.classList.add('active');
+
+}
+
+function cerrarOverlayAtaquePersonaje() {
+    popAudio.volume = 1;
+    popAudio.play();
+    atkAudio.pause();
+    idOverlayAtaquePersonaje.classList.remove('active');
+    idpopupAtaquePersonaje.classList.remove('active');
+}
+
+
+var idOverlayMuerte = document.getElementById('idOverlayMuerte'),
+idpopupMuerte = document.getElementById('idpopupMuerte');
+
+var imagenMu = document.getElementById('muerteImg');
+
+
+function abrirModalMuerte(img1) {
+    
+    
+    let urlImagenPersonaje;
+    switch (img1) {
+        case 'Arquero':
+            //Arquero
+            urlImagenPersonaje = '../Imagenes/Characters/Muertes/ArqueroDeath.gif';
+            break;
+        case 'Espadachin':
+            //Espadachín
+            urlImagenPersonaje = '../Imagenes/Characters/Muertes/EspadaDeath.gif';
+            break;
+        case 'Asesino':
+            //Asesino
+            urlImagenPersonaje = '../Imagenes/Characters/Muertes/AssasinDeath.gif';
+            break;
+
+        case 'Berserquer':
+            //Bersequer
+            urlImagenPersonaje = '../Imagenes/Characters/Muertes/BerserkDeath.gif';
+            break;
+        case 'Espia':
+            //Espía
+            urlImagenPersonaje = '../Imagenes/Characters/Muertes/EspiaDeath.gif';
+            break;
+
+        case 'Jinete':
+            //Jinete
+            urlImagenPersonaje = '../Imagenes/Characters/Muertes/JineteDeath.gif';
+            break;
+        case 'Mago':
+            //Mago
+            urlImagenPersonaje = '../Imagenes/Characters/Muertes/MagoDeath.gif';
+            break;
+    }
+    imagenMu.src = urlImagenPersonaje;    
+    imagenMu.style.backgroundImage = 'url(../Imagenes/blood.gif)';
+    imagenMu.style.backgroundRepeat = 'no-repeat';
+    imagenMu.style.backgroundSize = '90%';
+
+    dropAudio.volume = 1;
+    dropAudio.play();
+    idOverlayMuerte.classList.add('active');
+    idpopupMuerte.classList.add('active');
+
+}
+
+function cerrarOverlayMuerte() {
+    popAudio.volume = 1;
+    popAudio.play();
+    idOverlayMuerte.classList.remove('active');
+    idpopupMuerte.classList.remove('active');
+}
+
+
+var idOverlayGAME = document.getElementById('idOverlayGAME'),
+idpopupGAME = document.getElementById('idpopupGAME');
+
+var nombreWin = document.getElementById('nombreWin');
+
+
+function abrirModalGame(nombre) {
+    BGM.pause();
+    winAudio.volume = 1;
+    winAudio.play();
+    winBGM.volume = 1;
+    winBGM.loop = true;
+    winBGM.play();    
+    
+    nombreWin.innerHTML = nombre;
+
+    idOverlayGAME.classList.add('active');
+    idpopupGAME.classList.add('active');
+
+}
+
+function cerrarOverlayGAME() {
+    popAudio.volume = 1;
+    popAudio.play();
+    BGM.play();    
+    winBGM.pause(); 
+    idOverlayGAME.classList.remove('active');
+    idpopupGAME.classList.remove('active');
 }
