@@ -451,7 +451,7 @@ async function btnActivarPowers() {
         abrirModalMensaje();
     } else {
         let actv;
-        if (tropa.powerUp.tipo = "MejoraAtaque") {
+        if (tropa.powerUp.tipo == "MejoraAtaque") {
             actv = 1;
             document.getElementById("mensajeTexto").innerHTML = "Activaste tu PowerUp.";
             document.getElementById("imganeMensaje").src = "../Imagenes/PowerUps/PowUpGif.gif";
@@ -460,6 +460,7 @@ async function btnActivarPowers() {
             document.getElementById("mensajeTexto").innerHTML = "Activaste tu PowerUp.";
             document.getElementById("imganeMensaje").src = "../Imagenes/PowerUps/DefUpGif.gif";
             actv = 2;
+            abrirModalMensaje();
         }
         await activacionPW_A_D(actv);
     }
