@@ -1,3 +1,4 @@
+
 let validarAtaquePersonaje= function(personaje, idCasillaP, idCasillaA){// recibe el personaje actual, la casilla actual y la posición del personaje a validar
     let posP =idCasillaP.split("c")[1];
     //coordenadas del personaje actual
@@ -23,20 +24,86 @@ let validarAtaquePersonaje= function(personaje, idCasillaP, idCasillaA){// recib
 
 const atacarPersonaje= async(personajeP , personajeA)=>{
     let obj= JSON.parse(sessionStorage.getItem('tablero'));
-    let tropas= obj.personajes;
+    let castillos= obj.castillos;
+    let muerto= false;
+    let tropas= castillos[personajeA.id-1].tropas;
+    let vidaAA;
 
     let idAtacado= personajeA.id;
 
     for(let i=0; i < tropas.length; i++){
         if(tropas[i].tipo==personajeA.tipo){
             if(tropas[i].id== idAtacado){
+               
                 tropas[i].vida = tropas[i].vida - personajeP.ataque.puntos;
+                //vidaAA = tropas[i].vida - personajeP.ataque.puntos;
+                
             }
         }
     }
-    
+    obj.castillos[personajeA.id-1].tropas= tropas;
     sessionStorage.setItem('tablero',JSON.stringify(obj));
+   
+    if(isDead(personajeA)==true){
+        abrirModalMuerte(personajeA.tipo);
+    }
+    abrirModalAtaqueOverlay(personajeP.tipo, personajeA.tipo);
+    
+    
   
+
+}
+let isDead= function(personaje){
+
+    let obj= JSON.parse(sessionStorage.getItem('tablero'));
+    let castillos= obj.castillos;
+    let dead= false;
+    let posCastillo= parseInt(personaje.id )- 1;
+ 
+    let tropas= castillos[posCastillo].tropas;
+    if(tropas == "null"){
+        dead=true;
+    }
+
+    for(let i=0;i<tropas.length;i++){
+        
+        if(tropas[i].tipo== personaje.tipo){
+            if(tropas[i].vida<=0 ){
+                dead=true;
+                console.log(tropas[i].tipo+" muerto");
+
+            }
+        }
+
+    }
+    if(dead==true){
+        removerDeTropas(personaje)
+    }
+    return dead;
+
+
+    
+    
+}
+let removerDeTropas= function(personaje){
+    let obj= JSON.parse(sessionStorage.getItem('tablero'));
+    let castillos= obj.castillos;
+ 
+    let tropas= castillos[personaje.id-1].tropas;
+
+    for(let i=0; i < tropas.length; i++){
+        if(tropas[i].tipo==personaje.tipo){
+            if(tropas.length==1){
+                tropas= "null";
+            }else{
+                tropas.splice(i , 1); 
+            }
+                console.log(personaje.tipo+" borrado");
+        }
+    }
+    obj.castillos[personaje.id-1].tropas= tropas;
+    sessionStorage.setItem('tablero',JSON.stringify(obj));
+
 
 }
     
@@ -129,7 +196,7 @@ const atacarCastillo= async(personaje)=>{
      }*/
 
      sessionStorage.setItem('tablero',JSON.stringify(obj));
-
+    abrirModalGame(jugadorAct().alias);
 
     }
 
@@ -137,7 +204,7 @@ const atacarCastillo= async(personaje)=>{
         await atacarCastillo(personajeActualMovimiento,idCelda);
 
     }
-
+    
 
 
 

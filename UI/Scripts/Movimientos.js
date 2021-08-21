@@ -184,7 +184,7 @@ botonesUsarPersonaje.forEach(function(elem) {
                         //if (posicionPersonajeArray != undefined) {
                         if (movActual == true) {
 
-                            arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
+                            //arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
                             estadoPersonaje = "USADO";
                             for (let i = 0; i < arrayCeldasConPersonajes.length; i++) {
                                 if (arrayCeldasConPersonajes[i].personaje.tipo == personajeActualMovimiento.tipo && arrayCeldasConPersonajes[i].personaje.id == personajeActualMovimiento.id) {
@@ -215,7 +215,7 @@ botonesUsarPersonaje.forEach(function(elem) {
 
                                 celdaAnteriorPersonajeJ1 = idCelda;
 
-                                objComb.celda = "c82";
+                                objComb.celda = "c82";                             
                             } else {
                                 idCelda = "c19";
                                 document.getElementById(idCelda).style.backgroundImage = cargarPersonaje(tipoPersonajeActual);
@@ -233,6 +233,7 @@ botonesUsarPersonaje.forEach(function(elem) {
                             arrayCeldasConPersonajes.push(objComb);
                             console.log("Se añade");
                         }
+                        validarCasilla();
                         //PERMITE MOVERSE AUNQUE SEA UNA VEZ
                         if (document.getElementById("Movimientos").textContent >= 1) {
                             movimientoPersonaje(personajeActualMovimiento, idCelda, primerMovimiento);
@@ -284,7 +285,7 @@ botonesUsarPersonaje.forEach(function(elem) {
                         //if (posicionPersonajeArray != undefined) {
                         if (movActual == true) {
 
-                            arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
+                            //arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
                             estadoPersonaje = "USADO";
                             for (let i = 0; i < arrayCeldasConPersonajes.length; i++) {
                                 if (arrayCeldasConPersonajes[i].personaje.tipo == personajeActualMovimiento.tipo && arrayCeldasConPersonajes[i].personaje.id == personajeActualMovimiento.id) {
@@ -315,7 +316,7 @@ botonesUsarPersonaje.forEach(function(elem) {
 
                                 celdaAnteriorPersonajeJ1 = idCelda;
 
-                                objComb.celda = idCelda;
+                                objComb.celda = idCelda;                              
                             } else {
                                 idCelda = "c19";
                                 document.getElementById(idCelda).style.backgroundImage = cargarPersonaje(tipoPersonajeActual);
@@ -332,6 +333,7 @@ botonesUsarPersonaje.forEach(function(elem) {
                             arrayCeldasConPersonajes.push(objComb);
                             console.log("Se añade");
                         }
+                        validarCasilla();
                         //PERMITE MOVERSE AUNQUE SEA UNA VEZ
                         if (document.getElementById("Movimientos").textContent >= 1) {
                             movimientoPersonaje(personajeActualMovimiento, idCelda, primerMovimiento);
@@ -382,7 +384,7 @@ botonesUsarPersonaje.forEach(function(elem) {
                         //if (posicionPersonajeArray != undefined) {
                         if (movActual == true) {
 
-                            arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
+                            //arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
                             estadoPersonaje = "USADO";
                             for (let i = 0; i < arrayCeldasConPersonajes.length; i++) {
                                 if (arrayCeldasConPersonajes[i].personaje.tipo == personajeActualMovimiento.tipo && arrayCeldasConPersonajes[i].personaje.id == personajeActualMovimiento.id) {
@@ -430,6 +432,7 @@ botonesUsarPersonaje.forEach(function(elem) {
                             arrayCeldasConPersonajes.push(objComb);
                             console.log("Se añade");
                         }
+                        validarCasilla();
                         //PERMITE MOVERSE AUNQUE SEA UNA VEZ
                         if (document.getElementById("Movimientos").textContent >= 1) {
                             movimientoPersonaje(personajeActualMovimiento, idCelda, primerMovimiento);
@@ -482,7 +485,7 @@ botonesUsarPersonaje.forEach(function(elem) {
                         //if (posicionPersonajeArray != undefined) {
                         if (movActual == true) {
 
-                            arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
+                            //arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
                             estadoPersonaje = "USADO";
                             for (let i = 0; i < arrayCeldasConPersonajes.length; i++) {
                                 if (arrayCeldasConPersonajes[i].personaje.tipo == personajeActualMovimiento.tipo && arrayCeldasConPersonajes[i].personaje.id == personajeActualMovimiento.id) {
@@ -530,6 +533,7 @@ botonesUsarPersonaje.forEach(function(elem) {
                             arrayCeldasConPersonajes.push(objComb);
                             console.log("Se añade");
                         }
+                        validarCasilla();
                         //PERMITE MOVERSE AUNQUE SEA UNA VEZ
                         if (document.getElementById("Movimientos").textContent >= 1) {
                             movimientoPersonaje(personajeActualMovimiento, idCelda, primerMovimiento);
@@ -580,7 +584,7 @@ botonesUsarPersonaje.forEach(function(elem) {
                         //if (posicionPersonajeArray != undefined) {
                         if (movActual == true) {
 
-                            arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
+                            //arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
                             estadoPersonaje = "USADO";
                             for (let i = 0; i < arrayCeldasConPersonajes.length; i++) {
                                 if (arrayCeldasConPersonajes[i].personaje.tipo == personajeActualMovimiento.tipo && arrayCeldasConPersonajes[i].personaje.id == personajeActualMovimiento.id) {
@@ -628,6 +632,7 @@ botonesUsarPersonaje.forEach(function(elem) {
                             arrayCeldasConPersonajes.push(objComb);
                             console.log("Se añade");
                         }
+                        validarCasilla();
                         //PERMITE MOVERSE AUNQUE SEA UNA VEZ
                         if (document.getElementById("Movimientos").textContent >= 1) {
                             movimientoPersonaje(personajeActualMovimiento, idCelda, primerMovimiento);
@@ -679,7 +684,7 @@ botonesUsarPersonaje.forEach(function(elem) {
                         //if (posicionPersonajeArray != undefined) {
                         if (movActual == true) {
 
-                            arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
+                            //arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
                             estadoPersonaje = "USADO";
                             for (let i = 0; i < arrayCeldasConPersonajes.length; i++) {
                                 if (arrayCeldasConPersonajes[i].personaje.tipo == personajeActualMovimiento.tipo && arrayCeldasConPersonajes[i].personaje.id == personajeActualMovimiento.id) {
@@ -727,6 +732,7 @@ botonesUsarPersonaje.forEach(function(elem) {
                             arrayCeldasConPersonajes.push(objComb);
                             console.log("Se añade");
                         }
+                        validarCasilla();
                         //PERMITE MOVERSE AUNQUE SEA UNA VEZ
                         if (document.getElementById("Movimientos").textContent >= 1) {
                             movimientoPersonaje(personajeActualMovimiento, idCelda, primerMovimiento);
@@ -776,7 +782,7 @@ botonesUsarPersonaje.forEach(function(elem) {
                         //if (posicionPersonajeArray != undefined) {
                         if (movActual == true) {
 
-                            arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
+                            //arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
                             estadoPersonaje = "USADO";
 
 
@@ -828,6 +834,7 @@ botonesUsarPersonaje.forEach(function(elem) {
                             arrayCeldasConPersonajes.push(objComb);
                             console.log("Se añade");
                         }
+                        validarCasilla();
                         //PERMITE MOVERSE AUNQUE SEA UNA VEZ
                         if (document.getElementById("Movimientos").textContent >= 1) {
                             console.log(idCelda);

@@ -15,6 +15,8 @@ const voldown = document.querySelector("#btn_voldwn");
 const clickAudio = new Audio('../Sounds/buttonClickSound.wav');
 const MOAudio = new Audio('../Sounds/buttonHoverSound.wav');
 const BGM = new Audio('../Sounds/music_funkyWhistle.wav');
+let celdaDealer;
+let celdaReceiver;
 const boomAudio = new Audio('../Sounds/explosion.wav');
 // const icon = document.querySelector("#btn_music > i");
 const btn_music = document.querySelector("#btn_music");
@@ -333,7 +335,7 @@ async function cargarTablero(mas2Jugadores) {
                                 break;
                             }
                         }
-
+                        
                         celda.style.backgroundImage = cargarPersonaje(tipoPersonajeActual);
                         
                         //agregar validacion
@@ -356,7 +358,7 @@ async function cargarTablero(mas2Jugadores) {
                                 break;
                             }
                         }
-
+                        validarCasilla();
                         primerMovimiento = true;
                         movimientosPersonaje--;
                         console.log(movimientosPersonaje);
@@ -374,25 +376,50 @@ async function cargarTablero(mas2Jugadores) {
                         } else {
                             eliminarFondoCasillasMovimientos();
                         }
+                        for (let i = 0; i < arrayCeldasConPersonajes.length; i++) {
+                            if (arrayCeldasConPersonajes[i].personaje.tipo == personajeActualMovimiento.tipo && arrayCeldasConPersonajes[i].personaje.id == personajeActualMovimiento.id) {
+                                celdaDealer=arrayCeldasConPersonajes[i].celda;
+                                break;
+                            }
+                        }
+
                         for(let i=0;i<arrayCeldasConPersonajes.length; i++){
-                            if(validarAtaquePersonaje(celda.personajeActivo, arrayCeldasConPersonajes[posicionPersonajeArray].celda, arrayCeldasConPersonajes[i].celda)==true){
-                                if(  arrayCeldasConPersonajes[posicionPersonajeArray].personaje.id != arrayCeldasConPersonajes[i].personaje.id){
+                            
+                            if( personajeActualMovimiento.id != arrayCeldasConPersonajes[i].personaje.id){
+                                if(validarAtaquePersonaje( personajeActualMovimiento, celdaDealer, arrayCeldasConPersonajes[i].celda)==true){    
                                     console.log( celda.personajeActivo.tipo+ " tiene " + arrayCeldasConPersonajes[i].personaje.tipo +" en rango");
-                             }
+                                    atacarPersonaje(celda.personajeActivo,arrayCeldasConPersonajes[i].personaje);
+                                }
+                           
                             }
                              
                              
                          }
+                         for(let i=0;i<arrayCeldasConPersonajes.length; i++){
+                             if(isDead(arrayCeldasConPersonajes[i].personaje)==true){
+                                document.getElementById(arrayCeldasConPersonajes[i].celda).style.backgroundImage= ''; 
+                                 arrayCeldasConPersonajes.splice(i,1);
+                               
+                             }
+                         }
+                        
 
                     }
+                   
                     
 
                 }else{
                     let tipoNow = personajeActualMovimiento.tipo;
                     let idNow = personajeActualMovimiento.id;
-                    let celNow = arrayCeldasConPersonajes[posicionPersonajeArray].celda;                    
+                    let celNow;                    
+                    for (let i = 0; i < arrayCeldasConPersonajes.length; i++) {
+                        if (arrayCeldasConPersonajes[i].personaje.tipo == personajeActualMovimiento.tipo && arrayCeldasConPersonajes[i].personaje.id == personajeActualMovimiento.id) {
+                            celNow=arrayCeldasConPersonajes[i].celda;
+                            break;
+                        }
+                    }
 
-                    if(validarAtaqueCastillo(personajeActualMovimiento, arrayCeldasConPersonajes[posicionPersonajeArray].celda)==true){
+                    if(validarAtaqueCastillo(personajeActualMovimiento, celNow)==true){
                         atacarCastillo(personajeActualMovimiento);
                                                 
                         if(personajeActualMovimiento.id==1){
