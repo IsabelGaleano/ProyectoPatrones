@@ -411,9 +411,15 @@ async function cargarTablero(mas2Jugadores) {
                 }else{
                     let tipoNow = personajeActualMovimiento.tipo;
                     let idNow = personajeActualMovimiento.id;
-                    let celNow = arrayCeldasConPersonajes[posicionPersonajeArray].celda;                    
+                    let celNow;                    
+                    for (let i = 0; i < arrayCeldasConPersonajes.length; i++) {
+                        if (arrayCeldasConPersonajes[i].personaje.tipo == personajeActualMovimiento.tipo && arrayCeldasConPersonajes[i].personaje.id == personajeActualMovimiento.id) {
+                            celNow=arrayCeldasConPersonajes[i].celda;
+                            break;
+                        }
+                    }
 
-                    if(validarAtaqueCastillo(personajeActualMovimiento, arrayCeldasConPersonajes[posicionPersonajeArray].celda)==true){
+                    if(validarAtaqueCastillo(personajeActualMovimiento, celNow)==true){
                         atacarCastillo(personajeActualMovimiento);
                                                 
                         if(personajeActualMovimiento.id==1){
