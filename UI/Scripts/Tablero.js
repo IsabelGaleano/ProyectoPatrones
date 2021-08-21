@@ -389,12 +389,18 @@ async function cargarTablero(mas2Jugadores) {
                                 if(validarAtaquePersonaje( personajeActualMovimiento, celdaDealer, arrayCeldasConPersonajes[i].celda)==true){    
                                     console.log( celda.personajeActivo.tipo+ " tiene " + arrayCeldasConPersonajes[i].personaje.tipo +" en rango");
                                     atacarPersonaje(celda.personajeActivo,arrayCeldasConPersonajes[i].personaje);
-                                    document.getElementById(arrayCeldasConPersonajes[i].celda).style.backgroundImage =  'rgba(207, 0, 15, 0.74)';
                                 }
                            
                             }
                              
                              
+                         }
+                         for(let i=0;i<arrayCeldasConPersonajes.length; i++){
+                             if(isDead(arrayCeldasConPersonajes[i].personaje)==true){
+                                document.getElementById(arrayCeldasConPersonajes[i].celda).style.backgroundImage= 'url(../Imagenes/green_texture.png)'; 
+                                 arrayCeldasConPersonajes.splice(i,1);
+                               
+                             }
                          }
                         
 

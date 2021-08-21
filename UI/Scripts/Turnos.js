@@ -9,6 +9,7 @@ let tropaCompradaXTurno = false;
 let numeroDadoSacado;
 let posicionCastilloActual;
 let turnoCancelado = false;
+let okAtaque= document.getElementById("btn-Ataque-OK");
 
 let movimientosRestantesPersonaje;
 const diceSound = new Audio('../Sounds/diceRoll.wav');
@@ -21,6 +22,7 @@ $(document).ready(function() {
     //juego();
 });
 
+
 botonDado.addEventListener('click', function() {
     if (dadoTirado == false) {
         dado();
@@ -28,6 +30,11 @@ botonDado.addEventListener('click', function() {
     }
 
 });
+//Terminar turno después de ataque
+document.getElementById("btn-Ataque-OK").addEventListener('click', function() {
+    turnoCancelado = true;
+});
+
 
 //BOTON DE TERMINAR TURNO
 document.getElementById("endTurn").addEventListener('click', function() {
@@ -295,7 +302,9 @@ async function cambioTurno(turnoPersona, partidaComenzada) {
     for (let i = 3; i >= 0; i--) {
         await waitFor(1000);
     }
+    cerrarOverlayAtaquePersonaje();
     cerrarOverlayCambioTurno();
+   
 }
 
 
