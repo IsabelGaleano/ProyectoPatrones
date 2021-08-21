@@ -61,7 +61,7 @@ const obtenerTropa = (btn) => {
                         } else {
                             tropaMovimiento.idCasilla = parseInt(casilla.slice(-2));
                         }
-                        
+
                         return tropaMovimiento;
                     }
                 }
@@ -188,8 +188,8 @@ const validarCasilla = async () => {
         abrirModalPowerUp();
     } else if (casillaActual.data == "MejoraDefensa" && tropaMov.powerUp == null) {
         abrirModalDefenseUp();
-    } else if(casillaActual.data == "GemaVerde" || casillaActual.data == "GemaBlanca" || casillaActual.data == "GemaAzul"
-        || casillaActual.data == "TrampaAtaque" || casillaActual.data == "TrampaDefensa"){
+    } else if (casillaActual.data == "GemaVerde" || casillaActual.data == "GemaBlanca" || casillaActual.data == "GemaAzul"
+        || casillaActual.data == "TrampaAtaque" || casillaActual.data == "TrampaDefensa") {
         let change = false;
         await obtenerDatosTropaCasilla(change);
     }
@@ -253,7 +253,7 @@ const validarDatosModal = async (action) => {
         cerrarOverlayDefenseUp();
 
     }
-    
+
 }
 
 
@@ -279,16 +279,16 @@ async function obtenerDatosTropaCasilla(change) {
     let casillaActual = casillas[tropa.idCasilla];
 
     let numCastle;
-    for (let i = 0; i < castillos.length; i++){
-        if(idCastle == castillos[i].id){
+    for (let i = 0; i < castillos.length; i++) {
+        if (idCastle == castillos[i].id) {
             castilloActual = castillos[i];
             numCastle = i;
         }
     }
 
     let indexTropa;
-    for (let i = 0; i < obj.castillos[numCastle].tropas.length; i++){
-        if (obj.castillos[numCastle].tropas[i].tipo == tropa.tipo){
+    for (let i = 0; i < obj.castillos[numCastle].tropas.length; i++) {
+        if (obj.castillos[numCastle].tropas[i].tipo == tropa.tipo) {
             indexTropa = i;
         }
     }
@@ -314,13 +314,13 @@ async function obtenerDatosTropaCasilla(change) {
     }
 
     if (casillaActual.data == "GemaVerde" || casillaActual.data == "GemaBlanca" || casillaActual.data == "GemaAzul") {
-        if(casillaActual.data == "GemaAzul"){
+        if (casillaActual.data == "GemaAzul") {
             abrirModalGemaAzul();
 
-        }else if(casillaActual.data == "GemaBlanca") {
+        } else if (casillaActual.data == "GemaBlanca") {
             abrirModalGemaBlanca();
 
-        }else if (casillaActual.data == "GemaVerde") {
+        } else if (casillaActual.data == "GemaVerde") {
             abrirModalGemaVerde();
         }
         casillaActual = cambioCasilla;
@@ -350,7 +350,7 @@ async function obtenerDatosTropaCasilla(change) {
     obj.castillos[numCastle] = castilloActual;
     obj.castillos[numCastle].tropas[indexTropa] = tropa;
 
-    for (let i = 0; i < arrayCeldasConPersonajes.length; i++){
+    for (let i = 0; i < arrayCeldasConPersonajes.length; i++) {
         if (arrayCeldasConPersonajes[i].personaje.tipo == tropa.tipo) {
             if (arrayCeldasConPersonajes[i].personaje.id == jugador.id) {
                 arrayCeldasConPersonajes[i].personaje = tropa;
@@ -380,16 +380,16 @@ async function activacionPW_A_D(activar) {
     let casillaActual = casillas[tropa.idCasilla];
 
     let numCastle;
-    for (let i = 0; i < castillos.length; i++){
-        if(idCastle == castillos[i].id){
+    for (let i = 0; i < castillos.length; i++) {
+        if (idCastle == castillos[i].id) {
             castilloActual = castillos[i];
             numCastle = i;
         }
     }
 
     let indexTropa;
-    for (let i = 0; i < obj.castillos[numCastle].tropas.length; i++){
-        if (obj.castillos[numCastle].tropas[i].tipo == tropa.tipo){
+    for (let i = 0; i < obj.castillos[numCastle].tropas.length; i++) {
+        if (obj.castillos[numCastle].tropas[i].tipo == tropa.tipo) {
             indexTropa = i;
         }
     }
@@ -430,7 +430,7 @@ async function activacionPW_A_D(activar) {
     obj.casillas = casillas;
     obj.castillos[numCastle].tropas[indexTropa] = tropa;
 
-    for (let i = 0; i < arrayCeldasConPersonajes.length; i++){
+    for (let i = 0; i < arrayCeldasConPersonajes.length; i++) {
         if (arrayCeldasConPersonajes[i].personaje.tipo == tropa.tipo) {
             if (arrayCeldasConPersonajes[i].personaje.id == jugador.id) {
                 arrayCeldasConPersonajes[i].personaje = tropa;
@@ -442,16 +442,28 @@ async function activacionPW_A_D(activar) {
 }
 
 
- 
+
 async function btnActivarPowers() {
     let tropa = obtenerTropa(btnTropaActual);
-    let actv;
-    if (tropa.powerUp.tipo = "MejoraAtaque"){
-        actv = 1;
-    }else {
-        actv = 2;
+    if (tropa.powerUp == null) {
+        document.getElementById("mensajeTexto").innerHTML = "No tienes un PowerUp almacenado";
+        document.getElementById("imganeMensaje").src = "../Imagenes/ui/help.png";
+        abrirModalMensaje();
+    } else {
+        let actv;
+        if (tropa.powerUp.tipo = "MejoraAtaque") {
+            actv = 1;
+            document.getElementById("mensajeTexto").innerHTML = "Activaste tu PowerUp.";
+            document.getElementById("imganeMensaje").src = "../Imagenes/PowerUps/PowUpGif.gif";
+            abrirModalMensaje();
+        } else {
+            document.getElementById("mensajeTexto").innerHTML = "Activaste tu PowerUp.";
+            document.getElementById("imganeMensaje").src = "../Imagenes/PowerUps/DefUpGif.gif";
+            actv = 2;
+        }
+        await activacionPW_A_D(actv);
     }
-    await activacionPW_A_D(actv);
+
 }
 
 
