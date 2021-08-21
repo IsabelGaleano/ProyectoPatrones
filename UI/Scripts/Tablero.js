@@ -397,7 +397,7 @@ async function cargarTablero(mas2Jugadores) {
                          }
                          for(let i=0;i<arrayCeldasConPersonajes.length; i++){
                              if(isDead(arrayCeldasConPersonajes[i].personaje)==true){
-                                document.getElementById(arrayCeldasConPersonajes[i].celda).style.backgroundImage= 'url(../Imagenes/green_texture.png)'; 
+                                document.getElementById(arrayCeldasConPersonajes[i].celda).style.backgroundImage= ''; 
                                  arrayCeldasConPersonajes.splice(i,1);
                                
                              }
