@@ -7,6 +7,18 @@
     background-size: 100% 100%;
 }
 
+.imgFondo2 {
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,0.8491771708683473) 10%, 
+    rgba(0,0,0,0.5) 35%, rgba(0,0,0,0.37298669467787116) 50%,
+    rgba(0,0,0,0.47942927170868344) 65%,
+    rgba(0,0,0,0.8463760504201681) 90%);
+    min-width: 700px;
+    border-radius: 15px;
+    border: cyan 5px solid;
+    
+}
+
 #btn-popup-ballesta,
 #btn-popup-Catapulta {
     background-color: rgb(20, 211, 20);
@@ -15,7 +27,7 @@
 }
 
 .overlay {
-    background: rgba(0, 0, 0, .3);
+    background: rgba(0, 0, 0, .6);
     position: fixed;
     top: 0;
     bottom: 0;
@@ -35,7 +47,7 @@
 .popupBallesta {
     padding: 20px;
     text-align: center;
-    width: 290px;
+    min-width: 290px;
     opacity: 0;
     transition: .3s ease all;
     transform: scale(0.7);
@@ -107,7 +119,10 @@
 #idpopupCompraKnight,
 #idpopupCompraEspia,
 #idpopupCompraSwordsman,
-#idpopupCompraMago {
+#idpopupCompraMago,
+#idpopupAtaquePersonaje,
+#idpopupMuerte,
+#idpopupGAME {
     display: flex;
     flex-direction: column;
     min-width: 300px;
@@ -205,3 +220,35 @@
     width: max-content;
     background-size: 100% 100%;
 }
+
+#muerteImg{
+    width: 100px ;
+    height: 100px ;
+}
+
+#deadCunt{
+    margin-bottom: 20px;
+    
+}
+
+#game, #over{
+    width: 700px;
+    height: auto;
+}
+
+#btn-GAME-OK{
+    width: 150px;
+    height: 45px;
+    background-size: 100% 100%;
+    background-image: url(../Imagenes/ui/ATK-Btn.png);
+}
+
+#winImg {
+    width: 40px;
+    position: relative;
+    background-image: url(/UI/Imagenes/ui/ui/crownGif.gif);
+    background-size: 40px ;
+    background-repeat:no-repeat ;
+    left: 20px;
+    bottom: 10px;
+  }

@@ -15,6 +15,7 @@ const voldown = document.querySelector("#btn_voldwn");
 const clickAudio = new Audio('../Sounds/buttonClickSound.wav');
 const MOAudio = new Audio('../Sounds/buttonHoverSound.wav');
 const BGM = new Audio('../Sounds/music_funkyWhistle.wav');
+const boomAudio = new Audio('../Sounds/explosion.wav');
 // const icon = document.querySelector("#btn_music > i");
 const btn_music = document.querySelector("#btn_music");
 BGM.volume = 0.1;
@@ -73,6 +74,11 @@ volup.addEventListener("click", () => {
         BGM.volume -= 0.2;    
     } 
   });
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 
 const obtenerCasillasGemas = () => {
     let tablero = JSON.parse(sessionStorage.getItem('tablero'));
@@ -235,7 +241,7 @@ function playSound() {
 }
 
 //CARGAR EL TABLERO DINÁMICAMENTE
-function cargarTablero(mas2Jugadores) {
+async function cargarTablero(mas2Jugadores) {
     
     //CREACION DE LAS CELDAS
     //FILAS
@@ -329,6 +335,7 @@ function cargarTablero(mas2Jugadores) {
                         }
 
                         celda.style.backgroundImage = cargarPersonaje(tipoPersonajeActual);
+                        
                         //agregar validacion
                         clickMovimiento += 1;
                         celdaClickeada = celda;
@@ -381,16 +388,24 @@ function cargarTablero(mas2Jugadores) {
                     
 
                 }else{
+                    let tipoNow = personajeActualMovimiento.tipo;
+                    let idNow = personajeActualMovimiento.id;
+                    let celNow = arrayCeldasConPersonajes[posicionPersonajeArray].celda;                    
+
                     if(validarAtaqueCastillo(personajeActualMovimiento, arrayCeldasConPersonajes[posicionPersonajeArray].celda)==true){
                         atacarCastillo(personajeActualMovimiento);
-                        
+                                                
                         if(personajeActualMovimiento.id==1){
                             document.getElementById('c10').style.backgroundImage = 'url(../Imagenes/BigBangGif.gif), ' + 'url(../Imagenes/Castillos/Castillo1-0.png),' + 'url(../Imagenes/UI/frame_red.png)';
                         }else{
                             document.getElementById('c91').style.backgroundImage = 'url(../Imagenes/BigBangGif.gif),' + 'url(../Imagenes/Castillos/Castillo2-0.png),' + 'url(../Imagenes/UI/frame_red.png)';
                         }
-                        
+                        boomAudio.volume = 1;
+                        boomAudio.play();
+                        boomAudio.loop = false;
 
+                        setAtkAnim(idNow,tipoNow,celNow);                        
+                        setIdleAnim(idNow,tipoNow,celNow);
 
                     }
 
@@ -400,10 +415,6 @@ function cargarTablero(mas2Jugadores) {
 
             });
              
-            
-
-            //celda.className = "celda";
-            //$(celda).css('background-image', 'url(Imagenes/gray_texture.png)');
 
             fila.appendChild(celda);
         }
@@ -415,13 +426,171 @@ function cargarTablero(mas2Jugadores) {
     esconderGemasPower();
 }
 
+const setAtkAnim = (id, tipo, celda) =>{
+    let urlImagenPersonaje;
+    
+    if(id == 1){ //usuario 1
+
+        
+        switch (tipo) {
+            case 'Arquero':
+                //Arquero
+                urlImagenPersonaje = 'url(../Imagenes/Characters/ArcherAttackRight.gif)';
+                break;
+            case 'Espadachin':
+                //Espadachín
+                urlImagenPersonaje = 'url(../Imagenes/Characters/SwordsmanAttackRight.gif)';
+                break;
+            case 'Asesino':
+                //Asesino
+                urlImagenPersonaje = 'url(../Imagenes/Characters/AssasinAttackRight.gif)';
+                break;
+
+            case 'Berserquer':
+                //Bersequer
+                urlImagenPersonaje = 'url(../Imagenes/Characters/BerserkAttackRight.gif)';
+                break;
+            case 'Espia':
+                //Espía
+                urlImagenPersonaje = 'url(../Imagenes/Characters/SpyAttackRight.gif)';
+                break;
+
+            case 'Jinete':
+                //Jinete
+                urlImagenPersonaje = 'url(../Imagenes/Characters/KnightAttackRight.gif)';
+                break;
+            case 'Mago':
+                //Mago
+                urlImagenPersonaje = 'url(../Imagenes/Characters/MageAttackRight.gif)';
+                break;
+        }
+    }else{ //usuario 2
+        switch (tipo) {
+            case 'Arquero':
+                //Arquero
+                urlImagenPersonaje = 'url(../Imagenes/Characters/ArcherAttackLeft.gif)';
+                break;
+            case 'Espadachin':
+                //Espadachín
+                urlImagenPersonaje = 'url(../Imagenes/Characters/SwordsmanAttackLeft.gif)';
+                break;
+            case 'Asesino':
+                //Asesino
+                urlImagenPersonaje = 'url(../Imagenes/Characters/AssasinAttackLeft.gif)';
+                break;
+
+            case 'Berserquer':
+                //Bersequer
+                urlImagenPersonaje = 'url(../Imagenes/Characters/BerserkAttackLeft.gif)';
+                break;
+            case 'Espia':
+                //Espía
+                urlImagenPersonaje = 'url(../Imagenes/Characters/SpyAttackLeft.gif)';
+                break;
+
+            case 'Jinete':
+                //Jinete
+                urlImagenPersonaje = 'url(../Imagenes/Characters/KnightAttackLeft.gif)';
+                break;
+            case 'Mago':
+                //Mago
+                urlImagenPersonaje = 'url(../Imagenes/Characters/MageAttackLeft.gif)';
+                break;
+        }
+
+
+    }
+
+    document.getElementById(celda).style.backgroundImage = urlImagenPersonaje;
+    
+
+}
+
+async function setIdleAnim  (id, tipo, celda) {
+    let urlImagenPersonaje;
+    
+    if(id == 1){ //usuario 1
+
+        
+        switch (tipo) {
+            case 'Arquero':
+                //Arquero
+                urlImagenPersonaje = 'url(../Imagenes/Characters/ArcherIdleRight.gif)';
+                break;
+            case 'Espadachin':
+                //Espadachín
+                urlImagenPersonaje = 'url(../Imagenes/Characters/SwordsmanIdleRight.gif)';
+                break;
+            case 'Asesino':
+                //Asesino
+                urlImagenPersonaje = 'url(../Imagenes/Characters/AssasinIdleRight.gif)';
+                break;
+
+            case 'Berserquer':
+                //Bersequer
+                urlImagenPersonaje = 'url(../Imagenes/Characters/BerserkIdleRight.gif)';
+                break;
+            case 'Espia':
+                //Espía
+                urlImagenPersonaje = 'url(../Imagenes/Characters/SpyIdleRight.gif)';
+                break;
+
+            case 'Jinete':
+                //Jinete
+                urlImagenPersonaje = 'url(../Imagenes/Characters/KnightIdleRight.gif)';
+                break;
+            case 'Mago':
+                //Mago
+                urlImagenPersonaje = 'url(../Imagenes/Characters/MageIdleRight.gif)';
+                break;
+        }
+    }else{ //usuario 2
+        switch (tipo) {
+            case 'Arquero':
+                //Arquero
+                urlImagenPersonaje = 'url(../Imagenes/Characters/ArcherIdleLeft.gif)';
+                break;
+            case 'Espadachin':
+                //Espadachín
+                urlImagenPersonaje = 'url(../Imagenes/Characters/SwordsmanIdleLeft.gif)';
+                break;
+            case 'Asesino':
+                //Asesino
+                urlImagenPersonaje = 'url(../Imagenes/Characters/AssasinIdleLeft.gif)';
+                break;
+
+            case 'Berserquer':
+                //Bersequer
+                urlImagenPersonaje = 'url(../Imagenes/Characters/BerserkIdleLeft.gif)';
+                break;
+            case 'Espia':
+                //Espía
+                urlImagenPersonaje = 'url(../Imagenes/Characters/SpyIdleLeft.gif)';
+                break;
+
+            case 'Jinete':
+                //Jinete
+                urlImagenPersonaje = 'url(../Imagenes/Characters/KnightIdleLeft.gif)';
+                break;
+            case 'Mago':
+                //Mago
+                urlImagenPersonaje = 'url(../Imagenes/Characters/MageIdleLeft.gif)';
+                break;
+        }
+
+
+    }
+    await sleep(3000);
+    document.getElementById(celda).style.backgroundImage = urlImagenPersonaje;
+    
+
+}
 
 
 const setCasillas = () => {
     let celdas = document.getElementsByTagName('td');
     let casillas = obtenerCasillas();
-
-    //console.log(celdas);
+    
     for (let i = 0; i < celdas.length; i++) {
         for (let j = 0; j < casillas.length; j++) {
 
