@@ -184,7 +184,7 @@ botonesUsarPersonaje.forEach(function(elem) {
                         //if (posicionPersonajeArray != undefined) {
                         if (movActual == true) {
 
-                            arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
+                            //arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
                             estadoPersonaje = "USADO";
                             for (let i = 0; i < arrayCeldasConPersonajes.length; i++) {
                                 if (arrayCeldasConPersonajes[i].personaje.tipo == personajeActualMovimiento.tipo && arrayCeldasConPersonajes[i].personaje.id == personajeActualMovimiento.id) {
@@ -285,7 +285,7 @@ botonesUsarPersonaje.forEach(function(elem) {
                         //if (posicionPersonajeArray != undefined) {
                         if (movActual == true) {
 
-                            arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
+                            //arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
                             estadoPersonaje = "USADO";
                             for (let i = 0; i < arrayCeldasConPersonajes.length; i++) {
                                 if (arrayCeldasConPersonajes[i].personaje.tipo == personajeActualMovimiento.tipo && arrayCeldasConPersonajes[i].personaje.id == personajeActualMovimiento.id) {
@@ -384,7 +384,7 @@ botonesUsarPersonaje.forEach(function(elem) {
                         //if (posicionPersonajeArray != undefined) {
                         if (movActual == true) {
 
-                            arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
+                            //arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
                             estadoPersonaje = "USADO";
                             for (let i = 0; i < arrayCeldasConPersonajes.length; i++) {
                                 if (arrayCeldasConPersonajes[i].personaje.tipo == personajeActualMovimiento.tipo && arrayCeldasConPersonajes[i].personaje.id == personajeActualMovimiento.id) {
@@ -485,7 +485,7 @@ botonesUsarPersonaje.forEach(function(elem) {
                         //if (posicionPersonajeArray != undefined) {
                         if (movActual == true) {
 
-                            arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
+                            //arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
                             estadoPersonaje = "USADO";
                             for (let i = 0; i < arrayCeldasConPersonajes.length; i++) {
                                 if (arrayCeldasConPersonajes[i].personaje.tipo == personajeActualMovimiento.tipo && arrayCeldasConPersonajes[i].personaje.id == personajeActualMovimiento.id) {
@@ -584,7 +584,7 @@ botonesUsarPersonaje.forEach(function(elem) {
                         //if (posicionPersonajeArray != undefined) {
                         if (movActual == true) {
 
-                            arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
+                            //arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
                             estadoPersonaje = "USADO";
                             for (let i = 0; i < arrayCeldasConPersonajes.length; i++) {
                                 if (arrayCeldasConPersonajes[i].personaje.tipo == personajeActualMovimiento.tipo && arrayCeldasConPersonajes[i].personaje.id == personajeActualMovimiento.id) {
@@ -684,7 +684,7 @@ botonesUsarPersonaje.forEach(function(elem) {
                         //if (posicionPersonajeArray != undefined) {
                         if (movActual == true) {
 
-                            arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
+                            //arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
                             estadoPersonaje = "USADO";
                             for (let i = 0; i < arrayCeldasConPersonajes.length; i++) {
                                 if (arrayCeldasConPersonajes[i].personaje.tipo == personajeActualMovimiento.tipo && arrayCeldasConPersonajes[i].personaje.id == personajeActualMovimiento.id) {
@@ -782,7 +782,7 @@ botonesUsarPersonaje.forEach(function(elem) {
                         //if (posicionPersonajeArray != undefined) {
                         if (movActual == true) {
 
-                            arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
+                            //arrayCeldasConPersonajes[posicionPersonajeArray].estado = "USADO";
                             estadoPersonaje = "USADO";
 
 
